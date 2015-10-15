@@ -2,7 +2,7 @@
 
 Project repository for software engineering 2
 
-# Group memebrs
+# Group members
 * Claudio Cardinale
 * Gilles Dejaegere
 * Massimo Dragano
