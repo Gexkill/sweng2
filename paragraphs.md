@@ -2,7 +2,7 @@
 
 ![Alt text](/resources/logo_polimi.png?raw=true)
 
-##Version 0.1
+**Version 0.1**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. **MAT**)
