@@ -3,7 +3,7 @@
 Project repository for software engineering 2
 
 # Important documents
-* [paragraphs](paragraphs.md)
+* [RASD index](RASD/src/index.md)
 
 # Group members
 * Claudio Cardinale
