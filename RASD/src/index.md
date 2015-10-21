@@ -1,6 +1,6 @@
 #Requirements Analysis and Specifications Document
 
-![Alt text](../resources/logo_polimi.png?raw=true)
+![polimi](../resources/logo_polimi.png?raw=true)
 
 **Version 0.1**
 
