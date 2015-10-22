@@ -6,7 +6,7 @@
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. **MAT**)
-* Massimo Dragano (mat. **MAT**)
+* Massimo Dragano (mat. 775392)
 
 #Contents
 1. [Introduction](introduction.md)
