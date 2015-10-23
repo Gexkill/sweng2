@@ -16,6 +16,12 @@
     1. [Domain properties](introduction.md#domain-properties)
     1. [Glossary](introduction.md#glossary)
     1. [Assumptions](introduction.md#assumptions)
+    1. [Constrains](introduction.md#constrains)
+        1. [Regulatory policies](introduction.md#regulatory-policies)
+        1. [Hardware limitations](introduction.md#hardware-limitations)
+        1. [Interfaces to other applications](introduction.md#interfaces-to-other-applications)
+        1. [Parallel operation](introduction.md#parallel-operation)
+        1. [Reference documents](introduction.md#reference-documents)
     1. [Proposed system](introduction.md#proposed-system)
     1. Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
     1. [Other considerations about the system](introduction.md#other-considerations-about-the-system)

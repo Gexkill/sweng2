@@ -32,8 +32,15 @@ The main features are:
 * if taxi accepts the ride he do it
 * if user request the taxi he takes it
 * GPS gives the right position
+
 #Glossary
 #Assumptions
+#Constrains
+##Regulatory policies
+##Hardware limitations
+##Interfaces to other applications
+##Parallel operation
+##Reference documents
 #Proposed system
 #Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
 #Other considerations about the system
