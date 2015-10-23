@@ -17,10 +17,21 @@ The main goal the system is decrease costs and create a more efficient and preci
 
 The main features are:
 
-* ...
+##Taxi drivers:
+* allow taxi drivers to sign up into the system
+* log in
+* say they are avaiable
+* able to accept or decline a request
 
+##Users:
+* taxi sharing
+* precise the origin
+* 
 
 #Domain properties
+* if taxi accepts the ride he do it
+* if user request the taxi he takes it
+* GPS gives the right position
 #Glossary
 #Assumptions
 #Proposed system
