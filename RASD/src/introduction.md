@@ -33,6 +33,7 @@ The main features are:
 * if taxi accepts the ride he do it
 * if user request the taxi he takes it
 * GPS gives the right position
+* taxi drivers answer in less than 5 minutes 
 
 #Glossary
 #Assumptions
