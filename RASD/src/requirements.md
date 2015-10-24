@@ -20,12 +20,13 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must ask to the next taxi driver if the former one declined the ride.
     * The system must notify the user with the code of the taxi driver who has accepted the ride.
     * The system must notify the user if no taxi driver in the queue accept the ride.
-* [G5] Allow taxi drivers to accept or decline incoming request for a later reservation.
-    * The system must ask to the taxi driver if he accepts to perform the reservation:
+* [G5] Allow taxi drivers to accept or decline incoming request for a later reservation:
+    * The system must ask to the taxi driver if he accepts to perform the reservation.
     * The system must ask to the next taxi driver if the former one declined the reservation.
     * The system must notify the user with the code of the taxi driver who has accepted the reservation.
     * The system must notify the user if no taxi driver in the queue accept the reservation.
-
+    *
+    
 ##Users:
 * [G6] Allow users to request for an immediate taxi ride :
     * The system must be able to check the position of the user.
@@ -39,7 +40,6 @@ The requirements are grouped under each goal from which it is derived. The goals
 * Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
 * [G8] Allow users to require to share the taxi.
     * The system must be able to find if there are reservations or request for the same time period and having corresponding journeys.
-
 #Non-functional requirements
 ##User interface
 ##Documentation
