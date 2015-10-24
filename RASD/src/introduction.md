@@ -39,6 +39,31 @@ The main features are:
 
 #Glossary
 #Assumptions
+* There exist an mobile app for users where user can make a reservation using the GPS position or inserting his position
+* The users are not registered on the system, because we need only their name and their position **SEE REQUIREMENTS** An user is identified by his personal data: name and phone number
+#Constrains
+##Regulatory policies
+The system must be require to user/taxi driver the permission to get his position and he have to manage sensible data (position, phone number) respecting the privacy law
+##Hardware limitations
+* Mobile app
+    * taxi driver:
+        * 3G connection
+        * GPS
+        * Space for app package
+    * user:
+        * 3G connection
+        * Space for app package  
+
+* Web app
+    * Modern browser with AJAX support
+    * ...
+
+##Interfaces to other applications
+Interface with the older system
+##Parallel operation
+The server support parallel operations from different users and different taxi drivers.
+##Reference documents
+...
 #Proposed system
 #Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
 #Other considerations about the system
