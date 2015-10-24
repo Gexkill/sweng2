@@ -27,7 +27,8 @@
     * the system must provide a functionallity  for taxi sharing
     * the system must be able to find if other users want to make the same ride 
 * precise the origin
-* register
+* log in
+    * puts his name
 
 #Non-functional requirements
 ##User interface
