@@ -13,34 +13,39 @@ Until now the taxi company has a system where the clients have to call a call ce
 The system sen automatically an SMS to the client with the estimated arrival time and the taxi name
 
 #Goals
-The main goal the system is decrease costs and create a more efficient and precise service.
+The main goal of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the users.
 
-The main features are:
+The main features of the system are:
 
 ##Taxi drivers:
-* allow taxi drivers to sign up into the system
-* log in
-* say they are avaiable
-* able to accept or decline a request
+* [G1] Allow taxi drivers to sign up into the system.
+* [G2] Allow taxi drivers to log in the system.
+* [G3] Allow taxi drivers to precise if they are available or not.
+* Taxi drivers should receive a notification for incoming request.   **is it a goal ?**
+* [G4] Allow taxi drivers to accept or decline incoming  requests for an immediate ride and incoming request for a later reservation of the taxi.
 
 ##Users:
-* taxi sharing
-* precise the origin
-* 
+* [G5] Allow users to request for an immediate taxi ride
+* [G6] Allow users to request for the reservation of a taxi at least two hours in advance.
+* Users should receive a notification with the code of the taxi that takes car of the user's request. **is it a goal ?**
+* Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
+* [G7] Allow users to require to share the taxi.
 
 #Domain properties
-* taxi drivers already registered to the old system
-* if taxi accepts the ride he do it
-* if user request the taxi he takes it
-* GPS gives the right position
-* GPS is always working
-* taxi drivers answer in less than 5 minutes 
-* the user pays the taxi driver directly
+We suppose that these properties hold in the analysed world :
+
+* Actual drivers are already registered on the previous system
+* A taxi driver accepting a ride of reservation will actually take care of the request.
+* A user requiring a taxi will actually take it.
+* All the GPS always give the right position. 
+* The GPS of the taxi drivers can not be switched of.
+* Taxi drivers answer all types of demands in less than 5 minutes.
+* The user pays the taxi driver directly for each commission.
 
 #Glossary
 #Assumptions
-* There exist an mobile app for users where user can make a reservation using the GPS position or inserting his position
-* The users are not registered on the system, because we need only their name and their position **SEE REQUIREMENTS** An user is identified by his personal data: name and phone number
+* There exist an mobile application for users where user can make a reservation using the GPS position or by inserting his position
+* The users are not registered on the system, because we need only their name and their position. **SEE REQUIREMENTS** An user is identified by his personal data: name and phone number
 #Constrains
 ##Regulatory policies
 The system must be require to user/taxi driver the permission to get his position and he have to manage sensible data (position, phone number) respecting the privacy law
