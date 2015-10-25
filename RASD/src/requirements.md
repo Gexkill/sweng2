@@ -44,4 +44,21 @@ The requirements are grouped under each goal from which it is derived. The goals
 #Non-functional requirements
 ##User interface
 ##Documentation
+We will draft these documents to well-organize our work in the way to do in a
+fewer time the best work as possible:
+* RASD: Requirement Analysis and Specification Document, to well-
+understand the given problem and to analyze in a detailed way which are
+our goals and how to reach them defining requirements and specification.
+* DD: Design Document, to define the real structure of our web application
+and its tiers.
+* Testing Document: a report of our testing experience of another myTaxyService
+project.
 ##Architectural consideration
+We will use the following technologies:
+* Apache with php as API server and task service
+* Mysql as sql server to store data persistently
+* RESTfull and JSON for API communication
+* Javascript, CSS and HTML to create responsive site that communicate to server using REST API
+* Modern browser with javascript and ajax support
+* Java and swing respectively for android and iOS apps, using original SDK
+* Internet connection to communications of data

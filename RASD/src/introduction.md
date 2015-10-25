@@ -58,6 +58,7 @@ We suppose that these properties hold in the analyzed world :
 * Taxi request: it is the request that the system send (automatically or after an user request) to taxi to specify a ride, specifying start point, user and other elements if they are available.
 * User request: it is the request for a taxi drive as soon as possible, it contains the the user data and the start point that can be get by GPS (current position) or inserting manually
 * Zone: is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system get his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues
+* Task: a task is an action done automatically from the server, for example "send request 10 minutes before ride" is a task
 
 #Assumptions
 * There exist an mobile application for users where user can make a reservation using the GPS position or by inserting his position
