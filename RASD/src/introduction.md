@@ -48,6 +48,7 @@ We suppose that these properties hold in the analysed world :
 #Assumptions
 * There exist an mobile application for users where user can make a reservation using the GPS position or by inserting his position
 * The users are not registered on the system, because we need only their name and their position. **SEE REQUIREMENTS** An user is identified by his personal data: name and phone number
+
 #Constrains
 ##Regulatory policies
 The system must be require to user/taxi driver the permission to get his position and he have to manage sensible data (position, phone number) respecting the privacy law
