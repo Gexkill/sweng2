@@ -53,6 +53,7 @@ our goals and how to reach them defining requirements and specification.
 and its tiers.
 * Testing Document: a report of our testing experience of another myTaxyService
 project.
+
 ##Architectural consideration
 We will use the following technologies:
 * Apache with php as API server and task service
