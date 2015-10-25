@@ -1,4 +1,0 @@
-The tools we used to create this RASD document are:
-* DIA: for uml models
-* Pencil: for mockup
-* 
