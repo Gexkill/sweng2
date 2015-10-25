@@ -59,6 +59,7 @@ We will project and implement myTaxiService, which is a service based on mobile 
 The system allow clients to reserve taxi via mobile or web app, using GPS position to identify client's zone and find taxi in the same zone. On the other side the app allow to taxi to accept or reject a reservation.
 
 The system includes extra services and functionalities such as taxi sharing
+
 ###Actual system
 Until now the taxi company has a system where the clients have to call a call center communicating its position via voice (so it can be not correct), the call center's operator insert the request into an internal information system and the taxi driver can accept or reject it via an dedicated hardware device.
 
@@ -120,8 +121,10 @@ We suppose that these properties hold in the analyzed world :
 * There are only normal taxis for 4 passengers.
 
 ##Constrains
+
 ###Regulatory policies
 The system must be require to user/taxi driver the permission to get his position and he have to manage sensible data (position, phone number) respecting the privacy law
+
 ###Hardware limitations
 * Mobile app
     * taxi driver:
@@ -138,10 +141,13 @@ The system must be require to user/taxi driver the permission to get his positio
 
 ###Interfaces to other applications
 Interface with the older system to import old data the first time, from that moment all new taxi drivers will be automatically added to the new system
+
 ###Parallel operation
 The server support parallel operations from different users and different taxi drivers.
+
 ###Reference documents
 ...
+
 ##Proposed system
 We will implement a client-server architecture based on common REST API, so with just one server application we manage web application and mobile application, obviously we will have version for taxi driver and version for users.
 ![Architecture](../resources/architecture.jpg?raw=true)
@@ -149,18 +155,22 @@ We will implement a client-server architecture based on common REST API, so with
 
 ##Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
 **Do we have to write city or teachers?**
+
 ##Other considerations about the system
 
 #Actors identifying
 The actors of our system are basically two:
+
 * Taxi driver: is a taxi driver eregistred automatically on the system by the taxi company
 * User: he doesn't need to register himself to the systme, since he uses the system only to call a taxi (so he have to insert only basic personal information and location)
 
 #Requirements 
+
 ##Functional requirements
 Assuming that the domain properties stipulated in the paragraph **[1.iii.]** hold, and, in order to fulfil the goals listed in paragraph **[1.ii]**, the following requirements can be derived.
 
 The requirements are grouped under each goal from which it is derived. The goals are grouped following under the users concerned.
+
 ###Taxi drivers:
 * [G1] Allow taxi drivers to sign up into the system:
     * The system must be able to check if it is an official taxi driver.
@@ -201,10 +211,13 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must be able to find if there are reservations or request for the same time period and having corresponding journeys.
 
 ##Non-functional requirements
+
 ###User interface
+
 ###Documentation
 We will draft these documents to well-organize our work in the way to do in a
 fewer time the best work as possible:
+
 * RASD: Requirement Analysis and Specification Document, to well-
 understand the given problem and to analyze in a detailed way which are
 our goals and how to reach them defining requirements and specification.
@@ -215,6 +228,7 @@ project.
 
 ###Architectural consideration
 We will use the following technologies:
+
 * Apache with php (with laravel framework) as API server and task service
 * Mysql as sql server to store data persistently
 * Apache server for static documents
@@ -227,6 +241,7 @@ We will use the following technologies:
 #Scenario identifying
 
 Here some possible scenarios of use of this application
+
 ##Scenario 1
 John wants to go to home after the office and he wants to do that as soon as. So in the morning (so he respects the constrains of two hours before) he reserve a taxi at the same time of the end of his job for a ride that start from his office and ends on his home. When he goes out from office he finds the taxi on the street that bring him to his home.
 
@@ -256,6 +271,7 @@ Some friends live in the same zones and want to go to airport for a trip togethe
 
 #Used tools
 The tools we used to create this RASD document are:
+
 * DIA: for uml models
 * Pencil: for mockup
 * 

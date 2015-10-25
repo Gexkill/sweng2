@@ -3,7 +3,9 @@
 Project repository for software engineering 2
 
 # Important documents
-* [RASD index](RASD/src/index.md)
+* RASD
+   * [RASD Markdown](RASD/src/index.md)
+   * [RASD PDF](RASD/RASD.pdf): it cannot be  updated
 * [Hours](other/hours.md)
 * [Tasks](other/tasks.md)
 * [Utility](other/utility.md)
