@@ -251,7 +251,7 @@ Some friends live in the same zones and want to go to airport for a trip togethe
 ##Sequence diagram
 ##State diagram
 
-#Alloy modelling
+#Alloy modeling
 
 #Used tools
 The tools we used to create this RASD document are:
