@@ -34,7 +34,7 @@ The main features of the system are:
 * [G8] Allow users to require to share the taxi.
 
 #Domain properties
-We suppose that these properties hold in the analysed world :
+We suppose that these properties hold in the analyzed world :
 
 * Actual drivers are already registered on the previous system
 * A taxi driver accepting a ride of reservation will actually take care of the request.
@@ -45,6 +45,18 @@ We suppose that these properties hold in the analysed world :
 * The user pays the taxi driver directly for each commission.
 
 #Glossary
+* User: he is a client of the service. He should insert each time he performs a request the following information
+    * Name
+    * Phone number
+    * Position, it can be taken automatically from GPS (either via APP or Web browser)
+* Taxi driver: he is a taxi driver registered on the taxi company, that grants to taxi driver the access to this information system
+* Queue: it is the taxi queue, when more than one taxi are in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. there is a queue for each zone.
+* Ride: it starts when the taxi receive the request and ends when leave the last client of the ride. The simple ride is specified by start ride, user and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
+* Taxi sharing: it is the possibility that if different people (it's not require that they  know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have an unique group fee. A sharing ride is identified by users that use it and for each user the start and end point
+* Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system make a normal taxi request 10 minutes before the ride. The reservation is identified by start point, end point, user and time.
+* Taxi request: it is the request that the system send (automatically or after an user request) to taxi to specify a ride, specifying start point, user and other elements if they are available.
+* User request: it is the request for a taxi drive as soon as possible, it contains the the user data and the start point that can be get by GPS (current position) or inserting manually
+
 #Assumptions
 * There exist an mobile application for users where user can make a reservation using the GPS position or by inserting his position
 * The users are not registered on the system, because we need only their name and their position. **SEE REQUIREMENTS** An user is identified by his personal data: name and phone number
