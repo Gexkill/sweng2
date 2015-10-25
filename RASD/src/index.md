@@ -8,11 +8,15 @@
 * Gilles Dejaegere (mat. **MAT**)
 * Massimo Dragano (mat. 775392)
 
+$\pagebreak$ 
+
 #Contents
 1. [Introduction](#introduction)
     1. [Description of the given problem](#description-of-the-given-problem)
         1. [Actual system](#actual-system)
     1. [Goals](#goals)
+        1. [Taxi drivers](#taxi-drivers)
+        1. [Users](#users)
     1. [Domain properties](#domain-properties)
     1. [Glossary](#glossary)
     1. [Assumptions](#assumptions)
@@ -28,6 +32,8 @@
 1. [Actors identifying](#actors-identifying)
 1. [Requirements](#requirements)
     1. [Functional requirements](#functional-requirements)
+        1. [Taxi drivers](#taxi-drivers-1)
+        1. [Users](#users-1)
     1. [Non-functional requirements](#non-functional-requirements)
         1. [User interface](#user-interface)
         1. [Documentation](#documentation)
@@ -49,6 +55,8 @@
 1. [Alloy modeling](#alloy-modeling)
 1. [Used tools](#used-tools)
 
+$\pagebreak$ 
+
 #Introduction
 ##Description of the given problem
 We will project and implement myTaxiService, which is a service based on mobile applications and a web applications, with two different target of people:
@@ -56,7 +64,8 @@ We will project and implement myTaxiService, which is a service based on mobile 
 * taxi driver
 * clients
 
-The system allow clients to reserve taxi via mobile or web app, using GPS position to identify client's zone and find taxi in the same zone. On the other side the app allow to taxi to accept or reject a reservation.
+The system allow clients to reserve taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
+On the other side the mobile app allow to taxi driver to accept or reject a ride request and to communicate automatically his position (so the zone).
 
 The system includes extra services and functionalities such as taxi sharing
 
@@ -67,8 +76,6 @@ The system send automatically an SMS to the client with the estimated arrival ti
 
 ##Goals
 The main goal of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the users.
-
-The main features of the system are:
 
 ###Taxi drivers:
 * [G1] Allow taxi drivers to sign up into the system.
@@ -158,11 +165,15 @@ We will implement a client-server architecture based on common REST API, so with
 
 ##Other considerations about the system
 
+$\pagebreak$ 
+
 #Actors identifying
 The actors of our system are basically two:
 
 * Taxi driver: is a taxi driver eregistred automatically on the system by the taxi company
 * User: he doesn't need to register himself to the systme, since he uses the system only to call a taxi (so he have to insert only basic personal information and location)
+
+$\pagebreak$ 
 
 #Requirements 
 
@@ -238,15 +249,19 @@ We will use the following technologies:
 * Java and swing respectively for android and iOS apps, using original SDK
 * Internet connection to communications of data
 
+$\pagebreak$ 
+
 #Scenario identifying
 
 Here some possible scenarios of use of this application
 
 ##Scenario 1
-John wants to go to home after the office and he wants to do that as soon as. So in the morning (so he respects the constrains of two hours before) he reserve a taxi at the same time of the end of his job for a ride that start from his office and ends on his home. When he goes out from office he finds the taxi on the street that bring him to his home.
+John wants to go to home after the office and he wants to do that as soon as. So in the morning (so he respects the constrains of two hours before) he reserve a taxi at the same time of the end of his job for a ride that start from his office and ends on his home.  
+When he goes out from office he finds the taxi on the street that bring him to his home.
 
 ##Scenario 2
-Some friends live in the same zones and want to go to airport for a trip together, they want a cheap solution. So they chose taxi sharing option to go to airport. The morning of the trip's day all friends request a taxi with sharing option. Since they are 6 and a taxi can bring only 4 passengers they need at least 2 taxis, so 4 friends are in the same taxi while two others are in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
+Some friends live in the same zones and want to go to airport for a trip together, they want a cheap solution. So they chose taxi sharing option to go to airport. The morning of the trip's day all friends request a taxi with sharing option.  
+Since they are 6 and a taxi can bring only 4 passengers they need at least 2 taxis, so 4 friends are in the same taxi while two others are in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
 
 ##Scenario 3
 
@@ -258,6 +273,7 @@ Some friends live in the same zones and want to go to airport for a trip togethe
 
 ##Scenario 7
 
+$\pagebreak$ 
 
 #Uml models
 
@@ -267,7 +283,11 @@ Some friends live in the same zones and want to go to airport for a trip togethe
 ##Sequence diagram
 ##State diagram
 
+$\pagebreak$ 
+
 #Alloy modeling
+
+$\pagebreak$ 
 
 #Used tools
 The tools we used to create this RASD document are:
