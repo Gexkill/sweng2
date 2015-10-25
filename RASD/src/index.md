@@ -144,7 +144,7 @@ The server support parallel operations from different users and different taxi d
 ...
 ##Proposed system
 We will implement a client-server architecture based on common REST API, so with just one server application we manage web application and mobile application, obviously we will have version for taxi driver and version for users.
-![Architecture](../resources/architecture.png?raw=true)
+![Architecture](https://github.com/sweng2/sweng2/blob/master/RASD/resources/architecture.jpg?raw=true)
 **WRITE MORE DETAILS**
 
 ##Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
