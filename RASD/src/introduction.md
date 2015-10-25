@@ -79,7 +79,7 @@ The system must be require to user/taxi driver the permission to get his positio
     * ...
 
 ##Interfaces to other applications
-Interface with the older system
+Interface with the older system to import old data the first time, from that moment all new taxi drivers will be automatically added to the new system
 ##Parallel operation
 The server support parallel operations from different users and different taxi drivers.
 ##Reference documents
