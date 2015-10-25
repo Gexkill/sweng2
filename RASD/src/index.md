@@ -144,7 +144,7 @@ The server support parallel operations from different users and different taxi d
 ...
 ##Proposed system
 We will implement a client-server architecture based on common REST API, so with just one server application we manage web application and mobile application, obviously we will have version for taxi driver and version for users.
-![Architecture](https://github.com/sweng2/sweng2/blob/master/RASD/resources/architecture.jpg?raw=true)
+![Architecture](../resources/architecture.jpg?raw=true)
 **WRITE MORE DETAILS**
 
 ##Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
@@ -215,10 +215,11 @@ project.
 
 ###Architectural consideration
 We will use the following technologies:
-* Apache with php as API server and task service
+* Apache with php (with laravel framework) as API server and task service
 * Mysql as sql server to store data persistently
-* RESTfull and JSON for API communication
-* Javascript, CSS and HTML to create responsive site that communicate to server using REST API
+* Apache server for static documents
+* RESTFull and JSON for API communication over HTTP(S)
+* Javascript (with angularJs framework), CSS and HTM to create responsive site that communicate to server using REST API. These files are got via HTTP(S)
 * Modern browser with javascript and ajax support
 * Java and swing respectively for android and iOS apps, using original SDK
 * Internet connection to communications of data
