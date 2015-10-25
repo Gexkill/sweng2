@@ -178,7 +178,7 @@ $\pagebreak$
 #Requirements 
 
 ##Functional requirements
-Assuming that the domain properties stipulated in the paragraph **[1.iii.]** hold, and, in order to fulfil the goals listed in paragraph **[1.ii]**, the following requirements can be derived.
+Assuming that the domain properties stipulated in the paragraph **[[1.3](#domain-properties)]** hold, and, in order to fulfil the goals listed in paragraph **[[1.2](#goals)]**, the following requirements can be derived.
 
 The requirements are grouped under each goal from which it is derived. The goals are grouped following under the users concerned.
 
