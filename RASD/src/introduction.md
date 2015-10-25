@@ -43,6 +43,7 @@ We suppose that these properties hold in the analyzed world :
 * The GPS of the taxi drivers can not be switched of.
 * Taxi drivers answer all types of demands in less than 5 minutes.
 * The user pays the taxi driver directly for each commission.
+* A taxi can be on only one zone at the same time, this is the real zone.
 
 #Glossary
 * User: he is a client of the service. He should insert each time he performs a request the following information
@@ -56,6 +57,7 @@ We suppose that these properties hold in the analyzed world :
 * Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system make a normal taxi request 10 minutes before the ride. The reservation is identified by start point, end point, user and time.
 * Taxi request: it is the request that the system send (automatically or after an user request) to taxi to specify a ride, specifying start point, user and other elements if they are available.
 * User request: it is the request for a taxi drive as soon as possible, it contains the the user data and the start point that can be get by GPS (current position) or inserting manually
+* Zone: is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system get his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues
 
 #Assumptions
 * There exist an mobile application for users where user can make a reservation using the GPS position or by inserting his position
@@ -90,4 +92,5 @@ We will implement a client-server architecture based on common REST API, so with
 **WRITE MORE DETAILS**
 
 #Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
+**Do we have to write city or teachers?**
 #Other considerations about the system
