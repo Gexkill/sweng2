@@ -6,6 +6,7 @@ Project repository for software engineering 2
 * [RASD index](RASD/src/index.md)
 * [Hours](other/hours.md)
 * [Tasks](other/tasks.md)
+* [Utility](other/utility.md)
 
 # Group members
 * Claudio Cardinale
