@@ -1,2 +1,2 @@
 #!/bin/sh
-pandoc index.md -o ../RASD.pdf
+sed -E 's,^\s*\[//\]: # \(pagebreak\).*$,\\pagebreak,' < index.md | pandoc -f markdown -o ../RASD.pdf
