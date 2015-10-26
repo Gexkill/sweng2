@@ -8,7 +8,7 @@
 * Gilles Dejaegere (mat. **MAT**)
 * Massimo Dragano (mat. 775392)
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Contents
 1. [Introduction](#introduction)
@@ -55,7 +55,7 @@ $\pagebreak$
 1. [Alloy modeling](#alloy-modeling)
 1. [Used tools](#used-tools)
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Introduction
 ##Description of the given problem
@@ -175,7 +175,7 @@ We will implement a client-server architecture (Fig. 2) based on common REST API
 
 ##Other considerations about the system
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Actors identifying
 The actors of our system are basically two:
@@ -183,7 +183,7 @@ The actors of our system are basically two:
 * Taxi driver: is a taxi driver registered automatically on the system by the taxi company
 * User: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only basic personal information and location)
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Requirements 
 
@@ -259,7 +259,7 @@ We will use the following technologies:
 * Java and swing respectively for android and iOS apps, using original SDK
 * Internet connection to communications of data
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Scenario identifying
 
@@ -283,7 +283,7 @@ Since they are 6 and a taxi can bring only 4 passengers they need at least 2 tax
 
 ##Scenario 7
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Uml models
 
@@ -293,11 +293,11 @@ $\pagebreak$
 ##Sequence diagram
 ##State diagram
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Alloy modeling
 
-$\pagebreak$ 
+[//]: # (pagebreak)
 
 #Used tools
 The tools we used to create this RASD document are:
