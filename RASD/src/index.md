@@ -72,7 +72,9 @@ The system includes extra services and functionalities such as taxi sharing
 ###Actual system
 Until now the taxi company has a system where the clients have to call a call center communicating its position via voice (so it can be not correct), the call center's operator insert the request into an internal information system and the taxi driver can accept or reject it via an dedicated hardware device.
 
-The system send automatically an SMS to the client with the estimated arrival time and the taxi name
+The system send automatically an SMS to the client with the estimated arrival time and the taxi name.
+
+This system store taxi information into a Mysql database. 
 
 ##Goals
 The main goal of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the users.
@@ -103,8 +105,9 @@ We suppose that these properties hold in the analyzed world :
 * The GPS of the taxi drivers can not be switched of.
 * Taxi drivers answer all types of demands in less than 5 minutes.
 * The user pays the taxi driver directly for each commission.
-* A taxi can be on only one zone at the same time, this is the real zone.
+* A taxi can be on only one zone at the same time and this is the real zone.
 * Users make a reservation two hours before of the ride **Here as domain or do we have to do the requirements into G7?**
+* When a new taxi driver join in the taxi company the taxi company register him to the information system. Analogously when a taxi driver exit from the company, the company delete him from the information system.
 
 ##Glossary
 * User: he is a client of the service. He should insert each time he performs a request the following information
@@ -123,9 +126,12 @@ We suppose that these properties hold in the analyzed world :
 * Taxi: is a means of transport that can bring only 4 passengers.
 
 ##Assumptions
+* There is an old system as described above.
 * There exist an mobile application for users where user can make a reservation using the GPS position or by inserting his position
 * The users are not registered on the system, because we need only their name and their position. **SEE REQUIREMENTS** An user is identified by his personal data: name and phone number
 * There are only normal taxis for 4 passengers.
+* The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
+* We need information only about taxi driver, not about taxi vehicle. So we store informations only about taxi driver.
 
 ##Constrains
 
@@ -147,7 +153,7 @@ The system must be require to user/taxi driver the permission to get his positio
     * ...
 
 ###Interfaces to other applications
-Interface with the older system to import old data the first time, from that moment all new taxi drivers will be automatically added to the new system
+Interface with the old system. The new system will interface with the Mysql database of the old system.
 
 ###Parallel operation
 The server support parallel operations from different users and different taxi drivers.
@@ -172,8 +178,8 @@ $\pagebreak$
 #Actors identifying
 The actors of our system are basically two:
 
-* Taxi driver: is a taxi driver eregistred automatically on the system by the taxi company
-* User: he doesn't need to register himself to the systme, since he uses the system only to call a taxi (so he have to insert only basic personal information and location)
+* Taxi driver: is a taxi driver registered automatically on the system by the taxi company
+* User: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only basic personal information and location)
 
 $\pagebreak$ 
 
@@ -187,7 +193,7 @@ The requirements are grouped under each goal from which it is derived. The goals
 ###Taxi drivers:
 * [G1] Allow taxi drivers to sign up into the system:
     * The system must be able to check if it is an official taxi driver.
-    * The system only allows official taxi drivers to register.
+    * The system only allows official taxi drivers to register. **SEE DOMAIN, probably we should remove this**
 * [G2] Allow taxi drivers to log in the system:
     * The system must be able to check if the password provided is correct.
     * The system must only let the taxi driver log in if the provided password is correct.
@@ -243,7 +249,7 @@ project.
 We will use the following technologies:
 
 * Apache with php (with laravel framework) as API server and task service
-* Mysql as sql server to store data persistently
+* Mysql as sql server to store data persistently, it is the same of the old system
 * Apache server for static documents
 * RESTFull and JSON for API communication over HTTP(S)
 * Javascript (with angularJs framework), CSS and HTM to create responsive site that communicate to server using REST API. These files are got via HTTP(S)
