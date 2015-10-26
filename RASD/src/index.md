@@ -108,6 +108,7 @@ We suppose that these properties hold in the analyzed world :
 * A taxi can be on only one zone at the same time and this is the real zone.
 * Users make a reservation two hours before of the ride **Here as domain or do we have to do the requirements into G7?**
 * When a new taxi driver join in the taxi company the taxi company register him to the information system. Analogously when a taxi driver exit from the company, the company delete him from the information system.
+* The taxi arrives at start point with max 30 minutes of delay
 
 ##Glossary
 * User: he is a client of the service. He should insert each time he performs a request the following information
@@ -124,6 +125,7 @@ We suppose that these properties hold in the analyzed world :
 * Zone: is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system get his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues
 * Task: a task is an action done automatically from the server, for example "send request 10 minutes before ride" is a task
 * Taxi: is a means of transport that can bring only 4 passengers.
+* System: is the the new system that we will create with the database of old system.
 
 ##Assumptions
 * There is an old system as described above.
