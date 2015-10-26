@@ -134,6 +134,7 @@ We suppose that these properties hold in the analyzed world :
 * There are only normal taxis for 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
 * We need information only about taxi driver, not about taxi vehicle. So we store informations only about taxi driver.
+* The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of a lot of cities run in this way
 
 ##Constrains
 
