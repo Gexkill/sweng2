@@ -298,6 +298,139 @@ Since they are 6 and a taxi can bring only 4 passengers they need at least 2 tax
 
 ##Use case diagram
 ##Use case description
+In this paragraph some use cases will be described. These use  cases can be derived from the scenarios and the use case diagram.
+
+### Taxi driver registration :
+**Name :**  Taxi driver registration  
+** Actors :**  Guest  
+** Entry conditions :** The guest is a new taxi driver not yet registered to the system.   
+**Flow of events : **
+
+* The guest enters the website or mobile application.
+* The guest clicks on the sign up icon on the home page of the website or mobile application.
+* The guest is shown an input form where he has to fill some personal (name, phone number, taxi driver license, password, etc.).
+* The guest fills the form and clicks on the register button.
+* The system redirects the guest on the home page.
+
+**Exit conditions :**  The guest is successfully registered as taxi driver.  
+** Exceptions :** The guest clicks on the registration button while he has not fulfilled every blank in the form or he has entered non valid data (non valid password, non valid mail, incorrect taxi driver licence, etc.). All of these errors will lead to the reloading of the form with indications concerning the errors.
+
+### Taxi driver log in
+**Name : Taxi driver log in**  
+** Actors : Taxi driver**   
+** Entry conditions :  ** The taxi driver has already successfully registered on the system or was registered on the previous system.  
+**Flow of events : **
+
+* The taxi driver arrives on the homepage of the website or mobile application.
+* The taxi driver inputs his taxi driver code and his password.
+* The taxi driver clicks on the log in button.
+* The system redirects the taxi driver on his personal page.
+
+**Exit conditions : ** The driver is successfully redirected on his personal page  
+** Exceptions : ** The code and password of furnished by the taxi driver are not correct. In this case,  the system does not redirect the taxi driver on his personal page but notify him that an error has been made and allows to inputs his code and password again.
+
+### Taxi driver inform of his availability
+**Name : ** Taxi driver inform of his availability   
+** Actors :** Taxi driver    
+** Entry conditions : ** The taxi driver must be logged in.  
+**Flow of events : **
+
+* The taxi driver clicks on the availability button on his personal page.
+* The system redirect the taxi driver on a page with two buttons : "Available" and "Not available".
+* The taxi driver clicks on one of the two buttons.
+
+**Exit conditions : ** The systems redirects the taxi driver on his personal page. If the taxi driver selected the available button, he can now see in which waiting queue he is and his position in this queue on his personal page. 
+
+** Exceptions :** There are no exceptions for this use case.
+
+### Taxi driver respond to a request of immediate ride
+**Name :** Taxi driver respond to request of immediate ride  
+** Actors :** Taxi driver   
+** Entry conditions : ** 
+
+* The taxi driver has to be available.
+* The taxi driver must be the first of his queue.
+ 
+**Flow of events : **
+
+* The system notifies the taxi driver of the request with an alert.
+* The systems shows the taxi driver the information concerning the request and shows him two buttons : "Accept request" and "Decline request".
+* The taxi driver clicks on one of the two buttons.
+* The system asks confirmation to the taxi driver concerning his choice.
+* The taxi driver confirms.
+
+**Exit conditions : **
+
+* If the taxi driver has accepted the request, the taxi driver is removed from the waiting queue and the use case "notifying the user of incoming taxi" begins.
+* If the taxi driver has declined the request, he is moved to the end of the queue and the use case "taxi driver respond to request of immediate ride" starts again.   
+
+** Exceptions : ** There are no exceptions. 
+
+### Taxi driver respond to a request of later reservation
+**Name :** Taxi driver respond to request of later reservation  
+** Actors :** Taxi driver   
+** Entry conditions : ** 
+
+* The taxi driver has to be available.
+* Either the taxi driver must be the first of his queue or the taxi drivers before him must have declined the request.
+ 
+**Flow of events : **
+
+* The system notifies the taxi driver of the request with an alert.
+* The systems shows the taxi driver the information concerning the request and shows him two buttons : "Accept request" and "Decline request".
+* The taxi driver clicks on one of the two buttons.
+* The system asks confirmation to the taxi driver concerning his choice.
+* The taxi driver confirms.
+
+**Exit conditions : **
+
+* If the taxi driver has accepted the request, the taxi driver is removed from the waiting queue and the use case "notifying the user of incoming taxi" begins.
+* If the taxi driver has declined the request the use case "taxi driver respond to request of immediate ride" starts again with the following taxi in the queue.   
+
+** Exceptions : ** There are no exceptions. 
+
+### User require a taxi for a ride
+**Name :** User require a taxi for a ride  
+** Actors :** User   
+** Entry conditions : ** There are no entry conditions   
+**Flow of events : **
+
+* The user enters the platform.
+* The user clicks on the "ask for a ride button"
+* The systems redirect the user to a form where the user can choose if he wants to share the taxi or not. If the user choose to share the taxi, he has to give some informations like destination and number of passengers.
+*  
+
+**Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver respond to a request of immediate ride" begins.
+** Exceptions :**  There are no exceptions
+
+### User require a taxi for a later reservation
+**Name :** User require a taxi for a later reservation
+** Actors :** User   
+** Entry conditions : **
+ 
+ * 
+ 
+**Flow of events : **
+
+* 
+
+**Exit conditions :**  
+** Exceptions :** 
+
+### Notifying the user of incoming taxi
+**Name :**  
+** Actors :**   
+** Entry conditions :**
+ 
+ * 
+ 
+**Flow of events : **
+
+* 
+
+**Exit conditions :**  
+** Exceptions :** 
+ 
 ##Class diagram
 ##Sequence diagram
 ##State diagram
