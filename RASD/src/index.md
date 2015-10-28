@@ -275,7 +275,7 @@ We will use the following technologies:
 Here some possible scenarios of use of this application
 
 ##Scenario 1
-John wants to go to home after the office and he wants to do that as soon as. So in the morning (so he respects the constrains of two hours before) he reserve a taxi at the same time of the end of his job for a ride that start from his office and ends on his home.  
+John wants to go home as soon as possible after a day of work work and he wants to do that as soon as. So in the morning (so he respects the constrains of two hours before) he reserve a taxi at the same time of the end of his job for a ride that start from his office and ends on his home.  
 When he goes out from office he finds the taxi on the street that bring him to his home.
 
 ##Scenario 2
@@ -284,7 +284,11 @@ Since they are 6 and a taxi can bring only 4 passengers they need at least 2 tax
 
 ##Scenario 3
 
+John wants to visit the Duomo tomorrow. He decides to reserve a taxi. Therefore, he opens the MyTaxi **adapt name** website on his laptop and click on the "reserve a taxi button". He is the redirected on a form where he has to fill some information about his ride. After submitting his form, he is redirecting on a waiting page. A few minutes later, John is notified by the application of the confirmation of his reservation and of the code of the taxi taking care of the ride. 
+
 ##Scenario 4
+
+Julia is a taxi driver. She just finished her last commission and has still plenty of time before the end of the day so she decides to make a new commission. She opens her MyTaxi **adapt Name** application and logs in her personal page. The she sets her her availability to "Available". The application notifies her that see is the 3rd taxis on the waiting queue of her area. After waiting a small amount of time Julia receive a request for an immediate ride very close of her location. She immediately accepts it and heads to the request location.
 
 ##Scenario 5
 
@@ -300,14 +304,14 @@ Since they are 6 and a taxi can bring only 4 passengers they need at least 2 tax
 ##Use case description
 In this paragraph some use cases will be described. These use  cases can be derived from the scenarios and the use case diagram.
 
-### Taxi driver registration :
+### Taxi driver registration : ** Not sure we have to do this use case if the domain properties says that the taxi drivers are officially logged in**
 **Name :**  Taxi driver registration  
 ** Actors :**  Guest  
-** Entry conditions :** The guest is a new taxi driver not yet registered to the system.   
+** Entry conditions :** The guest is a new taxi driver not yet registered to the system. 
 **Flow of events : **
 
 * The guest enters the website or mobile application.
-* The guest clicks on the sign up icon on the home page of the website or mobile application.
+* The guest clicks on the sign up icon on the home page of the website or mobile application. **TO ADAPT TO MOCKUPS**
 * The guest is shown an input form where he has to fill some personal (name, phone number, taxi driver license, password, etc.).
 * The guest fills the form and clicks on the register button.
 * The system redirects the guest on the home page.
@@ -318,7 +322,7 @@ In this paragraph some use cases will be described. These use  cases can be deri
 ### Taxi driver log in
 **Name : Taxi driver log in**  
 ** Actors : Taxi driver**   
-** Entry conditions :  ** The taxi driver has already successfully registered on the system or was registered on the previous system.  
+** Entry conditions :  ** The taxi driver has already successfully registered on the system or was registered on the previous system. **The condition is not necessary if all taxi drivers are automatically registered**  
 **Flow of events : **
 
 * The taxi driver arrives on the homepage of the website or mobile application.
@@ -329,7 +333,7 @@ In this paragraph some use cases will be described. These use  cases can be deri
 **Exit conditions : ** The driver is successfully redirected on his personal page  
 ** Exceptions : ** The code and password of furnished by the taxi driver are not correct. In this case,  the system does not redirect the taxi driver on his personal page but notify him that an error has been made and allows to inputs his code and password again.
 
-### Taxi driver inform of his availability
+### Taxi driver inform of his availability **TO ADAPT TO MOCKUPS**
 **Name : ** Taxi driver inform of his availability   
 ** Actors :** Taxi driver    
 ** Entry conditions : ** The taxi driver must be logged in.  
@@ -350,11 +354,11 @@ In this paragraph some use cases will be described. These use  cases can be deri
 
 * The taxi driver has to be available.
 * The taxi driver must be the first of his queue.
+* The system notifies the taxi driver of the request with an alert. **Here or in flow of events ?**
  
 **Flow of events : **
 
-* The system notifies the taxi driver of the request with an alert.
-* The systems shows the taxi driver the information concerning the request and shows him two buttons : "Accept request" and "Decline request".
+* The systems shows the taxi driver the information concerning the request and shows him two buttons : "Accept request" and "Decline request". **TO ADAPT TO MOCKUPS**
 * The taxi driver clicks on one of the two buttons.
 * The system asks confirmation to the taxi driver concerning his choice.
 * The taxi driver confirms.
@@ -373,11 +377,11 @@ In this paragraph some use cases will be described. These use  cases can be deri
 
 * The taxi driver has to be available.
 * Either the taxi driver must be the first of his queue or the taxi drivers before him must have declined the request.
+* The system notifies the taxi driver of the request with an alert. **Here or in flow of events ? **
  
 **Flow of events : **
 
-* The system notifies the taxi driver of the request with an alert.
-* The systems shows the taxi driver the information concerning the request and shows him two buttons : "Accept request" and "Decline request".
+* The systems shows the taxi driver the information concerning the request and shows him two buttons : "Accept request" and "Decline request". **TO ADAPT TO MOCKUPS**
 * The taxi driver clicks on one of the two buttons.
 * The system asks confirmation to the taxi driver concerning his choice.
 * The taxi driver confirms.
@@ -392,44 +396,43 @@ In this paragraph some use cases will be described. These use  cases can be deri
 ### User require a taxi for a ride
 **Name :** User require a taxi for a ride  
 ** Actors :** User   
-** Entry conditions : ** There are no entry conditions   
+** Entry conditions : ** The user clicks on the "require immediate ride button"
 **Flow of events : **
 
-* The user enters the platform.
-* The user clicks on the "ask for a ride button"
-* The systems redirect the user to a form where the user can choose if he wants to share the taxi or not. If the user choose to share the taxi, he has to give some informations like destination and number of passengers.
+* The systems redirect the user to a form where the user can choose if he wants to share the taxi or not. If the user choose to share the taxi, he has to give some informations like destination and number of passengers. **TO ADAPT TO MOCKUPS**
 *  
 
-**Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver respond to a request of immediate ride" begins.
-** Exceptions :**  There are no exceptions
+**Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver respond to a request of immediate ride" begins.  
+** Exceptions :**  The user furnish invalid data in the form (for example a negative or excessive number of passengers (see [1.3] Domain properties)). The request is not forwarded and user is not redirected until he enters valid data.
 
 ### User require a taxi for a later reservation
-**Name :** User require a taxi for a later reservation
+**Name :** User require a taxi for a later reservation  
 ** Actors :** User   
-** Entry conditions : **
- 
- * 
- 
-**Flow of events : **
+** Entry conditions : **  The user clicks on the "require later reservation button"   
+**Flow of events : ** 
 
-* 
+* The system redirect the user to a form where he has to furnish the following information :
+    * Departure place;
+    * Departure time;
+    * Destination;  
+    * Number of passengers (only if the user has chosen to allow taxi-sharing).
+* The user fills the form.
+* The user clicks on the "Confirm" button. **TO ADAPT TO MOCKUPS** 
 
-**Exit conditions :**  
-** Exceptions :** 
+** Exit conditions :** The system redirect the user on a waiting page and forwards the request for a reservation to the appropriate taxi driver. The use case "taxi driver respond to a request of later reservation" begins.   
+** Exceptions :** The user furnish invalid data in the form (for example a negative or excessive number of passengers or not valid departure time (see [1.3] Domain properties)). The request is not forwarded and user is not redirected until he enters valid data.
 
 ### Notifying the user of incoming taxi
-**Name :**  
-** Actors :**   
-** Entry conditions :**
- 
- * 
- 
+**Name :**  Notifying the user of incoming taxi  
+** Actors :** User   
+** Entry conditions :** The user must have required an immediate ride or a later reservation.  
 **Flow of events : **
 
-* 
+* The system send an alert to the user.
 
-**Exit conditions :**  
-** Exceptions :** 
+
+**Exit conditions :**  The system redirects the user on a page containing the informations about the incoming taxi.  
+** Exceptions :** No taxi driver has accepted the request of the user. The user is notified and redirected to the home page of the platform.
  
 ##Class diagram
 ##Sequence diagram
