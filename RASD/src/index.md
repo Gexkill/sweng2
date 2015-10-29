@@ -136,14 +136,6 @@ We suppose that these properties hold in the analyzed world :
 * We need information only about taxi driver, not about taxi vehicle. So we store informations only about taxi driver.
 * The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of a lot of cities run in this way
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-|      | centered      |    |
-| zebra stripes | are neat      |    $1 |
-| g| See the list | from the first column|
-
-
 ##Constrains
 
 ###Regulatory policies
