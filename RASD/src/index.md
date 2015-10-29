@@ -433,6 +433,33 @@ In this paragraph some use cases will be described. These use cases can be deriv
 [//]: # (pagebreak)
 
 #Alloy modeling
+**It's correct use the inverse relationship?**
+
+```alloy
+sig TaxiCentral {
+contains: some TaxiDriver
+}
+
+sig TaxiDriver {
+belongsTo: one TaxiCentral,
+hasTaxi: one Taxi
+}
+
+sig Taxi {
+
+}
+
+fact taxiCanBeAssociatedtoOnlyOneTaxiDriver {
+no t: Taxi | some t1, t2:TaxiDriver |
+t1!=t2 and (t in t1.hasTaxi) and
+(t in t2.hasTaxi)
+}
+
+pred show(){
+
+}
+run show for 4
+```
 
 [//]: # (pagebreak)
 
@@ -443,5 +470,5 @@ The tools we used to create this RASD document are:
 * Pencil: for mockup
 * Gedit and ReText: to write MarkDown with spell check 
 * Pandoc: to create pdf
-
+* Alloy Analizer 4.2: to prove the consistency of our model.
 
