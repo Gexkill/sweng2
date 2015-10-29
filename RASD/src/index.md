@@ -165,7 +165,7 @@ The server supports parallel operations from different users and different taxi 
 ...
 
 ##Proposed system
-We will implement a client-server architecture (Fig. 2) based on common REST API, so with just one server application we manage both web application and mobile application, obviously we will have version for taxi driver and version for users.
+We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have version for taxi driver and version for users.
 
 ![Architecture](../resources/architecture.jpg?raw=true)
 
