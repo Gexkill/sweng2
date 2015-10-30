@@ -241,6 +241,17 @@ The requirements are grouped under each goal from which it is derived. The goals
 
 ###User interface
 
+**Client mobile interface**
+
+![mobile 1](../resources/mockup/mobile/locationactivity_passenger.png?raw=true)
+![mobile 2](../resources/mockup/mobile/mainactivity_passenger.png?raw=true)
+![mobile 3](../resources/mockup/mobile/timeactivity_passenger.png?raw=true)
+
+**Taxi mobile interface**
+
+![mobile 4](../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true)
+![mobile 5](../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true)
+
 ###Documentation
 We will draft these documents to well-organize our work in the way to do in a
 fewer time the best work as possible:
@@ -620,7 +631,8 @@ run show for 2 but 4 Ride
 
 ##World generated
 
-![world generated](../resources/world-generated1.png?raw=true)
+![world generated](../resources/world-generated1.png?raw=true)\
+
 [//]: # (pagebreak)
 
 #Used tools
