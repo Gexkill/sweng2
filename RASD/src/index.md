@@ -53,6 +53,8 @@
     1. [Sequence diagram](#sequence-diagram)
     1. [State diagram](#state-diagram)
 1. [Alloy modeling](#alloy-modeling)
+    1. [Model](#model)
+    1. [World generated](#world-generated)
 1. [Used tools](#used-tools)
 
 [//]: # (pagebreak)
@@ -109,6 +111,7 @@ We suppose that these properties hold in the analyzed world :
 * Users make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
 * When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
 * The taxi arrives at start point with max 30 minutes of delay
+* Start zone is different from end zone
 
 ##Glossary
 * User: he is a client of the service. He should insert each time he performs a request the following information
@@ -134,7 +137,9 @@ We suppose that these properties hold in the analyzed world :
 * There are only normal taxis for 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
-* The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of many cities run in this way
+* The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of many cities run in this way.
+* We assume that if sharing option is selected it is not possible make a reservation for more than one person.
+* All taxis of the city are regulated and use this system
 
 ##Constrains
 
@@ -433,34 +438,189 @@ In this paragraph some use cases will be described. These use cases can be deriv
 [//]: # (pagebreak)
 
 #Alloy modeling
-**It's correct use the inverse relationship?**
+
+##Model
 
 ```alloy
-sig TaxiCentral {
-contains: some TaxiDriver
+//sig
+
+one sig TaxiCentral {
+hasTaxiDrivers: some TaxiDriver,
+hasClients: some Client
 }
 
 sig TaxiDriver {
-belongsTo: one TaxiCentral,
-hasTaxi: one Taxi
+hasTaxi: one Taxi,
+belongsToZone: one Zone,
+belongsToQueue: one Queue,
+queuePosition: Int
+}
+{
+queuePosition > 0
 }
 
 sig Taxi {
 
 }
 
-fact taxiCanBeAssociatedtoOnlyOneTaxiDriver {
+sig Client {
+belongsToZone: one Zone
+}
+
+abstract sig Ride {
+belongsToTaxiDriver: one TaxiDriver,
+startZone: one Zone
+}
+
+sig NormalRide extends Ride{
+belongsToClient: one Client,
+passengers: Int,
+endZone: one Zone
+}
+{
+passengers<=4
+passengers>=1
+}
+
+sig SharingRide extends Ride{
+belongsToClients: some  Client,
+endZones: Client -> one Zone
+}
+
+sig Zone {
+hasQueue: one Queue
+}
+
+sig Queue {
+}
+
+abstract sig Request {
+belongsToClient: one Client,
+startZone: one Zone
+}
+
+sig SharingRequest extends Request {
+hasRide: one SharingRide,
+endZone: one Zone
+}
+
+sig NormalRequest  extends Request {
+hasRide: one NormalRide,
+passengers: Int,
+endZone: lone Zone
+}
+
+abstract sig Reservation {
+time: one Date,
+belongsToClient: one Client,
+startZone: one Zone,
+endZone: one Zone
+}
+
+sig SharingReservation  extends Reservation {
+hasRequest: one SharingRequest
+}
+
+sig NormalReservation extends Reservation {
+hasRequest: one NormalRequest,
+passengers: Int
+}
+
+sig Date {}
+
+//fact
+
+fact TaxiCanBeAssociatedtoOnlyOneTaxiDriver {
 no t: Taxi | some t1, t2:TaxiDriver |
 t1!=t2 and (t in t1.hasTaxi) and
 (t in t2.hasTaxi)
 }
 
-pred show(){
-
+fact QueuesCanBeAssociatedtoOnlyOneZone {
+no q: Queue | some z1, z2:Zone |
+z1!=z2 and (q in z1.hasQueue) and
+(q in z2.hasQueue)
 }
-run show for 4
+
+fact ZoneOfQueueSameZoneOfTaxiDriver {
+all t: TaxiDriver | t.belongsToZone.hasQueue = t.belongsToQueue
+}
+
+fact SharingRequestRideDataCorrespondence {
+all req: SharingRequest | req.belongsToClient in req.hasRide.belongsToClients and 
+req.hasRide.startZone = req.startZone and 
+req.hasRide.endZones[req.belongsToClient] = req.endZone
+}
+
+fact NormalRequestRideDataCorrespondence {
+all req: NormalRequest | req.belongsToClient = req.hasRide.belongsToClient and 
+req.hasRide.startZone = req.startZone and 
+req.hasRide.endZone = req.endZone and
+req.hasRide.passengers = req.passengers
+}
+
+fact SharingReservationRequestDataCorrespondence {
+all res: SharingReservation | res.belongsToClient = res.hasRequest.belongsToClient and 
+res.hasRide.startZone = res.startZone and 
+res.hasRequest.endZone = res.endZone
+}
+
+fact NormalReservationRequestDataCorrespondence {
+all res: NormalReservation | res.belongsToClient = res.hasRequest.belongsToClient and 
+res.hasRequest.startZone = res.startZone and 
+res.hasRequest.endZone = res.endZone and
+res.hasRequest.passengers = res.passengers
+}
+
+fact NormalRequestCanBeAssociatedtoOnlyOneReservation {
+no req: NormalRequest | some res1, res2: NormalReservation |
+res1!=res2 and (req = res1.hasRequest) and
+(req = res2.hasRequest)
+}
+
+fact SharingRequestCanBeAssociatedtoOnlyOneReservation {
+no req: SharingRequest | some res1, res2: SharingReservation |
+res1!=res2 and (req = res1.hasRequest) and
+(req = res2.hasRequest)
+}
+
+fact NormalRideCanBeAssociatedtoOnlyOneRequest {
+no ride: NormalRide | some req1, req2: NormalRequest |
+req1!=req2 and (ride = req1.hasRide) and
+(ride = req2.hasRide)
+}
+
+fact SharingRideHasNoMoreThanFourClients {
+all r: SharingRide | #r.belongsToClients <=4
+//this implies no more than 4 requests
+}
+
+fact SharingStartDifferentFromEnd {
+no r: SharingRide | all c: r.belongsToClients | r.startZone = r.endZones[c]
+}
+
+fact NormalStartDifferentFromEnd {
+no r: NormalRide | r.startZone = r.endZone
+}
+
+//pred
+
+pred show(){
+some r:SharingRide | #r.belongsToClients >1 //at least one sharing ride with more than one clients
+#NormalRide>1
+#TaxiDriver>1
+#NormalReservation>=1
+#SharingRequest>=1
+}
+
+//run
+
+run show for 2 but 4 Ride
 ```
 
+##World generated
+
+![world generated](../resources/world-generated1.png?raw=true)
 [//]: # (pagebreak)
 
 #Used tools
