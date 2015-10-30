@@ -125,7 +125,7 @@ We suppose that these properties hold in the analyzed world :
 * Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a normal taxi request 10 minutes before the ride. The reservation is identified by start point, end point, user and time.
 * Taxi request: it is the request the system sends (automatically or after a user request) to taxi to specify a ride, specifying start point, user and other elements if they are available.
 * User request: it is the request for a taxi drive as soon as possible, it contains the user data and the start point that can be get by GPS (current position) or inserting manually
-* Zone: it is a zone of approximately 2 km^2, the city is splitted into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues
+* Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
 * Taxi: it is a means of transport that can bring only 4 passengers.
 * System: it is the new system we will create with the database of the old system.
@@ -453,6 +453,8 @@ In this paragraph some use cases will be described. These use cases can be deriv
 ##Model
 
 ```alloy
+open util/boolean
+
 //sig
 
 one sig TaxiCentral {
@@ -462,12 +464,19 @@ hasClients: some Client
 
 sig TaxiDriver {
 hasTaxi: one Taxi,
-belongsToZone: one Zone,
+available: Bool,
+belongsToQueue: lone QueueElement //if 0 the taxi is not in the queue
+}
+
+sig Queue {
+}
+
+sig QueueElement {
 belongsToQueue: one Queue,
-queuePosition: Int
+position: Int
 }
 {
-queuePosition > 0
+position > 0
 }
 
 sig Taxi {
@@ -475,12 +484,13 @@ sig Taxi {
 }
 
 sig Client {
-belongsToZone: one Zone
+
 }
 
 abstract sig Ride {
 belongsToTaxiDriver: one TaxiDriver,
-startZone: one Zone
+startZone: one Zone,
+finished: Bool
 }
 
 sig NormalRide extends Ride{
@@ -502,25 +512,25 @@ sig Zone {
 hasQueue: one Queue
 }
 
-sig Queue {
-}
 
+//If #hasRide = 0 the request is not completed yet
 abstract sig Request {
 belongsToClient: one Client,
 startZone: one Zone
 }
 
 sig SharingRequest extends Request {
-hasRide: one SharingRide,
+hasRide: lone SharingRide,
 endZone: one Zone
 }
 
 sig NormalRequest  extends Request {
-hasRide: one NormalRide,
+hasRide: lone NormalRide,
 passengers: Int,
 endZone: lone Zone
 }
 
+//If #hasRide = 0 the request is not created yet
 abstract sig Reservation {
 time: one Date,
 belongsToClient: one Client,
@@ -529,17 +539,30 @@ endZone: one Zone
 }
 
 sig SharingReservation  extends Reservation {
-hasRequest: one SharingRequest
+hasRequest: lone SharingRequest
 }
 
 sig NormalReservation extends Reservation {
-hasRequest: one NormalRequest,
+hasRequest: lone NormalRequest,
 passengers: Int
 }
 
 sig Date {}
 
 //fact
+
+//A taxi can stay in the queue only if it is available
+// and it doesn't run a ride and viceversa
+fact taxiDriverConstrains {
+all t: TaxiDriver | (#t.belongsToQueue = 1 <=> t.available.isTrue) and 
+(t.available.isTrue <=> no r: Ride | r.belongsToTaxiDriver = t and
+ r.finished.isFalse) and
+(t.available.isFalse <=> one r: Ride | r.belongsToTaxiDriver = t and
+ r.finished.isFalse) and
+//only one ride at the same time
+(no r1, r2: Ride | r1 != r2 and r1.belongsToTaxiDriver = t and 
+r2.belongsToTaxiDriver = t and r1.finished.isFalse and r2.finished.isFalse) 
+}
 
 fact TaxiCanBeAssociatedtoOnlyOneTaxiDriver {
 no t: Taxi | some t1, t2:TaxiDriver |
@@ -551,10 +574,6 @@ fact QueuesCanBeAssociatedtoOnlyOneZone {
 no q: Queue | some z1, z2:Zone |
 z1!=z2 and (q in z1.hasQueue) and
 (q in z2.hasQueue)
-}
-
-fact ZoneOfQueueSameZoneOfTaxiDriver {
-all t: TaxiDriver | t.belongsToZone.hasQueue = t.belongsToQueue
 }
 
 fact SharingRequestRideDataCorrespondence {
@@ -601,6 +620,24 @@ req1!=req2 and (ride = req1.hasRide) and
 (ride = req2.hasRide)
 }
 
+fact SharingAllRideMustBeAssociatedToARequest {
+all r: SharingRide | one req: SharingRequest | req.hasRide = r
+}
+
+fact NormalAllRideMustBeAssociatedToARequest {
+all r: NormalRide | one req: NormalRequest | req.hasRide = r
+}
+
+fact QueueElementCanBeAssociatedtoOnlyOneTaxiDriver{
+no q: QueueElement | some t1, t2: TaxiDriver |
+t1!=t2 and (q = t1.belongsToQueue) and
+(q = t2.belongsToQueue)
+}
+
+fact AllQueueElementMustBeAssociatedToATaxiDriver {
+all q: QueueElement | one t: TaxiDriver | t.belongsToQueue = q
+}
+
 fact SharingRideHasNoMoreThanFourClients {
 all r: SharingRide | #r.belongsToClients <=4
 //this implies no more than 4 requests
@@ -614,10 +651,28 @@ fact NormalStartDifferentFromEnd {
 no r: NormalRide | r.startZone = r.endZone
 }
 
+fact OnlyOneRequestPerClientAtSameTime {
+all c: Client |
+(no r1, r2: SharingRequest | r1 != r2 and r1.belongsToClient = c and 
+r2.belongsToClient = c and #r1.hasRide = #r2.hasRide and #r2.hasRide = 1) and
+(no r1, r2: NormalRequest | r1 != r2 and r1.belongsToClient = c and 
+r2.belongsToClient = c and #r1.hasRide = #r2.hasRide and #r2.hasRide = 1)
+}
+
+fact OnlyOneRidePerClientAtSameTime {
+all c: Client |
+(no r1, r2: SharingRide | r1 != r2 and r1.belongsToClient = c and 
+r2.belongsToClient = c and r1.finished.isFalse and r2.finished.isFalse) and
+(no r1, r2: NormalRide | r1 != r2 and r1.belongsToClient = c and 
+r2.belongsToClient = c and r1.finished.isFalse and r2.finished.isFalse)
+}
+
+
 //pred
 
 pred show(){
-some r:SharingRide | #r.belongsToClients >1 //at least one sharing ride with more than one clients
+//at least one sharing ride with more than one clients
+some r:SharingRide | #r.belongsToClients >1
 #NormalRide>1
 #TaxiDriver>1
 #NormalReservation>=1
@@ -626,14 +681,15 @@ some r:SharingRide | #r.belongsToClients >1 //at least one sharing ride with mor
 
 //run
 
-run show for 2 but 4 Ride
+run show for 4
 ```
 
 ##World generated
 
+\bigtrue
 ![world generated](../resources/world-generated1.png?raw=true)\
+\bigfalse
 
-[//]: # (pagebreak)
 
 #Used tools
 The tools we used to create this RASD document are:
