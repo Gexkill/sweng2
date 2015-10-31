@@ -300,9 +300,15 @@ Julia is a taxi driver. She has just finished her last commission and has still 
 
 ##Scenario 5
 
+Bob wants to go and see the football match at the stadium tonight. He decides to reserve a taxi to bring him to the stadium, and to bring him back home after the game. To reduce the cost of the rides he decide to try to share a taxi. To do so, he enters the MyTaxi **adapt name** application on his smartphone, goes to the "Client home page", activate the slide button to enable the "sharing taxi" option and then clicks on the "Reserve" button. He then has to fill a form to indicates all the informations about the reservation. After doing so, he has to repeat the whole operation the reserve the return trip. 
+
 ##Scenario 6
 
+Mark is a taxi driver. At the beggining of his workday, Marks opens his MyTaxi **adapt name** application and logs in. He then puts his status on "available" by operating the slide button. The application tells him that he is the 10th drivers in his queue. That is far too much for Mark. He decides to go to another area to check if the queue is smaller. To do so, he first changes his status to "Non available", then rides toward the desired area and finally sets his status to "Available" again. He is now 4th of his waiting queue. 
+
 ##Scenario 7
+
+Bob tells his cousin Alice that he is going to the stadium tonight. Alice is also interested in football so she decides to go with Bob to see the match. However, Alice do not know how to go to the stadium. Bob tells her about the MyTaxi **adapt name** application and convince Alice to give it a try. Alice tries to reserve a trip to the stadium, but she does not repect the "reserve two hours before the ride" condition and the reservation fails. She then tries to request for an immediate ride but no taxi driver accepts Alice's request. Alice will have to stay at home tonight.  
 
 [//]: # (pagebreak)
 
