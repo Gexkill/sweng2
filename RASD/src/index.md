@@ -96,7 +96,7 @@ This system stores taxi information into a Mysql database.
 * Users should receive a notification with the code of the taxi that takes care of the user's request. **is it a goal ?**
 * Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
 * [G8] Allows users to require to share the taxi.
-* Allow users to identify via phone number not login **Is this a goal?**
+* Allow users to identify via phone number not login, it is not registred into the sistem **Is this a goal?**
 * Allow users to specify number of passengers (if the request is not sharing)
 
 ##Domain properties
