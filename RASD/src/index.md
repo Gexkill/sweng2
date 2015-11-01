@@ -67,7 +67,8 @@ We will project and implement myTaxiService, which is a service based on mobile 
 * clients
 
 The system allows clients to reserve taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
-On the other side the mobile app allows taxi driver to accept or reject a ride request and to communicate automatically his position (so the zone).
+On the other side the mobile app allows taxi driver to accept or reject a ride request and to communicate automatically his position (so the zone).  
+The clients are not registered since the company wants a quickly system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logining each time).
 
 The system includes extra services and functionalities such as taxi sharing
 
@@ -96,7 +97,7 @@ This system stores taxi information into a Mysql database.
 * Users should receive a notification with the code of the taxi that takes care of the user's request. **is it a goal ?**
 * Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
 * [G8] Allows users to require to share the taxi.
-* Allow users to identify via phone number not login, it is not registred into the sistem **Is this a goal?**
+* Allow users to identify themselves via phone number (and name) not login, they are not registered into the system **Is this a goal?**
 * Allow users to specify number of passengers (if the request is not sharing)
 
 ##Domain properties
