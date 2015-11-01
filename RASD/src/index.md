@@ -97,6 +97,7 @@ This system stores taxi information into a Mysql database.
 * Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
 * [G8] Allows users to require to share the taxi.
 * Allow users to identify via phone number not login **Is this a goal?**
+* Allow users to specify number of passengers (if the request is not sharing)
 
 ##Domain properties
 We suppose that these properties hold in the analyzed world :
