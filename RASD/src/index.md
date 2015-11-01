@@ -71,6 +71,8 @@ On the other side the mobile app allows taxi driver to accept or reject a ride r
 
 The system includes extra services and functionalities such as taxi sharing
 
+The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the users.
+
 ###Actual system
 Until now the taxi company has a system where the clients have to call a call center communicating its position via voice (so it can be not correct), the call center's operator inserts the request into an internal information system and the taxi driver can accept or reject it via a dedicated hardware device.
 
@@ -79,11 +81,9 @@ The system sends automatically an SMS to the client with the estimated arrival t
 This system stores taxi information into a Mysql database. 
 
 ##Goals
-The main goal of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the users.
-
 ###Taxi drivers:
-* [G1] Allows taxi drivers to sign up into the system.
-* [G2] Allows taxi drivers to log in the system.
+* [G1] Allows taxi drivers to sign up into the system. **We have said that this is automatically**
+* [G2] Allows taxi drivers to log in the system. **We have said that this is automatically**
 * [G3] Allows taxi drivers to precise to the system if they are available or not.
 * Taxi drivers should receive a notification for incoming request.   **is it a goal ?**
 * Taxi drivers should receive a notification if they have to take care of another user (during a shared ride).   **is it a goal ?**
@@ -96,6 +96,7 @@ The main goal of the system is to be more efficient and reliable than the existi
 * Users should receive a notification with the code of the taxi that takes care of the user's request. **is it a goal ?**
 * Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
 * [G8] Allows users to require to share the taxi.
+* Allow users to identify via phone number not login **Is this a goal?**
 
 ##Domain properties
 We suppose that these properties hold in the analyzed world :
@@ -112,6 +113,7 @@ We suppose that these properties hold in the analyzed world :
 * When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
 * The taxi arrives at start point with max 30 minutes of delay
 * Start zone is different from end zone
+* The old system works properly without problems
 
 ##Glossary
 * User: he is a client of the service. He should insert each time he performs a request the following information
@@ -132,14 +134,14 @@ We suppose that these properties hold in the analyzed world :
 
 ##Assumptions
 * There is an old system as described above.
-* It exists a mobile application for users where users can make a reservation using the GPS position or by inserting their position
+* We should develop a mobile application for users where users can make a reservation using the GPS position or by inserting their position
 * The users are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A user is identified by his personal data: name and phone number
 * There are only normal taxis for 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
 * The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of many cities run in this way.
 * We assume that if sharing option is selected it is not possible make a reservation for more than one person.
-* All taxis of the city are regulated and use this system
+* All taxi drivers of the city are regulated and use this system
 
 ##Constrains
 
@@ -228,6 +230,7 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must be able to check the position of the user.
     * The system must not accept requests of users outside the area of the city.
     * The system must transfer the request to the appropriate taxi driver.
+    * The system must determine the zone **It is correct here? Do we have to put this even in TaxiDrivers?**
 * [G7] Allows users to request for the reservation of a taxi at least two hours in advance.
     * The system must be able to check the origin and the destination of reservation.
     * The system must not accept reservations with an origin outside the area of the city.
@@ -235,7 +238,7 @@ The requirements are grouped under each goal from which it is derived. The goals
 * Users should receive a notification with the code of the taxi that takes care of the user's request. **is it a goal ?**
 * Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
 * [G8] Allows users to require to share the taxi.
-    * The system must be able to find if there are reservations or requests for the same time period and having corresponding journeys.
+    * The system must be able to find if there are reservations or requests for the same time period and having corresponding journeys. **We have to describe this more precisely, since the text gives us a detailed description**
 
 ##Non-functional requirements
 
