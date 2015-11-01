@@ -141,8 +141,8 @@ We suppose that these properties hold in the analyzed world :
 * There are only normal taxis for 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
-* The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of many cities run in this way.
-* We assume that if sharing option is selected it is not possible make a reservation for more than one person.
+* The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of many cities run in this way. **See description**
+* We assume that if sharing option is selected it is not possible make a reservation for more than one person (it is not possible specify the number of passengers).
 * All taxi drivers of the city are regulated and use this system
 
 ##Constrains
