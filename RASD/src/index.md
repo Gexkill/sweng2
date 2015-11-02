@@ -136,6 +136,7 @@ We suppose that these properties hold in the analyzed world :
 
 ##Assumptions
 * There is an old system as described above.
+* Shared requests are took into account until them don't get accepted by any driver.
 * The users are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A user is identified by his personal data: name and phone number
 * There are only normal taxis for 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
