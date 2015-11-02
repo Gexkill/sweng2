@@ -136,6 +136,7 @@ We suppose that these properties hold in the analyzed world :
 
 ##Assumptions
 * There is an old system as described above.
+* We should develop a mobile application for users where users can make a reservation using the GPS position or by inserting their position. **Keep or remove?**
 * Shared requests are took into account until them don't get accepted by any driver.
 * The users are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A user is identified by his personal data: name and phone number
 * There are only normal taxis for 4 passengers.
