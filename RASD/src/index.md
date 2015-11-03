@@ -83,22 +83,21 @@ This system stores taxi information into a Mysql database.
 
 ##Goals
 ###Taxi drivers:
-* [G1] Allows taxi drivers to sign up into the system. **We have said that this is automatically**
-* [G2] Allows taxi drivers to log in the system. **We have said that this is automatically**
-* [G3] Allows taxi drivers to precise to the system if they are available or not.
-* Taxi drivers should receive a notification for incoming request.   **is it a goal ?**
-* Taxi drivers should receive a notification if they have to take care of another user (during a shared ride).   **is it a goal ?**
-* [G4] Allows taxi drivers to accept or decline incoming requests for an immediate ride
-* [G5] Allows taxi drivers to accept or decline incoming request for a later reservation.
+* [G1] Allows taxi drivers to log in the system.
+* [G2] Allows taxi drivers to precise to the system if they are available or not.
+* [G3] Taxi drivers should receive a notification for incoming request.   **is it a goal ?**
+* [G4] Taxi drivers should receive a notification if they have to take care of another user (during a shared ride).   **is it a goal ?**
+* [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
+* [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
 
 ###Users:
-* [G6] Allows users to request for an immediate taxi ride.
-* [G7] Allows users to request for the reservation of a taxi at least two hours in advance.
-* Users should receive a notification with the code of the taxi that takes care of the user's request. **is it a goal ?**
-* Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
-* [G8] Allows users to require to share the taxi.
-* Allow users to identify themselves via phone number (and name) not login, they are not registered into the system **Is this a goal?**
-* Allow users to specify number of passengers (if the request is not sharing)
+* [G7] Allows users to request for an immediate taxi ride.
+* [G8] Allows users to request for the reservation of a taxi at least two hours in advance.
+* [G9] Users should receive a notification with the code of the taxi that takes care of the user's request. **is it a goal ?**
+* [G10] Users should be notified if no taxi driver is able to perform the users request. **Is this a goal ? **
+* [G11] Allows users to require to share the taxi.
+* [G12] Allow users to identify themselves via phone number (and name) not login, they are not registered into the system **Is this a goal?**
+* [G13] Allow users to specify number of passengers (if the request is not sharing)
 
 ##Domain properties
 We suppose that these properties hold in the analyzed world :
@@ -203,10 +202,7 @@ Assuming that the domain properties stipulated in the paragraph **[[1.3](#domain
 
 The requirements are grouped under each goal from which it is derived. The goals are grouped following under the users concerned.
 
-###Taxi drivers:
-* [G1] Allows taxi drivers to sign up into the system:
-    * The system must be able to check if it is an official taxi driver.
-    * The system only allows official taxi drivers to register. **SEE DOMAIN, probably we should remove this**
+###Taxi drivers: **Numbers will be adapted once we are sure about the Goals**
 * [G2] Allows taxi drivers to log in the system:
     * The system must be able to check if the password provided is correct.
     * The system must only let the taxi drivers log in if the provided password is correct.
@@ -324,10 +320,10 @@ Bob tells his cousin Alice that he is going to the stadium tonight. Alice is als
 ##Use case description
 In this paragraph some use cases will be described. These use cases can be derived from the scenarios and the use case diagram.
 
-### Taxi driver registration : ** Not sure we have to do this use case if the domain properties says that the taxi drivers are officially logged in**
+### Taxi driver registration : ** Not sure we have to do this use case if the domain properties says that the taxi drivers are officially logged in**  
 **Name :**  Taxi driver registration  
-** Actors :**  Guest  
-** Entry conditions :** The guest is a new taxi driver not yet registered to the system. 
+**Actors :**  Guest  
+**Entry conditions :** The guest is a new taxi driver not yet registered to the system.  
 **Flow of events : **
 
 * The guest enters the website or mobile application.
@@ -337,12 +333,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * The system redirects the guest on the home page.
 
 **Exit conditions :**  The guest is successfully registered as taxi driver.  
-** Exceptions :** The guest clicks on the registration button while he has not fulfilled every blank in the form or he has entered non valid data (non valid password, non valid mail, incorrect taxi driver licence, etc.). All of these errors will lead to the reloading of the form with indications concerning the errors.
+**Exceptions :** The guest clicks on the registration button while he has not fulfilled every blank in the form or he has entered non valid data (non valid password, non valid mail, incorrect taxi driver licence, etc.). All of these errors will lead to the reloading of the form with indications concerning the errors.
 
 ### Taxi driver log in
 **Name : Taxi driver log in**  
-** Actors : Taxi driver**   
-** Entry conditions :  ** The taxi driver has already successfully registered on the system or was registered on the previous system. **The condition is not necessary if all taxi drivers are automatically registered**  
+**Actors : Taxi driver**   
+**Entry conditions :  ** The taxi driver has already successfully registered on the system or was registered on the previous system. **The condition is not necessary if all taxi drivers are automatically registered**  
 **Flow of events : **
 
 * The taxi driver arrives on the homepage of the website or mobile application.
@@ -351,7 +347,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * The system redirects the taxi driver to his personal page.
 
 **Exit conditions : ** The driver is successfully redirected to his personal page  
-** Exceptions : ** The code and password furnished by the taxi driver are not correct. In this case, the system does not redirect the taxi driver to his personal page but notifies him that an error has been made and allows to input his code and password again.
+**Exceptions : ** The code and password furnished by the taxi driver are not correct. In this case, the system does not redirect the taxi driver to his personal page but notifies him that an error has been made and allows to input his code and password again.
 
 ### Taxi driver informs of his availability
 **Name : ** Taxi driver informs of his availability   
@@ -363,12 +359,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 **Exit conditions : ** The system actualises the personal page of the driver with the relevant informations. If the taxi driver selected the available button, he can now see in which waiting queue he is and his position. 
 
-** Exceptions :** There are no exceptions for this use case.
+**Exceptions :** There are no exceptions for this use case.
 
 ### Taxi driver responds to a request of immediate ride
 **Name :** Taxi driver responds to request of immediate ride  
-** Actors :** Taxi driver   
-** Entry conditions : ** 
+**Actors :** Taxi driver   
+**Entry conditions : ** 
 
 * The taxi driver has to be available.
 * The taxi driver must be the first of his queue.
@@ -386,12 +382,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * If the taxi driver has accepted the request, the taxi driver is removed from the waiting queue and the use case "notifying the user of incoming taxi" begins.
 * If the taxi driver has declined the request, he is moved to the end of the queue and the use case "taxi driver respond to request of immediate ride" starts again.   
 
-** Exceptions : ** There are no exceptions. 
+**Exceptions : ** There are no exceptions. 
 
 ### Taxi driver responds to a request of later reservation
 **Name :** Taxi driver responds to request of later reservation  
-** Actors :** Taxi driver   
-** Entry conditions : ** 
+**Actors :** Taxi driver   
+**Entry conditions : ** 
 
 * The taxi driver has to be available.
 * Either the taxi driver must be the first of his queue or the taxi drivers before him must have declined the request.
@@ -409,12 +405,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * If the taxi driver has accepted the request, the taxi driver is removed from the waiting queue and the use case "notifying the user of incoming taxi" begins.
 * If the taxi driver has declined the request, the use case "taxi driver respond to request of immediate ride" starts again with the following taxi in the queue.   
 
-** Exceptions : ** There are no exceptions. 
+**Exceptions : ** There are no exceptions. 
 
 ### User requires a taxi for a ride
 **Name :** User requires a taxi for a ride  
-** Actors :** User   
-** Entry conditions : ** The user has to be on the "Client Homepage". 
+**Actors :** User   
+**Entry conditions : ** The user has to be on the "Client Homepage".  
 **Flow of events : **
 
 * The users set the "Share this ride" slide button to the desired value.
@@ -423,12 +419,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 *  
 
 **Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver respond to a request of immediate ride" begins.  
-** Exceptions :**  The user furnish invalid data in the form (for example a negative or excessive number of passengers (see [1.3] Domain properties)). The request is not forwarded and user is not redirected until he enters valid data.
+**Exceptions :**  The user furnish invalid data in the form (for example a negative or excessive number of passengers (see [1.3] Domain properties)). The request is not forwarded and user is not redirected until he enters valid data.
 
 ### User requires a taxi for a later reservation
 **Name :** User requires a taxi for a later reservation  
-** Actors :** User   
-** Entry conditions : **  The user has to be on the "Client Homepage". 
+**Actors :** User   
+**Entry conditions : **  The user has to be on the "Client Homepage".  
 **Flow of events : **
 
 * The users set the "Share this ride" slide button to the desired value.
@@ -441,20 +437,20 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * The user fills the form.
 * The user clicks on the "Confirm" button. 
 
-** Exit conditions :** The system redirects the user to a waiting page and forwards the request for a reservation to the appropriate taxi driver. The use case "taxi driver respond to a request of later reservation" begins.   
+**Exit conditions :** The system redirects the user to a waiting page and forwards the request for a reservation to the appropriate taxi driver. The use case "taxi driver respond to a request of later reservation" begins.   
 ** Exceptions :** The user furnish invalid data in the form (for example a negative or excessive number of passengers or not valid departure time (see [1.3] Domain properties)). The request is not forwarded and user is not redirected until he enters valid data.
 
 ### Notifying the user of incoming taxi
 **Name :**  Notifying the user of incoming taxi  
-** Actors :** User   
-** Entry conditions :** The user must have required an immediate ride or a later reservation.  
+**Actors :** User   
+**Entry conditions :** The user must have required an immediate ride or a later reservation.  
 **Flow of events : **
 
 * The system sends an alert to the user.
 
 
 **Exit conditions :**  The system redirects the user on a page containing the information about the incoming taxi.  
-** Exceptions :** No taxi driver has accepted the request of the user. The user is notified and redirected to the home page of the platform.
+**Exceptions :** No taxi driver has accepted the request of the user. The user is notified and redirected to the home page of the platform.
  
 ##Class diagram
 ##Sequence diagram
