@@ -114,7 +114,7 @@ We suppose that these properties hold in the analyzed world :
 * Users make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
 * When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
 * The taxi arrives at start point with max 30 minutes of delay
-* Start zone is different from end zone
+* Start zone may be different from end zone
 * The old system works properly without problems
 
 ##Glossary
@@ -352,7 +352,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Exit conditions : ** The driver is successfully redirected to his personal page  
 ** Exceptions : ** The code and password furnished by the taxi driver are not correct. In this case, the system does not redirect the taxi driver to his personal page but notifies him that an error has been made and allows to input his code and password again.
 
-### Taxi driver informs of his availability **TO ADAPT TO MOCKUPS**
+### Taxi driver informs of his availability
 **Name : ** Taxi driver informs of his availability   
 ** Actors :** Taxi driver    
 ** Entry conditions : ** The taxi driver must be logged in.  
