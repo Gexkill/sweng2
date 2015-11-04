@@ -67,7 +67,6 @@
 [//]: # (pagebreak)
 
 
-
 #Introduction
 ##Description of the given problem
 We will project and implement myTaxiService, which is a service based on mobile application and web application, with two different targets of people:
@@ -96,8 +95,8 @@ This system stores taxi information into a Mysql database.
 ###Taxi drivers:
 * [G1] Allows taxi drivers to log in the system.
 * [G2] Allows taxi drivers to precise to the system if they are available or not.
-* [G3] Taxi drivers should receive a push notification for incoming request.   
-* [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).   
+* [G3] Taxi drivers should receive a push notification for incoming request.
+* [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
 
@@ -122,11 +121,12 @@ We suppose that these properties hold in the analyzed world :
 * Taxi drivers answer all types of demands in less than 5 minutes.
 * The client pays the taxi driver directly for each commission.
 * A taxi can be in only one zone at the same time and this is the real zone.
-* client make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
+* Client make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
 * When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
-* The taxi arrives at start point with max 30 minutes of delay
-* Start zone may be different from end zone
-* The old system works properly without problems
+* The taxi arrives at start point with max 30 minutes of delay.
+* Start zone may be different from end zone.
+* The old system works properly without problems.
+* If a queue is empty, a taxi joins in this queue in max 15 minutes.
 
 ##Glossary
 * Client: he is a client of the service. He should insert each time he performs a request/reservation the following information
@@ -140,7 +140,7 @@ We suppose that these properties hold in the analyzed world :
 * Taxi queue: when more than one taxi are in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
 * Requests queue: when more than one requests are in the same zone, there is a FIFO queue. So the first taxi available serve the first request.
 * Request: is the request of a taxi, it can be shared or not. When an user requests a taxi, the request is created and inserted in request queue. See client to fields details.
-* Merged request: is a request associated to more than one user. When more that one request in the same queue respect the taxi sharing condition, a merge request is created (merging that requests).
+* Merged request: is a request associated to more than one user. When more that one request in the same queue respect the taxi sharing condition, a merge request is created (merging that requests). The merging is performed when a shared request is at head of the queue.
 * Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
 * Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the start and end point
 * Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time. It can be sharing or not. See client to fields details.
@@ -239,7 +239,9 @@ Assuming that the domain properties stipulated in the paragraph **[[1.3](#domain
 The requirements are grouped under each goal from which it is derived. The goals are grouped following under the clients concerned.
 
 ###Taxi drivers:
+
 **Numbers will be adapted once we are sure about the Goals**
+
 * [G1] Allows taxi drivers to log in the system:
     * The system must be able to check if the password provided is correct.
     * The system must only let the taxi drivers log in if the provided password is correct.
@@ -263,7 +265,7 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must notify the client with the code of the taxi driver who has accepted the ride.
     * The system must notify the client if no taxi driver in the queue accepts the ride.
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation:
-    * The system must wait until ten minutes before the starting time of the reservation and manage it like a normal ride.
+    * The system must wait until ten minutes before the starting time of the reservation and manage it like a immediate ride.
     
 ###Clients:
 * [G7] Allows clients to request for an immediate taxi ride:
@@ -303,8 +305,10 @@ The requirements are grouped under each goal from which it is derived. The goals
 
 ###Taxi driver interface
 
-![mobile 4](../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true)
-![mobile 5](../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true)
+![mobile 4](../resources/mockup/mobile/loginactivity_taxidriver.png?raw=true)
+![mobile 5](../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true)
+![mobile 6](../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true)
+
 
 ###Documentation
 We will draft these documents to well-organize our work in the way to do in a
@@ -327,7 +331,7 @@ We will use the following technologies:
 * RESTFull and JSON for API communication over HTTP(S)
 * Javascript (with angularJs framework), CSS and HTM to create responsive site that communicate to server using REST API. These files are got via HTTP(S)
 * Modern browser with javascript and ajax support
-* Java and swing respectively for android and iOS apps, using original SDK
+* Java and swift respectively for android and iOS apps, using original SDK
 * Internet connection for communication of data
 * External rest APIs to send SMS
 
@@ -497,6 +501,9 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 
 ##State diagrams
+
+![mobile FSM](../resources/mobile_FSM.png?raw=true)\
+
 
 [//]: # (pagebreak)
 
