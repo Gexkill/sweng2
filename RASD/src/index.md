@@ -19,7 +19,7 @@
         1. [Clients](#clients)
     1. [Domain properties](#domain-properties)
     1. [Glossary](#glossary)
-    1. [Assumptions](#assumptions)
+    1. [Text assumptions](#text-assumptions)
     1. [Constrains](#constrains)
         1. [Regulatory policies](#regulatory-policies)
         1. [Hardware limitations](#hardware-limitations)
@@ -51,8 +51,9 @@
     1. [Use case diagram](#use-case-diagram)
     1. [Use case description](#use-case-description)
     1. [Class diagram](#class-diagram)
-    1. [Sequence diagram](#sequence-diagram)
-    1. [State diagram](#state-diagram)
+    1. [Sequence diagrams](#sequence-diagrams)
+    1. [Activity diagrams](#activity-diagrams)
+    1. [State diagrams](#state-diagrams)
 1. [Alloy modeling](#alloy-modeling)
     1. [Model](#model)
     1. [World generated](#world-generated)
@@ -93,8 +94,8 @@ This system stores taxi information into a Mysql database.
 ###Taxi drivers:
 * [G1] Allows taxi drivers to log in the system.
 * [G2] Allows taxi drivers to precise to the system if they are available or not.
-* [G3] Taxi drivers should receive a notification for incoming request.   
-* [G4] Taxi drivers should receive a notification if they have to take care of another client (during a shared ride).   
+* [G3] Taxi drivers should receive a push notification for incoming request.   
+* [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).   
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
 
@@ -102,7 +103,7 @@ This system stores taxi information into a Mysql database.
 ###Clients:
 * [G7] Allows clients to request for an immediate taxi ride.
 * [G8] Allows clients to request for the reservation of a taxi at least two hours in advance.
-* [G9] Clients should receive a sms notification with the code of the taxi that takes care of the client's request. 
+* [G9] Clients should receive a SMS notification with the ETA and code of the taxi that takes care of the client's request. 
 * [G10] Allows clients to require to share the taxi.
 * [G11] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system.
 * [G12] Allow clients to specify number of passengers.
@@ -131,7 +132,9 @@ We suppose that these properties hold in the analyzed world :
     * Phone number
     * Position, it can be taken automatically from GPS (either via APP or Web browser)
 * Taxi driver: he is a taxi driver registered on the taxi company, which grants to taxi driver the access to this information system
-* Queue: it is the taxi queue, when more than one taxi is in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
+* Taxi queue: when more than one taxi are in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
+* Requests queue: when more than one requests are in the same zone, there is a FIFO queue. So the first taxi available serve the first request.
+* Merged request:
 * Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
 * Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the start and end point
 * Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a normal taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time.
@@ -141,13 +144,19 @@ We suppose that these properties hold in the analyzed world :
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
 * Taxi: it is a means of transport that can bring only 4 passengers.
 * System: it is the new system we will create with the database of the old system.
-* Matching itinaries : Two itinaries (A and B) are matching if one of the two following conditions are fullfilled :
-    1. B is included in A: The start point and the end point of the itinary B are both close to the itinary A and the start point of B is closer to the start point of A than the end point of B.
-    1. The begining of B is the end of A: The start point of B is close to the itinary A and the end point of A is close to the itinary B.  
+* Matching itineraries : Two itineraries (A and B) are matching if one of the two following conditions are fulfilled :
+    1. B is included in A: The start point and the end point of the itinerary B are both close to the itinerary A and the start point of B is closer to the start point of A than the end point of B.
+    1. The beginning of B is the end of A: The start point of B is close to the itinerary A and the end point of A is close to the itinerary B.  
     1. A is included in B: see condition 1.
-    1. The begining of A is the end of B: see condition 2.
+    1. The beginning of A is the end of B: see condition 2.
+* ETA: estimated time available, is the time that taxi need to arrive to client start position.
+* SMS: short message service, is a notification sent to a mobile phone, we need a SMS gateway to use it.
+* SMS gateway: is a service that allow to send SMS via standard API.
+* API: application programming interface, is a common way to communicate with another system.
+* Push notification: is a notification sent to a smartphone using the mobile application, so it must be installed.
+* Push service: is a service that allow to send push notification with own API
 
-##Assumptions
+## Text assumptions
 * There is an old system as described above.
 * We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?**
 * Shared requests are took into account until them don't get accepted by any driver.
@@ -159,6 +168,7 @@ We suppose that these properties hold in the analyzed world :
 * We assume that if sharing option is selected it is not possible make a reservation for more than one person (it is not possible specify the number of passengers).
 * All taxi drivers of the city are regulated and use this system
 * The client cannot cancel a request
+* We assume that we need a requests queue
 
 ##Constrains
 
@@ -180,25 +190,24 @@ The system must require to client/taxi driver the permission to get his position
     * ...
 
 ###Interfaces to other applications
-Interface with the old system. The new system will interface with the Mysql database of the old system.
-
-**WRITE SMS gateway**
+* Interface with the old system. The new system will interface with the Mysql database of the old system.
+* Interface with SMS gateway provider via standard SMS rest APIs, to send notification to clients
+* Interface with the push service(s) via own APIs to send push notification to taxi drivers. Often we need an interface for each platform (android, iOS, and so on)
 
 ###Parallel operation
 The server supports parallel operations from different clients and different taxi drivers.
 
 ###Reference documents
-...
+**...**
 
 ##Proposed system
 We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have version for taxi driver and version for clients.
 
 ![Architecture](../resources/architecture.jpg?raw=true)
 
-**WRITE MORE DETAILS**
-
 ##Identifying stakeholders
-**Do we have to write city or teachers?**
+We have only one main stakeholder: the government of the city, that wants to improve the current taxi service in terms of usability, efficiency and cost.   
+However we can adapt this system to other city (changing the interface with the old system)
 
 ##Other considerations about the system
 
@@ -257,11 +266,11 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must not accept reservations with an origin outside the area of the city.
     * The system must transfer the reservation to the appropriate taxi driver.
 * [G9] Clients should receive a notification with the code of the taxi that takes care of the client's request: 
-    * The system must be able to send an sms to the client with the code of the incomming taxi.
+    * The system must be able to send an sms to the client with the code of the incoming taxi.
 * [G10] Allows clients to require to share the taxi:
-    * The system must be able to find if there are reservations or requests for the same time period and having matching itinaries.
-    * The system must be able to merge togehter the reservations and request found above if the cumulated number of passengers of the corresponding requests or reservations does not exceed 4.
-*  [G11] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system:
+    * The system must be able to find if there are reservations or requests for the same time period and having matching itineraries.
+    * The system must be able to merge together the reservations and request found above if the cumulated number of passengers of the corresponding requests or reservations does not exceed 4.
+* [G11] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system:
     * The system must allow the clients to furnish their personal information to the system before making a request.
 * [G12] Allow clients to specify number of passengers:
     * The system must allow the client to specify the number of passengers during the request or reservation of the ride.
@@ -310,6 +319,7 @@ We will use the following technologies:
 * Modern browser with javascript and ajax support
 * Java and swing respectively for android and iOS apps, using original SDK
 * Internet connection for communication of data
+* External rest APIs to send SMS
 
 [//]: # (pagebreak)
 
@@ -451,8 +461,13 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Exceptions :** No taxi driver has accepted the request of the client. The client is notified and redirected to the home page of the platform.
  
 ##Class diagram
-##Sequence diagram
-##State diagram
+##Sequence diagrams
+##Activity diagrams
+
+![shared request management diagram](../resources/shared_request_management.png?raw=true)\
+
+
+##State diagrams
 
 [//]: # (pagebreak)
 
