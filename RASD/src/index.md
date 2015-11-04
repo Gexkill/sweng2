@@ -709,9 +709,9 @@ run show for 4
 
 ##World generated
 
-\bigtrue
+[//]: # (bigtrue)
 ![world generated](../resources/world-generated1.png?raw=true)\
-\bigfalse
+[//]: # (bigfalse)
 
 
 #Used tools
