@@ -79,6 +79,8 @@ Until now the taxi company has a system where the clients have to call a call ce
 
 The system sends automatically an SMS to the client with the estimated arrival time and the taxi name.
 
+When the taxi driver join into the company he receives the login data that he cannot change.
+
 This system stores taxi information into a Mysql database. 
 
 ##Goals
@@ -90,13 +92,15 @@ This system stores taxi information into a Mysql database.
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
 
+
 ###Clients:
 * [G7] Allows clients to request for an immediate taxi ride.
 * [G8] Allows clients to request for the reservation of a taxi at least two hours in advance.
-* [G9] clients should receive a notification with the code of the taxi that takes care of the client's request. 
+* [G9] Clients should receive a sms notification with the code of the taxi that takes care of the client's request. 
 * [G10] Allows clients to require to share the taxi.
 * [G11] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system.
 * [G12] Allow clients to specify number of passengers.
+
 
 ##Domain properties
 We suppose that these properties hold in the analyzed world :
@@ -148,6 +152,7 @@ We suppose that these properties hold in the analyzed world :
 * The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of many cities run in this way. **See description**
 * We assume that if sharing option is selected it is not possible make a reservation for more than one person (it is not possible specify the number of passengers).
 * All taxi drivers of the city are regulated and use this system
+* The user cannot cancel a request
 
 ##Constrains
 
@@ -170,6 +175,8 @@ The system must require to user/taxi driver the permission to get his position a
 
 ###Interfaces to other applications
 Interface with the old system. The new system will interface with the Mysql database of the old system.
+
+**WRITE SMS gateway**
 
 ###Parallel operation
 The server supports parallel operations from different users and different taxi drivers.
@@ -196,6 +203,7 @@ The actors of our system are basically two:
 
 * Taxi driver: it is a taxi driver registered automatically in the system by the taxi company
 * User: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only basic personal information and location)
+* System: ...
 
 [//]: # (pagebreak)
 

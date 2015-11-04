@@ -9,6 +9,7 @@
 * 30/10/15: 10h
 * 31/10/15: 30m
 * 01/11/15: 30m
+* 03/11/15: 3h
 
 # Gilles Dejaegere
 * 23/10/15: 3h
@@ -16,7 +17,7 @@
 * 27/10/15: 2h30
 * 28/10/15: 2h 
 * 31/10/15: 2h
-* 03/11/15: 3h30 morning + 2h or reunion
+* 03/11/15: 3h30 morning + 2h of reunion
 * 04/11/15: 2h
 
 # Massimo Dragano
