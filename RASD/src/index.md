@@ -485,7 +485,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 ##Class diagram
 
 [//]: # (bigtrue)
-![classdiagram](../resources/class_diagram.png?raw=true)
+![classdiagram](../resources/class_diagram.png?raw=true)\
 [//]: # (bigfalse)
 
 ##Sequence diagrams
@@ -504,12 +504,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 ##Activity diagrams
 
-![shared request management diagram](../resources/shared_request_management.png?raw=true)
+![shared request management diagram](../resources/shared_request_management.png?raw=true)\
 
 
 ##State diagrams
 
-![mobile FSM](../resources/mobile_FSM.png?raw=true)
+![mobile FSM](../resources/mobile_FSM.png?raw=true)\
 
 
 [//]: # (pagebreak)
@@ -753,7 +753,7 @@ run show for 4
 ##World generated
 
 [//]: # (bigtrue)
-![world generated](../resources/world-generated1.png?raw=true)
+![world generated](../resources/world-generated1.png?raw=true)\
 [//]: # (bigfalse)
 
 
