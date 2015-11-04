@@ -66,6 +66,7 @@
 
 [//]: # (pagebreak)
 
+
 #Introduction
 ##Description of the given problem
 We will project and implement myTaxiService, which is a service based on mobile application and web application, with two different targets of people:
@@ -127,20 +128,24 @@ We suppose that these properties hold in the analyzed world :
 * The old system works properly without problems
 
 ##Glossary
-* Client: he is a client of the service. He should insert each time he performs a request the following information
+* Client: he is a client of the service. He should insert each time he performs a request/reservation the following information
     * Name
     * Phone number
     * Position, it can be taken automatically from GPS (either via APP or Web browser)
+    * Number of passenger
+    * Sharing mode
+    * Time (only for reservation)
 * Taxi driver: he is a taxi driver registered on the taxi company, which grants to taxi driver the access to this information system
 * Taxi queue: when more than one taxi are in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
 * Requests queue: when more than one requests are in the same zone, there is a FIFO queue. So the first taxi available serve the first request.
-* Merged request:
+* Request: is the request of a taxi, it can be shared or not. When an user requests a taxi, the request is created and inserted in request queue. See client to fields details.
+* Merged request: is a request associated to more than one user. When more that one request in the same queue respect the taxi sharing condition, a merge request is created (merging that requests).
 * Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
 * Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the start and end point
-* Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a normal taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time.
+* Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time. It can be sharing or not. See client to fields details.
 * Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying start point, client and other elements if they are available.
 * Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the start point that can be get by GPS (current position) or inserting manually
-* Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues
+* Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues. A zone is specified by a list of bounds. 
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
 * Taxi: it is a means of transport that can bring only 4 passengers.
 * System: it is the new system we will create with the database of the old system.
@@ -161,11 +166,10 @@ We suppose that these properties hold in the analyzed world :
 * We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?**
 * Shared requests are took into account until them don't get accepted by any driver.
 * The clients are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A client is identified by his personal data: name and phone number
-* There are only normal taxis for 4 passengers.
+* There are only normal taxis for only 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
 * The system doesn't need client registration, since it requires only identification data and position and since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way. **See description**
-* We assume that if sharing option is selected it is not possible make a reservation for more than one person (it is not possible specify the number of passengers).
 * All taxi drivers of the city are regulated and use this system
 * The client cannot cancel a request
 * We assume that we need a requests queue
@@ -173,7 +177,7 @@ We suppose that these properties hold in the analyzed world :
 ##Constrains
 
 ###Regulatory policies
-The system must require to client/taxi driver the permission to get his position and he has to manage sensible data (position, phone number) respecting the privacy law
+The system must require to client/taxi driver the permission to get his position and he has to manage sensible data (position, phone number) respecting the privacy law. Furthermore the systems mustn't use notifications to send SPAM respecting the privacy law.
 
 ###Hardware limitations
 * Mobile app
@@ -198,7 +202,12 @@ The system must require to client/taxi driver the permission to get his position
 The server supports parallel operations from different clients and different taxi drivers.
 
 ###Reference documents
-**...**
+* Specification Document: Assignments 1 and 2 (RASD and DD).pdf
+* IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications.
+* Examples documents: 
+    * MeteoCal_RASD_example2.pdf
+    * RASD Example SWIMv2.pdf
+    * RASD_meteocal-example1.pdf
 
 ##Proposed system
 We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have version for taxi driver and version for clients.
@@ -217,7 +226,7 @@ However we can adapt this system to other city (changing the interface with the 
 The actors of our system are basically two:
 
 * Taxi driver: it is a taxi driver registered automatically in the system by the taxi company
-* client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location)
+* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location)
 
 [//]: # (pagebreak)
 
@@ -334,6 +343,7 @@ When he goes out from office he finds the taxi on the street that brings him to 
 ##Scenario 2
 Some friends live in the same zone and want to go to the airport for a trip together, they want a cheap solution. So they choose the taxi sharing option to go to the airport. The morning of the trip's day all friends request a taxi with sharing option.  
 Since they are 6 and a taxi can bring only 4 passengers they need at least 2 taxis, so 4 friends are in the same taxi while two others are in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
+**Update this isnerting the possibility to reserve a taxi for more than one passengers, but keep this since start points are different**
 
 ##Scenario 3
 
@@ -461,6 +471,11 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Exceptions :** No taxi driver has accepted the request of the client. The client is notified and redirected to the home page of the platform.
  
 ##Class diagram
+
+\bigtrue
+![classdiagram](../resources/class_diagram.png?raw=true)\
+\bigfalse
+
 ##Sequence diagrams
 ##Activity diagrams
 
@@ -718,6 +733,7 @@ run show for 4
 The tools we used to create this RASD document are:
 
 * DIA: for uml models
+* Github: for version controller
 * Pencil: for mockup
 * Gedit and ReText: to write MarkDown with spell check 
 * Pandoc: to create pdf
