@@ -67,6 +67,7 @@
 [//]: # (pagebreak)
 
 
+
 #Introduction
 ##Description of the given problem
 We will project and implement myTaxiService, which is a service based on mobile application and web application, with two different targets of people:
@@ -343,7 +344,7 @@ When he goes out from office he finds the taxi on the street that brings him to 
 ##Scenario 2
 Some friends live in the same zone and want to go to the airport for a trip together, they want a cheap solution. So they choose the taxi sharing option to go to the airport. The morning of the trip's day all friends request a taxi with sharing option.  
 Since they are 6 and a taxi can bring only 4 passengers they need at least 2 taxis, so 4 friends are in the same taxi while two others are in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
-**Update this isnerting the possibility to reserve a taxi for more than one passengers, but keep this since start points are different**
+**Update this inserting the possibility to reserve a taxi for more than one passengers, but keep this since start points are different**
 
 ##Scenario 3
 
@@ -472,11 +473,24 @@ In this paragraph some use cases will be described. These use cases can be deriv
  
 ##Class diagram
 
-\bigtrue
+[//]: # (bigtrue)
 ![classdiagram](../resources/class_diagram.png?raw=true)\
-\bigfalse
+[//]: # (bigfalse)
 
 ##Sequence diagrams
+
+[//]: # (bigtrue)
+![taxi driver login](../resources/seq_diagrams/taxi_driver_log in.png?raw=true)
+[//]: # (bigfalse)
+
+[//]: # (bigtrue)
+![taxi driver respond to request](../resources/seq_diagrams/taxi_driver_respond_to_request.png?raw=true)
+[//]: # (bigfalse)
+
+[//]: # (bigtrue)
+![user require taxi for a ride or reservation](../resources/seq_diagrams/user_require_taxi_for_a_ride_or_reservation.png?raw=true)
+[//]: # (bigfalse)
+
 ##Activity diagrams
 
 ![shared request management diagram](../resources/shared_request_management.png?raw=true)\
