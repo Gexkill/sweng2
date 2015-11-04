@@ -27,7 +27,7 @@
         1. [Parallel operation](#parallel-operation)
         1. [Reference documents](#reference-documents)
     1. [Proposed system](#proposed-system)
-    1. Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
+    1. [Identifying stakeholders](#Identifying stakeholders)
     1. [Other considerations about the system](#other-considerations-about-the-system)
 1. [Actors identifying](#actors-identifying)
 1. [Requirements](#requirements)
@@ -68,7 +68,7 @@ We will project and implement myTaxiService, which is a service based on mobile 
 
 The system allows clients to reserve taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
 On the other side the mobile app allows taxi driver to accept or reject a ride request and to communicate automatically his position (so the zone).  
-The clients are not registered since the company wants a quickly system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logining each time).
+The clients are not registered since the company wants a quickly system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logging each time).
 
 The system includes extra services and functionalities such as taxi sharing
 
@@ -186,7 +186,7 @@ We will implement a client-server architecture (Fig. 2) based on common REST API
 
 **WRITE MORE DETAILS**
 
-##Identifying stakeholders **HERE OR INTO 'Actor identifying'?**
+##Identifying stakeholders
 **Do we have to write city or teachers?**
 
 ##Other considerations about the system
@@ -197,8 +197,8 @@ We will implement a client-server architecture (Fig. 2) based on common REST API
 The actors of our system are basically two:
 
 * Taxi driver: it is a taxi driver registered automatically in the system by the taxi company
-* User: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only basic personal information and location)
-* System: ...
+* User: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location)
+* System: is the system that we'll implement that interact with the old system. 
 
 [//]: # (pagebreak)
 
@@ -255,6 +255,13 @@ The requirements are grouped under each goal from which it is derived. The goals
 ![mobile 1](../resources/mockup/mobile/locationactivity_passenger.png?raw=true)
 ![mobile 2](../resources/mockup/mobile/mainactivity_passenger.png?raw=true)
 ![mobile 3](../resources/mockup/mobile/timeactivity_passenger.png?raw=true)
+
+**Client desktop interface**
+
+![web 1](../resources/mockup/web/main_form.png?raw=true)
+![web 2](../resources/mockup/web/home.png?raw=true)
+![web 3](../resources/mockup/web/confirmation.png?raw=true)
+
 
 **Taxi mobile interface**
 
