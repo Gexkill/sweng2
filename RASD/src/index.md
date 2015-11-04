@@ -16,7 +16,7 @@
         1. [Actual system](#actual-system)
     1. [Goals](#goals)
         1. [Taxi drivers](#taxi-drivers)
-        1. [Users](#users)
+        1. [Clients](#clients)
     1. [Domain properties](#domain-properties)
     1. [Glossary](#glossary)
     1. [Assumptions](#assumptions)
@@ -27,15 +27,16 @@
         1. [Parallel operation](#parallel-operation)
         1. [Reference documents](#reference-documents)
     1. [Proposed system](#proposed-system)
-    1. [Identifying stakeholders](#Identifying stakeholders)
+    1. [Identifying stakeholders](#identifying-stakeholders)
     1. [Other considerations about the system](#other-considerations-about-the-system)
 1. [Actors identifying](#actors-identifying)
 1. [Requirements](#requirements)
     1. [Functional requirements](#functional-requirements)
         1. [Taxi drivers](#taxi-drivers-1)
-        1. [Users](#users-1)
+        1. [Clients](#clients-1)
     1. [Non-functional requirements](#non-functional-requirements)
-        1. [User interface](#user-interface)
+        1. [Client interface](#client-interface)
+        1. [Taxi driver interface](#taxi-driver-interface)
         1. [Documentation](#documentation)
         1. [Architectural consideration](#architectural-consideration)
 1. [Scenario identifying](#scenario-identifying)
@@ -56,6 +57,11 @@
     1. [Model](#model)
     1. [World generated](#world-generated)
 1. [Used tools](#used-tools)
+1. [Hours of works](#hours-of-works)
+    1. [Claudio Cardinale](#claudio-cardinale)
+    1. [Gilles Dejaegere](#gilles-dejaegere)
+    1. [Massimo Dragano](#massimo-dragano)
+
 
 [//]: # (pagebreak)
 
@@ -72,7 +78,7 @@ The clients are not registered since the company wants a quickly system so if th
 
 The system includes extra services and functionalities such as taxi sharing
 
-The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the users.
+The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients.
 
 ###Actual system
 Until now the taxi company has a system where the clients have to call a call center communicating its position via voice (so it can be not correct), the call center's operator inserts the request into an internal information system and the taxi driver can accept or reject it via a dedicated hardware device.
@@ -107,30 +113,30 @@ We suppose that these properties hold in the analyzed world :
 
 * Actual drivers are already registered on the previous system
 * A taxi driver accepting a ride of reservation will actually take care of the request.
-* A user requiring a taxi will actually take it.
+* A client requiring a taxi will actually take it.
 * All the GPS always give the right position. 
 * The GPS of the taxi drivers can not be switched off.
 * Taxi drivers answer all types of demands in less than 5 minutes.
-* The user pays the taxi driver directly for each commission.
+* The client pays the taxi driver directly for each commission.
 * A taxi can be in only one zone at the same time and this is the real zone.
-* Users make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
+* client make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
 * When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
 * The taxi arrives at start point with max 30 minutes of delay
 * Start zone may be different from end zone
 * The old system works properly without problems
 
 ##Glossary
-* User: he is a client of the service. He should insert each time he performs a request the following information
+* Client: he is a client of the service. He should insert each time he performs a request the following information
     * Name
     * Phone number
     * Position, it can be taken automatically from GPS (either via APP or Web browser)
 * Taxi driver: he is a taxi driver registered on the taxi company, which grants to taxi driver the access to this information system
 * Queue: it is the taxi queue, when more than one taxi is in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
-* Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, user and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
-* Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by users that use it and for each user the start and end point
-* Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a normal taxi request 10 minutes before the ride. The reservation is identified by start point, end point, user and time.
-* Taxi request: it is the request the system sends (automatically or after a user request) to taxi to specify a ride, specifying start point, user and other elements if they are available.
-* User request: it is the request for a taxi drive as soon as possible, it contains the user data and the start point that can be get by GPS (current position) or inserting manually
+* Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
+* Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the start and end point
+* Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a normal taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time.
+* Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying start point, client and other elements if they are available.
+* Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the start point that can be get by GPS (current position) or inserting manually
 * Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
 * Taxi: it is a means of transport that can bring only 4 passengers.
@@ -143,21 +149,21 @@ We suppose that these properties hold in the analyzed world :
 
 ##Assumptions
 * There is an old system as described above.
-* We should develop a mobile application for users where users can make a reservation using the GPS position or by inserting their position. **Keep or remove?**
+* We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?**
 * Shared requests are took into account until them don't get accepted by any driver.
-* The users are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A user is identified by his personal data: name and phone number
+* The clients are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A client is identified by his personal data: name and phone number
 * There are only normal taxis for 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
-* The system doesn't need user registration, since it requires only identification data and position and since it works like the old system (where every user must say identification data via call). The real applications of many cities run in this way. **See description**
+* The system doesn't need client registration, since it requires only identification data and position and since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way. **See description**
 * We assume that if sharing option is selected it is not possible make a reservation for more than one person (it is not possible specify the number of passengers).
 * All taxi drivers of the city are regulated and use this system
-* The user cannot cancel a request
+* The client cannot cancel a request
 
 ##Constrains
 
 ###Regulatory policies
-The system must require to user/taxi driver the permission to get his position and he has to manage sensible data (position, phone number) respecting the privacy law
+The system must require to client/taxi driver the permission to get his position and he has to manage sensible data (position, phone number) respecting the privacy law
 
 ###Hardware limitations
 * Mobile app
@@ -165,7 +171,7 @@ The system must require to user/taxi driver the permission to get his position a
         * 3G connection
         * GPS
         * Space for app package
-    * user:
+    * client:
         * 3G connection
         * Space for app package  
 
@@ -179,13 +185,13 @@ Interface with the old system. The new system will interface with the Mysql data
 **WRITE SMS gateway**
 
 ###Parallel operation
-The server supports parallel operations from different users and different taxi drivers.
+The server supports parallel operations from different clients and different taxi drivers.
 
 ###Reference documents
 ...
 
 ##Proposed system
-We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have version for taxi driver and version for users.
+We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have version for taxi driver and version for clients.
 
 ![Architecture](../resources/architecture.jpg?raw=true)
 
@@ -202,8 +208,7 @@ We will implement a client-server architecture (Fig. 2) based on common REST API
 The actors of our system are basically two:
 
 * Taxi driver: it is a taxi driver registered automatically in the system by the taxi company
-* User: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location)
-* System: is the system that we'll implement that interact with the old system. 
+* client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location)
 
 [//]: # (pagebreak)
 
@@ -214,7 +219,8 @@ Assuming that the domain properties stipulated in the paragraph **[[1.3](#domain
 
 The requirements are grouped under each goal from which it is derived. The goals are grouped following under the clients concerned.
 
-###Taxi drivers: **Numbers will be adapted once we are sure about the Goals**
+###Taxi drivers:
+**Numbers will be adapted once we are sure about the Goals**
 * [G1] Allows taxi drivers to log in the system:
     * The system must be able to check if the password provided is correct.
     * The system must only let the taxi drivers log in if the provided password is correct.
@@ -258,26 +264,25 @@ The requirements are grouped under each goal from which it is derived. The goals
 *  [G11] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system:
     * The system must allow the clients to furnish their personal information to the system before making a request.
 * [G12] Allow clients to specify number of passengers:
-    * The system must allow the user to specify the number of passengers during the request or reservation of the ride.
+    * The system must allow the client to specify the number of passengers during the request or reservation of the ride.
 
 ##Non-functional requirements
 
-###User interface
+###Client interface
 
-**Client mobile interface**
+**mobile**
 
 ![mobile 1](../resources/mockup/mobile/locationactivity_passenger.png?raw=true)
 ![mobile 2](../resources/mockup/mobile/mainactivity_passenger.png?raw=true)
 ![mobile 3](../resources/mockup/mobile/timeactivity_passenger.png?raw=true)
 
-**Client desktop interface**
+**desktop**
 
 ![web 1](../resources/mockup/web/main_form.png?raw=true)
 ![web 2](../resources/mockup/web/home.png?raw=true)
 ![web 3](../resources/mockup/web/confirmation.png?raw=true)
 
-
-**Taxi mobile interface**
+###Taxi driver interface
 
 ![mobile 4](../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true)
 ![mobile 5](../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true)
@@ -345,6 +350,9 @@ Bob tells his cousin Alice that he is going to the stadium tonight. Alice is als
 #Uml models
 
 ##Use case diagram
+
+![use case diagram](../resources/use_case.png?raw=true)
+
 ##Use case description
 In this paragraph some use cases will be described. These use cases can be derived from the scenarios and the use case diagram.
 
@@ -700,3 +708,11 @@ The tools we used to create this RASD document are:
 * Pandoc: to create pdf
 * Alloy Analizer 4.2: to prove the consistency of our model.
 
+[//]: # (pagebreak)
+
+#Hours of works
+## Claudio Cardinale
+
+## Gilles Dejaegere
+
+## Massimo Dragano
