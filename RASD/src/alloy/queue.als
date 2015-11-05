@@ -23,7 +23,7 @@ fact availableDriversMustBeEnqueued {
   all d: Driver | d.available.isTrue <=> d in DriverQueue.s.elems
 }
 
-fact enqueueElemntsMustBeUnique {
+fact enqueuedElemntsMustBeUnique {
   all q: Queue | not q.s.hasDups
 }
 
