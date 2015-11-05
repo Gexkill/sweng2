@@ -124,7 +124,7 @@ We suppose that these properties hold in the analyzed world :
 * Client make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
 * When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
 * The taxi arrives at start point with max 30 minutes of delay.
-* Start zone may be different from end zone.
+* Start zone may be different from end zone. **KEEP or remove?**
 * The old system works properly without problems.
 * If a queue is empty, a taxi joins in this queue in max 15 minutes.
 
@@ -144,7 +144,7 @@ We suppose that these properties hold in the analyzed world :
 * Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
 * Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the start and end point
 * Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time. It can be sharing or not. See client to fields details.
-* Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying start point, client and other elements if they are available.
+* Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying start point, client and other elements if they are available. **KEEP or remove?**
 * Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the start point that can be get by GPS (current position) or inserting manually
 * Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues. A zone is specified by a list of bounds. 
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
@@ -168,7 +168,7 @@ We suppose that these properties hold in the analyzed world :
 * Shared requests are took into account until them don't get accepted by any driver.
 * The clients are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A client is identified by his personal data: name and phone number
 * There are only normal taxis for only 4 passengers.
-* The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part.
+* The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part. **keep or remove**
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
 * The system doesn't need client registration, since it requires only identification data and position and since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way. **See description**
 * All taxi drivers of the city are regulated and use this system
