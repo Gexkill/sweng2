@@ -753,7 +753,7 @@ run show for 4
 ##World generated
 
 [//]: # (bigtrue)
-![world generated](../resources/world-generated1.png?raw=true)[//]: # ()
+![world generated](../resources/world-generated.png?raw=true)[//]: # ()
 [//]: # (bigfalse)
 
 
