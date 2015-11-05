@@ -1,6 +1,8 @@
 open driver
 open client
 open zone
+open ride
+open request
 
 one sig TaxiCentral {
  drivers: some Driver,
@@ -16,8 +18,16 @@ fact ownAllClients {
  TaxiCentral.clients = Client
 }
 
-pred show() {
- #TaxiCentral = 1
+fact ownAllZones {
+ TaxiCentral.zones = Zone
 }
 
-run show
+pred show() {
+ #TaxiCentral = 1
+ #Ride = 1
+ #SharedRequest = 1
+ #SingleRequest = 1
+ #MergedRequest = 1
+}
+
+run show for 6
