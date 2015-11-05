@@ -1,9 +1,23 @@
-# Claudio Cardinale
-* tasks with descriptions like used tools or constrains
+# RASD
+## Claudio Cardinale
+* document structure
+* domain
+* purpose and other minor introduction section
+* assumptions
+* constrains 
+* proposed structure
+* technical details
+* alloy
+* scenarios
 
-# Gilles Dejaegere
-* requirements, goals and so on
+## Gilles Dejaegere
+* requirements
+* goals
+* scenarios
+* sequence diagrams
+* use cases description
 
-# Massimo Dragano
-* Use case Most important
+## Massimo Dragano
+* UML except sequence diagrams
+* alloy
 * Mock up
