@@ -193,6 +193,7 @@ The system must require to client/taxi driver the permission to get his position
 * Web app
     * Modern browser with AJAX support
     * ...
+**COMPLETE**
 
 ###Interfaces to other applications
 * Interface with the old system. The new system will interface with the Mysql database of the old system.
