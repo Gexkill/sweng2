@@ -1,6 +1,7 @@
 #!/bin/bash
 
 parsed=()
+checks=()
 
 expand_file() {
   parsed+=($1)
@@ -10,6 +11,8 @@ expand_file() {
       if ! [[ ${parsed[*]} =~ $f ]]; then
         expand_file $f
       fi
+    elif grep -qE '^\s*check\s+' <<<$line; then
+      checks+=("$line")
     elif grep -qE '^\s*pred\s+' <<<$line; then
       break
     else
@@ -31,5 +34,10 @@ get_predicates() {
   done < $1
 }
 
+print_checks() {
+  for c in "${checks[@]}"; do echo $c; done
+}
+
 expand_file world.als
 get_predicates world.als
+print_checks
