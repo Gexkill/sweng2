@@ -13,7 +13,7 @@ expand_file() {
       fi
     elif grep -qE '^\s*check\s+' <<<$line; then
       checks+=("$line")
-    elif grep -qE '^\s*pred\s+' <<<$line; then
+    elif grep -qE '^\s*pred\s+show' <<<$line; then
       break
     else
       echo $line
