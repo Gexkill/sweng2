@@ -56,6 +56,7 @@
     1. [State diagrams](#state-diagrams)
 1. [Alloy modeling](#alloy-modeling)
     1. [Model](#model)
+    1. [Alloy result](#alloy-result)
     1. [World generated](#world-generated)
 1. [Used tools](#used-tools)
 1. [Hours of works](#hours-of-works)
@@ -782,6 +783,12 @@ check pathPositionsAreEven
 check clientGetInAndGetOut
 check pathSameNumberOfLoadAndDrop
 ```
+
+##Alloy result
+
+The model is consistent:
+
+![alloy result](../resources/alloy_result.png?raw=true)
 
 ##World generated
 
