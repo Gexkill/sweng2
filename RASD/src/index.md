@@ -140,7 +140,7 @@ We suppose that these properties hold in the analyzed world :
     * Name
     * Phone number
     * Position, it can be taken automatically from GPS (either via APP or Web browser)
-    * Number of passenger
+    * Number of passengers
     * Sharing mode
     * Time (only for reservation)
 * Taxi driver: he is a taxi driver registered in the taxi company which grants to taxi driver the access to this information system
