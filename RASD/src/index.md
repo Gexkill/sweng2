@@ -520,234 +520,213 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 ```alloy
 open util/boolean
-
-//sig
-
-one sig TaxiCentral {
-hasTaxiDrivers: some TaxiDriver,
-hasClients: some Client
-}
-
-sig TaxiDriver {
-hasTaxi: one Taxi,
-available: Bool,
-belongsToQueue: lone QueueElement //if 0 the taxi is not in the queue
-}
-
-sig Queue {
-}
-
-sig QueueElement {
-belongsToQueue: one Queue,
-position: Int
-}
-{
-position > 0
-}
-
 sig Taxi {
-
+code: one Int,
+seats: one Int
+} {
+code > 0
+seats > 0
+seats <= 4
 }
+
+fact codeAreUnique {
+all t1,t2: Taxi | (t1 != t2) => t1.code != t2.code
+}
+
+
+sig Driver {
+taxi: one Taxi,
+available: one Bool
+}
+
+fact allTaxiAreOwned {
+Driver.taxi = Taxi
+}
+
+fact taxiHaveOnlyOneDriver {
+all d1, d2:Driver | d1 != d2 => d1.taxi != d2.taxi
+}
+
+sig MString { }
 
 sig Client {
-
+phoneNumber: MString
 }
 
-abstract sig Ride {
-belongsToTaxiDriver: one TaxiDriver,
-startZone: one Zone,
-finished: Bool
+fact phoneNumberAreUnique {
+all c1,c2: Client | c1 != c2 => c1.phoneNumber != c2.phoneNumber
 }
 
-sig NormalRide extends Ride{
-belongsToClient: one Client,
-passengers: Int,
-endZone: one Zone
-}
-{
-passengers<=4
-passengers>=1
+
+sig Position {
+latitude: Int, // should be float
+longitude: Int // should be float
 }
 
-sig SharingRide extends Ride{
-belongsToClients: some  Client,
-endZones: Client -> one Zone
+abstract sig StopPosition extends Position {
+client: one Client
 }
+
+sig LoadPosition extends StopPosition {
+}
+
+sig DropPosition extends StopPosition {
+}
+
+
+sig Path {
+positions: seq StopPosition
+} {
+#positions >= 2
+}
+
+fact pathPositionsAreUnique {
+all p: Path | not p.positions.hasDups
+}
+
+
+fact pathSameNumberOfLoadAndDrop {
+all p: Path | #(p.positions.elems & DropPosition) = #(p.positions.elems & LoadPosition)
+}
+
+fact pathClientHasALoadAndADrop {
+all p: Path | all i1: p.positions.inds |
+one i2: p.positions.inds | i2 != i1 and
+p.positions[i1].client = p.positions[i2].client
+}
+
+fact pathStartWithLoad {
+all p: Path | p.positions.first in LoadPosition
+}
+
+fact pathEndWithDrop {
+all p: Path | p.positions.last in DropPosition
+}
+
+assert pathPositionsAreEven {
+all p:Path| rem[#p.positions, 2] = 0
+}
+
+
+
+abstract sig Request {
+path: Path,
+passengers: Int
+} {
+passengers > 0
+}
+
+sig SingleRequest extends Request {
+}
+
+sig SharedRequest extends Request {
+}
+
+sig MergedRequest extends Request {
+}
+
+
+abstract sig Queue {
+s: seq univ
+}
+
+sig DriverQueue extends Queue {
+} {
+s.elems in Driver
+}
+
+sig RequestQueue extends Queue {
+} {
+s.elems in Request
+}
+
+fact enqueuedDriversMustBeAvailable {
+all d: DriverQueue.s.elems | d.available.isTrue
+}
+
+fact availableDriversMustBeEnqueued {
+all d: Driver | d.available.isTrue <=> d in DriverQueue.s.elems
+}
+
+fact enqueuedElemntsMustBeUnique {
+all q: Queue | not q.s.hasDups
+}
+
+fun peek[s: (seq/Int -> univ)]: univ {
+s.first
+}
+
+fun peek[q: Queue]: univ {
+q.s.peek
+}
+
+fun peek[q: DriverQueue]: Driver {
+q.s.peek & Driver
+}
+
+fun peek[q: RequestQueue]: Request {
+q.s.peek & Request
+}
+
 
 sig Zone {
-hasQueue: one Queue
+drivers: one DriverQueue,
+requests: one RequestQueue,
+bounds: seq Position
+} {
+#bounds > 2
+all p: bounds.elems | not p in StopPosition
+not bounds.hasDups
+}
+
+fact oneQueueForZone {
+all z1, z2: Zone | z1 != z2 =>
+z1.drivers != z2.drivers and z1.requests != z2.requests
+}
+
+fact zoneOwnAllDriverQueues {
+Zone.drivers = DriverQueue
+}
+
+fact zoneOwnAllRequestQueues {
+Zone.requests = RequestQueue
 }
 
 
-//If #hasRide = 0 the request is not completed yet
-abstract sig Request {
-belongsToClient: one Client,
-startZone: one Zone
-}
-
-sig SharingRequest extends Request {
-hasRide: lone SharingRide,
-endZone: one Zone
-}
-
-sig NormalRequest  extends Request {
-hasRide: lone NormalRide,
-passengers: Int,
-endZone: lone Zone
-}
-
-//If #hasRide = 0 the request is not created yet
-abstract sig Reservation {
-time: one Date,
-belongsToClient: one Client,
-startZone: one Zone,
-endZone: one Zone
-}
-
-sig SharingReservation  extends Reservation {
-hasRequest: lone SharingRequest
-}
-
-sig NormalReservation extends Reservation {
-hasRequest: lone NormalRequest,
-passengers: Int
-}
-
-sig Date {}
-
-//fact
-
-//A taxi can stay in the queue only if it is available
-// and it doesn't run a ride and viceversa
-fact taxiDriverConstrains {
-all t: TaxiDriver | (#t.belongsToQueue = 1 <=> t.available.isTrue) and 
-(t.available.isTrue <=> no r: Ride | r.belongsToTaxiDriver = t and
- r.finished.isFalse) and
-(t.available.isFalse <=> one r: Ride | r.belongsToTaxiDriver = t and
- r.finished.isFalse) and
-//only one ride at the same time
-(no r1, r2: Ride | r1 != r2 and r1.belongsToTaxiDriver = t and 
-r2.belongsToTaxiDriver = t and r1.finished.isFalse and r2.finished.isFalse) 
-}
-
-fact TaxiCanBeAssociatedtoOnlyOneTaxiDriver {
-no t: Taxi | some t1, t2:TaxiDriver |
-t1!=t2 and (t in t1.hasTaxi) and
-(t in t2.hasTaxi)
-}
-
-fact QueuesCanBeAssociatedtoOnlyOneZone {
-no q: Queue | some z1, z2:Zone |
-z1!=z2 and (q in z1.hasQueue) and
-(q in z2.hasQueue)
-}
-
-fact SharingRequestRideDataCorrespondence {
-all req: SharingRequest | req.belongsToClient in req.hasRide.belongsToClients and 
-req.hasRide.startZone = req.startZone and 
-req.hasRide.endZones[req.belongsToClient] = req.endZone
-}
-
-fact NormalRequestRideDataCorrespondence {
-all req: NormalRequest | req.belongsToClient = req.hasRide.belongsToClient and 
-req.hasRide.startZone = req.startZone and 
-req.hasRide.endZone = req.endZone and
-req.hasRide.passengers = req.passengers
-}
-
-fact SharingReservationRequestDataCorrespondence {
-all res: SharingReservation | res.belongsToClient = res.hasRequest.belongsToClient and 
-res.hasRide.startZone = res.startZone and 
-res.hasRequest.endZone = res.endZone
-}
-
-fact NormalReservationRequestDataCorrespondence {
-all res: NormalReservation | res.belongsToClient = res.hasRequest.belongsToClient and 
-res.hasRequest.startZone = res.startZone and 
-res.hasRequest.endZone = res.endZone and
-res.hasRequest.passengers = res.passengers
-}
-
-fact NormalRequestCanBeAssociatedtoOnlyOneReservation {
-no req: NormalRequest | some res1, res2: NormalReservation |
-res1!=res2 and (req = res1.hasRequest) and
-(req = res2.hasRequest)
-}
-
-fact SharingRequestCanBeAssociatedtoOnlyOneReservation {
-no req: SharingRequest | some res1, res2: SharingReservation |
-res1!=res2 and (req = res1.hasRequest) and
-(req = res2.hasRequest)
-}
-
-fact NormalRideCanBeAssociatedtoOnlyOneRequest {
-no ride: NormalRide | some req1, req2: NormalRequest |
-req1!=req2 and (ride = req1.hasRide) and
-(ride = req2.hasRide)
-}
-
-fact SharingAllRideMustBeAssociatedToARequest {
-all r: SharingRide | one req: SharingRequest | req.hasRide = r
-}
-
-fact NormalAllRideMustBeAssociatedToARequest {
-all r: NormalRide | one req: NormalRequest | req.hasRide = r
-}
-
-fact QueueElementCanBeAssociatedtoOnlyOneTaxiDriver{
-no q: QueueElement | some t1, t2: TaxiDriver |
-t1!=t2 and (q = t1.belongsToQueue) and
-(q = t2.belongsToQueue)
-}
-
-fact AllQueueElementMustBeAssociatedToATaxiDriver {
-all q: QueueElement | one t: TaxiDriver | t.belongsToQueue = q
-}
-
-fact SharingRideHasNoMoreThanFourClients {
-all r: SharingRide | #r.belongsToClients <=4
-//this implies no more than 4 requests
-}
-
-fact SharingStartDifferentFromEnd {
-no r: SharingRide | all c: r.belongsToClients | r.startZone = r.endZones[c]
-}
-
-fact NormalStartDifferentFromEnd {
-no r: NormalRide | r.startZone = r.endZone
-}
-
-fact OnlyOneRequestPerClientAtSameTime {
-all c: Client |
-(no r1, r2: SharingRequest | r1 != r2 and r1.belongsToClient = c and 
-r2.belongsToClient = c and #r1.hasRide = #r2.hasRide and #r2.hasRide = 1) and
-(no r1, r2: NormalRequest | r1 != r2 and r1.belongsToClient = c and 
-r2.belongsToClient = c and #r1.hasRide = #r2.hasRide and #r2.hasRide = 1)
-}
-
-fact OnlyOneRidePerClientAtSameTime {
-all c: Client |
-(no r1, r2: SharingRide | r1 != r2 and r1.belongsToClient = c and 
-r2.belongsToClient = c and r1.finished.isFalse and r2.finished.isFalse) and
-(no r1, r2: NormalRide | r1 != r2 and r1.belongsToClient = c and 
-r2.belongsToClient = c and r1.finished.isFalse and r2.finished.isFalse)
+sig Ride {
+drivers: some Driver,
+path: Path
 }
 
 
-//pred
-
-pred show(){
-//at least one sharing ride with more than one clients
-some r:SharingRide | #r.belongsToClients >1
-#NormalRide>1
-#TaxiDriver>1
-#NormalReservation>=1
-#SharingRequest>=1
+one sig TaxiCentral {
+drivers: some Driver,
+clients: some Client,
+zones: some Zone
 }
 
-//run
+fact ownAllDrivers {
+TaxiCentral.drivers = Driver
+}
 
-run show for 4
+fact ownAllClients {
+TaxiCentral.clients = Client
+}
+
+fact ownAllZones {
+TaxiCentral.zones = Zone
+}
+
+pred show() {
+#TaxiCentral = 1
+#Ride = 1
+#SharedRequest = 1
+#SingleRequest = 1
+#MergedRequest = 1
+}
+
+run show for 6
+check pathPositionsAreEven
 ```
 
 ##World generated
