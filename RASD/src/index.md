@@ -263,6 +263,7 @@ The requirements are grouped under each goal from which it is derived. The goals
 * [G1] Allows taxi drivers to log in the system:
     * The system must be able to check if the password provided is correct.
     * The system must only let the taxi drivers log in if the provided password is correct.
+    * The system must interact with the old system to do that.
 * [G2] Allows taxi drivers to precise to the system if they are available or not:
     * The system must be able to detect the taxi's location according to the taxi's GPS.
     * The system must be able to determine the appropriate queue for the taxi driver according to it's position.
@@ -289,7 +290,7 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must estimate the distance using the distance between two zones' centers.
     * The system must use a fixed fee for each passenger, so the total fee is given by passenger fee multiplied for passengers number reducing the price of a sharing discount percentage.
     * The system must must give the total fee for each client, if sharing option is enabled and used (there are more than one requests in merged request).
-    * The system must to calculate fee during the request merging
+    * The system must to calculate fee during the request merging.
 
 
 ###Clients:
@@ -306,14 +307,14 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must be able to send an sms to the client with the code of the incoming taxi.
 * [G11] Allows clients to require to share the taxi:
     * The system must be able to find if there are reservations or requests for the same time period and having matching itineraries.
-    * The system must be able to merge together the reservations and request found above if the cumulated number of passengers of the corresponding requests or reservations does not exceed 4.
+    * The system must be able to merge together the reservations and request found above if the cumulated number of passengers of the corresponding requests or reservations does not exceed 4. **KEEP or remove**
 * [G12] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system:
     * The system must allow the clients to furnish their personal information to the system before making a request.
 * [G13] Allow clients to specify number of passengers:
     * The system must allow the client to specify the number of passengers during the request or reservation of the ride.
 * [G14] Allow clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The system must insert the fee for the request in the SMS notification
-    * The system must use fee calculated as specified in [G7]
+    * The system must use fee calculated as specified in [G7].
 
 ##Non-functional requirements
 
