@@ -75,19 +75,19 @@ We will project and implement myTaxiService, which is a service based on mobile 
 * clients
 
 The system allows clients to reserve taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
-On the other side the mobile app allows taxi driver to accept or reject a ride request and to communicate automatically his position (so the zone).  
-The clients are not registered since the company wants a quickly system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logging each time).
+On the other side the mobile app allows taxi drivers to accept or reject a ride request and to communicate automatically his position (so the zone).  
+The clients are not registered since the company wants a quick system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logging each time).
 
-The system includes extra services and functionalities such as taxi sharing
+The system includes extra services and functionalities such as taxi sharing.
 
 The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients.
 
 ###Actual system
-Until now the taxi company has a system where the clients have to call a call center communicating its position via voice (so it can be not correct), the call center's operator inserts the request into an internal information system and the taxi driver can accept or reject it via a dedicated hardware device.
+Until now the taxi company has a system where the clients have to call a call center communicating their position via voice (so it can be not correct), the call center's operator inserts the request into an internal information system and the taxi driver can accept or reject it via a dedicated hardware device.
 
 The system sends automatically an SMS to the client with the estimated arrival time and the taxi name.
 
-When the taxi driver join into the company he receives the login data that he cannot change.
+When the taxi driver joins into the company he receives the login data that he cannot change.
 
 This system stores taxi information into a Mysql database. 
 
@@ -99,7 +99,7 @@ This system stores taxi information into a Mysql database.
 * [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
-* [G7] Allows taxi to know the fee for each ride before it starts via the request notification
+* [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted)
 
 
 ###Clients:
@@ -190,6 +190,7 @@ We suppose that these properties hold in the analyzed world :
 * We assume that we have to communicate fees even if the clients don't use the sharing option
 * We assume that we have fee for each passenger, the fee depend of passengers number
 * We assume that we have a fixed sharing discount percentage
+* We assume that we have a fixed price per kilometer passenger per
 
 ##Constrains
 
@@ -244,8 +245,8 @@ However we can adapt this system to other city (changing the interface with the 
 #Actors identifying
 The actors of our system are basically two:
 
-* Taxi driver: it is a taxi driver registered automatically in the system by the taxi company
-* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location)
+* Taxi driver: it is a taxi driver registered automatically in the system by the taxi company.
+* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location).
 
 [//]: # (pagebreak)
 
@@ -286,7 +287,8 @@ The requirements are grouped under each goal from which it is derived. The goals
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation:
     * The system must wait until ten minutes before the starting time of the reservation and manage it like a immediate ride.
 * [G7] Allows taxi to know the fee for each ride before it starts via the request notification
-    * The system must send with the request notification the fee calculated for the ride, they are calculated using fixed fees for distance.
+    * The system must send a notification with the fee calculated for the ride, they are calculated using fixed fees for distance.
+    * The system must send this notification after confirmation by taxi driver.
     * The system must estimate the distance using the distance between two zones' centers.
     * The system must use a fixed fee for each passenger, so the total fee is given by passenger fee multiplied for passengers number reducing the price of a sharing discount percentage.
     * The system must must give the total fee for each client, if sharing option is enabled and used (there are more than one requests in merged request).
@@ -336,7 +338,9 @@ The requirements are grouped under each goal from which it is derived. The goals
 
 ![LoginActivity][mob4]
 ![MainActivity][mob5]
+
 ![RequestDialog][mob6]
+![confirmActivity][mob7]
 
 
 ###Documentation
@@ -812,6 +816,7 @@ The tools we used to create this RASD document are:
 [mob4]: ../resources/mockup/mobile/loginactivity_taxidriver.png?raw=true
 [mob5]: ../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true
 [mob6]: ../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true
+[mob7]: ../resources/mockup/mobile/confirmactivity_taxidriver.png?raw=true
 [web1]: ../resources/mockup/web/home.png?raw=true
 [web2]: ../resources/mockup/web/main_form.png?raw=true
 [web3]: ../resources/mockup/web/confirmation.png?raw=true
