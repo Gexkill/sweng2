@@ -340,43 +340,42 @@ We will use the following technologies:
 
 #Scenario identifying
 
-Here some possible scenarios of usage of this application
+Here some possible scenarios of usage of this application.
 
 ##Scenario 1
-John wants to go home as soon as possible after a day of work and he wants to do that as soon as possible. So in the morning (so he respects the constrains of two hours before) he reserves a taxi at the same time of the end of his job for a ride that starts from his office and ends at his home.  
+Tomorrow, John wants to come back home as soon as possible after his day of work. The next day, when John arrives in his office, and before beginning to work, John enter the MyTaxiDriver website (he is aware of the two hours delay necessary to perform a reservation). He reserves a taxi for the time of the end of his job for a ride that starts from his office and ends at his home.  
 When he goes out from office he finds the taxi on the street that brings him to his home.
 
 ##Scenario 2
-Some friends live in the same zone and want to go to the airport for a trip together, they want a cheap solution. So they choose the taxi sharing option to go to the airport. The morning of the trip's day all friends request a taxi with sharing option.  
-Since they are 6 and a taxi can bring only 4 passengers they need at least 2 taxis, so 4 friends are in the same taxi while two others are in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
+Some friends live in the same zone and want to go to the airport for a trip together. To price of the flight being already very expensive, they to reach the airport without having to spend to much money. Therrefore they choose to use the taxi sharing option. The morning of the trip's day all friends request a taxi with sharing option.  
+Since they are 6 and a taxi can host only four passengers, they will need at least two taxis. Four friends will go in the same taxi while two others will go in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
 
-When they come back they want to go to a pub, since their start place and end place is the same the can do a unique sharing request inserting 6 as passengers number, obviously they can be distributed in more than 2 taxis. 
+When they come back from their trip they want to go to a pub. Since they are together and go to the same location, the can order an unique ride indicating 6 as the passengers number.  
 
-At the end of the night the want to come back to their home, but since are in different place (even if in the same zone) they have to do a single request (checking sharing option if they want)
+At the end of the night the want to come back to their home, but since are in different place (even if in the same zone) they have to do each their own request (checking sharing option if they want).
 
 ##Scenario 3
 
-John wants to visit the Duomo tomorrow. He decides to reserve a taxi. Therefore, he opens the MyTaxi **adapt name** website on his laptop and click on the "reserve a taxi button". He is the redirected on a form where he has to fill some information about his ride. After submitting his form, he is redirecting on a waiting page. A few minutes later, John is notified by the application of the confirmation of his reservation and of the code of the taxi taking care of the ride. 
-**Change this since we receive the notification via sms and there is no waiting time**
+John wants to visit the Duomo tomorrow. He decides to reserve a taxi. Therefore, he opens the MyTaxiDriver website on his laptop and click on the "reserve a taxi button". He is the redirected on a form where he has to fill some information about his ride. After submitting his form, he is receive a confirmation message. His request has been taken into account, but this does not mean that a taxi driver has accepted to perform the ride. A few minutes later, John is notified by sms with the confirmation that his reservation will be performed and of the code of the taxi taking care of the ride. 
 
 ##Scenario 4
 
-Julia is a taxi driver. She has just finished her last commission and has still plenty of time before the end of the day so she decides to make a new commission. She opens her MyTaxi **adapt Name** application and logs in her personal page. The she sets her availability to "Available". The application notifies her that she is the 3rd taxi on the waiting queue of her area. After waiting a small amount of time Julia receives a request for an immediate ride very close of her location. She immediately accepts it and heads to the request location.
-**We haven't talked about this notification (queue position)**
+Julia is a taxi driver. She has just finished her last commission and has still plenty of time before the end of the day so she decides to make a new commission. She opens her MyTaxiDriver application and logs in her personal page. The she sets her availability to "Available". The application notifies her that she is the 3rd taxi on the waiting queue of her area. After waiting a small amount of time Julia receives a request for an immediate ride very close of her location. She immediately accepts it and heads to the request location.
+
 
 ##Scenario 5
 
-Bob wants to go and see the football match at the stadium tonight. He decides to reserve a taxi to bring him to the stadium, and to bring him back home after the game. To reduce the cost of the rides he decide to try to share a taxi. To do so, he enters the MyTaxi **adapt name** application on his smartphone, goes to the "Client home page", activate the slide button to enable the "sharing taxi" option and then clicks on the "Reserve" button. He then has to fill a form to indicates all the informations about the reservation. After doing so, he has to repeat the whole operation the reserve the return trip. 
+Bob wants to go and see the football match at the stadium tonight. He decides to reserve a taxi to bring him to the stadium, and to bring him back home after the game. To reduce the cost of the rides he decide to try to share a taxi. To do so, he enters the MyTaxiDriver application on his smartphone, goes to the "Client home page", activate the slide button to enable the "sharing taxi" option and then clicks on the "Reserve" button. He then has to fill a form to indicates all the informations about the reservation. After doing so, he has to repeat the whole operation the reserve the return trip. 
 
 
 ##Scenario 6
 
-Mark is a taxi driver. At the beggining of his workday, Marks opens his MyTaxi **adapt name** application and logs in. He then puts his status on "available" by operating the slide button. The application tells him that he is the 10th drivers in his queue. That is far too much for Mark. He decides to go to another area to check if the queue is smaller. To do so, he first changes his status to "Non available", then rides toward the desired area and finally sets his status to "Available" again. He is now 4th of his waiting queue. 
-**We haven't talked about this notification (queue position)**
+Mark is a taxi driver. At the beggining of his workday, Marks opens his MyTaxiDriver application and logs in. He then puts his status on "available" by operating the slide button. The application tells him that he is the 10th drivers in his queue. That is far too much for Mark. He decides to go to another area to check if the queue is smaller. To do so, he first changes his status to "Non available", then rides toward the desired area and finally sets his status to "Available" again. He is now 4th of his waiting queue. 
+
 
 ##Scenario 7
 
-Bob tells his cousin Alice that he is going to the stadium tonight. Alice is also interested in football so she decides to go with Bob to see the match. However, Alice do not know how to go to the stadium. Bob tells her about the MyTaxi **adapt name** application and convince Alice to give it a try. Alice tries to reserve a trip to the stadium, but she does not respect the "reserve two hours before the ride" condition and the reservation fails. She then tries to request for an immediate ride but no taxi driver accepts Alice's request. Alice will have to stay at home tonight.  
+Bob tells his cousin Alice that he is going to the stadium tonight. Alice is also interested in football so she decides to go with Bob to see the match. However, Alice do not know how to go to the stadium. Bob tells her about the MyTaxiDriver application and convince Alice to give it a try. Alice tries to reserve a trip to the stadium, but she does not respect the "reserve two hours before the ride" condition and the reservation fails. She then tries to request for an immediate ride but no taxi driver accepts Alice's request. Alice will have to stay at home tonight.  
 
 [//]: # (pagebreak)
 
