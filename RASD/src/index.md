@@ -58,7 +58,7 @@
     1. [Model](#model)
     1. [World generated](#world-generated)
 1. [Used tools](#used-tools)
-1. [Hours of works](#hours-of-works)
+1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
     1. [Massimo Dragano](#massimo-dragano)
@@ -74,8 +74,8 @@ We will project and implement myTaxiService, which is a service based on mobile 
 * taxi drivers
 * clients
 
-The system allows clients to reserve taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
-On the other side the mobile app allows taxi drivers to accept or reject a ride request and to communicate automatically his position (so the zone).  
+The system allows clients to reserve a taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
+On the other side the mobile app allows taxi drivers to accept or reject a ride request and to communicate automatically their position (so the zone).  
 The clients are not registered since the company wants a quick system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logging each time).
 
 The system includes extra services and functionalities such as taxi sharing.
@@ -99,98 +99,98 @@ This system stores taxi information into a Mysql database.
 * [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
-* [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted)
+* [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
 
 
 ###Clients:
 * [G8] Allows clients to request for an immediate taxi ride.
 * [G9] Allows clients to request for the reservation of a taxi at least two hours in advance.
-* [G10] Clients should receive a SMS notification with the ETA and code of the taxi that takes care of the client's request. 
+* [G10] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request. 
 * [G11] Allows clients to require to share the taxi.
-* [G12] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system.
-* [G13] Allow clients to specify number of passengers.
-* [G14] Allow clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
+* [G13] Allows clients to specify the number of passengers.
+* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
 
 
 ##Domain properties
 We suppose that these properties hold in the analyzed world :
 
-* Actual drivers are already registered on the previous system
+* Actual drivers are already registered in the previous system
 * A taxi driver accepting a ride of reservation will actually take care of the request.
 * A client requiring a taxi will actually take it.
 * All the GPS always give the right position. 
-* The GPS of the taxi drivers can not be switched off.
+* The GPS of the taxi drivers cannot be switched off.
 * Taxi drivers answer all types of demands in less than 5 minutes.
 * The client pays the taxi driver directly for each commission.
 * A taxi can be in only one zone at the same time and this is the real zone.
-* Client make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7? [Gilles : I would say requirements]**
-* When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
-* The taxi arrives at start point with max 30 minutes of delay.
+* The client makes a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7? [Gilles : I would say requirements]**
+* When a new taxi driver joins in the taxi company, the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
+* The taxi arrives at starting point with max 30 minutes of delay.
 * Start zone may be different from end zone. **KEEP or remove?[Gilles : I would remove]**
 * The old system works properly without problems.
 * If a queue is empty, a taxi joins in this queue in max 15 minutes.
 * Taxi codes and phone numbers are unique.
 * Each taxi belongs to one taxi driver.
 * Each taxi driver has one taxi.
-* The passengers number is positive
+* The number of passengers is positive
 
 ##Glossary
-* Client: he is a client of the service. He should insert each time he performs a request/reservation the following information
+* Client: he is a client of the service. Each time he performs a request/reservation, he should insert the following information:
     * Name
     * Phone number
     * Position, it can be taken automatically from GPS (either via APP or Web browser)
     * Number of passenger
     * Sharing mode
     * Time (only for reservation)
-* Taxi driver: he is a taxi driver registered on the taxi company, which grants to taxi driver the access to this information system
+* Taxi driver: he is a taxi driver registered in the taxi company which grants to taxi driver the access to this information system
 * Taxi queue: when more than one taxi are in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
-* Requests queue: when more than one requests are in the same zone, there is a FIFO queue. So the first taxi available serve the first request.
-* Request: is the request of a taxi, it can be shared or not. When an user requests a taxi, the request is created and inserted in request queue. See client to fields details.
-* Merged request: is a request associated to more than one user. When more that one request in the same queue respect the taxi sharing condition, a merge request is created (merging that requests). The merging is performed when a shared request is at head of the queue.
+* Requests queue: when more than one requests are in the same zone, there is a FIFO queue. So the first taxi available serves the first request.
+* Request: it is the request of a taxi, it can be shared or not. When a user requests a taxi, the request is created and inserted in request queue. See client to field details.
+* Merged request: it is a request associated to more than one user. When more that one request in the same queue respect the taxi sharing condition, a merge request is created (merging that requests). The merging is performed when a shared request is at the head of the queue.
 * Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
-* Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the start and end point
-* Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time. It can be sharing or not. See client to fields details.
+* Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the starting and ending point.
+* Reservation: it is the ability to reserve a taxi until two hours before the time of the ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time. It can be sharing or not. See client to field details.
 * Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying start point, client and other elements if they are available. **KEEP or remove?**
-* Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the start point that can be get by GPS (current position) or inserting manually
+* Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the starting point that can be get by GPS (current position) or inserting manually
 * Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues.
     * A zone is specified by a list of bounds.
-    * it has more than 2 Positions that compose it's bounds.
-    * bounds must be composed by Positions and not any of it's subclasses.
-    * bounds must be a set ( it must not contains duplicates )
+    * it has more than 2 positions that compose its bounds.
+    * bounds must be composed by positions and not by none of its subclasses.
+    * bounds must be a set ( it must not contain duplicates )
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
 * Taxi: it is a means of transport that can bring only 4 passengers.
 * System: it is the new system we will create with the database of the old system.
-* Matching itineraries : Two itineraries (A and B) are matching if one of the two following conditions are fulfilled :
-    1. B is included in A: The start point and the end point of the itinerary B are both close to the itinerary A and the start point of B is closer to the start point of A than the end point of B.
-    1. The beginning of B is the end of A: The start point of B is close to the itinerary A and the end point of A is close to the itinerary B.  
+* Matching itineraries: two itineraries (A and B) are matching if one of the two following conditions are fulfilled:
+    1. B is included in A: the starting point and the ending point of the itinerary B are both close to the itinerary A and the starting point of B is closer to the starting point of A than the ending point of B.
+    1. The beginning of B is the end of A: the starting point of B is close to the itinerary A and the ending point of A is close to the itinerary B.  
     1. A is included in B: see condition 1.
     1. The beginning of A is the end of B: see condition 2.
-* ETA: estimated time available, is the time that taxi need to arrive to client start position.
-* SMS: short message service, is a notification sent to a mobile phone, we need a SMS gateway to use it.
-* SMS gateway: is a service that allow to send SMS via standard API.
-* API: application programming interface, is a common way to communicate with another system.
-* Push notification: is a notification sent to a smartphone using the mobile application, so it must be installed.
-* Push service: is a service that allow to send push notification with own API
+* ETA: estimated time available; it is the time the taxi needs to arrive to client starting position.
+* SMS: short message service; it is a notification sent to a mobile phone, we need an SMS gateway to use it.
+* SMS gateway: it is a service which allows to send SMS via standard API.
+* API: application programming interface; it is a common way to communicate with another system.
+* Push notification: it is a notification sent to a smartphone using the mobile application, so it must be installed.
+* Push service: it is a service that allows to send push notifications with own API
 * Path: it's a structure that contains at least 2 positions
-* Sharing discount percentage: discount percentage applied only if the sharing option is enabled and there are more than one requests in the merged request
+* Sharing discount percentage: discount percentage applied only if the sharing option is enabled and there is more than one request in the merged request
 
 ## Text assumptions
 * There is an old system as described above.
 * We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?[gilles : keep]**
-* Shared requests are took into account until them don't get accepted by any driver.
-* The clients are not registered in the system, because we only need few information (see [Glossary](#glossary)). We made this choice because in the real systems clients often have no time to registers, so we think that without user registration the system is more user friendly and quickly to use.
+* Shared requests are took into account until they don't get accepted by any driver.
+* The clients are not registered in the system, because we only need few information (see [Glossary](#glossary)). We made this choice because in the real systems, clients often have no time to register, so we think that without user registration the system is more user friendly and quick to use.
 * The system does not need client registration since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way.
 * There are only normal taxis for only 4 passengers.
-* The registration/deletion by company of a taxi driver is done in the same way of the old system, so we do not have to do this part. **keep or remove [gilles : keep]**
+* The registration/deletion by the company of a taxi driver is done in the same way of the old system, so we do not have to do this part. **keep or remove [gilles : keep]**
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
 * All taxi drivers of the city are regulated and use this system
 * The client cannot cancel a request
-* We assume that we need a requests queue
-* We assume that, since the clients are not registered, he has to check each time the sharing option (if he wants to use it)
+* We assume that we need a request queue
+* We assume that, since the clients are not registered, they have to check each time the sharing option (if they want to use it)
 * We assume that we have to communicate fees even if the clients don't use the sharing option
-* We assume that we have fee for each passenger, the fee depend of passengers number
+* We assume that we have fee for each passenger, the fee depends of the number of passengers
 * We assume that we have a fixed sharing discount percentage
-* We assume that we have a fixed price per kilometer passenger per
+* We assume that we have a fixed price per kilometer per passenger
 
 ##Constrains
 
@@ -214,8 +214,8 @@ The system must require to client/taxi driver the permission to get his position
 
 ###Interfaces to other applications
 * Interface with the old system. The new system will interface with the Mysql database of the old system.
-* Interface with SMS gateway provider via standard SMS rest APIs, to send notification to clients
-* Interface with the push service(s) via own APIs to send push notification to taxi drivers. Often we need an interface for each platform (android, iOS, and so on)
+* Interface with SMS gateway provider via standard SMS rest APIs, to send notifications to clients.
+* Interface with the push service(s) via own APIs to send push notifications to taxi drivers. Often we need an interface for each platform (android, iOS, and so on).
 
 ###Parallel operation
 The server supports parallel operations from different clients and different taxi drivers.
@@ -229,13 +229,13 @@ The server supports parallel operations from different clients and different tax
     * RASD_meteocal-example1.pdf
 
 ##Proposed system
-We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have version for taxi driver and version for clients.
+We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have a version for taxi driver and a version for clients.
 
 ![Architecture](../resources/architecture.jpg?raw=true)
 
 ##Identifying stakeholders
-We have only one main stakeholder: the government of the city, that wants to improve the current taxi service in terms of usability, efficiency and cost.   
-However we can adapt this system to other city (changing the interface with the old system)
+We have only one main stakeholder: the government of the city who wants to improve the current taxi service in terms of usability, efficiency and cost.   
+However we can adapt this system to other cities (changing the interface with the old system)
 
 ##Other considerations about the system
 **KEEP or remove?**
@@ -246,7 +246,7 @@ However we can adapt this system to other city (changing the interface with the 
 The actors of our system are basically two:
 
 * Taxi driver: it is a taxi driver registered automatically in the system by the taxi company.
-* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location).
+* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he only has to insert name, phone number and location).
 
 [//]: # (pagebreak)
 
@@ -267,10 +267,10 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must interact with the old system to do that.
 * [G2] Allows taxi drivers to precise to the system if they are available or not:
     * The system must be able to detect the taxi's location according to the taxi's GPS.
-    * The system must be able to determine the appropriate queue for the taxi driver according to it's position.
+    * The system must be able to determine the appropriate queue for the taxi driver according to its position.
     * The system must put the taxi driver in the appropriate queue when the taxi client becomes available.
     * The system must remove the taxi driver from the appropriate queue if he becomes unavailable.
-    * The system must communicate to the driver it's position in the waiting queue.
+    * The system must communicate to the driver its position in the waiting queue.
 * [G3] Taxi drivers should receive a notification for incoming request:
     * The system must be able to forward an incoming request to the appropriate taxi driver.
     * The system must be able to alert a taxi driver when a request is incoming.
@@ -285,14 +285,14 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must notify the client with the code of the taxi driver who has accepted the ride.
     * The system must notify the client if no taxi driver in the queue accepts the ride.
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation:
-    * The system must wait until ten minutes before the starting time of the reservation and manage it like a immediate ride.
+    * The system must wait until ten minutes before the starting time of the reservation and manage it like an immediate ride.
 * [G7] Allows taxi to know the fee for each ride before it starts via the request notification
-    * The system must send a notification with the fee calculated for the ride, they are calculated using fixed fees for distance.
+    * The system must send a notification with the fees calculated for the ride, they are calculated using fixed fees for distance.
     * The system must send this notification after confirmation by taxi driver.
-    * The system must estimate the distance using the distance between two zones' centers.
+    * The system must estimate the distance using the distance between two zone's centers.
     * The system must use a fixed fee for each passenger, so the total fee is given by passenger fee multiplied for passengers number reducing the price of a sharing discount percentage.
-    * The system must must give the total fee for each client, if sharing option is enabled and used (there are more than one requests in merged request).
-    * The system must to calculate fee during the request merging.
+    * The system must give the total fee for each client, if sharing option is enabled and used (there is more than one request in merged request).
+    * The system must calculate the fee during the request merging.
 
 
 ###Clients:
@@ -300,7 +300,7 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must be able to check the position of the client.
     * The system must not accept requests of clients outside the area of the city.
     * The system must transfer the request to the appropriate taxi driver.
-    * The system must determine be able to determine the zone where the client is located according to the client's GPS position.
+    * The system must be able to determine the zone where the client is located according to the client's GPS position.
 * [G9] Allows clients to request for the reservation of a taxi at least two hours in advance:
     * The system must be able to check the origin and the destination of reservation.
     * The system must not accept reservations with an origin outside the area of the city.
@@ -309,12 +309,12 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must be able to send an sms to the client with the code of the incoming taxi.
 * [G11] Allows clients to require to share the taxi:
     * The system must be able to find if there are reservations or requests for the same time period and having matching itineraries.
-    * The system must be able to merge together the reservations and request found above if the cumulated number of passengers of the corresponding requests or reservations does not exceed 4. **KEEP or remove**
-* [G12] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system:
+    * The system must be able to merge together the reservations and requests found above if the cumulated number of passengers of the corresponding requests or reservations does not exceed 4. **KEEP or remove**
+* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system:
     * The system must allow the clients to furnish their personal information to the system before making a request.
-* [G13] Allow clients to specify number of passengers:
+* [G13] Allows clients to specify the number of passengers:
     * The system must allow the client to specify the number of passengers during the request or reservation of the ride.
-* [G14] Allow clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The system must insert the fee for the request in the SMS notification
     * The system must use fee calculated as specified in [G7].
 
@@ -375,39 +375,39 @@ We will use the following technologies:
 Here some possible scenarios of usage of this application.
 
 ##Scenario 1
-Tomorrow, John wants to come back home as soon as possible after his day of work. The next day, when John arrives in his office, and before beginning to work, John enter the MyTaxiDriver website (he is aware of the two hours delay necessary to perform a reservation). He reserves a taxi for the time of the end of his job for a ride that starts from his office and ends at his home.  
+Tomorrow, John wants to come back home as soon as possible after his day of work. The day after, when John arrives at his office, and before beginning to work, John enters the MyTaxiDriver website (he is aware of the two hours delay necessary to perform a reservation). He reserves a taxi for the time of the end of his job for a ride that starts from his office and ends at his home.  
 When he goes out from office he finds the taxi on the street that brings him to his home.
 
 ##Scenario 2
-Some friends live in the same zone and want to go to the airport for a trip together. To price of the flight being already very expensive, they to reach the airport without having to spend to much money. Therrefore they choose to use the taxi sharing option. The morning of the trip's day all friends request a taxi with sharing option.  
+Some friends live in the same zone and want to go to the airport for a trip together. Being the price of the flight very expensive, they want to reach the airport without having to spend too much money. Therefore they choose to use the taxi sharing option. The morning of the trip's day all friends request a taxi with sharing option.  
 Since they are 6 and a taxi can host only four passengers, they will need at least two taxis. Four friends will go in the same taxi while two others will go in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
 
-When they come back from their trip they want to go to a pub. Since they are together and go to the same location, the can order an unique ride indicating 6 as the passengers number.  
+When they come back from their trip they want to go to a pub. Since they are together and go to the same location, they can order a unique ride indicating 6 as the passengers number.  
 
-At the end of the night the want to come back to their home, but since are in different place (even if in the same zone) they have to do each their own request (checking sharing option if they want).
+At the end of the night the want to come back to their home, but since are in different places (even if in the same zone) each of them have to do their own request (checking sharing option if they want).
 
 ##Scenario 3
 
-John wants to visit the Duomo tomorrow. He decides to reserve a taxi. Therefore, he opens the MyTaxiDriver website on his laptop and click on the "reserve a taxi button". He is the redirected on a form where he has to fill some information about his ride. After submitting his form, he is receive a confirmation message. His request has been taken into account, but this does not mean that a taxi driver has accepted to perform the ride. A few minutes later, John is notified by sms with the confirmation that his reservation will be performed and of the code of the taxi taking care of the ride. 
+John wants to visit the Duomo tomorrow. He decides to reserve a taxi. Therefore, he opens the MyTaxiDriver website on his laptop and clicks on the "reserve a taxi button". He is redirected on a form where he has to fill some information about his ride. After submitting his form, he receives a confirmation message. His request has been taken into account, but this does not mean that a taxi driver has accepted to perform the ride. A few minutes later, John is notified by sms of the confirmation that his reservation will be performed and of the code of the taxi taking care of the ride. 
 
 ##Scenario 4
 
-Julia is a taxi driver. She has just finished her last commission and has still plenty of time before the end of the day so she decides to make a new commission. She opens her MyTaxiDriver application and logs in her personal page. The she sets her availability to "Available". The application notifies her that she is the 3rd taxi on the waiting queue of her area. After waiting a small amount of time Julia receives a request for an immediate ride very close of her location. She immediately accepts it and heads to the request location.
+Julia is a taxi driver. She has just finished her last commission and has still plenty of time before the end of the day so she decides to make a new commission. She opens her MyTaxiDriver application and logs in her personal page. Then she sets her availability to "Available". The application notifies her that she is the 3rd taxi on the waiting queue of her area. After waiting a small amount of time, Julia receives a request for an immediate ride very close to her location. She immediately accepts it and heads to the request location.
 
 
 ##Scenario 5
 
-Bob wants to go and see the football match at the stadium tonight. He decides to reserve a taxi to bring him to the stadium, and to bring him back home after the game. To reduce the cost of the rides he decide to try to share a taxi. To do so, he enters the MyTaxiDriver application on his smartphone, goes to the "Client home page", activate the slide button to enable the "sharing taxi" option and then clicks on the "Reserve" button. He then has to fill a form to indicates all the informations about the reservation. After doing so, he has to repeat the whole operation the reserve the return trip. 
+Bob wants to go and see the football match at the stadium tonight. He decides to reserve a taxi to bring him to the stadium, and to bring him back home after the game. To reduce the cost of the rides he decide to try to share a taxi. To do so, he enters the MyTaxiDriver application on his smartphone, goes to the "Client home page", activates the slide button to enable the "sharing taxi" option and then clicks on the "Reserve" button. Then he has to fill a form to indicate all the information about the reservation. After doing so, he has to repeat the whole operation to reserve the return trip. 
 
 
 ##Scenario 6
 
-Mark is a taxi driver. At the beggining of his workday, Marks opens his MyTaxiDriver application and logs in. He then puts his status on "available" by operating the slide button. The application tells him that he is the 10th drivers in his queue. That is far too much for Mark. He decides to go to another area to check if the queue is smaller. To do so, he first changes his status to "Non available", then rides toward the desired area and finally sets his status to "Available" again. He is now 4th of his waiting queue. 
+Mark is a taxi driver. At the beggining of his workday, Marks opens his MyTaxiDriver application and logs in. Then he puts his status on "available" by operating the slide button. The application tells him that he is the 10th driver in his queue. That is far too much for Mark. He decides to go to another area to check if the queue is smaller. To do so, he first changes his status to "Not available", then rides toward the desired area and finally sets his status to "Available" again. He is now the 4th of his waiting queue. 
 
 
 ##Scenario 7
 
-Bob tells his cousin Alice that he is going to the stadium tonight. Alice is also interested in football so she decides to go with Bob to see the match. However, Alice do not know how to go to the stadium. Bob tells her about the MyTaxiDriver application and convince Alice to give it a try. Alice tries to reserve a trip to the stadium, but she does not respect the "reserve two hours before the ride" condition and the reservation fails. She then tries to request for an immediate ride but no taxi driver accepts Alice's request. Alice will have to stay at home tonight.  
+Bob tells his cousin Alice that he is going to the stadium tonight. Alice is also interested in football so she decides to go with Bob to see the match. However, Alice doesn not know how to go to the stadium. Bob tells her about the MyTaxiDriver application and convinces Alice to give it a try. Alice tries to reserve a trip to the stadium, but she does not respect the "reserve two hours before the ride" condition and the reservation fails. Then she tries to request for an immediate ride but no taxi driver accepts Alice's request. Alice will have to stay at home tonight.  
 
 [//]: # (pagebreak)
 
@@ -420,13 +420,13 @@ Bob tells his cousin Alice that he is going to the stadium tonight. Alice is als
 ##Use case description
 In this paragraph some use cases will be described. These use cases can be derived from the scenarios and the use case diagram.
 
-### Taxi driver log in
-**Name :** Taxi driver log in  
+### Taxi driver logs in
+**Name :** Taxi driver logs in  
 **Actors :** Taxi driver   
 **Entry conditions :** There are no entry conditions.  
 **Flow of events :**
 
-* The taxi driver arrives on the homeActivity of the mobile application.
+* The taxi driver arrives at the homeActivity of the mobile application.
 * The taxi driver inputs his taxi driver code (his ID) and his password.
 * The taxi driver clicks on the log in button.
 * The system redirects the taxi driver to his personal activity.
@@ -442,12 +442,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 * The taxi driver activates the slide button on his personal activity.
 
-**Exit conditions :** The system actualises the personal activity of the driver with the relevant informations. If the taxi driver selected the available button, he can now see in which waiting queue he is and his position. 
+**Exit conditions :** The system actualises the personal activity of the driver with the relevant information. If the taxi driver has selected the available button, he can now see in which waiting queue he is and his position. 
 
 **Exceptions :** There are no exceptions for this use case.
 
 ### Taxi driver responds to a request
-**Name :** Taxi driver responds to request  
+**Name :** Taxi driver responds to a request  
 **Actors :** Taxi driver   
 **Entry conditions :** 
 
@@ -457,7 +457,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Flow of events :**
 
 * The system notifies the taxi driver of the request with an alert. 
-* The systems shows the taxi driver the information concerning the request and shows him two buttons: "Accept" and "Reject".
+* The system shows the taxi driver the information concerning the request and shows him two buttons: "Accept" and "Reject".
 * The taxi driver clicks on one of the two buttons.
 * The system asks confirmation to the taxi driver concerning his choice.
 * The taxi driver confirms.
@@ -465,7 +465,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Exit conditions :**
 
 * If the taxi driver has accepted the request, the taxi driver is removed from the waiting queue and the use case "notifying the client of incoming taxi" begins.
-* If the taxi driver has declined the request, he is moved to the end of the queue and the use case "taxi driver respond to request of immediate ride" starts again.   
+* If the taxi driver has declined the request, he is moved to the end of the queue and the use case "taxi driver responds to request of immediate ride" starts again.   
 
 **Exceptions :** There are no exceptions. 
 
@@ -475,13 +475,13 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Entry conditions :** The client has to be on the "Client Homepage".  
 **Flow of events :**
 
-* The clients set the "Share this ride" slide button to the desired value if he is using the mobile application, or sets the "Share this ride" box to the desired value if he is using the website.
-* The client set the "number of passengers" to the desired value.
+* The client sets the "Share this ride" slide button to the desired value if he is using the mobile application, or sets the "Share this ride" box to the desired value if he is using the website.
+* The client sets the "number of passengers" to the desired value.
 * The client clicks on the "require immediate ride button".
-* The systems redirects the client to a form where the client has to give some information like the start location of the ride.
+* The system redirects the client to a form where the client has to give some information like the starting location of the ride.
 
-**Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver respond to a request" begins.  
-**Exceptions :**  The client furnish invalid data (for example a negative or excessive number of passengers (see [1.3] Domain properties)). The request is not forwarded and the client is not redirected until he enters valid data.
+**Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver responds to a request" begins.  
+**Exceptions :**  The client furnishes invalid data (for example a negative or excessive number of passengers (see [1.3] Domain properties)). The request is not forwarded and the client is not redirected until he enters valid data.
 
 ### Client requires a taxi for a later reservation
 **Name :** Client requires a taxi for a later reservation  
@@ -489,18 +489,18 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Entry conditions :**  The client has to be on the "Client Homepage".  
 **Flow of events :**
 
-* The clients set the "Share this ride" slide button or box to the desired value.
+* The client sets the "Share this ride" slide button or box to the desired value.
 * The client clicks on the "require later reservation button".
 * The client indicates the correct number of passengers.
-* The system redirects the client to a form where he has to furnish the following information :
+* The system redirects the client to a form where he has to furnish the following information:
     * Departure place;
     * Departure time;
     * Destination;  
 * The client fills the form.
 * The client clicks on the "Confirm" button. 
 
-**Exit conditions :** The system redirects the client to a waiting page. Ten minutes before the reservation time, thesystems forwardsthe request to the appropriate taxi driver. The use case "taxi driver respond to a request" begins.   
-**Exceptions:** The client furnish invalid data in the form (for example a negative or excessive number of passengers or not valid departure time (see [1.3] Domain properties)). The request is not forwarded and client is not redirected until he enters valid data.
+**Exit conditions :** The system redirects the client to a waiting page. Ten minutes before the reservation time, the system forwards the request to the appropriate taxi driver. The use case "taxi driver responds to a request" begins.   
+**Exceptions:** The client furnishes invalid data in the form (for example a negative or excessive number of passengers or not valid departure time (see [1.3] Domain properties)). The request is not forwarded and client is not redirected until he enters valid data.
 
 ### Notifying the client of incoming taxi
 **Name :**  Notifying the client of incoming taxi  
@@ -511,7 +511,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * The system sends an sms to the client containing the code of the taxi and the arrival time.
 
 
-**Exit conditions :**  The system redirects the client on a page containing the information about the incoming taxi.  
+**Exit conditions :**  The system redirects the client to a page containing the information about the incoming taxi.  
 **Exceptions :** No taxi driver has accepted the request of the client. The client is notified and redirected to the home page of the platform.
  
 ##Class diagram
@@ -802,7 +802,7 @@ The tools we used to create this RASD document are:
 
 [//]: # (pagebreak)
 
-#Hours of works
+#Hours of work
 ## Claudio Cardinale
 
 ## Gilles Dejaegere
