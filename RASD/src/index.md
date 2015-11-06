@@ -28,7 +28,6 @@
         1. [Reference documents](#reference-documents)
     1. [Proposed system](#proposed-system)
     1. [Identifying stakeholders](#identifying-stakeholders)
-    1. [Other considerations about the system](#other-considerations-about-the-system)
 1. [Actors identifying](#actors-identifying)
 1. [Requirements](#requirements)
     1. [Functional requirements](#functional-requirements)
@@ -124,10 +123,9 @@ We suppose that these properties hold in the analyzed world :
 * Taxi drivers answer all types of demands in less than 5 minutes.
 * The client pays the taxi driver directly for each commission.
 * A taxi can be in only one zone at the same time and this is the real zone.
-* The client makes a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7? [Gilles : I would say requirements]**
+* The client makes a reservation two hours before the ride
 * When a new taxi driver joins in the taxi company, the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
 * The taxi arrives at starting point with max 30 minutes of delay.
-* Start zone may be different from end zone. **KEEP or remove?[Gilles : I would remove, TM: remove]**
 * The old system works properly without problems.
 * If a queue is empty, a taxi joins in this queue in max 15 minutes.
 * Taxi codes and phone numbers are unique.
@@ -149,9 +147,9 @@ We suppose that these properties hold in the analyzed world :
 * Request: it is the request of a taxi, it can be shared or not. When a user requests a taxi, the request is created and inserted in request queue. See client to field details.
 * Merged request: it is a request associated to more than one user. When more that one request in the same queue respect the taxi sharing condition, a merge request is created (merging that requests). The merging is performed when a shared request is at the head of the queue.
 * Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
-* Taxi sharing: it is the possibility that if different people (it's not required they know each other) of the same starting zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the starting and ending point.
+* Taxi sharing: it is the possibility that if different people (it's not required they know each other) of the same starting zone go to the same direction, even if the end is not the same, to use the same taxi and to have a discount. A sharing ride is identified by clients that use it and for each client the starting and ending point.
 * Reservation: it is the ability to reserve a taxi until two hours before the time of the ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by starting point, ending point, client and time. It can be sharing or not. See client to field details.
-* Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying starting point, client and other elements if they are available. **KEEP or remove?[TM: better to use notification instead of request]**
+* Taxi notification: it is the notification the system sends (automatically or after a client request) to taxi to specify a ride, specifying starting point, client and other elements if they are available. 
 * Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the starting point that can be get by GPS (current position) or inserting manually
 * Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues.
     * A zone is specified by a list of bounds.
@@ -159,7 +157,7 @@ We suppose that these properties hold in the analyzed world :
     * Bounds must be composed by positions and not by none of its subclasses.
     * Bounds must be a set (it must not contain duplicates).
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
-* Taxi: it is a means of transport that can bring only 4 passengers.
+* Taxi: it is a means of transport that can bring passengers.
 * System: it is the new system we will create with the database of the old system.
 * Matching itineraries: two itineraries (A and B) are matching if one of the two following conditions are fulfilled:
     1. B is included in A: the starting point and the ending point of the itinerary B are both close to the itinerary A and the starting point of B is closer to the starting point of A than the ending point of B.
@@ -177,12 +175,11 @@ We suppose that these properties hold in the analyzed world :
 
 ## Text assumptions
 * There is an old system as described above.
-* We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?[gilles : keep, TM: keep into 2 assumptions => "we should develop a mobile application" and "the mobile application should be able to use it's own position through a GPS or asking it to the client"]**
+* We should develop a mobile application able to use its own position through a GPS or asking it to the client.
 * Shared requests are taken into account until they don't get accepted by any driver.
 * The clients are not registered in the system, because we only need few information (see [Glossary](#glossary)). We made this choice because in real systems, clients often have no time to register, so we think that without user registration the system is more user friendly and quick to use.
 * The system does not need client registration since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way.
-* There are only normal taxis for only 4 passengers.
-* The registration/deletion by the company of a taxi driver is done in the same way of the old system, so we do not have to do this part. **keep or remove [gilles : keep, TM: keep => "it's done on the old system" we just interface to the old one.]**
+* The registration/deletion by the company of a taxi driver is done on the old system, so we do not have to do this part. We have only to interface with the old database.
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
 * All taxi drivers of the city are regulated and use this system
 * The client cannot cancel a request
@@ -210,9 +207,6 @@ The system must require to client/taxi driver the permission to get his position
 
 * Web app
     * Modern browser with AJAX support
-    * ...
-**COMPLETE**
-**[TM: I've tried but I failed, please give it a try or I'll remove those comments in an hour]**
 
 ###Interfaces to other applications
 * Interface with the old system. The new system will interface with the Mysql database of the old system.
@@ -239,8 +233,6 @@ We will implement a client-server architecture (Fig. 2) based on common REST API
 We have only one main stakeholder: the government of the city who wants to improve the current taxi service in terms of usability, efficiency and cost.   
 However we can adapt this system to other cities (changing the interface with the old system)
 
-##Other considerations about the system
-**KEEP or remove?[TM: we didn't find anything to put here, remove]**
 
 [//]: # (pagebreak)
 
@@ -260,9 +252,6 @@ Assuming that the domain properties stipulated in the paragraph **[[1.3](#domain
 The requirements are grouped under each goal from which it is derived. The goals are grouped following under the clients concerned.
 
 ###Taxi drivers:
-
-**Numbers will be adapted once we are sure about the Goals**
-**[TM: does someone fixed those numbers ?]**
 
 * [G1] Allows taxi drivers to log in the system:
     * The system must be able to check if the password provided is correct.
@@ -356,7 +345,6 @@ understand the given problem and to analyze in a detailed way which our goals
 are and how to reach them defining requirements and specification.
 * DD: Design Document, to define the real structure of our web application
 and its tiers.
-* Testing Document: a report of our testing experience of another myTaxyService
 project.
 
 ###Architectural consideration
@@ -384,7 +372,7 @@ When he goes out from office he finds the taxi on the street that brings him to 
 
 ##Scenario 2
 Some friends live in the same zone and want to go to the airport for a trip together. Being the price of the flight very expensive, they want to reach the airport without having to spend too much money. Therefore they choose to use the taxi sharing option. The morning of the trip's day all friends request a taxi with sharing option.  
-Since they are 6 and a taxi can host only four passengers, they will need at least two taxis. Four friends will go in the same taxi while two others will go in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
+Since they are 6 and a normal taxi can host only four passengers, they will need at least two taxis. Four friends will go in the same taxi while two others will go in other two taxis, each of them filled by other people that have chosen the taxi sharing option and start from the same zone and have to go in the same direction.
 
 When they come back from their trip they want to go to a pub. Since they are together and go to the same location, they can order a unique ride indicating 6 as the passengers number.  
 
