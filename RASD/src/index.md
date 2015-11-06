@@ -329,6 +329,8 @@ The requirements are grouped under each goal from which it is derived. The goals
 ![TimePickerActivity][mob2]
 ![LocationActivity][mob3]
 
+In android the phone number it's taken by the app ( Permissions.READ_PHONE_STATE )
+
 **desktop**
 
 ![HomePage][web1]
@@ -554,8 +556,8 @@ In this paragraph some use cases will be described. These use cases can be deriv
 ```alloy
 open util/boolean
 sig Taxi {
-code: one Int,
-seats: one Int
+code: Int,
+seats: Int
 } {
 code > 0
 seats > 0
@@ -721,6 +723,27 @@ fun peek[q: RequestQueue]: Request {
 q.s.peek & Request
 }
 
+pred Queue.add[q: Queue, e: univ] {
+q.s = this.s.insert[#this.s, e]
+}
+
+
+/**
+* Precondition: ~ this.s.isEmpty
+*/
+pred Queue.get[q: Queue, e: univ] {
+e in this.s.elems
+q.s = this.s.delete[0]
+not e in q.s.elems
+}
+
+
+assert getInverseOfAdd {
+all q0,q1,q2: Queue, e: univ | q0.s.isEmpty and
+q0.add[q1, e] and q1.get[q2, e] => q0.s = q2.s
+}
+
+
 
 sig Zone {
 drivers: one DriverQueue,
@@ -748,7 +771,12 @@ Zone.requests = RequestQueue
 
 sig Ride {
 drivers: some Driver,
-path: Path
+path: Path,
+prices: Client -> Int
+}
+
+fact RideContainsPricesForItsClients {
+all r: Ride | r.prices.(Int) = r.path.positions.elems.(client)
 }
 
 
@@ -782,6 +810,9 @@ run show for 6
 check pathPositionsAreEven
 check clientGetInAndGetOut
 check pathSameNumberOfLoadAndDrop
+check getInverseOfAdd
+run add for 5
+run get for 5
 ```
 
 ##Alloy result
