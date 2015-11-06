@@ -413,6 +413,8 @@ Bob tells his cousin Alice that he is going to the stadium tonight. Alice is als
 ##Use case description
 In this paragraph some use cases will be described. These use cases can be derived from the scenarios and the use case diagram.
 
+------------------
+
 ### Taxi driver logs in
 **Name :** Taxi driver logs in  
 **Actors :** Taxi driver   
@@ -427,6 +429,8 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Exit conditions :** The driver is successfully redirected to his personal page.  
 **Exceptions :** The code and password furnished by the taxi driver are not correct. In this case, the system does not redirect the taxi driver to his personal activity but notifies him that an error has been made and allows to input his code and password again.
 
+------------------
+
 ### Taxi driver informs of his availability
 **Name :** Taxi driver informs of his availability   
 **Actors :** Taxi driver    
@@ -438,6 +442,8 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Exit conditions :** The system actualises the personal activity of the driver with the relevant information. If the taxi driver has selected the available button, he can now see in which waiting queue he is and his position. 
 
 **Exceptions :** There are no exceptions for this use case.
+
+------------------
 
 ### Taxi driver responds to a request
 **Name :** Taxi driver responds to a request  
@@ -462,6 +468,8 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 **Exceptions :** There are no exceptions. 
 
+------------------
+
 ### Client requires a taxi for a ride
 **Name :** Client requires a taxi for a ride  
 **Actors :** Client   
@@ -476,7 +484,10 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver responds to a request" begins.  
 **Exceptions :**  The client furnishes invalid data (for example a negative or excessive number of passengers (see [1.3] Domain properties)). The request is not forwarded and the client is not redirected until he enters valid data.
 
+------------------
+
 ### Client requires a taxi for a later reservation
+
 **Name :** Client requires a taxi for a later reservation  
 **Actors :** Client   
 **Entry conditions :**  The client has to be on the "Client Homepage".  
@@ -494,6 +505,8 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 **Exit conditions :** The system redirects the client to a waiting page. Ten minutes before the reservation time, the system forwards the request to the appropriate taxi driver. The use case "taxi driver responds to a request" begins.   
 **Exceptions:** The client furnishes invalid data in the form (for example a negative or excessive number of passengers or not valid departure time (see [1.3] Domain properties)). The request is not forwarded and client is not redirected until he enters valid data.
+
+------------------
 
 ### Notifying the client of incoming taxi
 **Name :**  Notifying the client of incoming taxi  
