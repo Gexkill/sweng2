@@ -127,6 +127,8 @@ We suppose that these properties hold in the analyzed world :
 * Start zone may be different from end zone. **KEEP or remove?**
 * The old system works properly without problems.
 * If a queue is empty, a taxi joins in this queue in max 15 minutes.
+* The passengers is a positive number
+* Client phone number is unique 
 
 ##Glossary
 * Client: he is a client of the service. He should insert each time he performs a request/reservation the following information
@@ -146,7 +148,11 @@ We suppose that these properties hold in the analyzed world :
 * Reservation: it is the ability to reserve a taxi until two hours before time of ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time. It can be sharing or not. See client to fields details.
 * Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying start point, client and other elements if they are available. **KEEP or remove?**
 * Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the start point that can be get by GPS (current position) or inserting manually
-* Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues. A zone is specified by a list of bounds. 
+* Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues.
+    * A zone is specified by a list of bounds.
+    * it has more than 2 Positions that compose it's bounds.
+    * bounds must be composed by Positions and not any of it's subclasses.
+    * bounds must be a set ( it must not contains duplicates )
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
 * Taxi: it is a means of transport that can bring only 4 passengers.
 * System: it is the new system we will create with the database of the old system.
@@ -161,6 +167,7 @@ We suppose that these properties hold in the analyzed world :
 * API: application programming interface, is a common way to communicate with another system.
 * Push notification: is a notification sent to a smartphone using the mobile application, so it must be installed.
 * Push service: is a service that allow to send push notification with own API
+* Path: it's a structure that contains at least 2 positions
 
 ## Text assumptions
 * There is an old system as described above.
