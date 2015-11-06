@@ -25,7 +25,7 @@
   * 03/11/15: 3h30 morning + 2h of reunion
   * 04/11/15: 2h
   * 05/11/15: 2h
-  * 06/11/15: 2h
+  * 06/11/15: 4h
 
 # Massimo Dragano
 * RASD
