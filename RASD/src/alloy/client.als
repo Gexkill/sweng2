@@ -1,7 +1,7 @@
-open string
+sig PhoneNumber { }
 
 sig Client {
- phoneNumber: MString
+ phoneNumber: PhoneNumber
 }
 
 fact phoneNumberAreUnique {
