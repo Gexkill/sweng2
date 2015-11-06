@@ -144,20 +144,20 @@ We suppose that these properties hold in the analyzed world :
     * Sharing mode
     * Time (only for reservation)
 * Taxi driver: he is a taxi driver registered in the taxi company which grants to taxi driver the access to this information system
-* Taxi queue: when more than one taxi are in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
-* Requests queue: when more than one requests are in the same zone, there is a FIFO queue. So the first taxi available serves the first request.
+* Taxi queue: when more than one taxi is in the same zone, there is a FIFO queue. So in this way when there is a new client the oldest taxi can take it. There is a queue for each zone.
+* Requests queue: when more than one request is in the same zone, there is a FIFO queue. So the first taxi available serves the first request.
 * Request: it is the request of a taxi, it can be shared or not. When a user requests a taxi, the request is created and inserted in request queue. See client to field details.
 * Merged request: it is a request associated to more than one user. When more that one request in the same queue respect the taxi sharing condition, a merge request is created (merging that requests). The merging is performed when a shared request is at the head of the queue.
 * Ride: it starts when the taxi receives the request and ends when it leaves the last client of the ride. The simple ride is specified by start ride, client and taxi; but other ride types (like reservation or taxi sharing) have other parameters.
-* Taxi sharing: it is the possibility that if different people (it's not required that they know each other) of the same start zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the starting and ending point.
-* Reservation: it is the ability to reserve a taxi until two hours before the time of the ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by start point, end point, client and time. It can be sharing or not. See client to field details.
-* Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying start point, client and other elements if they are available. **KEEP or remove?**
+* Taxi sharing: it is the possibility that if different people (it's not required they know each other) of the same starting zone go to the same direction, even if the end is not the same, to use the same taxi and to have a unique group fee. A sharing ride is identified by clients that use it and for each client the starting and ending point.
+* Reservation: it is the ability to reserve a taxi until two hours before the time of the ride, so when a reservation is done the system makes a taxi request 10 minutes before the ride. The reservation is identified by starting point, ending point, client and time. It can be sharing or not. See client to field details.
+* Taxi request: it is the request the system sends (automatically or after a client request) to taxi to specify a ride, specifying starting point, client and other elements if they are available. **KEEP or remove?**
 * Client request: it is the request for a taxi drive as soon as possible, it contains the client data and the starting point that can be get by GPS (current position) or inserting manually
 * Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues.
     * A zone is specified by a list of bounds.
-    * it has more than 2 positions that compose its bounds.
-    * bounds must be composed by positions and not by none of its subclasses.
-    * bounds must be a set ( it must not contain duplicates )
+    * It has more than 2 positions that compose its bounds.
+    * Bounds must be composed by positions and not by none of its subclasses.
+    * Bounds must be a set (it must not contain duplicates).
 * Task: a task is an action done automatically by the server, for example "send request 10 minutes before ride" is a task
 * Taxi: it is a means of transport that can bring only 4 passengers.
 * System: it is the new system we will create with the database of the old system.
@@ -178,8 +178,8 @@ We suppose that these properties hold in the analyzed world :
 ## Text assumptions
 * There is an old system as described above.
 * We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?[gilles : keep]**
-* Shared requests are took into account until they don't get accepted by any driver.
-* The clients are not registered in the system, because we only need few information (see [Glossary](#glossary)). We made this choice because in the real systems, clients often have no time to register, so we think that without user registration the system is more user friendly and quick to use.
+* Shared requests are taken into account until they don't get accepted by any driver.
+* The clients are not registered in the system, because we only need few information (see [Glossary](#glossary)). We made this choice because in real systems, clients often have no time to register, so we think that without user registration the system is more user friendly and quick to use.
 * The system does not need client registration since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way.
 * There are only normal taxis for only 4 passengers.
 * The registration/deletion by the company of a taxi driver is done in the same way of the old system, so we do not have to do this part. **keep or remove [gilles : keep]**
@@ -189,7 +189,7 @@ We suppose that these properties hold in the analyzed world :
 * We assume that we need a request queue
 * We assume that, since the clients are not registered, they have to check each time the sharing option (if they want to use it)
 * We assume that we have to communicate fees even if the clients don't use the sharing option
-* We assume that we have fee for each passenger, the fee depends of the number of passengers
+* We assume that we have a fee for each passenger, the fee depends of the number of passengers
 * We assume that we have a fixed sharing discount percentage
 * We assume that we have a fixed price per kilometer per passenger
 
