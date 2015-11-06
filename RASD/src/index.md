@@ -415,8 +415,8 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 **Exceptions :** There are no exceptions for this use case.
 
-### Taxi driver responds to a request of immediate ride
-**Name :** Taxi driver responds to request.  
+### Taxi driver responds to a request
+**Name :** Taxi driver responds to request  
 **Actors :** Taxi driver   
 **Entry conditions :** 
 
@@ -449,7 +449,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * The client clicks on the "require immediate ride button".
 * The systems redirects the client to a form where the client has to give some information like the start location of the ride.
 
-**Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver respond to a request of immediate ride" begins.  
+**Exit conditions :** The system forwards the request to the appropriate taxi and the use case "taxi driver respond to a request" begins.  
 **Exceptions :**  The client furnish invalid data (for example a negative or excessive number of passengers (see [1.3] Domain properties)). The request is not forwarded and the client is not redirected until he enters valid data.
 
 ### Client requires a taxi for a later reservation
@@ -468,7 +468,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 * The client fills the form.
 * The client clicks on the "Confirm" button. 
 
-**Exit conditions :** The system redirects the client to a waiting page and forwards the request for a reservation to the appropriate taxi driver. The use case "taxi driver respond to a request of later reservation" begins.   
+**Exit conditions :** The system redirects the client to a waiting page. Ten minutes before the reservation time, thesystems forwardsthe request to the appropriate taxi driver. The use case "taxi driver respond to a request" begins.   
 **Exceptions:** The client furnish invalid data in the form (for example a negative or excessive number of passengers or not valid departure time (see [1.3] Domain properties)). The request is not forwarded and client is not redirected until he enters valid data.
 
 ### Notifying the client of incoming taxi
@@ -477,7 +477,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 **Entry conditions :** The client must have required an immediate ride or a later reservation.  
 **Flow of events :**
 
-* The system sends an alert to the client.
+* The system sends an sms to the client containing the code of the taxi and the arrival time.
 
 
 **Exit conditions :**  The system redirects the client on a page containing the information about the incoming taxi.  
