@@ -229,6 +229,7 @@ We have only one main stakeholder: the government of the city, that wants to imp
 However we can adapt this system to other city (changing the interface with the old system)
 
 ##Other considerations about the system
+**KEEP or remove?**
 
 [//]: # (pagebreak)
 
