@@ -300,7 +300,8 @@ The requirements are grouped under each goal from which it is derived. The goals
 * [G10] Clients should receive a notification with the code of the taxi that takes care of the client's request: 
     * The system must be able to send an sms to the client with the code of the incoming taxi.
 * [G11] Allows clients to require to share the taxi:
-    * The system must be able to find if there are shared reservations or requests for the same time period and having matching start zone and direction. __[TM: check this please]__
+    * The system must be able to find if there are shared requests for the same time period and having matching start zone and direction.
+    * The system must be able to merge together the requests found above.
 * [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system:
     * The system must allow the clients to furnish their personal information to the system before making a request.
 * [G13] Allows clients to specify the number of passengers:
@@ -319,7 +320,7 @@ The requirements are grouped under each goal from which it is derived. The goals
 ![TimePickerActivity][mob2]
 ![LocationActivity][mob3]
 
-In android the phone number it's taken by the app ( Permissions.READ_PHONE_STATE )
+In android the phone number is taken by the app (Permissions.READ_PHONE_STATE)
 
 **desktop**
 
@@ -809,6 +810,8 @@ run get for 5
 The model is consistent:
 
 ![alloy result](../resources/alloy_result.png?raw=true)
+
+[//]: # (pagebreak)
 
 ##World generated
 
