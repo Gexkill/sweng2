@@ -99,7 +99,7 @@ This system stores taxi information into a Mysql database.
 * [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
-* [G7] Allows taxi to know the fee for each ride before it starts via the request notification
+* [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted)
 
 
 ###Clients:
@@ -190,6 +190,7 @@ We suppose that these properties hold in the analyzed world :
 * We assume that we have to communicate fees even if the clients don't use the sharing option
 * We assume that we have fee for each passenger, the fee depend of passengers number
 * We assume that we have a fixed sharing discount percentage
+* We assume that we have a fixed price per kilometer passenger per
 
 ##Constrains
 
@@ -286,7 +287,8 @@ The requirements are grouped under each goal from which it is derived. The goals
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation:
     * The system must wait until ten minutes before the starting time of the reservation and manage it like a immediate ride.
 * [G7] Allows taxi to know the fee for each ride before it starts via the request notification
-    * The system must send with the request notification the fee calculated for the ride, they are calculated using fixed fees for distance.
+    * The system must send a notification with the fee calculated for the ride, they are calculated using fixed fees for distance.
+    * The system must send this notification after confirmation by taxi driver.
     * The system must estimate the distance using the distance between two zones' centers.
     * The system must use a fixed fee for each passenger, so the total fee is given by passenger fee multiplied for passengers number reducing the price of a sharing discount percentage.
     * The system must must give the total fee for each client, if sharing option is enabled and used (there are more than one requests in merged request).
@@ -336,7 +338,9 @@ The requirements are grouped under each goal from which it is derived. The goals
 
 ![LoginActivity][mob4]
 ![MainActivity][mob5]
+
 ![RequestDialog][mob6]
+![confirmActivity][mob7]
 
 
 ###Documentation
@@ -812,6 +816,7 @@ The tools we used to create this RASD document are:
 [mob4]: ../resources/mockup/mobile/loginactivity_taxidriver.png?raw=true
 [mob5]: ../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true
 [mob6]: ../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true
+[mob7]: ../resources/mockup/mobile/confirmactivity_taxidriver.png?raw=true
 [web1]: ../resources/mockup/web/home.png?raw=true
 [web2]: ../resources/mockup/web/main_form.png?raw=true
 [web3]: ../resources/mockup/web/confirmation.png?raw=true
