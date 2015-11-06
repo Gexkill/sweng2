@@ -2,6 +2,7 @@
 
 parsed=()
 checks=()
+runs=()
 
 expand_file() {
   parsed+=($1)
@@ -13,10 +14,12 @@ expand_file() {
       fi
     elif grep -qE '^\s*check\s+' <<<$line; then
       checks+=("$line")
+    elif grep -qE '^\s*run\s+' <<<$line; then
+      runs+=("$line")
     elif grep -qE '^\s*pred\s+show' <<<$line; then
       break
     else
-      echo $line
+      echo "$line"
     fi
   done < $1
 }
@@ -38,6 +41,11 @@ print_checks() {
   for c in "${checks[@]}"; do echo $c; done
 }
 
+print_runs() {
+  for r in "${runs[@]}"; do echo $r; done
+}
+
 expand_file world.als
 get_predicates world.als
 print_checks
+print_runs
