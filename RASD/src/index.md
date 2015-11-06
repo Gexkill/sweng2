@@ -166,14 +166,15 @@ We suppose that these properties hold in the analyzed world :
 * There is an old system as described above.
 * We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?**
 * Shared requests are took into account until them don't get accepted by any driver.
-* The clients are not registered in the system, because we need only their name and their position. **SEE REQUIREMENTS** A client is identified by his personal data: name and phone number
+* The clients are not registered in the system, because we need only few information (see [Glossary](#glossary)). We made this choice because in the real systems often the clients have no time to registers, so we think that without user registration the system is more user friendly and quickly to use.
+* The system doesn't need client registration since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way.
 * There are only normal taxis for only 4 passengers.
 * The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part. **keep or remove**
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
-* The system doesn't need client registration, since it requires only identification data and position and since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way. **See description**
 * All taxi drivers of the city are regulated and use this system
 * The client cannot cancel a request
 * We assume that we need a requests queue
+* We assume that, since the clients are not registered, he has to check each time the sharing option (if he wants to use it)
 
 ##Constrains
 
