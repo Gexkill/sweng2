@@ -496,7 +496,7 @@ In this paragraph some use cases will be described. These use cases can be deriv
 ##Class diagram
 
 [//]: # (bigtrue)
-![classdiagram](../resources/class_diagram.png?raw=true)[//]: # (backslash)
+![classdiagram backslash](../resources/class_diagram.png?raw=true)
 [//]: # (bigfalse)
 
 ##Sequence diagrams
@@ -515,12 +515,12 @@ In this paragraph some use cases will be described. These use cases can be deriv
 
 ##Activity diagrams
 
-![shared request management diagram](../resources/shared_request_management.png?raw=true)[//]: # (backslash)
+![shared request management diagram backslash](../resources/shared_request_management.png?raw=true)
 
 
 ##State diagrams
 
-![mobile FSM](../resources/mobile_FSM.png?raw=true)[//]: # (backslash)
+![mobile FSM backslash](../resources/mobile_FSM.png?raw=true)
 
 
 [//]: # (pagebreak)
@@ -765,7 +765,7 @@ check pathSameNumberOfLoadAndDrop
 ##World generated
 
 [//]: # (bigtrue)
-![world generated](../resources/world-generated.png?raw=true)[//]: # (backslash)
+![world generated backslash](../resources/world-generated.png?raw=true)
 [//]: # (bigfalse)
 
 
