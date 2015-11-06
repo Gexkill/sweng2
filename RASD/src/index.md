@@ -75,19 +75,19 @@ We will project and implement myTaxiService, which is a service based on mobile 
 * clients
 
 The system allows clients to reserve taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
-On the other side the mobile app allows taxi driver to accept or reject a ride request and to communicate automatically his position (so the zone).  
-The clients are not registered since the company wants a quickly system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logging each time).
+On the other side the mobile app allows taxi drivers to accept or reject a ride request and to communicate automatically his position (so the zone).  
+The clients are not registered since the company wants a quick system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logging each time).
 
-The system includes extra services and functionalities such as taxi sharing
+The system includes extra services and functionalities such as taxi sharing.
 
 The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients.
 
 ###Actual system
-Until now the taxi company has a system where the clients have to call a call center communicating its position via voice (so it can be not correct), the call center's operator inserts the request into an internal information system and the taxi driver can accept or reject it via a dedicated hardware device.
+Until now the taxi company has a system where the clients have to call a call center communicating their position via voice (so it can be not correct), the call center's operator inserts the request into an internal information system and the taxi driver can accept or reject it via a dedicated hardware device.
 
 The system sends automatically an SMS to the client with the estimated arrival time and the taxi name.
 
-When the taxi driver join into the company he receives the login data that he cannot change.
+When the taxi driver joins into the company he receives the login data that he cannot change.
 
 This system stores taxi information into a Mysql database. 
 
