@@ -71,7 +71,7 @@
 ##Description of the given problem
 We will project and implement myTaxiService, which is a service based on mobile application and web application, with two different targets of people:
 
-* taxi driver
+* taxi drivers
 * clients
 
 The system allows clients to reserve taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
@@ -99,15 +99,17 @@ This system stores taxi information into a Mysql database.
 * [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
+* [G7] Allows taxi to know the fee for each ride before it starts via the request notification
 
 
 ###Clients:
-* [G7] Allows clients to request for an immediate taxi ride.
-* [G8] Allows clients to request for the reservation of a taxi at least two hours in advance.
-* [G9] Clients should receive a SMS notification with the ETA and code of the taxi that takes care of the client's request. 
-* [G10] Allows clients to require to share the taxi.
-* [G11] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system.
-* [G12] Allow clients to specify number of passengers.
+* [G8] Allows clients to request for an immediate taxi ride.
+* [G9] Allows clients to request for the reservation of a taxi at least two hours in advance.
+* [G10] Clients should receive a SMS notification with the ETA and code of the taxi that takes care of the client's request. 
+* [G11] Allows clients to require to share the taxi.
+* [G12] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system.
+* [G13] Allow clients to specify number of passengers.
+* [G14] Allow clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
 
 
 ##Domain properties
@@ -170,6 +172,7 @@ We suppose that these properties hold in the analyzed world :
 * Push notification: is a notification sent to a smartphone using the mobile application, so it must be installed.
 * Push service: is a service that allow to send push notification with own API
 * Path: it's a structure that contains at least 2 positions
+* Sharing discount percentage: discount percentage applied only if the sharing option is enabled and there are more than one requests in the merged request
 
 ## Text assumptions
 * There is an old system as described above.
@@ -184,6 +187,9 @@ We suppose that these properties hold in the analyzed world :
 * The client cannot cancel a request
 * We assume that we need a requests queue
 * We assume that, since the clients are not registered, he has to check each time the sharing option (if he wants to use it)
+* We assume that we have to communicate fees even if the clients don't use the sharing option
+* We assume that we have fee for each passenger, the fee depend of passengers number
+* We assume that we have a fixed sharing discount percentage
 
 ##Constrains
 
@@ -278,26 +284,36 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must notify the client if no taxi driver in the queue accepts the ride.
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation:
     * The system must wait until ten minutes before the starting time of the reservation and manage it like a immediate ride.
-    
+* [G7] Allows taxi to know the fee for each ride before it starts via the request notification
+    * The system must send with the request notification the fee calculated for the ride, they are calculated using fixed fees for distance.
+    * The system must estimate the distance using the distance between two zones' centers.
+    * The system must use a fixed fee for each passenger, so the total fee is given by passenger fee multiplied for passengers number reducing the price of a sharing discount percentage.
+    * The system must must give the total fee for each client, if sharing option is enabled and used (there are more than one requests in merged request).
+    * The system must to calculate fee during the request merging
+
+
 ###Clients:
-* [G7] Allows clients to request for an immediate taxi ride:
+* [G8] Allows clients to request for an immediate taxi ride:
     * The system must be able to check the position of the client.
     * The system must not accept requests of clients outside the area of the city.
     * The system must transfer the request to the appropriate taxi driver.
     * The system must determine be able to determine the zone where the client is located according to the client's GPS position.
-* [G8] Allows clients to request for the reservation of a taxi at least two hours in advance:
+* [G9] Allows clients to request for the reservation of a taxi at least two hours in advance:
     * The system must be able to check the origin and the destination of reservation.
     * The system must not accept reservations with an origin outside the area of the city.
     * The system must transfer the reservation to the appropriate taxi driver.
-* [G9] Clients should receive a notification with the code of the taxi that takes care of the client's request: 
+* [G10] Clients should receive a notification with the code of the taxi that takes care of the client's request: 
     * The system must be able to send an sms to the client with the code of the incoming taxi.
-* [G10] Allows clients to require to share the taxi:
+* [G11] Allows clients to require to share the taxi:
     * The system must be able to find if there are reservations or requests for the same time period and having matching itineraries.
     * The system must be able to merge together the reservations and request found above if the cumulated number of passengers of the corresponding requests or reservations does not exceed 4.
-* [G11] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system:
+* [G12] Allow clients to identify themselves via phone number (and name) not login, they are not registered into the system:
     * The system must allow the clients to furnish their personal information to the system before making a request.
-* [G12] Allow clients to specify number of passengers:
+* [G13] Allow clients to specify number of passengers:
     * The system must allow the client to specify the number of passengers during the request or reservation of the ride.
+* [G14] Allow clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+    * The system must insert the fee for the request in the SMS notification
+    * The system must use fee calculated as specified in [G7]
 
 ##Non-functional requirements
 
