@@ -128,8 +128,8 @@ We suppose that these properties hold in the analyzed world :
 * The old system works properly without problems.
 * If a queue is empty, a taxi joins in this queue in max 15 minutes.
 * Taxi codes and phone number are unique.
-* Each taxi belongs to one taxi driver
-* Each taxi driver has one taxi
+* Each taxi belongs to one taxi driver.
+* Each taxi driver has one taxi.
 
 ##Glossary
 * Client: he is a client of the service. He should insert each time he performs a request/reservation the following information
