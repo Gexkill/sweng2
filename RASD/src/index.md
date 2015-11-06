@@ -387,11 +387,11 @@ Since they are 6 and a taxi can host only four passengers, they will need at lea
 
 When they come back from their trip they want to go to a pub. Since they are together and go to the same location, they can order a unique ride indicating 6 as the passengers number.  
 
-At the end of the night the want to come back to their home, but since are in different places (even if in the same zone) each of them have to do their own request (checking sharing option if they want).
+At the end of the night the want to come back to their home, but since they are in different places (even if in the same zone) each of them have to do their own request (checking sharing option if they want).
 
 ##Scenario 3
 
-John wants to visit the Duomo tomorrow. He decides to reserve a taxi. Therefore, he opens the MyTaxiDriver website on his laptop and clicks on the "reserve a taxi button". He is redirected on a form where he has to fill some information about his ride. After submitting his form, he receives a confirmation message. His request has been taken into account, but this does not mean that a taxi driver has accepted to perform the ride. A few minutes later, John is notified by sms of the confirmation that his reservation will be performed and of the code of the taxi taking care of the ride. 
+John wants to visit the Duomo tomorrow. He decides to reserve a taxi. Therefore, he opens the MyTaxiDriver website on his laptop and clicks on the "reserve a taxi button". He is redirected to a form where he has to fill some information about his ride. After submitting his form, he receives a confirmation message. His request has been taken into account, but this does not mean that a taxi driver has accepted to perform the ride. A few minutes later, John is notified by sms of the confirmation that his reservation will be performed and of the code of the taxi taking care of the ride. 
 
 ##Scenario 4
 
@@ -400,7 +400,7 @@ Julia is a taxi driver. She has just finished her last commission and has still 
 
 ##Scenario 5
 
-Bob wants to go and see the football match at the stadium tonight. He decides to reserve a taxi to bring him to the stadium, and to bring him back home after the game. To reduce the cost of the rides he decide to try to share a taxi. To do so, he enters the MyTaxiDriver application on his smartphone, goes to the "Client home page", activates the slide button to enable the "sharing taxi" option and then clicks on the "Reserve" button. Then he has to fill a form to indicate all the information about the reservation. After doing so, he has to repeat the whole operation to reserve the return trip. 
+Bob wants to go and see the football match at the stadium tonight. He decides to reserve a taxi to bring him to the stadium and to bring him back home after the game. To reduce the cost of the rides he decide to try to share a taxi. To do so, he enters the MyTaxiDriver application on his smartphone, goes to the "Client home page", activates the slide button to enable the "sharing taxi" option and then clicks on the "Reserve" button. Then he has to fill a form to indicate all the information about the reservation. After doing so, he has to repeat the whole operation to reserve the return trip. 
 
 
 ##Scenario 6
@@ -410,7 +410,7 @@ Mark is a taxi driver. At the beggining of his workday, Marks opens his MyTaxiDr
 
 ##Scenario 7
 
-Bob tells his cousin Alice that he is going to the stadium tonight. Alice is also interested in football so she decides to go with Bob to see the match. However, Alice doesn not know how to go to the stadium. Bob tells her about the MyTaxiDriver application and convinces Alice to give it a try. Alice tries to reserve a trip to the stadium, but she does not respect the "reserve two hours before the ride" condition and the reservation fails. Then she tries to request for an immediate ride but no taxi driver accepts Alice's request. Alice will have to stay at home tonight.  
+Bob tells his cousin Alice that he is going to the stadium tonight. Alice is also interested in football so she decides to go with Bob to see the match. However, Alice doesn't know how to go to the stadium. Bob tells her about the MyTaxiDriver application and convinces Alice to give it a try. Alice tries to reserve a trip to the stadium, but she does not respect the "reserve two hours before the ride" condition and the reservation fails. Then she tries to request for an immediate ride but no taxi driver accepts Alice's request. Alice will have to stay at home tonight.  
 
 [//]: # (pagebreak)
 
