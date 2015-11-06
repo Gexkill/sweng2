@@ -1,16 +1,14 @@
 open driver
 open path
 
-sig Amount {}
-
 sig Ride {
  drivers: some Driver,
  path: Path,
- prices: Client -> Amount
+ prices: Client -> Int
 }
 
 fact RideContainsPricesForItsClients {
-	all r: Ride | r.prices.(Amount) = r.path.positions.elems.(client)
+	all r: Ride | r.prices.(Int) = r.path.positions.elems.(client)
 }
 
 pred show() {
