@@ -294,21 +294,21 @@ The requirements are grouped under each goal from which it is derived. The goals
 
 **mobile**
 
-![mobile 1](../resources/mockup/mobile/locationactivity_passenger.png?raw=true)
-![mobile 2](../resources/mockup/mobile/mainactivity_passenger.png?raw=true)
-![mobile 3](../resources/mockup/mobile/timeactivity_passenger.png?raw=true)
+![MainActivity][mob1]
+![TimePickerActivity][mob2]
+![LocationActivity][mob3]
 
 **desktop**
 
-![web 1](../resources/mockup/web/main_form.png?raw=true)
-![web 2](../resources/mockup/web/home.png?raw=true)
-![web 3](../resources/mockup/web/confirmation.png?raw=true)
+![HomePage][web1]
+![MainForm][web2]
+![Confirmation][web3]
 
 ###Taxi driver interface
 
-![mobile 4](../resources/mockup/mobile/loginactivity_taxidriver.png?raw=true)
-![mobile 5](../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true)
-![mobile 6](../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true)
+![LoginActivity][mob4]
+![MainActivity][mob5]
+![RequestDialog][mob6]
 
 
 ###Documentation
@@ -776,3 +776,14 @@ The tools we used to create this RASD document are:
 ## Gilles Dejaegere
 
 ## Massimo Dragano
+
+
+[mob1]: ../resources/mockup/mobile/mainactivity_passenger.png?raw=true
+[mob2]: ../resources/mockup/mobile/timeactivity_passenger.png?raw=true 
+[mob3]: ../resources/mockup/mobile/locationactivity_passenger.png?raw=true
+[mob4]: ../resources/mockup/mobile/loginactivity_taxidriver.png?raw=true
+[mob5]: ../resources/mockup/mobile/mainactivity_taxidriver.png?raw=true
+[mob6]: ../resources/mockup/mobile/requestdialog_taxidriver.png?raw=true
+[web1]: ../resources/mockup/web/home.png?raw=true
+[web2]: ../resources/mockup/web/main_form.png?raw=true
+[web3]: ../resources/mockup/web/confirmation.png?raw=true
