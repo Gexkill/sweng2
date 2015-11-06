@@ -558,10 +558,10 @@ fact taxiHaveOnlyOneDriver {
 all d1, d2:Driver | d1 != d2 => d1.taxi != d2.taxi
 }
 
-sig MString { }
+sig PhoneNumber { }
 
 sig Client {
-phoneNumber: MString
+phoneNumber: PhoneNumber
 }
 
 fact phoneNumberAreUnique {
@@ -584,6 +584,16 @@ sig LoadPosition extends StopPosition {
 sig DropPosition extends StopPosition {
 }
 
+pred StopPosition.sameClient[other: StopPosition] {
+this.client = other.client
+}
+
+pred StopPosition.complement[other: StopPosition] {
+other != this
+this.sameClient[other]
+(this in DropPosition) <=> (other in LoadPosition)
+}
+
 
 sig Path {
 positions: seq StopPosition
@@ -595,15 +605,13 @@ fact pathPositionsAreUnique {
 all p: Path | not p.positions.hasDups
 }
 
-
-fact pathSameNumberOfLoadAndDrop {
-all p: Path | #(p.positions.elems & DropPosition) = #(p.positions.elems & LoadPosition)
-}
-
 fact pathClientHasALoadAndADrop {
 all p: Path | all i1: p.positions.inds |
 one i2: p.positions.inds | i2 != i1 and
-p.positions[i1].client = p.positions[i2].client
+let p1 = p.positions[i1] | let p2 = p.positions[i2] |
+p1.complement[p2] and not ( one i3: p.positions.inds |
+i3 != i2 and i3 != i1 and let p3=p.positions[i3] |
+p3.complement[p1] or p3.complement[p2])
 }
 
 fact pathStartWithLoad {
@@ -617,6 +625,18 @@ all p: Path | p.positions.last in DropPosition
 assert pathPositionsAreEven {
 all p:Path| rem[#p.positions, 2] = 0
 }
+
+assert clientGetInAndGetOut {
+all p: Path| all i1: p.positions.inds | one i2: p.positions.inds |
+i2 != i1 and let p0=p.positions[i1] | let p1=p.positions[i2] |
+p0.complement[p1]
+}
+
+assert pathSameNumberOfLoadAndDrop {
+all p: Path | #(p.positions.elems & DropPosition) = #(p.positions.elems & LoadPosition)
+}
+
+
 
 
 
@@ -738,6 +758,8 @@ pred show() {
 
 run show for 6
 check pathPositionsAreEven
+check clientGetInAndGetOut
+check pathSameNumberOfLoadAndDrop
 ```
 
 ##World generated
