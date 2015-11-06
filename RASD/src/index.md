@@ -245,8 +245,8 @@ However we can adapt this system to other city (changing the interface with the 
 #Actors identifying
 The actors of our system are basically two:
 
-* Taxi driver: it is a taxi driver registered automatically in the system by the taxi company
-* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location)
+* Taxi driver: it is a taxi driver registered automatically in the system by the taxi company.
+* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he have to insert only name, phone number and location).
 
 [//]: # (pagebreak)
 
