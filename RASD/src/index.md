@@ -25,9 +25,9 @@
         1. [Hardware limitations](#hardware-limitations)
         1. [Interfaces to other applications](#interfaces-to-other-applications)
         1. [Parallel operation](#parallel-operation)
-        1. [Reference documents](#reference-documents)
     1. [Proposed system](#proposed-system)
     1. [Identifying stakeholders](#identifying-stakeholders)
+    1. [Reference documents](#reference-documents)
 1. [Actors identifying](#actors-identifying)
 1. [Requirements](#requirements)
     1. [Functional requirements](#functional-requirements)
@@ -216,14 +216,6 @@ The system must require to client/taxi driver the permission to get his position
 ###Parallel operation
 The server supports parallel operations from different clients and different taxi drivers.
 
-###Reference documents
-* Specification Document: Assignments 1 and 2 (RASD and DD).pdf
-* IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications.
-* Examples documents: 
-    * MeteoCal_RASD_example2.pdf
-    * RASD Example SWIMv2.pdf
-    * RASD_meteocal-example1.pdf
-
 ##Proposed system
 We will implement a client-server architecture (Fig. 2) based on common REST API and MVC pattern, so with just one server application we manage both web application and mobile application, obviously we will have a version for taxi driver and a version for clients.
 
@@ -233,6 +225,13 @@ We will implement a client-server architecture (Fig. 2) based on common REST API
 We have only one main stakeholder: the government of the city who wants to improve the current taxi service in terms of usability, efficiency and cost.   
 However we can adapt this system to other cities (changing the interface with the old system)
 
+##Reference documents
+* Specification Document: Assignments 1 and 2 (RASD and DD).pdf
+* IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications.
+* Examples documents: 
+    * MeteoCal_RASD_example2.pdf
+    * RASD Example SWIMv2.pdf
+    * RASD_meteocal-example1.pdf
 
 [//]: # (pagebreak)
 
@@ -309,6 +308,8 @@ The requirements are grouped under each goal from which it is derived. The goals
 * [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The system must insert the fee for the request in the SMS notification
     * The system must use fee calculated as specified in [G7].
+
+[//]: # (pagebreak)
 
 ##Non-functional requirements
 
