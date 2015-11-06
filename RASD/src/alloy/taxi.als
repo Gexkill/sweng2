@@ -1,6 +1,6 @@
 sig Taxi {
- code: one Int,
- seats: one Int
+ code: Int,
+ seats: Int
 } {
  code > 0
  seats > 0

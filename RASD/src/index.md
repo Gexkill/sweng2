@@ -124,10 +124,10 @@ We suppose that these properties hold in the analyzed world :
 * Taxi drivers answer all types of demands in less than 5 minutes.
 * The client pays the taxi driver directly for each commission.
 * A taxi can be in only one zone at the same time and this is the real zone.
-* Client make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7?**
+* Client make a reservation two hours before the ride **Here as domain or do we have to do the requirements into G7? [Gilles : I would say requirements]**
 * When a new taxi driver joins in the taxi company the taxi company registers him in the information system. Analogously when a taxi driver exits from the company, the company deletes him from the information system.
 * The taxi arrives at start point with max 30 minutes of delay.
-* Start zone may be different from end zone. **KEEP or remove?**
+* Start zone may be different from end zone. **KEEP or remove?[Gilles : I would remove]**
 * The old system works properly without problems.
 * If a queue is empty, a taxi joins in this queue in max 15 minutes.
 * Taxi codes and phone numbers are unique.
@@ -177,12 +177,12 @@ We suppose that these properties hold in the analyzed world :
 
 ## Text assumptions
 * There is an old system as described above.
-* We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?**
+* We should develop a mobile application for clients where clients can make a reservation using the GPS position or by inserting their position. **Keep or remove?[gilles : keep]**
 * Shared requests are took into account until them don't get accepted by any driver.
-* The clients are not registered in the system, because we need only few information (see [Glossary](#glossary)). We made this choice because in the real systems often the clients have no time to registers, so we think that without user registration the system is more user friendly and quickly to use.
-* The system doesn't need client registration since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way.
+* The clients are not registered in the system, because we only need few information (see [Glossary](#glossary)). We made this choice because in the real systems clients often have no time to registers, so we think that without user registration the system is more user friendly and quickly to use.
+* The system does not need client registration since it works like the old system (where every client must say identification data via call). The real applications of many cities run in this way.
 * There are only normal taxis for only 4 passengers.
-* The registration/deletion by company of a taxi driver is done in the same way of the old system, so we don't have to do this part. **keep or remove**
+* The registration/deletion by company of a taxi driver is done in the same way of the old system, so we do not have to do this part. **keep or remove [gilles : keep]**
 * We need information only about taxi driver, not about taxi vehicle. So we store information only about taxi driver.
 * All taxi drivers of the city are regulated and use this system
 * The client cannot cancel a request
