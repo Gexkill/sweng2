@@ -21,3 +21,13 @@
 * UML except sequence diagrams
 * alloy
 * Mock up
+
+# DD
+## Claudio Cardinale
+
+
+## Gilles Dejaegere
+
+
+## Massimo Dragano
+
