@@ -14,7 +14,7 @@
 1. [Introduction](#introduction)
     1. [Purpose](#purpose)
     1. [Scope](#scope)
-    1. [Definitions, Acronyms, abbreviations](#)
+    1. [Definitions, acronyms, abbreviations](#definitions-acronyms-abbreviations)
     1. [Reference documents](#reference-documents)
     1. [Document structure](#document-structure)
 1. [Architectural design](#architectural-design)
@@ -43,7 +43,7 @@
    
 ## Purpose
 ## Scope
-## Definitions, Acronyms, abbreviations
+## Definitions, acronyms, abbreviations
 ## Reference documents
 ## Document structure
 
