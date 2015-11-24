@@ -23,11 +23,18 @@
 * Mock up
 
 # DD
+Refered to official guide
 ## Claudio Cardinale
-
+* 3
+* 4.A
+* 6
 
 ## Gilles Dejaegere
-
+* 4.B
+* 4.E
 
 ## Massimo Dragano
+* 4.C
+* 4.F
+* 4.G
 
