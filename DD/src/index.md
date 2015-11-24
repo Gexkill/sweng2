@@ -78,9 +78,14 @@ We will design:
 
 * RASD: Requirements analysis and specifications document
 * DD: design document
+* SMS: short message service; it is a notification sent to a mobile phone, we need an SMS gateway to use it.
+* SMS gateway: it is a service which allows to send SMS via standard API.
+* API: application programming interface; it is a common way to communicate with another system.
+* Push notification: it is a notification sent to a smartphone using the mobile application, so it must be installed.
+* Push service: it is a service that allows to send push notifications with own API
 
 
-**INSERT OTHER GLOSSARY FROM RASD**
+**COMPLETE INSERTING OTHER GLOSSARY FROM RASD**
 
 ## Reference documents
 * RASD produced before **Write version number**
@@ -88,7 +93,11 @@ We will design:
 * Structure of the design document.pdf
 
 ## Document structure
-* introduction: in this section we introducing the design document, saying why we do it and which parts are covered from it that are not covered by RASD
+* Introduction: in this section we introducing the design document, saying why we do it and which parts are covered from it that are not covered by RASD
+* Architecture Design: this section is divided into two parts:
+	1. High level design
+	1. Architecture chosen presented via diagrams
+
 
 **COMPLETE**
 
@@ -96,7 +105,13 @@ We will design:
 
 # Architectural design
 ## Overview
+
+INSERT GRAPH with friewall and link with external services and old system
+
 ## High level components and their interaction
+
+Talk about reliability and availability
+
 ## Component view
 ## Deploying view
 ## Runtime view
@@ -105,6 +120,11 @@ We will design:
 
 ### MVC
 
+IDEAS:
+
+* client-server
+* Plugin pattern
+* standard design patterns used
 
 ## Other design decisions
 
@@ -112,6 +132,8 @@ We will design:
 [//]: # (pagebreak)
 
 # Algorithm design
+
+Describe queue and availability algorithm 
 
 [//]: # (pagebreak)
 
