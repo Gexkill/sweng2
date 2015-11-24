@@ -16,6 +16,7 @@
   * 06/11/15: 5h
 * DD
   * 16/11/15: 1h
+  * 23/11/15: 30m
 
 # Gilles Dejaegere
 * RASD
