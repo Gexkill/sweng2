@@ -29,6 +29,7 @@
     1. [Other design decisions](#other-design-decisions)
 1. [Algorithm design](#algorithm-design)
 1. [User interface design](#user-interface-design)
+	1. [Mockups](#mockups)
     1. [UX diagrams](#ux-diagrams)
 1. [Requirements traceability](#requirements-traceability)
 1. [References](#references)
@@ -98,20 +99,35 @@ We will design:
 * Architecture Design: this section is divided into two parts:
 	1. High level design
 	1. Architecture chosen presented via diagrams
+* Algorithms Design: in this section we describe the most critical parts via some algorithm written in pseudo code
+* User Interface Design: we inserted mockups and user experience explained via UX diagrams
+* Requirements Traceability: This section aims to explain how the decisions taken in the RASD are linked to design elements
 
-
-**COMPLETE**
+**WRITE MORE**
 
 [//]: # (pagebreak)
 
 # Architectural design
 ## Overview
 
-INSERT GRAPH with friewall and link with external services and old system
+We have a three tier architecture.
+
+![General architecture][tierGeneral]
+
+![Tiers][tierStructure]
+
+On the client we don't have static GUI but a dynamic GUI that is generated on client side, in fact in the client there is a module that interacts with the application server via RESTful API.  
+With this architecture we can easily move this application to a cloud system, for example to amzon AWS where we have dedicated cloud servers with load balance for database and other for application logic on demand.
+
+**Write more and make graph of interaction with the old system KEEP OR REMOVE?**
 
 ## High level components and their interaction
 
-Talk about reliability and availability
+![High level components][4B]
+
+The high level composant architecture is composed of four different elements types. The main element is the a singleton, the central. The central receives request or reservations from other elements, the clients. The client can initiate this communication from his mobile application or from the webpage of the application. This communication is made in a synchronous way since the client, who initiates the communication, has to wait the answer of the central that acknowledge him that his request has been taken into account. The Central will later send an asynchronous message to the client in the form of a sms to inform him about the code of the incoming taxi as well as the ETA.  
+The central communicates also with a third type of component, the taxi drivers. The central can send synchronous messages to the taxi drivers to propose them different request that the taxi driver can accept or reject. The taxi driver can send two type of messages to the central. First, he can change his availability. This must be done in a synchronous way since the central may have to respond with the position of the taxi driver in the waiting queue. The taxi driver can also send his position to the central. This can be done asynchronously. Taxi drivers also have to communicate with synchronous message with the central to log in.  
+A final type of composent is also present, the old application. The old application still manages the registration of the new taxi drivers. Therefore, the central communicates synchronously with the old data base to exctract the taxi drivers.
 
 ## Component view
 ## Deploying view
@@ -119,14 +135,65 @@ Talk about reliability and availability
 ## Component interfaces
 ## Selected architectural styles and patterns
 
-### MVC
+### Overall Architecture
 
-IDEAS:
+Our application will be divided into 3 tiers:
 
-* client-server
-* Plugin pattern
-* standard design patterns used
-* cloud
+1. Database ( DAL: Data Access Layer )
+1. Application Logic ( BLL: Business Logic Layer )
+1. Thin Client ( a simple and easy interface to BLL )
+
+### Protocols
+
+Our tiers are connected through network and exchange data with the following protocols.
+
+##### PDO: PHP Data Objects
+
+used by the BLL to communicate with the DAL.
+
+currently supported databases:
+
+  - DBLIB: FreeTDS / Microsoft SQL Server / Sybase
+  - Firebird: Firebird/Interbase 6
+  - IBM (IBM DB2)
+  - INFORMIX - IBM Informix Dynamic Server
+  - MYSQL: MySQL 3.x/4.0
+  - OCI: Oracle Call Interface
+  - ODBC: ODBC v3 (IBM DB2 and unixODBC)
+  - PGSQL: PostgreSQL
+  - SQLITE: SQLite 3.x
+
+##### RESTful API with JSON
+
+used by clients ( both mobile apps and web browsers ) to interact with the BLL.
+API calls that need authentication are required to authenticate via HTTP basic authentication for each request.
+exchanged data will be secured using SSL.
+
+as now ( v1 ) our exposed methods are the following:
+
+  - api/v1/driver [auth]
+    - GET: get driver info
+    - PATCH/PUT: update driver data ( position and available status )
+  - api/v1/request
+    - POST: create a new request
+  - api/v1/reservation
+    - POST: create a new reservation
+  - api/v1/ride
+    - POST: create a new ride
+
+### Design patterns
+
+##### MVC
+
+Model-View-Controller pattern has been widely in our application.
+
+Our Application server will use the Laravel PHP framework, which is an MVC framework.
+Our Web interface will use AngularJS, which is an MVC framework.
+
+##### Adapter
+
+Adapters are used in our mobile application to adapt the Driver interface to the RESTful API one.
+
 
 ## Other design decisions
 
@@ -141,6 +208,10 @@ Describe queue and availability algorithm
 [//]: # (pagebreak)
 
 # User interface design
+
+## Mockups
+
+We have already done mockups in RASD in section [3.2.1](https://github.com/sweng2/sweng2/blob/master/RASD/src/index.md#client-interface) and [3.2.2](https://github.com/sweng2/sweng2/blob/master/RASD/src/index.md#taxi-driver-interface)
 
 ## UX diagrams
 
@@ -175,7 +246,9 @@ Maybe software used
 ## Massimo Dragano
 
 
+[tierGeneral]: ../resources/architecture/general.png?raw=true
+[tierStructure]: ../resources/architecture/structure.png?raw=true
 [uxUM]: ../resources/UX/ux_user_mobile.png?raw=true
 [uxUD]: ../resources/UX/ux_user_desktop.png?raw=true
 [uxTM]: ../resources/UX/ux_taxidriver.png?raw=true
-
+[4B]: ../resources/4B/high_level_components.png?raw=true
