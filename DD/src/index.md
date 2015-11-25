@@ -29,6 +29,7 @@
     1. [Other design decisions](#other-design-decisions)
 1. [Algorithm design](#algorithm-design)
 1. [User interface design](#user-interface-design)
+	1. [Mockups](#mockups)
     1. [UX diagrams](#ux-diagrams)
 1. [Requirements traceability](#requirements-traceability)
 1. [References](#references)
@@ -98,9 +99,11 @@ We will design:
 * Architecture Design: this section is divided into two parts:
 	1. High level design
 	1. Architecture chosen presented via diagrams
+* Algorithms Design: in this section we describe the most critical parts via some algorithm written in pseudo code
+* User Interface Design: we inserted mockups and user experience explained via UX diagrams
+* Requirements Traceability: This section aims to explain how the decisions taken in the RASD are linked to design elements
 
-
-**COMPLETE**
+**WRITE MORE**
 
 [//]: # (pagebreak)
 
@@ -145,6 +148,10 @@ Describe queue and availability algorithm
 [//]: # (pagebreak)
 
 # User interface design
+
+## Mockups
+
+We have already done mockups in RASD in section [3.2.1](https://github.com/sweng2/sweng2/blob/master/RASD/src/index.md#client-interface) and [3.2.2](https://github.com/sweng2/sweng2/blob/master/RASD/src/index.md#taxi-driver-interface)
 
 ## UX diagrams
 
