@@ -110,7 +110,16 @@ We will design:
 # Architectural design
 ## Overview
 
-INSERT GRAPH with friewall and link with external services and old system
+We have a three tier architecture.
+
+![General architecture][tierGeneral]
+
+![Tiers][tierArchitecture]
+
+On the client we don't have static GUI but a dynamic GUI that is generated on client side, in fact in the client there is a module that interacts with the application server via RESTful API.  
+With this architecture we can easily move this application to a cloud system, for example to amzon AWS where we have dedicated cloud servers with load balance for database and other for application logic on demand.
+
+**Write more and make graph of interaction with the old system KEEP OR REMOVE?**
 
 ## High level components and their interaction
 
@@ -127,6 +136,8 @@ A final type of composent is also present, the old application. The old applicat
 ## Selected architectural styles and patterns
 
 ### MVC
+
+insert graph of frameworks
 
 IDEAS:
 
@@ -186,6 +197,8 @@ Maybe software used
 ## Massimo Dragano
 
 
+[tierGeneral]: ../resources/architecture/general.png?raw=true
+[tierStructure]: ../resources/architecture/structure.png?raw=true
 [uxUM]: ../resources/UX/ux_user_mobile.png?raw=true
 [uxUD]: ../resources/UX/ux_user_desktop.png?raw=true
 [uxTM]: ../resources/UX/ux_taxidriver.png?raw=true
