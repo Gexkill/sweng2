@@ -135,16 +135,65 @@ A final type of composent is also present, the old application. The old applicat
 ## Component interfaces
 ## Selected architectural styles and patterns
 
-### MVC
+### Overall Architecture
 
-insert graph of frameworks
+Our application will be divided into 3 tiers:
 
-IDEAS:
+1. Database ( DAL: Data Access Layer )
+1. Application Logic ( BLL: Business Logic Layer )
+1. Thin Client ( a simple and easy interface to BLL )
 
-* client-server
-* Plugin pattern
-* standard design patterns used
-* cloud
+### Protocols
+
+Our tiers are connected through network and exchange data with the following protocols.
+
+##### PDO: PHP Data Objects
+
+used by the BLL to communicate with the DAL.
+
+currently supported databases:
+
+  - DBLIB: FreeTDS / Microsoft SQL Server / Sybase
+  - Firebird: Firebird/Interbase 6
+  - IBM (IBM DB2)
+  - INFORMIX - IBM Informix Dynamic Server
+  - MYSQL: MySQL 3.x/4.0
+  - OCI: Oracle Call Interface
+  - ODBC: ODBC v3 (IBM DB2 and unixODBC)
+  - PGSQL: PostgreSQL
+  - SQLITE: SQLite 3.x
+
+##### RESTful API with JSON
+
+used by clients ( both mobile apps and web browsers ) to interact with the BLL.
+API calls that need authentication are required to authenticate via HTTP basic authentication for each request.
+exchanged data will be secured using SSL.
+
+as now ( v1 ) our exposed methods are the following:
+
+  - api/v1/driver [auth]
+    - GET: get driver info
+    - PATCH/PUT: update driver data ( position and available status )
+  - api/v1/request
+    - POST: create a new request
+  - api/v1/reservation
+    - POST: create a new reservation
+  - api/v1/ride
+    - POST: create a new ride
+
+### Design patterns
+
+##### MVC
+
+Model-View-Controller pattern has been widely in our application.
+
+Our Application server will use the Laravel PHP framework, which is an MVC framework.
+Our Web interface will use AngularJS, which is an MVC framework.
+
+##### Adapter
+
+Adapters are used in our mobile application to adapt the Driver interface to the RESTful API one.
+
 
 ## Other design decisions
 
