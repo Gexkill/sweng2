@@ -25,10 +25,11 @@
     1. [Runtime view](#runtime-view)
     1. [Component interfaces](#component-interfaces)
     1. [Selected architectural styles and patterns](#selected-architectural-styles-and-patterns)
-    	1. [MVC](#mvc)
+        1. [MVC](#mvc)
     1. [Other design decisions](#other-design-decisions)
 1. [Algorithm design](#algorithm-design)
 1. [User interface design](#user-interface-design)
+    1. [UX diagrams](#ux-diagrams)
 1. [Requirements traceability](#requirements-traceability)
 1. [References](#references)
 1. [Hours of work](#hours-of-work)
@@ -125,6 +126,7 @@ IDEAS:
 * client-server
 * Plugin pattern
 * standard design patterns used
+* cloud
 
 ## Other design decisions
 
@@ -133,13 +135,24 @@ IDEAS:
 
 # Algorithm design
 
+Describe algorithm of fee  
 Describe queue and availability algorithm 
 
 [//]: # (pagebreak)
 
 # User interface design
 
+## UX diagrams
+
+![UX user mobile][uxUM]
+
+![UX user desktop][uxUD]
+
+![UX taxi driver mobile][uxTM]
+
+
 [//]: # (pagebreak)
+
 
 # Requirements traceability
 
@@ -162,4 +175,7 @@ Maybe software used
 ## Massimo Dragano
 
 
+[uxUM]: ../resources/UX/ux_user_mobile.png?raw=true
+[uxUD]: ../resources/UX/ux_user_desktop.png?raw=true
+[uxTM]: ../resources/UX/ux_taxidriver.png?raw=true
 
