@@ -114,7 +114,7 @@ INSERT GRAPH with friewall and link with external services and old system
 
 ## High level components and their interaction
 
-**Insert adapted diagram**
+![High level components][4B]
 
 The high level composant architecture is composed of four different elements types. The main element is the a singleton, the central. The central receives request or reservations from other elements, the clients. The client can initiate this communication from his mobile application or from the webpage of the application. This communication is made in a synchronous way since the client, who initiates the communication, has to wait the answer of the central that acknowledge him that his request has been taken into account. The Central will later send an asynchronous message to the client in the form of a sms to inform him about the code of the incoming taxi as well as the ETA.
 The central communicates also with a third type of component, the taxi drivers. The central can send synchronous messages to the taxi drivers to propose them different request that the taxi driver can accept or reject. The taxi driver can send two type of messages to the central. First, he can change his availability. This must be done in a synchronous way since the central may have to respond with the position of the taxi driver in the waiting queue. The taxi driver can also send his position to the central. This can be done asynchronously. Taxi drivers also have to communicate with synchronous message with the central to log in.
@@ -189,4 +189,4 @@ Maybe software used
 [uxUM]: ../resources/UX/ux_user_mobile.png?raw=true
 [uxUD]: ../resources/UX/ux_user_desktop.png?raw=true
 [uxTM]: ../resources/UX/ux_taxidriver.png?raw=true
-
+[4B]: ../resources/4B/high_level_components.png?raw=true
