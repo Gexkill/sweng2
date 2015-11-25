@@ -114,7 +114,7 @@ We have a three tier architecture.
 
 ![General architecture][tierGeneral]
 
-![Tiers][tierArchitecture]
+![Tiers][tierStructure]
 
 On the client we don't have static GUI but a dynamic GUI that is generated on client side, in fact in the client there is a module that interacts with the application server via RESTful API.  
 With this architecture we can easily move this application to a cloud system, for example to amzon AWS where we have dedicated cloud servers with load balance for database and other for application logic on demand.
