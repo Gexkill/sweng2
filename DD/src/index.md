@@ -29,8 +29,9 @@
     1. [Other design decisions](#other-design-decisions)
 1. [Algorithm design](#algorithm-design)
 1. [User interface design](#user-interface-design)
-	1. [Mockups](#mockups)
+    1. [Mockups](#mockups)
     1. [UX diagrams](#ux-diagrams)
+    1. [BCE diagrams](#bce-diagrams)
 1. [Requirements traceability](#requirements-traceability)
 1. [References](#references)
 1. [Hours of work](#hours-of-work)
@@ -99,7 +100,7 @@ We will design:
 * Architecture Design: this section is divided into two parts:
 	1. High level design
 	1. Architecture chosen presented via diagrams
-* Algorithms Design: in this section we describe the most critical parts via some algorithm written in pseudo code
+* Algorithms Design: in this section we describe the most critical parts via some algorithms. We use code not completed since we want just to show the most important parts
 * User Interface Design: we inserted mockups and user experience explained via UX diagrams
 * Requirements Traceability: This section aims to explain how the decisions taken in the RASD are linked to design elements
 
@@ -125,9 +126,9 @@ With this architecture we can easily move this application to a cloud system, fo
 
 ![High level components][4B]
 
-The high level composant architecture is composed of four different elements types. The main element is the a singleton, the central. The central receives request or reservations from other elements, the clients. The client can initiate this communication from his mobile application or from the webpage of the application. This communication is made in a synchronous way since the client, who initiates the communication, has to wait the answer of the central that acknowledge him that his request has been taken into account. The Central will later send an asynchronous message to the client in the form of a sms to inform him about the code of the incoming taxi as well as the ETA.  
+The high level components architecture is composed of four different elements types. The main element is the a singleton, the central. The central receives request or reservations from other elements, the clients. The client can initiate this communication from his mobile application or from the webpage of the application. This communication is made in a synchronous way since the client, who initiates the communication, has to wait the answer of the central that acknowledge him that his request has been taken into account. The Central will later send an asynchronous message to the client in the form of a sms to inform him about the code of the incoming taxi as well as the ETA.  
 The central communicates also with a third type of component, the taxi drivers. The central can send synchronous messages to the taxi drivers to propose them different request that the taxi driver can accept or reject. The taxi driver can send two type of messages to the central. First, he can change his availability. This must be done in a synchronous way since the central may have to respond with the position of the taxi driver in the waiting queue. The taxi driver can also send his position to the central. This can be done asynchronously. Taxi drivers also have to communicate with synchronous message with the central to log in.  
-A final type of composent is also present, the old application. The old application still manages the registration of the new taxi drivers. Therefore, the central communicates synchronously with the old data base to exctract the taxi drivers.
+A final type of components is also present, the old application. The old application still manages the registration of the new taxi drivers. Therefore, the central communicates synchronously with the old data base to extract the taxi drivers.
 
 ## Component view
 ## Deploying view
@@ -221,12 +222,25 @@ We have already done mockups in RASD in section [3.2.1](https://github.com/sweng
 
 ## UX diagrams
 
+We insert UX (user experience) diagrams to show how our user performs main actions
+
 ![UX user mobile][uxUM]
 
 ![UX user desktop][uxUD]
 
 ![UX taxi driver mobile][uxTM]
 
+[//]: # (pagebreak)
+
+## BCE diagrams
+
+We insert BCE (business controller entity) diagrams to show how each user action is managed internally and how it's linked with our model. This diagram is very useful since we use MVC.
+
+![BCE user mobile][bceUM]
+
+![BCE user desktop][bceUD]
+
+![BCE taxi driver mobile][bceTM]
 
 [//]: # (pagebreak)
 
@@ -251,7 +265,9 @@ Maybe software used
 
 ## Massimo Dragano
 
-
+[bceUM]: ../resources/BCE/mobile_client.png?raw=true
+[bceUD]: ../resources/BCE/desktop_client.png?raw=true
+[bceTM]: ../resources/BCE/mobile_driver.png?raw=true
 [tierGeneral]: ../resources/architecture/general.png?raw=true
 [tierStructure]: ../resources/architecture/structure.png?raw=true
 [uxUM]: ../resources/UX/ux_user_mobile.png?raw=true
