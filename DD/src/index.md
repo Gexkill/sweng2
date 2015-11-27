@@ -131,9 +131,15 @@ The central communicates also with a third type of component, the taxi drivers. 
 A final type of components is also present, the old application. The old application still manages the registration of the new taxi drivers. Therefore, the central communicates synchronously with the old data base to extract the taxi drivers.
 
 ## Component view
+
+![Component view][componentView]
+
 ## Deploying view
 ## Runtime view
 ## Component interfaces
+
+![Component interfaces][componentInterfaces]
+
 ## Selected architectural styles and patterns
 
 ### Overall Architecture
@@ -182,7 +188,7 @@ as now ( v1 ) our exposed methods are the following:
   - api/v1/ride
     - POST: create a new ride
 
-**INSERT API TO SAY THAT A RIDE IS TERMINATED EVEN IN INTERFACES DESIGN**
+**INSERT API TO SAY THAT A RIDE IS TERMINATED EVEN IN INTERFACES DESIGN** and in mockup and ux
 
 ### Design patterns
 
@@ -265,6 +271,8 @@ Maybe software used
 
 ## Massimo Dragano
 
+[componentInterfaces]: ../resources/architecture/component_interfaces.png?raw=true
+[componentView]: ../resources/architecture/component_view.png?raw=true
 [bceUM]: ../resources/BCE/mobile_client.png?raw=true
 [bceUD]: ../resources/BCE/desktop_client.png?raw=true
 [bceTM]: ../resources/BCE/mobile_driver.png?raw=true
