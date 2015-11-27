@@ -161,7 +161,7 @@ We suppose that these properties hold in the analyzed world :
 * System: it is the new system we will create with the database of the old system.
 * Matching itineraries: two itineraries (A and B) are matching if one of the two following conditions are fulfilled:
     1. B is included in A: the starting point and the ending point of the itinerary B are both close to the itinerary A and the starting point of B is closer to the starting point of A than the ending point of B.
-    1. The beginning of B is the end of A: the starting point of B is close to the itinerary A and the ending point of A is close to the itinerary B.  
+    1. The beginning of B is the end of A: the starting point of B is close to the itinerary A and the ending point of A is close to the itinerary B.
     1. A is included in B: see condition 1.
     1. The beginning of A is the end of B: see condition 2.
 * ETA: estimated time available; it is the time the taxi needs to arrive to client starting position.

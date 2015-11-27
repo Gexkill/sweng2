@@ -28,6 +28,8 @@
         1. [MVC](#mvc)
     1. [Other design decisions](#other-design-decisions)
 1. [Algorithm design](#algorithm-design)
+    1. [Merge requests](#merge-requests)
+	1. [Make ride and calculate fees](#make-ride-and-calculate-fees)
 1. [User interface design](#user-interface-design)
     1. [Mockups](#mockups)
     1. [UX diagrams](#ux-diagrams)
@@ -71,6 +73,7 @@ The system includes extra services and functionalities such as taxi sharing.
 The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients. **KEEP OR REMOVE?**
 
 We will design:
+
 * Critical internal components
 * Interface with external services like SMS gateway
 * Interface with the old system
@@ -86,6 +89,11 @@ We will design:
 * API: application programming interface; it is a common way to communicate with another system.
 * Push notification: it is a notification sent to a smartphone using the mobile application, so it must be installed.
 * Push service: it is a service that allows to send push notifications with own API
+* Matching itineraries: two itineraries (A and B) are matching if one of the two following conditions are fulfilled:
+    1. B is included in A: the starting point and the ending point of the itinerary B are both close to the itinerary A and the starting point of B is closer to the starting point of A than the ending point of B.
+    1. The beginning of B is the end of A: the starting point of B is close to the itinerary A and the ending point of A is close to the itinerary B.
+    1. A is included in B: see condition 1.
+    1. The beginning of A is the end of B: see condition 2.
 
 
 **COMPLETE INSERTING OTHER GLOSSARY FROM RASD**
@@ -135,6 +143,9 @@ A final type of components is also present, the old application. The old applica
 ![Component view][componentView]
 
 ## Deploying view
+
+**Talk about request merging**
+
 ## Runtime view
 ## Component interfaces
 
@@ -215,8 +226,91 @@ Adapters are used in our mobile application to adapt the Driver interface to the
 
 # Algorithm design
 
-Describe algorithm of fee  
-Describe queue and availability algorithm 
+**ideas:**
+ 
+ * Describe queue and availability algorithm 
+
+
+Here we give just an idea of most critical parts, we don't write complete code
+
+## Merge requests
+
+As we said in RASD we use merged request to manage sharing option
+
+```php
+function mergeRequests(Request[] $requests)
+{
+	$newRequests = array();
+	foreach($requests as $request){
+		if($request instanceof SharedRequest)
+			if($match = findRequestMacthing($newRequests, $request))
+				$newRequests[] = createMerge($math, $request);
+			else
+				$newRequests[] = new MergedRequest($request);
+		else
+			$newRequests[] = $request;
+	}
+
+	return $newRequests;
+}
+
+function findRequestMacthing(Requests[] &$newRequests, Request $request)
+{
+	foreach($newRequests as $key=>$newRequest)
+		if(($newReuqets instanceof MergedRequest || $newReuqets instanceof SharedRequest) 
+				&& matching($newRequest, $request)){
+			unset($newRequests[$key]);
+			return $newRequest;
+		}
+}
+
+function matching(Request $request1, Request $request2)
+{
+	//...
+	//this is explianed in the glossary
+}
+
+function createMerge(Request $request1, Request $request2)
+{
+	if($request1 instanceof MergedRequest)
+		return $request1->add($request2);
+	else
+		return new MergedRequest($request1, $request2);
+}
+
+```
+
+## Make ride and calculate fees
+```php
+function makeRide(Request $request, Driver[] $drivers)
+{
+	$ride = New Ride();
+	//$ride->set... //set data like drivers
+	$paths = $request->path();
+	$clients = array();
+	
+	//order paths
+	foreach($paths as $path)
+		if($path instanceof LoadPosition)
+			$clients[$path->client->id]['LoadPosition'] = $path;
+		else
+			$clients[$path->client->id]['DropPosition'] = $path;
+	
+	//calcualte fees
+	if($request instanceof MergedRequest && count($clients)>2)
+		foreach($clients as $client)
+			$ride->setPrices($client->client->id, calcualteFee($client, true));
+	else
+		$ride->setPrices($client->clients[0]->id, calcualteFee($clients[0], false));
+}
+
+function calculateFee(Array $client, boolean $discount)
+{
+	return calculateDistance($client['LoadPosition'], $client['DropPosition']) *
+	$request->passengers * ($discount?(1-SHARING_DISCOUT):1);
+}
+```
+
 
 [//]: # (pagebreak)
 
