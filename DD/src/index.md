@@ -101,7 +101,7 @@ We will design:
 	1. High level design
 	1. Architecture chosen presented via diagrams
 * Algorithms Design: in this section we describe the most critical parts via some algorithms. We use code not completed since we want just to show the most important parts
-* User Interface Design: we inserted mockups and user experience explained via UX diagrams
+* User Interface Design: we inserted mockups and user experience explained via UX and BCE diagrams
 * Requirements Traceability: This section aims to explain how the decisions taken in the RASD are linked to design elements
 
 **WRITE MORE**
