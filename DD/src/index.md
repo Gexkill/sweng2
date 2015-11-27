@@ -181,6 +181,8 @@ as now ( v1 ) our exposed methods are the following:
   - api/v1/ride
     - POST: create a new ride
 
+**INSERT API TO SAY THAT A RIDE IS TERMINATED EVEN IN INTERFACES DESIGN**
+
 ### Design patterns
 
 ##### MVC
@@ -194,6 +196,10 @@ Our Web interface will use AngularJS, which is an MVC framework.
 
 Adapters are used in our mobile application to adapt the Driver interface to the RESTful API one.
 
+
+**CLIENT/SERVER ?**
+
+**EXPLAIN WHY**
 
 ## Other design decisions
 
