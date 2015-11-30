@@ -1,6 +1,6 @@
 # Created by https://www.gitignore.io
 
-### Linux ###
+### Linux rocks ###
 *~
 
 # KDE directory preferences
@@ -9,7 +9,7 @@
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
-### OSX ###
+### OSX sucks ###
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -38,7 +38,7 @@ Temporary Items
 
 
 
-### Windows ###
+### Windows sucks ###
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -48,3 +48,12 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+
+# DIA
+
+*.dia.autosave
+
+# equential diagrams
+
+*.lock
