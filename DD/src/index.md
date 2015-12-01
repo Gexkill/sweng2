@@ -103,6 +103,8 @@ We will design:
 * Specification Document: Assignments 1 and 2 (RASD and DD).pdf
 * Structure of the design document.pdf
 
+**Insert or not lecture slides**
+
 ## Document structure
 * Introduction: in this section we introducing the design document, saying why we do it and which parts are covered from it that are not covered by RASD
 * Architecture Design: this section is divided into two parts:
@@ -144,9 +146,24 @@ A final type of components is also present, the old application. The old applica
 
 ## Deploying view
 
+![Deployment view][deploymentView]
+
 **Talk about request merging**
 
 ## Runtime view
+
+![Driver login][seqDriverLogin]
+
+![Taxi accepts ride][seqTaxiAcceptRide]
+
+![Client reservation][seqClientReservation]
+
+**Link seq inserted on RASD OR NOT?**
+
+**Make or not slides example diagram**
+
+**Check diagrams if they are correct in our previously assumptions**
+
 ## Component interfaces
 
 ![Component interfaces][componentInterfaces]
@@ -365,6 +382,11 @@ Maybe software used
 
 ## Massimo Dragano
 
+
+[deploymentView]: ../resources/architecture/deployment.png?raw=true
+[seqDriverLogin]: ../resources/seq_diagrams/driver_log_in.png?raw=true
+[seqTaxiAcceptRide]: ../resources/seq_diagrams/taxi_accepts_ride.png?raw=true
+[seqClientReservation]: ../resources/seq_diagrams/client_reservation.png?raw=true
 [componentInterfaces]: ../resources/architecture/component_interfaces.png?raw=true
 [componentView]: ../resources/architecture/component_view.png?raw=true
 [bceUM]: ../resources/BCE/mobile_client.png?raw=true
