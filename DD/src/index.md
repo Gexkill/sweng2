@@ -154,6 +154,8 @@ A final type of components is also present, the old application. The old applica
 
 ![Driver login][seqDriverLogin]
 
+![Driver changes availability][seqDriverAvailability]
+
 ![Taxi accepts ride][seqTaxiAcceptRide]
 
 ![Client reservation][seqClientReservation]
@@ -384,6 +386,7 @@ Maybe software used
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
+[seqDriverAvailability]: ../resources/seq_diagrams/driver_change_availability.png?raw=true
 [seqDriverLogin]: ../resources/seq_diagrams/driver_log_in.png?raw=true
 [seqTaxiAcceptRide]: ../resources/seq_diagrams/taxi_accepts_ride.png?raw=true
 [seqClientReservation]: ../resources/seq_diagrams/client_reservation.png?raw=true
