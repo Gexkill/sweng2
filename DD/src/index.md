@@ -410,20 +410,20 @@ The design of this project was made aiming to fullfill optimally the requirement
     * The Router
     * The RequestController
     * The ReservationController
-* [G10] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
+* [G9] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
     * The RideController
     * The SMSGateway
-* [G11] Allows clients to require to share the taxi.
+* [G10] Allows clients to require to share the taxi.
     * The Client composant
     * The RequestController
-* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
+* [G11] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
     * The Client composant
     * The RequestController
-* [G13] Allows clients to specify the number of passengers.
+* [G12] Allows clients to specify the number of passengers.
     * The Client composant
     * The Router
     * The RequestController
-* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+* [G13] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The Client composant
     * The RideController
 
