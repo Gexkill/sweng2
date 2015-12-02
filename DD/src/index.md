@@ -153,12 +153,17 @@ A final type of components is also present, the old application. The old applica
 ## Runtime view
 
 ![Driver login][seqDriverLogin]
+In this sequence diagram it can be seen that the user (in this case a non identified taxi driver) has to input his login informations on the taxi driver mobile application. The login request is then send with these information as parameter to the systems. Once arrived to the system's router the request is transfered to the DriverController which first checks on the old database if the logins inserted by a user belongs to an existing driver, and if the answer is positive, if the if the password furnished is correct. The DriverController then retrns the results of these checks to the DriverApplication.
 
 ![Driver changes availability][seqDriverAvailability]
+In this sequence diagram it can be seen that the when a driver changes his availability, the request is transferred to the DriverController via the Router. If the driver asks to be available, the DriverController will have to ask to the QueueManager to add the driver to the appropriate queue accorring to the driver's position. The QueueManager then returns to the position of the driver in his queue. This information goes all the way back to the driver's mobile application. In the other case, when the driver does not want to be available anymore, the DriverController has to ask to the QueueManager to remove the driver from the queue he is in.
 
 ![Taxi accepts ride][seqTaxiAcceptRide]
+In this sequence diagram it can be seen that when a request has to be handeled, first of all the RequestController checks if it is a request for a shared ride. If it is the case, the RequestController will check with other shared request if they can be merged together in one. After that, the request is transferred to the QueueController which will have to asks to the appropriate driver if he wants to take care of the Ride. The Queue controller extract the driver from the appropriate queue, then asks to the DriverController to transfer the demand to the driver. If the driver has rejected the ride he is put back at the end of his queue and the new first driver is extracted and is asked if he wants to take care of the ride and so on until a driver accepts the ride. When a driver accepts a ride, he is not put back in the queue. The DriverController will then ask the RideController to make a new ride and to notify the appropriate clients via the SMSGateway.
 
 ![Client reservation][seqClientReservation]
+In this sequence diagram it can be seen that a client needs to indicate the request information. Once that is done, the request can be transfered via a the Router to the ReservationController which is in fact a sort of scheduler.  Once the time indicated for the reservation by the client has nearly been reached, the reservation is handeled by the RequestController like a normal request.
+If some information indicated by the user is not valid (like a wrong departure time for the reserved ride) the RequestController detects it and send an error back to the client mobile application or webpage.
 
 **Link seq inserted on RASD OR NOT?**
 
@@ -365,6 +370,62 @@ We insert BCE (business controller entity) diagrams to show how each user action
 
 
 # Requirements traceability
+
+The design of this project was made aiming to fullfill optimally the requirements and goals specified in the RASD. The lector can find here under a the list of these requirements and goals and the designed composent of the application which will assure its fullfilment.
+
+* [G1] Allows taxi drivers to log in the system.
+    * The DriverController and its interface to the old database.
+* [G2] Allows taxi drivers to precise to the system if they are available or not.
+    * The DriverController
+    * The Router
+    * The DriverMobileApp composant
+    * The QueueManager
+* [G3] Taxi drivers should receive a push notification for incoming request.
+    * The DriverController
+    * The Router
+    * The DriverMobileApp composant
+* [G4] Allows taxi drivers to accept or decline incoming requests for an immediate ride.
+    * The DriverMobileApp composant
+    * The DriverController
+    * The QueueManager
+    * The RideController
+    * The RequestController
+* [G5] Allows taxi drivers to accept or decline incoming request for a later reservation.
+    * The DriverMobileApp composant
+    * The DriverController
+    * The QueueManager
+    * The RideController
+    * The ReservationController
+    * The RequestController
+* [G6] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
+    * The RideController
+    * The DriverController
+    * The Router
+* [G7] Allows clients to request for an immediate taxi ride.
+    * The Client composant
+    * The Router
+    * The RequestController
+* [G8] Allows clients to request for the reservation of a taxi at least two hours in advance.
+    * The Client composant
+    * The Router
+    * The RequestController
+    * The ReservationController
+* [G10] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
+    * The RideController
+    * The SMSGateway
+* [G11] Allows clients to require to share the taxi.
+    * The Client composant
+    * The RequestController
+* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
+    * The Client composant
+    * The RequestController
+* [G13] Allows clients to specify the number of passengers.
+    * The Client composant
+    * The Router
+    * The RequestController
+* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+    * The Client composant
+    * The RideController
 
 [//]: # (pagebreak)
 
