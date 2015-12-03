@@ -25,17 +25,23 @@
 # DD
 Refered to official guide
 ## Claudio Cardinale
+* 1
+* 2
 * 3
 * 4.A
+* 4.H
 * 5
 * 6
+* 8
 
 ## Gilles Dejaegere
 * 4.B
 * 4.E
+* 7
 
 ## Massimo Dragano
 * 4.C
+* 4.D
 * 4.F
 * 4.G
 

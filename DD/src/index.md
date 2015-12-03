@@ -94,25 +94,35 @@ We will design:
     1. The beginning of B is the end of A: the starting point of B is close to the itinerary A and the ending point of A is close to the itinerary B.
     1. A is included in B: see condition 1.
     1. The beginning of A is the end of B: see condition 2.
+* Path: it's a structure that contains at least 2 positions
+* Sharing discount percentage: discount percentage applied only if the sharing option is enabled and there is more than one request in the merged request
+* API: application programming interface; it is a common way to communicate with another system.
+* ETA: estimated time available; it is the time the taxi needs to arrive to client starting position.
+* Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues.
+    * A zone is specified by a list of bounds.
+    * It has more than 2 positions that compose its bounds.
+    * Bounds must be composed by positions and not by none of its subclasses.
+    * Bounds must be a set (it must not contain duplicates).
+
 
 
 **COMPLETE INSERTING OTHER GLOSSARY FROM RASD**
 
 ## Reference documents
-* RASD produced before **Write version number**
+* RASD produced before 1.1
 * Specification Document: Assignments 1 and 2 (RASD and DD).pdf
 * Structure of the design document.pdf
 
-**Insert or not lecture slides**
+**INSERT or not lecture slides**
 
 ## Document structure
-* Introduction: in this section we introducing the design document, saying why we do it and which parts are covered from it that are not covered by RASD
-* Architecture Design: this section is divided into two parts:
+* **Introduction:** in this section we introducing the design document, saying why we do it and which parts are covered from it that are not covered by RASD
+* **Architecture Design:** this section is divided into two parts:
 	1. High level design
 	1. Architecture chosen presented via diagrams
-* Algorithms Design: in this section we describe the most critical parts via some algorithms. We use code not completed since we want just to show the most important parts
-* User Interface Design: we inserted mockups and user experience explained via UX and BCE diagrams
-* Requirements Traceability: This section aims to explain how the decisions taken in the RASD are linked to design elements
+* **Algorithms Design:** in this section we describe the most critical parts via some algorithms. We use code not completed since we want just to show the most important parts
+* **User Interface Design:** we inserted mockups and user experience explained via UX and BCE diagrams
+* **Requirements Traceability:** This section aims to explain how the decisions taken in the RASD are linked to design elements
 
 **WRITE MORE**
 
@@ -132,6 +142,8 @@ With this architecture we can easily move this application to a cloud system, fo
 
 **Write more and make graph of interaction with the old system KEEP OR REMOVE?**
 
+[//]: # (pagebreak)
+
 ## High level components and their interaction
 
 ![High level components][4B]
@@ -144,11 +156,11 @@ A final type of components is also present, the old application. The old applica
 
 ![Component view][componentView]
 
+[//]: # (pagebreak)
+
 ## Deploying view
 
 ![Deployment view][deploymentView]
-
-**Talk about request merging**
 
 ## Runtime view
 
@@ -171,9 +183,13 @@ If some information indicated by the user is not valid (like a wrong departure t
 
 **Check diagrams if they are correct in our previously assumptions**
 
+[//]: # (pagebreak)
+
 ## Component interfaces
 
 ![Component interfaces][componentInterfaces]
+
+[//]: # (pagebreak)
 
 ## Selected architectural styles and patterns
 
@@ -223,6 +239,8 @@ as now ( v1 ) our exposed methods are the following:
   - api/v1/ride
     - POST: create a new ride
 
+**N.B.** To end the ride we use the position of the driver, when the position it's nearby the final location the ride will be canceled. **Good here or not?**
+
 **INSERT API TO SAY THAT A RIDE IS TERMINATED EVEN IN INTERFACES DESIGN** and in mockup and ux
 
 ### Design patterns
@@ -245,6 +263,8 @@ Adapters are used in our mobile application to adapt the Driver interface to the
 
 ## Other design decisions
 
+**WRITE SOMETHING?**
+
 
 [//]: # (pagebreak)
 
@@ -252,7 +272,7 @@ Adapters are used in our mobile application to adapt the Driver interface to the
 
 **ideas:**
  
- * Describe queue and availability algorithm 
+ * Describe queue and availability algorithm **MAKE OR NOT?**
 
 
 Here we give just an idea of most critical parts, we don't write complete code
@@ -291,7 +311,7 @@ function findRequestMacthing(Requests[] &$newRequests, Request $request)
 function matching(Request $request1, Request $request2)
 {
 	//...
-	//this is explianed in the glossary
+	//this is explained in Definitions, acronyms, abbreviations
 }
 
 function createMerge(Request $request1, Request $request2)
@@ -364,10 +384,11 @@ We insert BCE (business controller entity) diagrams to show how each user action
 
 ![BCE user desktop][bceUD]
 
+[//]: # (pagebreak)
+
 ![BCE taxi driver mobile][bceTM]
 
 [//]: # (pagebreak)
-
 
 # Requirements traceability
 
@@ -384,48 +405,49 @@ The design of this project was made aiming to fullfill optimally the requirement
     * The DriverController
     * The Router
     * The DriverMobileApp composant
-* [G4] Allows taxi drivers to accept or decline incoming requests for an immediate ride.
+* [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride.
     * The DriverMobileApp composant
     * The DriverController
     * The QueueManager
     * The RideController
     * The RequestController
-* [G5] Allows taxi drivers to accept or decline incoming request for a later reservation.
+* [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
     * The DriverMobileApp composant
     * The DriverController
     * The QueueManager
     * The RideController
     * The ReservationController
     * The RequestController
-* [G6] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
+* [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
     * The RideController
     * The DriverController
     * The Router
-* [G7] Allows clients to request for an immediate taxi ride.
+* [G8] Allows clients to request for an immediate taxi ride.
     * The Client composant
     * The Router
     * The RequestController
-* [G8] Allows clients to request for the reservation of a taxi at least two hours in advance.
+* [G9] Allows clients to request for the reservation of a taxi at least two hours in advance.
     * The Client composant
     * The Router
     * The RequestController
     * The ReservationController
-* [G9] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
+* [G10] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
     * The RideController
     * The SMSGateway
-* [G10] Allows clients to require to share the taxi.
+* [G11] Allows clients to require to share the taxi.
     * The Client composant
     * The RequestController
-* [G11] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
+* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
     * The Client composant
     * The RequestController
-* [G12] Allows clients to specify the number of passengers.
+* [G13] Allows clients to specify the number of passengers.
     * The Client composant
     * The Router
     * The RequestController
-* [G13] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The Client composant
     * The RideController
+**In G14 G10 insert interface with SMS gateway and the same for push notification?**
 
 [//]: # (pagebreak)
 

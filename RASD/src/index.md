@@ -2,7 +2,7 @@
 
 ![Politecnico di Milano](../resources/logo_polimi.png?raw=true)
 
-**Version 1.0**
+**Version 1.1**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
@@ -62,6 +62,7 @@
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
     1. [Massimo Dragano](#massimo-dragano)
+1. [Changelog](#changelog)
 
 
 [//]: # (pagebreak)
@@ -209,7 +210,7 @@ The system must require to client/taxi driver the permission to get his position
     * Modern browser with AJAX support
 
 ###Interfaces to other applications
-* Interface with the old system. The new system will interface with the Mysql database of the old system.
+* Interface with the old system. The new system will interface with the Mysql database of the old system. We know the structure of the old db and we perform a polling to find changes.
 * Interface with SMS gateway provider via standard SMS rest APIs, to send notifications to clients.
 * Interface with the push service(s) via own APIs to send push notifications to taxi drivers. Often we need an interface for each platform (android, iOS, and so on).
 
@@ -265,10 +266,10 @@ The requirements are grouped under each goal from which it is derived. The goals
 * [G3] Taxi drivers should receive a notification for incoming request:
     * The system must be able to forward an incoming request to the appropriate taxi driver.
     * The system must be able to alert a taxi driver when a request is incoming.
-* [G4] Taxi drivers should receive a notification if they have to take care of another client (during a shared ride):   
-    * The system must be able to match together matching request with the "shared ride" option activated.
-    * The system must be able to inform the taxi when a ride is shared.
-    * The system must be able to inform the taxi drivers of the different stops he has to do during his ride in order to take or drop the concerned passengers.
+* ~~[G4] Taxi drivers should receive a notification if they have to take care of another client (during a shared ride):~~
+    * ~~The system must be able to match together matching request with the "shared ride" option activated.~~
+    * ~~The system must be able to inform the taxi when a ride is shared.~~
+    * ~~The system must be able to inform the taxi drivers of the different stops he has to do during his ride in order to take or drop the concerned passengers.~~
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride:
     * The system must ask to the taxi driver if he accepts to perform the ride.
     * The system must replace a taxi driver at the end of the queue if he declines the ride.
@@ -283,7 +284,7 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must estimate the distance using the distance between two zone's centers.
     * The system must use a fixed fee for each passenger, so the total fee is given by passenger fee multiplied for passengers number reducing the price of a sharing discount percentage.
     * The system must give the total fee for each client, if sharing option is enabled and used (there is more than one request in merged request).
-    * The system must calculate the fee during the request merging.
+    * The system must calculate the fee during the ride creation.
 
 
 ###Clients:
@@ -887,6 +888,15 @@ The tools we used to create this RASD document are:
   * 04/11/15: 5h
   * 05/11/15: 8h
   * 06/11/15: 11h
+
+[//]: # (pagebreak)
+
+# Changelog
+* v1.1
+    * [G4] removed
+    * Interface with old system fixed
+    * [G7] requirement fixed
+
 
 
 [mob1]: ../resources/mockup/mobile/mainactivity_passenger.png?raw=true
