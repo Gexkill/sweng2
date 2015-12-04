@@ -38,6 +38,7 @@
     1. [BCE diagrams](#bce-diagrams)
 1. [Requirements traceability](#requirements-traceability)
 1. [References](#references)
+    1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
@@ -438,7 +439,14 @@ The design of this project was made aiming to fulfill optimally the requirements
 
 # 6.References
 
-**Maybe software used**
+##Used tools
+The tools we used to create this DD document are:
+
+* DIA: for uml models
+* Github: for version controller
+* Gedit and ReText: to write MarkDown with spell check 
+* Pandoc: to create pdf
+
 
 [//]: # (pagebreak)
 
