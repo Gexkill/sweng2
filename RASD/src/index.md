@@ -190,6 +190,7 @@ We suppose that these properties hold in the analyzed world :
 * We assume that we have a fee for each passenger, the fee depends of the number of passengers
 * We assume that we have a fixed sharing discount percentage
 * We assume that we have a fixed price per kilometer per passenger
+* We decide to don't perform the phone number verification since we said that we want to create a quicker taxi request system and verification is a long step. Real application (calling system) work in this way
 
 ##Constrains
 
@@ -896,6 +897,7 @@ The tools we used to create this RASD document are:
     * [G4] removed
     * Interface with old system fixed
     * [G7] requirement fixed
+    * Another text assumption
 
 
 
