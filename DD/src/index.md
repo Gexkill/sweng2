@@ -264,7 +264,16 @@ Adapters are used in our mobile application to adapt the Driver interface to the
 
 ##### Client-Server
 
-The application is strongly based on a Client-Server model, the clients being the taxi drivers mobile application and the physical client's mobile application ans webpage. The clients are thin clients. This architecture has been chosen for different reason. First of all for practical reasons. Indeed, having one unique server managing the taxi queues is the best way to ensure the integrity of our system. Having one unique server is also improving the maintenability of our system. The client-server model is also an evolutif one who let the systems has clients that can connect and disconnect at will without interfering in the systems operation. And finally, this model can also help improving the security in the sense that the clients only have conscience of our server and not about the other clients.
+The application is strongly based on a Client-Server communication model.
+The clients being the taxi drivers mobile application, the client's mobile application and client's web browsers.
+The clients are thin, thus to let the application run on low-resources devices.
+This approach has been chosen for different reasons:
+
+  - it's pratical.
+  - Data synchronization: there is only one application that mange the data.
+  - Having one unique server application improves the maintenability of our system.
+  - the application is indipendednt from the number of clients connected ( it can be scaled up ).
+  - improves the security between clients, that known only the server endpoint but not other clients.
 
 
 ## 2.8.Other design decisions
