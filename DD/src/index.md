@@ -383,20 +383,21 @@ The design of this project was made aiming to fulfill optimally the requirements
 * [G2] Allows taxi drivers to precise to the system if they are available or not.
     * The DriverController
     * The Router
-    * The DriverMobileApp composant
+    * The DriverMobileApp component
     * The QueueManager
 * [G3] Taxi drivers should receive a push notification for incoming request.
     * The DriverController
     * The Router
-    * The DriverMobileApp composant
+    * The DriverMobileApp component
+    * The Push notification gateway
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride.
-    * The DriverMobileApp composant
+    * The DriverMobileApp component
     * The DriverController
     * The QueueManager
     * The RideController
     * The RequestController
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
-    * The DriverMobileApp composant
+    * The DriverMobileApp component
     * The DriverController
     * The QueueManager
     * The RideController
@@ -407,33 +408,31 @@ The design of this project was made aiming to fulfill optimally the requirements
     * The DriverController
     * The Router
 * [G8] Allows clients to request for an immediate taxi ride.
-    * The Client composant
+    * The Client component
     * The Router
     * The RequestController
 * [G9] Allows clients to request for the reservation of a taxi at least two hours in advance.
-    * The Client composant
+    * The Client component
     * The Router
     * The RequestController
     * The ReservationController
 * [G10] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
     * The RideController
-    * The SMSGateway
+    * The SMS gateway
 * [G11] Allows clients to require to share the taxi.
-    * The Client composant
+    * The Client component
     * The RequestController
 * [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
-    * The Client composant
+    * The Client component
     * The RequestController
 * [G13] Allows clients to specify the number of passengers.
-    * The Client composant
+    * The Client component
     * The Router
     * The RequestController
 * [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
-    * The Client composant
+    * The Client component
     * The RideController
-**In G14 G10 insert interface with SMS gateway and the same for push notification? [Gilles: yes I think you are right]**
-
-**Composant???**
+    * The SMS gateway
 
 [//]: # (pagebreak)
 
