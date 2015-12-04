@@ -47,46 +47,49 @@
 [//]: # (pagebreak)
 
 
-# Introduction
+# 1.Introduction
    
-## Purpose
+## 1.1.Purpose
 
-The purpose of this document is give more technical details than RASD about MyTaxiService system.  
-This document is address to developers. In fact we want to identify:
+The purpose of this document is to give more technical details than the RASD about MyTaxiService system.  
+This document is addressed to developers and aims to identify:
 
-* High level architecture
-* Design patternes
-* Main components with our interfaces with each other
+* The high level architecture
+* The design patterns
+* The main components and their interfaces provided one for another
+* The Runtime comportement
+
 
 **COMPLETE**
 
-## Scope
-We will project and implement myTaxiService, which is a service based on mobile application and web application, with two different targets of people:
+## 1.2.Scope
+The project myTaxiService, which is a service based on mobile application and web application, has two different targets of people:
 
-* taxi drivers
-* clients
+* The taxi drivers
+* The clients
 
-The system allows clients to reserve a taxi via mobile or web app, using GPS position to identify client's zone (but the client can insert it manually) and find taxi in the same zone.  
-On the other side the mobile app allows taxi drivers to accept or reject a ride request and to communicate automatically their position (so the zone).  
-The clients are not registered since the company wants a quick system so if there is a registration a lot of clients won't use the app. So the clients must insert their name and phone number each time (this is faster than creating an account and logging each time).
+The system allows clients to reserve a taxi via a mobile or web app, using his GPS position our inserting his position manually to find a  taxi in the same zone.  
+On the other side the mobile app also allows taxi drivers to accept or reject a ride request and to communicate automatically their position (and therefore the zone where their are located).  
+The clients are not registered since the company wants the system to be as easily and fast possible to use. The registration process might dissuade some clients. So the clients have to insert their name and phone number each time (this is faster than creating an account and logging in each time).
 
 The system includes extra services and functionalities such as taxi sharing.
 
-The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients. **KEEP OR REMOVE?**
+The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients and taxi drivers (by having fair waiting queues). **KEEP OR REMOVE?**
 
-We will design:
+We will design:     **Gilles : isn't this section redundent with the list in the 1.1.Purpose ? **
 
 * Critical internal components
 * Interface with external services like SMS gateway
 * Interface with the old system
 
+
 **COMPLETE**
 
-## Definitions, acronyms, abbreviations
+## 1.3.Definitions, acronyms, abbreviations
 
 * RASD: Requirements analysis and specifications document
-* DD: design document
-* SMS: short message service; it is a notification sent to a mobile phone, we need an SMS gateway to use it.
+* DD: Design document
+* SMS: short message service; it is a notification sent to a mobile phone, an SMS gateway is needed to use it.
 * SMS gateway: it is a service which allows to send SMS via standard API.
 * API: application programming interface; it is a common way to communicate with another system.
 * Push notification: it is a notification sent to a smartphone using the mobile application, so it must be installed.
@@ -110,74 +113,74 @@ We will design:
 
 **COMPLETE INSERTING OTHER GLOSSARY FROM RASD**
 
-## Reference documents
+## 1.4.Reference documents
 * RASD produced before 1.1
 * Specification Document: Assignments 1 and 2 (RASD and DD).pdf
 * Structure of the design document.pdf
 
 **INSERT or not lecture slides**
 
-## Document structure
-* **Introduction:** in this section we introducing the design document, saying why we do it and which parts are covered from it that are not covered by RASD
+## 1.5.Document structure
+* **Introduction:** this section introduces the design document. It contains a justification of his utility and indications on which parts are covered in this document that are not covered by RASD.
 * **Architecture Design:** this section is divided into two parts:
 	1. High level design
 	1. Architecture chosen presented via diagrams
-* **Algorithms Design:** in this section we describe the most critical parts via some algorithms. We use code not completed since we want just to show the most important parts
-* **User Interface Design:** we inserted mockups and user experience explained via UX and BCE diagrams
-* **Requirements Traceability:** This section aims to explain how the decisions taken in the RASD are linked to design elements
+* **Algorithms Design:** this section describes the most critical parts via some algorithms. Pseudo code is used in order to hide unnecessary implementation details in order to focus on the most important parts.
+* **User Interface Design:** this section presents mockups and user experience explained via UX and BCE diagrams.
+* **Requirements Traceability:** this section aims to explain how the decisions taken in the RASD are linked to design elements.
 
-**WRITE MORE**
+**WRITE MORE [Gilles: i think it is enough]**
 
 [//]: # (pagebreak)
 
-# Architectural design
-## Overview
+# 2.Architectural design
+## 2.1.Overview
 
-We have a three tier architecture.
+The MyTaxiService has a three tier architecture.
 
 ![General architecture][tierGeneral]
 
 ![Tiers][tierStructure]
 
-On the client we don't have static GUI but a dynamic GUI that is generated on client side, in fact in the client there is a module that interacts with the application server via RESTful API.  
-With this architecture we can easily move this application to a cloud system, for example to amzon AWS where we have dedicated cloud servers with load balance for database and other for application logic on demand.
+On the client their is not a static GUI but a dynamic one that is generated on client side. In fact in the client, there is a module that interacts with the application server via RESTful API.  
+With this architecture this application can easily be moved to a cloud system, for example to amazon AWS where it would have dedicated cloud servers with load balance for database and other for application logic on demand.
 
 **Write more and make graph of interaction with the old system KEEP OR REMOVE?**
 
 [//]: # (pagebreak)
 
-## High level components and their interaction
+## 2.2.High level components and their interaction
 
 ![High level components][4B]
 
-The high level components architecture is composed of four different elements types. The main element is the a singleton, the central. The central receives request or reservations from other elements, the clients. The client can initiate this communication from his mobile application or from the webpage of the application. This communication is made in a synchronous way since the client, who initiates the communication, has to wait the answer of the central that acknowledge him that his request has been taken into account. The Central will later send an asynchronous message to the client in the form of a sms to inform him about the code of the incoming taxi as well as the ETA.  
-The central communicates also with a third type of component, the taxi drivers. The central can send synchronous messages to the taxi drivers to propose them different request that the taxi driver can accept or reject. The taxi driver can send two type of messages to the central. First, he can change his availability. This must be done in a synchronous way since the central may have to respond with the position of the taxi driver in the waiting queue. The taxi driver can also send his position to the central. This can be done asynchronously. Taxi drivers also have to communicate with synchronous message with the central to log in.  
-A final type of components is also present, the old application. The old application still manages the registration of the new taxi drivers. Therefore, the central communicates synchronously with the old data base to extract the taxi drivers.
+The high level components architecture is composed of four different elements types. The main element is a singleton, the central. The central receives requests or reservations from other elements, the clients. The client can initiate this communication from his mobile application or from the webpage of the application. This communication is made in a synchronous way since the client, who initiates the communication, has to wait the answer of the central that acknowledge him that his request has been taken into account. The Central will later send an asynchronous message to the client in the form of an sms to inform him about the code of the incoming taxi as well as the ETA.  
+The central communicates also with a third type of component, the taxi drivers. The central can send synchronous messages to the taxi drivers to propose them different requests that the taxi drivers can accept or reject. The taxi drivers can send two type of messages to the central. First, they can change their availability. This must be done in a synchronous way since the central may have to respond with the position of the taxi driver in the waiting queue. The taxi drivers can also send his position to the central. This can be done asynchronously. Taxi drivers also have to communicate with synchronous message with the central to log in.  
+A final type of components is also present, the old application. The old application still manages the registration of the new taxi drivers. Therefore, the central communicates synchronously with the old data base to extract the taxi drivers information when needed.
 
-## Component view
+## 2.3.Component view
 
 ![Component view][componentView]
 
 [//]: # (pagebreak)
 
-## Deploying view
+## 2.4.Deploying view
 
 ![Deployment view][deploymentView]
 
-## Runtime view
+## 2.5.Runtime view
 
 ![Driver login][seqDriverLogin]
-In this sequence diagram it can be seen that the user (in this case a non identified taxi driver) has to input his login informations on the taxi driver mobile application. The login request is then send with these information as parameter to the systems. Once arrived to the system's router the request is transfered to the DriverController which first checks on the old database if the logins inserted by a user belongs to an existing driver, and if the answer is positive, if the if the password furnished is correct. The DriverController then retrns the results of these checks to the DriverApplication.
+In this sequence diagram it can be seen that the user (in this case a non identified taxi driver) has to input his login informations on the taxi driver's mobile application. The login request is then send with these information as parameter to the systems. Once arrived to the system's router the request is transferred to the DriverController which first checks on the old database if the logins inserted by a user belongs to an existing driver, and if the answer is positive, if the password furnished is correct. The DriverController then returns the results of these checks to the DriverApplication.
 
 ![Driver changes availability][seqDriverAvailability]
-In this sequence diagram it can be seen that the when a driver changes his availability, the request is transferred to the DriverController via the Router. If the driver asks to be available, the DriverController will have to ask to the QueueManager to add the driver to the appropriate queue accorring to the driver's position. The QueueManager then returns to the position of the driver in his queue. This information goes all the way back to the driver's mobile application. In the other case, when the driver does not want to be available anymore, the DriverController has to ask to the QueueManager to remove the driver from the queue he is in.
+In this sequence diagram it can be seen that the when a driver changes his availability, the request is transferred to the DriverController via the Router. If the driver asks to be available, the DriverController will have to ask to the QueueManager to add the driver to the appropriate queue according to the driver's position. The QueueManager then returns to the position of the driver in his queue. This information goes all the way back to the driver's mobile application. In the other case, when the driver does not want to be available anymore, the DriverController has to ask to the QueueManager to remove the driver from the queue the driver is in.
 
 ![Taxi accepts ride][seqTaxiAcceptRide]
-In this sequence diagram it can be seen that when a request has to be handeled, first of all the RequestController checks if it is a request for a shared ride. If it is the case, the RequestController will check with other shared request if they can be merged together in one. After that, the request is transferred to the QueueController which will have to asks to the appropriate driver if he wants to take care of the Ride. The Queue controller extract the driver from the appropriate queue, then asks to the DriverController to transfer the demand to the driver. If the driver has rejected the ride he is put back at the end of his queue and the new first driver is extracted and is asked if he wants to take care of the ride and so on until a driver accepts the ride. When a driver accepts a ride, he is not put back in the queue. The DriverController will then ask the RideController to make a new ride and to notify the appropriate clients via the SMSGateway.
+In this sequence diagram it can be seen that when a request has to be handeled, first of all the RequestController checks if it is a request for a shared ride. If it is the case, the RequestController will check with other shared requests if they can be merged together in one. After that, the request is transferred to the QueueController which will have to asks to the appropriate driver if he wants to take care of the Ride. The Queue controller extract the driver from the appropriate queue, then asks to the DriverController to transfer the demand to the driver. If the driver has rejected the ride he is put back at the end of his queue and the new first driver is extracted and is asked if he wants to take care of the ride and so on until a driver accepts the ride. When a driver accepts a ride, he is not put back in the queue. The DriverController will then ask the RideController to make a new ride and to notify the appropriate clients via the SMSGateway.
 
 ![Client reservation][seqClientReservation]
-In this sequence diagram it can be seen that a client needs to indicate the request information. Once that is done, the request can be transfered via a the Router to the ReservationController which is in fact a sort of scheduler.  Once the time indicated for the reservation by the client has nearly been reached, the reservation is handeled by the RequestController like a normal request.
-If some information indicated by the user is not valid (like a wrong departure time for the reserved ride) the RequestController detects it and send an error back to the client mobile application or webpage.
+In this sequence diagram it can be seen that a client needs to indicate the request information. Once that is done, the request can be transferred via a the Router to the ReservationController which is in fact a sort of scheduler. Once the time indicated for the reservation by the client has nearly been reached, the reservation is handled by the RequestController like a normal request.
+If some information indicated by the user is not valid (like a wrong departure time for the reserved ride) the RequestController detects it and send an error back to the client mobile application or webpage. The sequence diagram when a client makes a request for an immediate ride is not provided here since it's only difference with this one is that the request does not goes to the ReservationController but directly to the RequestController.
 
 **Link seq inserted on RASD OR NOT?**
 
