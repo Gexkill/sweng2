@@ -190,15 +190,15 @@ If some information indicated by the user is not valid (like a wrong departure t
 
 [//]: # (pagebreak)
 
-## Component interfaces
+## 2.6.Component interfaces
 
 ![Component interfaces][componentInterfaces]
 
 [//]: # (pagebreak)
 
-## Selected architectural styles and patterns
+## 2.7.Selected architectural styles and patterns
 
-### Overall Architecture
+### 2.7.1.Overall Architecture
 
 Our application will be divided into 3 tiers:
 
@@ -206,7 +206,7 @@ Our application will be divided into 3 tiers:
 1. Application Logic ( BLL: Business Logic Layer )
 1. Thin Client ( a simple and easy interface to BLL )
 
-### Protocols
+### 2.7.2.Protocols
 
 Our tiers are connected through network and exchange data with the following protocols.
 
@@ -229,7 +229,7 @@ currently supported databases:
 ##### RESTful API with JSON
 
 used by clients ( both mobile apps and web browsers ) to interact with the BLL.
-API calls that need authentication are required to authenticate via HTTP basic authentication for each request.
+API calls that need authentification are required to authenticate via HTTP basic authentication for each request.
 exchanged data will be secured using SSL.
 
 as now ( v1 ) our exposed methods are the following:
@@ -244,11 +244,11 @@ as now ( v1 ) our exposed methods are the following:
   - api/v1/ride
     - POST: create a new ride
 
-**N.B.** To end the ride we use the position of the driver, when the position it's nearby the final location the ride will be canceled. **Good here or not?**
+**N.B.** To end the ride we use the position of the driver, when the position it's nearby the final location the ride will be canceled. **Good here or not? [gilles : do we really need to finish the ride ? I tough once the driver accepted the ride and that the client is notified it is in their hand and it is not our buisness anymore. The application is made to manage the taxi allocation, not to verify a ride is done or not**
 
 **INSERT API TO SAY THAT A RIDE IS TERMINATED EVEN IN INTERFACES DESIGN** and in mockup and ux
 
-### Design patterns
+### 2.7.3.Design patterns
 
 ##### MVC
 
@@ -266,14 +266,14 @@ Adapters are used in our mobile application to adapt the Driver interface to the
 
 **EXPLAIN WHY**
 
-## Other design decisions
+## 2.8.Other design decisions
 
 **WRITE SOMETHING?**
 
 
 [//]: # (pagebreak)
 
-# Algorithm design
+# 3.Algorithm design
 
 **ideas:**
  
@@ -282,7 +282,7 @@ Adapters are used in our mobile application to adapt the Driver interface to the
 
 Here we give just an idea of most critical parts, we don't write complete code
 
-## Merge requests
+## Merging requests
 
 As we said in RASD we use merged request to manage sharing option
 
@@ -363,13 +363,13 @@ function calculateFee(Array $client, boolean $discount)
 
 [//]: # (pagebreak)
 
-# User interface design
+# 4.User interface design
 
-## Mockups
+## 4.1.Mockups
 
 We have already done mockups in RASD in section [3.2.1](https://github.com/sweng2/sweng2/blob/master/RASD/src/index.md#client-interface) and [3.2.2](https://github.com/sweng2/sweng2/blob/master/RASD/src/index.md#taxi-driver-interface)
 
-## UX diagrams
+## 4.2.UX diagrams
 
 We insert UX (user experience) diagrams to show how our user performs main actions
 
@@ -381,7 +381,7 @@ We insert UX (user experience) diagrams to show how our user performs main actio
 
 [//]: # (pagebreak)
 
-## BCE diagrams
+## 4.3.BCE diagrams
 
 We insert BCE (business controller entity) diagrams to show how each user action is managed internally and how it's linked with our model. This diagram is very useful since we use MVC.
 
@@ -395,9 +395,9 @@ We insert BCE (business controller entity) diagrams to show how each user action
 
 [//]: # (pagebreak)
 
-# Requirements traceability
+# 5.Requirements traceability
 
-The design of this project was made aiming to fullfill optimally the requirements and goals specified in the RASD. The lector can find here under a the list of these requirements and goals and the designed composent of the application which will assure its fullfilment.
+The design of this project was made aiming to fulfill optimally the requirements and goals specified in the RASD. The reader can find here under a the list of these requirements and goals and the designed component of the application which will assure its fulfillment.
 
 * [G1] Allows taxi drivers to log in the system.
     * The DriverController and its interface to the old database.
@@ -452,17 +452,17 @@ The design of this project was made aiming to fullfill optimally the requirement
 * [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The Client composant
     * The RideController
-**In G14 G10 insert interface with SMS gateway and the same for push notification?**
+**In G14 G10 insert interface with SMS gateway and the same for push notification? [Gilles: yes I think you are right]**
 
 [//]: # (pagebreak)
 
-# References
+# 6.References
 
 Maybe software used
 
 [//]: # (pagebreak)
 
-# Hours of work
+# 7.Hours of work
 ## Claudio Cardinale
 
 
