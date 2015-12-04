@@ -244,7 +244,7 @@ as now ( v1 ) our exposed methods are the following:
   - api/v1/ride
     - POST: create a new ride
 
-**N.B.** To end the ride we use the position of the driver, when the position it's nearby the final location the ride will be canceled. **Good here or not? [gilles : do we really need to finish the ride ? I tough once the driver accepted the ride and that the client is notified it is in their hand and it is not our buisness anymore. The application is made to manage the taxi allocation, not to verify a ride is done or not**
+**N.B.** To end the ride we use the position of the driver, when the position it's nearby the final location the ride will be canceled. **Good here or not? [gilles : do we really need to finish the ride ? I tough once the driver accepted the ride and that the client is notified it is in their hand and it is not our buisness anymore. The application is made to manage the taxi allocation, not to verify a ride is done or not [claudio: we need it to the availability feature]**
 
 **INSERT API TO SAY THAT A RIDE IS TERMINATED EVEN IN INTERFACES DESIGN** and in mockup and ux
 
