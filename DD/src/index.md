@@ -57,10 +57,7 @@ This document is addressed to developers and aims to identify:
 * The high level architecture
 * The design patterns
 * The main components and their interfaces provided one for another
-* The Runtime comportement
-
-
-**COMPLETE**
+* The Runtime behavior
 
 ## 1.2.Scope
 The project myTaxiService, which is a service based on mobile application and web application, has two different targets of people:
@@ -74,16 +71,8 @@ The clients are not registered since the company wants the system to be as easil
 
 The system includes extra services and functionalities such as taxi sharing.
 
-The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients and taxi drivers (by having fair waiting queues). **KEEP OR REMOVE?**
+The main purpose of the system is to be more efficient and reliable than the existing one in order to decrease costs of the taxi management and offer a better service to the clients and taxi drivers (by having fair waiting queues).
 
-We will design:     **Gilles : isn't this section redundent with the list in the 1.1.Purpose ? **
-
-* Critical internal components
-* Interface with external services like SMS gateway
-* Interface with the old system
-
-
-**COMPLETE**
 
 ## 1.3.Definitions, acronyms, abbreviations
 
@@ -109,16 +98,10 @@ We will design:     **Gilles : isn't this section redundent with the list in the
     * Bounds must be composed by positions and not by none of its subclasses.
     * Bounds must be a set (it must not contain duplicates).
 
-
-
-**COMPLETE INSERTING OTHER GLOSSARY FROM RASD**
-
 ## 1.4.Reference documents
 * RASD produced before 1.1
 * Specification Document: Assignments 1 and 2 (RASD and DD).pdf
 * Structure of the design document.pdf
-
-**INSERT or not lecture slides**
 
 ## 1.5.Document structure
 * **Introduction:** this section introduces the design document. It contains a justification of his utility and indications on which parts are covered in this document that are not covered by RASD.
@@ -128,8 +111,6 @@ We will design:     **Gilles : isn't this section redundent with the list in the
 * **Algorithms Design:** this section describes the most critical parts via some algorithms. Pseudo code is used in order to hide unnecessary implementation details in order to focus on the most important parts.
 * **User Interface Design:** this section presents mockups and user experience explained via UX and BCE diagrams.
 * **Requirements Traceability:** this section aims to explain how the decisions taken in the RASD are linked to design elements.
-
-**WRITE MORE [Gilles: i think it is enough]**
 
 [//]: # (pagebreak)
 
@@ -144,8 +125,6 @@ The MyTaxiService has a three tier architecture.
 
 On the client there is not a static GUI but a dynamic one that is generated on client side. In fact in the client, there is a module that interacts with the application server via RESTful API.  
 With this architecture this application can easily be moved to a cloud system, for example to amazon AWS where it would have dedicated cloud servers with load balance for database and other for application logic on demand.
-
-**Write more and make graph of interaction with the old system KEEP OR REMOVE?**
 
 [//]: # (pagebreak)
 
@@ -181,12 +160,6 @@ In this sequence diagram it can be seen that when a request has to be handeled, 
 ![Client reservation][seqClientReservation]
 In this sequence diagram it can be seen that a client needs to indicate the request information. Once done, the request can be transferred via a the Router to the ReservationController which is in fact a sort of scheduler. Once the time indicated for the reservation by the client has nearly been reached, the reservation is handled by the RequestController like a normal request.
 If some information indicated by the user is not valid (like a wrong departure time for the reserved ride) the RequestController detects it and sends an error back to the client mobile application or webpage. The sequence diagram when a client makes a request for an immediate ride is not provided here since its only difference with this one is that the request does not go to the ReservationController but directly to the RequestController.
-
-**Link seq inserted on RASD OR NOT?**
-
-**Make or not slides example diagram**
-
-**Check diagrams if they are correct in our previously assumptions**
 
 [//]: # (pagebreak)
 
@@ -244,9 +217,7 @@ as now ( v1 ) our exposed methods are the following:
   - api/v1/ride
     - POST: create a new ride
 
-**N.B.** To end the ride we use the position of the driver, when the position it's nearby the final location the ride will be canceled. **Good here or not? [gilles : do we really need to finish the ride ? I tough once the driver accepted the ride and that the client is notified it is in their hand and it is not our buisness anymore. The application is made to manage the taxi allocation, not to verify a ride is done or not [claudio: we need it to the availability feature]**
-
-**INSERT API TO SAY THAT A RIDE IS TERMINATED EVEN IN INTERFACES DESIGN** and in mockup and ux
+**N.B.** To end the ride we use the position of the driver, when the position it's nearby the final location the ride will be canceled.
 
 ### 2.7.3.Design patterns
 
@@ -284,11 +255,6 @@ This approach has been chosen for different reasons:
 [//]: # (pagebreak)
 
 # 3.Algorithm design
-
-**ideas:**
- 
- * Describe queue and availability algorithm **MAKE OR NOT?**
-
 
 Here we give just an idea of the most critical parts, we don't write complete code
 
@@ -464,11 +430,13 @@ The design of this project was made aiming to fulfill optimally the requirements
     * The RideController
 **In G14 G10 insert interface with SMS gateway and the same for push notification? [Gilles: yes I think you are right]**
 
+**Composant???**
+
 [//]: # (pagebreak)
 
 # 6.References
 
-Maybe software used
+**Maybe software used**
 
 [//]: # (pagebreak)
 
