@@ -294,6 +294,7 @@ The requirements are grouped under each goal from which it is derived. The goals
     * The system must not accept requests of clients outside the area of the city.
     * The system must transfer the request to the appropriate taxi driver.
     * The system must be able to determine the zone where the client is located according to the client's GPS position.
+    * The system must split a request into different requests if the the request exceeds the max passengers number for a taxi
 * [G9] Allows clients to request for the reservation of a taxi at least two hours in advance:
     * The system must be able to check the origin and the destination of reservation.
     * The system must not accept reservations with an origin outside the area of the city.
@@ -898,6 +899,7 @@ The tools we used to create this RASD document are:
     * Interface with old system fixed
     * [G7] requirement fixed
     * Another text assumption
+    * [G8] requirement fixed
 
 
 
