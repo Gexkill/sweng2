@@ -81,6 +81,8 @@ The main purpose of the system is to be more efficient and reliable than the exi
 * SMS: short message service; it is a notification sent to a mobile phone, an SMS gateway is needed to use it.
 * SMS gateway: it is a service which allows to send SMS via standard API.
 * API: application programming interface; it is a common way to communicate with another system.
+* MVC: model view controller
+* URL: uniform resource locator
 * Push notification: it is a notification sent to a smartphone using the mobile application, so it must be installed.
 * Push service: it is a service that allows to send push notifications with own API
 * Matching itineraries: two itineraries (A and B) are matching if one of the two following conditions are fulfilled:
@@ -249,7 +251,7 @@ This approach has been chosen for different reasons:
 
 ## 2.8.Other design decisions
 
-**WRITE SOMETHING?**
+We have also to integrate our web application and our mobile applications with a map service, to do this have chosen to use an openmap service.
 
 
 [//]: # (pagebreak)
@@ -442,13 +444,30 @@ The design of this project was made aiming to fulfill optimally the requirements
 
 # 7.Hours of work
 ## Claudio Cardinale
-
+  * 16/11/15: 1h
+  * 23/11/15: 30m
+  * 24/11/15: 5h
+  * 25/11/15: 3h
+  * 27/11/15: 4h
+  * 01/12/15: 30m
+  * 03/12/15: 2h
+  * 04/12/15: 2h
 
 
 ## Gilles Dejaegere
-
+  * 24/11/15: 3h
+  * 25/11/15: 3h reunion + 2h before
+  * 27/11/15: 1h30
+  * 28/11/15: 3h30
+  * 30/11/15: 3h
+  * 01/12/15: 1h30
+  * 02/12/15: 2h
+  * 04/12/15: 2h
 
 ## Massimo Dragano
+ * 24/11/15: 6h
+ * 25/11/15: 6h
+ * 01/12/15: 4h
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
