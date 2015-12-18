@@ -45,3 +45,11 @@ Refered to official guide
 * 4.F
 * 4.G
 
+# CI
+## Claudio Cardinale
+* document structure
+
+## Gilles Dejaegere
+
+## Massimo Dragano
+

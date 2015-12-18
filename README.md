@@ -9,6 +9,9 @@ Project repository for software engineering 2
 * DD
    * [DD Markdown](DD/src/index.md)
    * [DD PDF](DD/DD.pdf): it cannot be  updated
+* CI
+   * [CI Markdown](CI/src/index.md)
+   * [CI PDF](CI/CI.pdf): it cannot be  updated
 * [Hours](other/hours.md)
 * [Tasks](other/tasks.md)
 * [Utility](other/utility.md)
