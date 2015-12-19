@@ -32,7 +32,17 @@
 21. OK
 22. TODO
 23. TODO 
+24. TODO
 
+
+
+54. OK, No switches
+55. OK, No switches
+56. OK
+57. OK, No files
+58. OK, No files
+59. OK, No files
+60. OK, No files
 
 
 additional notes:
