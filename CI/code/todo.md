@@ -19,6 +19,12 @@
     * 5734
     * 5735
 14. OK
+15. NO ([^,+/\*|&;{}=.-]\n)
+    * 5670
+    * 5680
+    * 5740
+16. TODO
+
 
 additional notes:
 * some 'if' have a space before '(', but other not
