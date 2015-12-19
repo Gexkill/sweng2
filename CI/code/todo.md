@@ -35,9 +35,19 @@
 24. TODO
 
 
+40. OK
+41. OK, only log strings
+    * LISTENER_STOP_EXCEPTION
+    * STARTING_RESOURCES_EXCEPTION
+    * STARTING_RESOURCE_EXCEPTION_MESSAGE
+    * STOPPING_RESOURCES_EXCEPTION
+    * SERVLET_LOAD_EXCEPTION
+42. OK
+43. OK, only log
+
 52. OK, checked exceptions catched
 53. NO
-    * 5621 message is not logged
+    * 5619 not logged
     * TODO: check if there are other problems
 54. OK, No switches
 55. OK, No switches
