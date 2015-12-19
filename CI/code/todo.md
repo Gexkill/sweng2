@@ -35,7 +35,10 @@
 24. TODO
 
 
-
+52. OK, checked exceptions catched
+53. NO
+    * 5621 message is not logged
+    * TODO: check if there are other problems
 54. OK, No switches
 55. OK, No switches
 56. OK
@@ -46,4 +49,13 @@
 
 
 additional notes:
-* some 'if' have a space before '(', but other not
+* some 'if' have a space before '(', but other not, the same thing for other construct like 'catch'
+* } catch(Throwable t) {
+    * 5619 
+    * 5648
+    * 5483
+    * 5580
+    * 5675
+    * 5685
+    
+
