@@ -24,6 +24,15 @@
     * 5680
     * 5740
 16. TODO
+17. OK
+18. TODO
+19. NO
+    * 5705
+20. OK
+21. OK
+22. TODO
+23. TODO 
+
 
 
 additional notes:
