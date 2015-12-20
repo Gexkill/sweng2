@@ -39,6 +39,7 @@
 
 #Issues list found by applying the chckelist
 
+**TODO write task lists**
 
 [//]: # (pagebreak)
 
