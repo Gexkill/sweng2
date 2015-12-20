@@ -34,7 +34,9 @@
 23. TODO 
 24. TODO
 
-
+37. OK, only one access via foreach
+38. OK, only one access via foreach
+39. OK, two occurrences of new Object[], this is not a good way, write this in notes
 40. OK
 41. OK, only log strings
     * LISTENER_STOP_EXCEPTION
