@@ -110,9 +110,13 @@
   - Parentheses around '(ok)' are unnecessary at line 5655
   - Parentheses around '(ok)' are unnecessary at line 5694
 
+## Data flow issues
+
 ### TooBroadScope
 
   - Scope of variable 'ok' is too broad at line 5566 
+
+## Declaration redundancy
 
 ### WeakerAccess
 
@@ -235,4 +239,20 @@
   - Can be private (at line 7113)
   - Can be private (at line 7144)
   - Can be private (at line 7179)
+
+### DuplicateThrows
+
+  - There is a more general exception, 'java.lang.Exception', in the throws list already. (at line 6319)
+
+### UnusedReturnValue
+
+  - Return value of the method is never used (at line 5450)
+  - Return value of the method is never used (at line 5509)
+  - Return value of the method is never used (at line 5559)
+  - Return value of the method is never used (at line 5632)
+  - Return value of the method is never used (at line 5659) 
+
+### SameReturnValue
+
+  - Method always returns 'true' (at line 5509)
 
