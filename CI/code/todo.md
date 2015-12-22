@@ -1,4 +1,5 @@
-
+3. OK
+4. OK, no interfaces
 10. OK K&R style
 11. NO
     * 5546
@@ -46,6 +47,9 @@
     * SERVLET_LOAD_EXCEPTION
 42. OK
 43. OK, only log
+
+47. OK, no divisions
+48. OK, no divisions
 
 52. OK, checked exceptions catched
 53. NO
