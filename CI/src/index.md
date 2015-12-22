@@ -33,6 +33,7 @@
 
 #Functional role
 
+**TODO write role of each method?**
 
 [//]: # (pagebreak)
 
