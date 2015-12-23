@@ -126,7 +126,7 @@ All method assigned to us belong to the same class.
 This class is the standard implementation of the *Context* interface.
 According the javadoc Context interface is:
 
->  A <b>Context</b> is a Container that represents a servlet context, and therefore an individual web application, in the Catalina servlet engine. It is therefore useful in almost every deployment of Catalina (even if a Connector attached to a web server (such as Apache) uses the web server's facilities to identify the appropriate Wrapper to handle this request. It also provides a convenient mechanism to use Interceptors that see every request processed by this particular web application.   
+>  A **Context** is a Container that represents a servlet context, and therefore an individual web application, in the Catalina servlet engine. It is therefore useful in almost every deployment of Catalina (even if a Connector attached to a web server (such as Apache) uses the web server's facilities to identify the appropriate Wrapper to handle this request. It also provides a convenient mechanism to use Interceptors that see every request processed by this particular web application.   
 > The parent Container attached to a Context is generally a Host, but may be some other implementation, or may be omitted if it is not necessary.  
 > The child containers attached to a Context are generally implementations of Wrapper (representing individual servlet definitions).
 
