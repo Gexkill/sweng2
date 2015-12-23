@@ -133,7 +133,7 @@ According to the javadoc it is:
 **TODO class diagram automatically generated?**
 **TODO write also our interpretation?**
 **TODO write role of each method?**
-**TODO remember that the class extends ServletContext that is compiled**
+**TODO remember that the class implements ServletContext that is compiled and extends ContianerBase**
 
 [//]: # (pagebreak)
 
