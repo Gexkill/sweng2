@@ -57,8 +57,8 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 
 ## Reference documents
 * Assignment document: Code inspection.pdf
-* Glashfish javadoc of this version: http://glassfish.pompel.me/
-* Methods assigned to each group: http://assignment.pompel.me/
+* Glashfish javadoc of this version: [http://glassfish.pompel.me/](http://glassfish.pompel.me/)
+* Methods assigned to each group: [http://assignment.pompel.me/](http://assignment.pompel.me/)
 
 ## Document structure
 * **Introduction:** this section introduces the inspection document. It contains a justification of his utility and indications on which parts are covered in this document.
@@ -74,7 +74,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 
 #Classes
 
-All method assigned to us belong to the same class.
+All methods assigned to us belong to the same class.
 
 ## StandardContext
 **Namespace:** org.apache.catalina.core  
