@@ -63,7 +63,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 ## Document structure
 * **Introduction:** this section introduces the inspection document. It contains a justification of his utility and indications on which parts are covered in this document.
 * **Classes:** this section describes the classes and the methods assigned
-* **Functional role:** this section describes the functional role of the class of the methods assigned.
+* **Functional role:** this section describes the functional role of the class of the methods assigned. **TODO write role of each method?**
 * **Issues list found by applying the checklist:** this section describes the issues found applying the checklist given.
 * **Other problems:** this section describes other problems found that are not strictly related to the checklist.
 
@@ -123,6 +123,14 @@ All method assigned to us belong to the same class.
 
 #Functional role
 
+This class is the standard implementation of the *Context* interface.
+According the javadoc Context interface is:
+
+>  A <b>Context</b> is a Container that represents a servlet context, and therefore an individual web application, in the Catalina servlet engine. It is therefore useful in almost every deployment of Catalina (even if a Connector attached to a web server (such as Apache) uses the web server's facilities to identify the appropriate Wrapper to handle this request. It also provides a convenient mechanism to use Interceptors that see every request processed by this particular web application.   
+> The parent Container attached to a Context is generally a Host, but may be some other implementation, or may be omitted if it is not necessary.  
+> The child containers attached to a Context are generally implementations of Wrapper (representing individual servlet definitions).
+
+**TODO write also our interpretation?**
 **TODO write role of each method?**
 
 [//]: # (pagebreak)
