@@ -17,7 +17,9 @@
     1. [Definitions, acronyms, abbreviations](#definitions-acronyms-abbreviations)
     1. [Reference documents](#reference-documents)
     1. [Document structure](#document-structure)
-1. [Class](#class)
+1. [Classes](#classes)
+    1. [StandardContext](#standardcontext)
+        1. [Methods](#methods)
 1. [Functional role](#functional-role)
 1. [Issues list found by applying the checklist](#issues-list-found-by-applying-the-checklist)
 1. [Other problems](#other-problems)
@@ -60,7 +62,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 
 ## Document structure
 * **Introduction:** this section introduces the inspection document. It contains a justification of his utility and indications on which parts are covered in this document.
-* **Class:** this section describes the class of the methods assigned
+* **Classes:** this section describes the classes and the methods assigned
 * **Functional role:** this section describes the functional role of the class of the methods assigned.
 * **Issues list found by applying the checklist:** this section describes the issues found applying the checklist given.
 * **Other problems:** this section describes other problems found that are not strictly related to the checklist.
@@ -70,7 +72,50 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 [//]: # (pagebreak)
 
 
-#Class
+#Classes
+
+All method assigned to us belong to the same class.
+
+## StandardContext
+**Namespace:** org.apache.catalina.core  
+**Extends:** ContainerBase  
+**Implements:** Context, ServletContext
+
+### Methods
+    Name:
+        contextListenerStop( )
+    Start Line:
+        5457
+    Name:
+        eventListenerStop( )
+    Start Line:
+        5509
+    Name:
+        mergeParameters( )
+    Start Line:
+        5537
+    Name:
+        resourcesStart( )
+    Start Line:
+        5564
+    Name:
+        alternateResourcesStart( )
+    Start Line:
+        5597
+    Name:
+        resourcesStop( )
+    Start Line:
+        5635
+    Name:
+        alternateResourcesStop( )
+    Start Line:
+        5662
+    Name:
+        loadOnStartup( Container children [ ] )
+    Start Line:
+        5708
+
+**WRITE IN A BETTER WAY?**
 
 
 [//]: # (pagebreak)
