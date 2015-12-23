@@ -130,6 +130,8 @@ According to the javadoc it is:
 > The parent Container attached to a Context is generally a Host, but may be some other implementation, or may be omitted if it is not necessary.  
 > The child containers attached to a Context are generally implementations of Wrapper (representing individual servlet definitions).
 
+![inheritance diagram][inheritanceDiagram]
+
 **TODO class diagram automatically generated?**
 **TODO write also our interpretation?**
 **TODO write role of each method?**
@@ -167,3 +169,4 @@ According to the javadoc it is:
 ## Massimo Dragano
 
 
+[inheritanceDiagram]: ../resources/inheritance_diagram.png?raw=true
