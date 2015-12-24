@@ -108,9 +108,15 @@ The main purpose of the system is to be more efficient and reliable than the exi
 
 ## 1.5.Document structure
 * **Introduction:** this section introduces the design document. It contains a justification of his utility and indications on which parts are covered in this document that are not covered by RASD.
-* **Architecture Design:** this section is divided into two parts:
-	1. High level design
-	1. Architecture chosen presented via diagrams
+* **Architecture Design:** this section is divided into different parts:
+    1. Overview : this sections explains the division in tiers of our application
+    1. High level components and their interaction : this sections gives a global view of the components of the application and how they communicate
+    1. Component view : this sections gives a more detailed view of the components of the applications
+    1. Deploying view : this section shows the components that must be deployed to have the application running correctly.
+    1. Runtime view : sequence diagrams are represented in this section to show the course of the different tasks of our application
+    1. Component interfaces : the interfaces between the components are presented in this section
+    1. Selected architectural styles and patterns : this section explain the architectural choices taken during the creation of the application
+    1. Other design decisions
 * **Algorithms Design:** this section describes the most critical parts via some algorithms. Pseudo code is used in order to hide unnecessary implementation details in order to focus on the most important parts.
 * **User Interface Design:** this section presents mockups and user experience explained via UX and BCE diagrams.
 * **Requirements Traceability:** this section aims to explain how the decisions taken in the RASD are linked to design elements.
@@ -475,6 +481,11 @@ The tools we used to create this DD document are:
  * 24/11/15: 6h
  * 25/11/15: 6h
  * 01/12/15: 4h
+ 
+
+# Fixes :
+    * renumbering of goals 5. requirements tracability to match the goals in the RASD
+    * improvement of the Architecture Design part in the 1.5 Document structure
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
