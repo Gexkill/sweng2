@@ -50,6 +50,7 @@
   * 02/12/15: 2h
   * 04/12/15: 2h
 * CI
+  * 24/12/15: 2h (not real CI but more like checking what you guys did + issues correction in RASD + DD)
 
 # Massimo Dragano
 * RASD
