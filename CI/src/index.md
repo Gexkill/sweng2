@@ -132,6 +132,10 @@ According to the javadoc it is:
 
 ![inheritance diagram][inheritanceDiagram]
 
+It extends *ContainerBase* that is **TODO**
+
+And implements *ServletContext*  that is a competitive interface.....
+
 **TODO class diagram automatically generated?**
 **TODO write also our interpretation?**
 **TODO write role of each method?**
