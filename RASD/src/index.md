@@ -97,20 +97,19 @@ This system stores taxi information into a Mysql database.
 * [G1] Allows taxi drivers to log in the system.
 * [G2] Allows taxi drivers to precise to the system if they are available or not.
 * [G3] Taxi drivers should receive a push notification for incoming request.
-* [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).
-* [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
-* [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
-* [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
+* [G4] Allows taxi drivers to accept or decline incoming requests for an immediate ride
+* [G5] Allows taxi drivers to accept or decline incoming request for a later reservation.
+* [G6] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
 
 
 ###Clients:
-* [G8] Allows clients to request for an immediate taxi ride.
-* [G9] Allows clients to request for the reservation of a taxi at least two hours in advance.
-* [G10] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request. 
-* [G11] Allows clients to require to share the taxi.
-* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
-* [G13] Allows clients to specify the number of passengers.
-* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+* [G7] Allows clients to request for an immediate taxi ride.
+* [G8] Allows clients to request for the reservation of a taxi at least two hours in advance.
+* [G9] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request. 
+* [G10] Allows clients to require to share the taxi.
+* [G11] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
+* [G12] Allows clients to specify the number of passengers.
+* [G13] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
 
 
 ##Domain properties
@@ -267,19 +266,15 @@ The requirements are grouped under each goal from which it is derived. The goals
 * [G3] Taxi drivers should receive a notification for incoming request:
     * The system must be able to forward an incoming request to the appropriate taxi driver.
     * The system must be able to alert a taxi driver when a request is incoming.
-* ~~[G4] Taxi drivers should receive a notification if they have to take care of another client (during a shared ride):~~
-    * ~~The system must be able to match together matching request with the "shared ride" option activated.~~
-    * ~~The system must be able to inform the taxi when a ride is shared.~~
-    * ~~The system must be able to inform the taxi drivers of the different stops he has to do during his ride in order to take or drop the concerned passengers.~~
-* [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride:
+* [G4] Allows taxi drivers to accept or decline incoming requests for an immediate ride:
     * The system must ask to the taxi driver if he accepts to perform the ride.
     * The system must replace a taxi driver at the end of the queue if he declines the ride.
     * The system must ask to the next taxi driver if the former one declined the ride.
     * The system must notify the client with the code of the taxi driver who has accepted the ride.
     * The system must notify the client if no taxi driver in the queue accepts the ride.
-* [G6] Allows taxi drivers to accept or decline incoming request for a later reservation:
+* [G5] Allows taxi drivers to accept or decline incoming request for a later reservation:
     * The system must wait until ten minutes before the starting time of the reservation and manage it like an immediate ride.
-* [G7] Allows taxi to know the fee for each ride before it starts via the request notification
+* [G6] Allows taxi to know the fee for each ride before it starts via the request notification
     * The system must send a notification with the fees calculated for the ride, they are calculated using fixed fees for distance.
     * The system must send this notification after confirmation by taxi driver.
     * The system must estimate the distance using the distance between two zone's centers.
@@ -289,26 +284,26 @@ The requirements are grouped under each goal from which it is derived. The goals
 
 
 ###Clients:
-* [G8] Allows clients to request for an immediate taxi ride:
+* [G7] Allows clients to request for an immediate taxi ride:
     * The system must be able to check the position of the client.
     * The system must not accept requests of clients outside the area of the city.
     * The system must transfer the request to the appropriate taxi driver.
     * The system must be able to determine the zone where the client is located according to the client's GPS position.
     * The system must split a request into different requests if the the request exceeds the max passengers number for a taxi
-* [G9] Allows clients to request for the reservation of a taxi at least two hours in advance:
+* [G8] Allows clients to request for the reservation of a taxi at least two hours in advance:
     * The system must be able to check the origin and the destination of reservation.
     * The system must not accept reservations with an origin outside the area of the city.
     * The system must transfer the reservation to the appropriate taxi driver.
-* [G10] Clients should receive a notification with the code of the taxi that takes care of the client's request: 
+* [G9] Clients should receive a notification with with the ETA and the code of the taxi that takes care of the client's request: 
     * The system must be able to send an sms to the client with the code of the incoming taxi.
-* [G11] Allows clients to require to share the taxi:
+* [G10] Allows clients to require to share the taxi:
     * The system must be able to find if there are shared requests for the same time period and having matching start zone and direction.
     * The system must be able to merge together the requests found above.
-* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system:
+* [G11] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system:
     * The system must allow the clients to furnish their personal information to the system before making a request.
-* [G13] Allows clients to specify the number of passengers:
+* [G12] Allows clients to specify the number of passengers:
     * The system must allow the client to specify the number of passengers during the request or reservation of the ride.
-* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+* [G13] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The system must insert the fee for the request in the SMS notification
     * The system must use fee calculated as specified in [G7].
 
@@ -895,7 +890,7 @@ The tools we used to create this RASD document are:
 
 # Changelog
 * v1.1
-    * [G4] removed
+    * previous [G4] removed
     * Interface with old system fixed
     * [G7] requirement fixed
     * Another text assumption
