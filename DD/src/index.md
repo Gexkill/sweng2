@@ -261,7 +261,7 @@ We have also to integrate our web application and our mobile applications with a
 
 Here we give just an idea of the most critical parts, we don't write complete code
 
-## Merging requests
+## 3.1.Merging requests
 
 As we said in RASD we use merged request to manage sharing option
 
@@ -308,7 +308,7 @@ function createMerge(Request $request1, Request $request2)
 
 ```
 
-## Make ride and calculate fees
+## 3.2.Make ride and calculate fees
 ```php
 function makeRide(Request $request, Driver[] $drivers)
 {
