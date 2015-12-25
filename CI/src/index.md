@@ -51,7 +51,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 ## Definitions, acronyms, abbreviations
 
 * JEE: Java enterprise edition
-* SVN: apache subversion, it is a version controller system, the successor of CVS
+* SVN: apache subversion, it is a version controller system, the successor of CVS **OR VCS?**
 * CVS: Concurrent versions system, the first version controller system
 **WRITE acronyms find in the code**
 
