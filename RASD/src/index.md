@@ -97,7 +97,7 @@ This system stores taxi information into a Mysql database.
 * [G1] Allows taxi drivers to log in the system.
 * [G2] Allows taxi drivers to precise to the system if they are available or not.
 * [G3] Taxi drivers should receive a push notification for incoming request.
-* [G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).
+* ~~[G4] Taxi drivers should receive a push notification if they have to take care of another client (during a shared ride).~~
 * [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride
 * [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
 * [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
