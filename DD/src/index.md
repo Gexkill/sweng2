@@ -77,8 +77,8 @@ The main purpose of the system is to be more efficient and reliable than the exi
 
 ## 1.3.Definitions, acronyms, abbreviations
 
-* RASD: Requirements analysis and specifications document
-* DD: Design document
+* RASD: requirements analysis and specifications document
+* DD: design document
 * SMS: short message service; it is a notification sent to a mobile phone, an SMS gateway is needed to use it.
 * SMS gateway: it is a service which allows to send SMS via standard API.
 * API: application programming interface; it is a common way to communicate with another system.
@@ -100,6 +100,8 @@ The main purpose of the system is to be more efficient and reliable than the exi
     * It has more than 2 positions that compose its bounds.
     * Bounds must be composed by positions and not by none of its subclasses.
     * Bounds must be a set (it must not contain duplicates).
+* UX: user experience design
+* BCE: business controller entity
 
 ## 1.4.Reference documents
 * RASD produced before 1.1
