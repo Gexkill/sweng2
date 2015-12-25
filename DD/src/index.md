@@ -396,46 +396,46 @@ The design of this project was made aiming to fulfill optimally the requirements
     * The Router
     * The DriverMobileApp component
     * The Push notification gateway
-* [G4] Allows taxi drivers to accept or decline incoming requests for an immediate ride.
+* [G5] Allows taxi drivers to accept or decline incoming requests for an immediate ride.
     * The DriverMobileApp component
     * The DriverController
     * The QueueManager
     * The RideController
     * The RequestController
-* [G5] Allows taxi drivers to accept or decline incoming request for a later reservation.
+* [G6] Allows taxi drivers to accept or decline incoming request for a later reservation.
     * The DriverMobileApp component
     * The DriverController
     * The QueueManager
     * The RideController
     * The ReservationController
     * The RequestController
-* [G6] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
+* [G7] Allows taxi to know the fee for each ride before it starts via the request notification (but after he has accepted).
     * The RideController
     * The DriverController
     * The Router
-* [G7] Allows clients to request for an immediate taxi ride.
+* [G8] Allows clients to request for an immediate taxi ride.
     * The Client component
     * The Router
     * The RequestController
-* [G8] Allows clients to request for the reservation of a taxi at least two hours in advance.
+* [G9] Allows clients to request for the reservation of a taxi at least two hours in advance.
     * The Client component
     * The Router
     * The RequestController
     * The ReservationController
-* [G9] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
+* [G10] Clients should receive an SMS notification with the ETA and code of the taxi that takes care of the client's request.
     * The RideController
     * The SMS gateway
-* [G10] Allows clients to require to share the taxi.
+* [G11] Allows clients to require to share the taxi.
     * The Client component
     * The RequestController
-* [G11] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
+* [G12] Allows clients to identify themselves via phone number (and name) not via login, they are not registered into the system.
     * The Client component
     * The RequestController
-* [G12] Allows clients to specify the number of passengers.
+* [G13] Allows clients to specify the number of passengers.
     * The Client component
     * The Router
     * The RequestController
-* [G13] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
+* [G14] Allows clients to know the fee for the ride via SMS notification of taxi assigned see [G10]
     * The Client component
     * The RideController
     * The SMS gateway
