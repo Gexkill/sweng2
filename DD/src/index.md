@@ -486,8 +486,9 @@ The tools we used to create this DD document are:
  
 
 # Fixes :
-    * renumbering of goals 5. requirements tracability to match the goals in the RASD
+    * [G4] crossed out
     * improvement of the Architecture Design part in the 1.5 Document structure
+    * adding of UX and BCE in the lexic
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
