@@ -3,7 +3,7 @@
 10. OK K&R style
 11. NO
     * 5546
-12. TODO
+12. OK
 13. NO (considering indentation)
     * 5487
     * 5488
@@ -24,7 +24,7 @@
     * 5670
     * 5680
     * 5740
-16. TODO
+16. Ok
 17. OK
 18. TODO
 19. NO
