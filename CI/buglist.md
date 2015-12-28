@@ -46,3 +46,94 @@
 
   - single statement `if` without braces at line `5546`
 
+#### File organization
+
+  - line `188` exceed 120 columns.
+  - line `214` exceed 120 columns.
+  - line `232` exceed 120 columns.
+  - line `2288` can be easily rewritten to not exceed 80 columns.
+  - line `2571` can be easily rewritten to not exceed 80 columns.
+  - line `2627` can be easily rewritten to not exceed 80 columns.
+  - line `2688` can be easily rewritten to not exceed 80 columns.
+  - line `2761` can be easily rewritten to not exceed 80 columns.
+  - line `2895` can be easily rewritten to not exceed 80 columns.
+  - line `2899` can be easily rewritten to not exceed 80 columns.
+  - line `2902` can be easily rewritten to not exceed 80 columns.
+  - line `2907` can be easily rewritten to not exceed 80 columns.
+  - line `2965` can be easily rewritten to not exceed 80 columns.
+  - line `2971` can be easily rewritten to not exceed 80 columns.
+  - line `3013` can be easily rewritten to not exceed 80 columns.
+  - line `3019` can be easily rewritten to not exceed 80 columns.
+  - line `3023` can be easily rewritten to not exceed 80 columns.
+  - line `3100` can be easily rewritten to not exceed 80 columns.
+  - line `3106` can be easily rewritten to not exceed 80 columns.
+  - line `3226` can be easily rewritten to not exceed 80 columns.
+  - line `3232` can be easily rewritten to not exceed 80 columns.
+  - line `3329` can be easily rewritten to not exceed 80 columns.
+  - line `3415` can be easily rewritten to not exceed 80 columns.
+  - line `3462` can be easily rewritten to not exceed 80 columns.
+  - line `3555` can be easily rewritten to not exceed 80 columns.
+  - line `3624` can be easily rewritten to not exceed 80 columns.
+  - line `3628` can be easily rewritten to not exceed 80 columns.
+  - line `3752` can be easily rewritten to not exceed 80 columns.
+  - line `3814` can be easily rewritten to not exceed 80 columns.
+  - line `3820` can be easily rewritten to not exceed 80 columns.
+  - line `3841` can be easily rewritten to not exceed 80 columns.
+  - line `3879` can be easily rewritten to not exceed 80 columns.
+  - line `3885` can be easily rewritten to not exceed 80 columns.
+  - line `3934` can be easily rewritten to not exceed 80 columns.
+  - line `3940` can be easily rewritten to not exceed 80 columns.
+  - line `4012` can be easily rewritten to not exceed 80 columns.
+  - line `4018` can be easily rewritten to not exceed 80 columns.
+  - line `4022` can be easily rewritten to not exceed 80 columns.
+  - line `4228` can be easily rewritten to not exceed 80 columns.
+  - line `4237` can be easily rewritten to not exceed 80 columns.
+  - line `4252` can be easily rewritten to not exceed 80 columns.
+  - line `4267` can be easily rewritten to not exceed 80 columns.
+  - line `4794` can be easily rewritten to not exceed 80 columns.
+  - line `4801` can be easily rewritten to not exceed 80 columns.
+  - line `4812` can be easily rewritten to not exceed 80 columns.
+  - line `4819` can be easily rewritten to not exceed 80 columns.
+  - line `4867` can be easily rewritten to not exceed 80 columns.
+  - line `5259` can be easily rewritten to not exceed 80 columns.
+  - line `5295` can be easily rewritten to not exceed 80 columns.
+  - line `5333` can be easily rewritten to not exceed 80 columns.
+  - line `5360` can be easily rewritten to not exceed 80 columns.
+  - line `5410` can be easily rewritten to not exceed 80 columns.
+  - line `5418` can be easily rewritten to not exceed 80 columns.
+  - line `5487` can be easily rewritten to not exceed 80 columns.
+  - line `5574` can be easily rewritten to not exceed 80 columns.
+  - line `5576` can be easily rewritten to not exceed 80 columns.
+  - line `5582` can be easily rewritten to not exceed 80 columns.
+  - line `5613` can be easily rewritten to not exceed 80 columns.
+  - line `5618` can be easily rewritten to not exceed 80 columns.
+  - line `5621` can be easily rewritten to not exceed 80 columns.
+  - line `5624` can be easily rewritten to not exceed 80 columns.
+  - line `5680` can be easily rewritten to not exceed 80 columns.
+  - line `5734` can be easily rewritten to not exceed 80 columns.
+  - line `5735` can be easily rewritten to not exceed 80 columns.
+  - line `5817` can be easily rewritten to not exceed 80 columns.
+  - line `5840` can be easily rewritten to not exceed 80 columns.
+  - line `5861` can be easily rewritten to not exceed 80 columns.
+  - line `5933` can be easily rewritten to not exceed 80 columns.
+  - line `5946` can be easily rewritten to not exceed 80 columns.
+  - line `6057` can be easily rewritten to not exceed 80 columns.
+  - line `6065` can be easily rewritten to not exceed 80 columns.
+  - line `6271` can be easily rewritten to not exceed 80 columns.
+  - line `6917` can be easily rewritten to not exceed 80 columns.
+  - line `6993` can be easily rewritten to not exceed 80 columns.
+  - line `7017` can be easily rewritten to not exceed 80 columns.
+  - line `7027` can be easily rewritten to not exceed 80 columns.
+  - line `7183` can be easily rewritten to not exceed 80 columns.
+  - line `7299` can be easily rewritten to not exceed 80 columns.
+  - line `7448` can be easily rewritten to not exceed 80 columns.
+  - line `7535` can be easily rewritten to not exceed 80 columns.
+  - line `7607` can be easily rewritten to not exceed 80 columns.
+  - line `7690` can be easily rewritten to not exceed 80 columns.
+
+> **TIP**: many lines exceed 80 columns due to `getString` nested call,
+>          saving value returned from `getString` call into a local variable
+>          should solve those problems.
+
+
+  
