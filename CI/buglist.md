@@ -45,6 +45,16 @@
 #### Braces
 
   - inconsistent braces style at line `128`
+  - single statement `if` without braces at line `1419`
+  - single statement `if` without braces at line `1926`
+  - single statement `if` without braces at line `2239`
+  - single statement `if` without braces at line `2275`
+  - single statement `if` without braces at line `2719`
+  - single statement `if` without braces at line `2750`
+  - single statement `for` without braces at line `4174`
+  - single statement `if/else` without braces at line `4618`
+  - single statement `while` without braces at line `4700`
+  - single statement `if` without braces at line `4866`
   - single statement `if` without braces at line `5546`
 
 #### File organization
@@ -167,6 +177,8 @@
   - unnecessary line break at line `301`
   - unnecessary line break at line `309`
   - unnecessary line break at line `315`
+  - 
+  
   - unnecessary line break at line `321`
   - unnecessary line break at line `327`
   - unnecessary line break at line `333`
@@ -182,3 +194,12 @@
   - unnecessary line break at line `399`
   - unnecessary line break at line `405`
   - unnecessary line break at line `411`
+  - line break should come after `+` operator at line `1659`
+  - round parenthesis should come before line break at line `1806`
+  - line break should come after `&&` operator at line `2131`
+  - round parenthesis should come before line break at line `2751`
+  - line break should come after `+` operator at line `3541`
+  - **uncertain at line `4673`**
+  - round parenthesis should come before line break at line `4913`
+  - round parenthesis should come before line break at line `5087`
+  - round parenthesis should come before line break at line `5126`
