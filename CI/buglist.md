@@ -44,6 +44,7 @@
   
 #### Braces
 
+  - inconsistent braces style at line `128`
   - single statement `if` without braces at line `5546`
 
 #### File organization
@@ -135,5 +136,49 @@
 >          saving value returned from `getString` call into a local variable
 >          should solve those problems.
 
+#### Wrapping lines
 
-  
+  - unnecessary line break at line `132`
+  - unnecessary line break at line `138`
+  - unnecessary line break at line `145`
+  - unnecessary line break at line `152`
+  - unnecessary line break at line `158`
+  - unnecessary line break at line `165`
+  - unnecessary line break at line `171`
+  - unnecessary line break at line `177`
+  - unnecessary line break at line `183`
+  - unnecessary line break at line `191`
+  - unnecessary line break at line `197`
+  - unnecessary line break at line `203`
+  - unnecessary line break at line `209`
+  - unnecessary line break at line `215`
+  - unnecessary line break at line `221`
+  - unnecessary line break at line `227`
+  - unnecessary line break at line `233`
+  - unnecessary line break at line `239`
+  - unnecessary line break at line `245`
+  - unnecessary line break at line `251`
+  - unnecessary line break at line `257`
+  - unnecessary line break at line `263`
+  - unnecessary line break at line `271`
+  - unnecessary line break at line `279`
+  - unnecessary line break at line `287`
+  - unnecessary line break at line `293`
+  - unnecessary line break at line `301`
+  - unnecessary line break at line `309`
+  - unnecessary line break at line `315`
+  - unnecessary line break at line `321`
+  - unnecessary line break at line `327`
+  - unnecessary line break at line `333`
+  - unnecessary line break at line `339`
+  - unnecessary line break at line `345`
+  - unnecessary line break at line `353`
+  - unnecessary line break at line `361`
+  - unnecessary line break at line `367`
+  - unnecessary line break at line `375`
+  - unnecessary line break at line `381`
+  - unnecessary line break at line `387`
+  - unnecessary line break at line `393`
+  - unnecessary line break at line `399`
+  - unnecessary line break at line `405`
+  - unnecessary line break at line `411`
