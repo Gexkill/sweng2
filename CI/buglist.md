@@ -1,9 +1,13 @@
-eventListenerStop: while can be replaced with foreach.
-alternateResourcesStart: unnecessary array for vararg ( 5625 )
-loadOnStartup: parameter "children" declared in C-style array ( 5708 )
-contextListenerStop: it's more readable to use an iterator or to build a new list and reverse it.
+## Bugs that I found with my nose
 
-#### following polimi checklist inspection
+  - eventListenerStop: while can be replaced with foreach.
+  - alternateResourcesStart: unnecessary array for vararg ( 5625 )
+  - loadOnStartup: parameter "children" declared in C-style array ( 5708 )
+  - contextListenerStop: it's more readable to use an iterator or to build a new list and reverse it.
+
+## following polimi checklist inspection
+
+#### NamingConventions
 
   - from class `RestrictedServletContextListener`
     - method `contextInitialized` should start with a verb ( hint: `onContextInitialized` )
@@ -38,4 +42,7 @@ contextListenerStop: it's more readable to use an iterator or to build a new lis
   - method `sessionPassivatedEndEvent` should start with a verb ( hint: `onSessionPassivatedEndEvent` )
   - method `sessionListenerStop` shlould start with a verb ( hint: `stopSessionListening` )
   
-  
+#### Braces
+
+  - single statement `if` without braces at line `5546`
+
