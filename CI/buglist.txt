@@ -1,4 +1,0 @@
-eventListenerStop: while can be replaced with foreach.
-alternateResourcesStart: unnecessary array for vararg ( 5625 )
-loadOnStartup: parameter "children" declared in C-style array ( 5708 )
-contextListenerStop: it's more readable to use an iterator or to build a new list and reverse it.
