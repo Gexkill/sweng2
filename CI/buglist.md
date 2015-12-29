@@ -53,6 +53,7 @@
 
   - inconsistent braces style at line `128`
   - single statement `if` without braces at line `1419`
+  - single statement `if` without braces at line `1764`
   - single statement `if` without braces at line `1926`
   - single statement `if` without braces at line `2239`
   - single statement `if` without braces at line `2275`
@@ -88,7 +89,8 @@
   - single statement `else` without braces at line `6777`
   - inconsistent braces style at line `6960`
   - single statement `if` without braces at line `6973`
-  - single statement `if` without braces at line `6977` **TODO: inline if**
+  - single statement `if` without braces at line `6977`
+  - single statement `if` without braces at line `7095`
   - single statement `if` without braces at line `7124`
   - single statement `if` without braces at line `7157`
   - single statement `if` without braces at line `7192`
