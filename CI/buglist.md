@@ -496,6 +496,10 @@
   - protected field `servletReloadCheckSecs` should comes before private field `altDDName`
   - protected field `directoryListing` should comes before private field `altDDName`
   - constructor `StandardContext` should come after protected field `servletReloadCheckSecs`
+  
+Even if some private method with the same functionality surround some public methods,
+the main arrangment of the methods in this class is by accessibility level,
+not by functionality as it should be.
 
 #### Initialization and Declarations
 
