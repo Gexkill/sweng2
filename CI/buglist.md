@@ -90,6 +90,101 @@
   - method `sessionPassivatedEndEvent` should start with a verb ( hint: `onSessionPassivatedEndEvent` )
   - method `sessionListenerStop` shlould start with a verb ( hint: `stopSessionListening` )
   
+#### Indention
+
+  - line `7586` start with 2 tab character
+  - line `8078` start with 1 tab character
+  - line `1304` start with a mismatching number of spaces
+  - line `1401` start with a mismatching number of spaces
+  - line `1422` start with a mismatching number of spaces
+  - line `1484` start with a mismatching number of spaces
+  - line `1485` start with a mismatching number of spaces
+  - line `1513` start with a mismatching number of spaces
+  - line `1514` start with a mismatching number of spaces
+  - line `1537` start with a mismatching number of spaces
+  - line `1538` start with a mismatching number of spaces
+  - line `1632` start with a mismatching number of spaces
+  - line `1653` start with a mismatching number of spaces
+  - line `1654` start with a mismatching number of spaces
+  - line `1837` start with a mismatching number of spaces
+  - line `1879` start with a mismatching number of spaces
+  - line `1989` start with a mismatching number of spaces
+  - line `1990` start with a mismatching number of spaces
+  - line `2003` start with a mismatching number of spaces
+  - line `2004` start with a mismatching number of spaces
+  - line `2017` start with a mismatching number of spaces
+  - line `2018` start with a mismatching number of spaces
+  - line `2082` start with a mismatching number of spaces
+  - line `2083` start with a mismatching number of spaces
+  - line `2112` start with a mismatching number of spaces
+  - line `2113` start with a mismatching number of spaces
+  - line `2177` start with a mismatching number of spaces
+  - line `2178` start with a mismatching number of spaces
+  - line `2206` start with a mismatching number of spaces
+  - line `2207` start with a mismatching number of spaces
+  - line `2260` start with a mismatching number of spaces
+  - line `2443` start with a mismatching number of spaces
+  - line `2444` start with a mismatching number of spaces
+  - line `2469` start with a mismatching number of spaces
+  - line `2689` start with a mismatching number of spaces
+  - line `2707` start with a mismatching number of spaces
+  - line `2738` start with a mismatching number of spaces
+  - line `2966` start with a mismatching number of spaces
+  - line `3014` start with a mismatching number of spaces
+  - line `3101` start with a mismatching number of spaces
+  - line `3150` start with a mismatching number of spaces
+  - line `3210` start with a mismatching number of spaces
+  - line `3227` start with a mismatching number of spaces
+  - line `3233` start with a mismatching number of spaces
+  - line `3330` start with a mismatching number of spaces
+  - line `3394` start with a mismatching number of spaces
+  - line `3416` start with a mismatching number of spaces
+  - line `3463` start with a mismatching number of spaces
+  - line `3724` start with a mismatching number of spaces
+  - line `3725` start with a mismatching number of spaces
+  - line `3726` start with a mismatching number of spaces
+  - line `3727` start with a mismatching number of spaces
+  - line `3745` start with a mismatching number of spaces
+  - line `3810` start with a mismatching number of spaces
+  - line `3842` start with a mismatching number of spaces
+  - line `3880` start with a mismatching number of spaces
+  - line `3935` start with a mismatching number of spaces
+  - line `4013` start with a mismatching number of spaces
+  - line `4126` start with a mismatching number of spaces
+  - line `4229` start with a mismatching number of spaces
+  - line `4253` start with a mismatching number of spaces
+  - line `4268` start with a mismatching number of spaces
+  - line `5260` start with a mismatching number of spaces
+  - line `5393` start with a mismatching number of spaces
+  - line `5398` start with a mismatching number of spaces
+  - line `5440` start with a mismatching number of spaces
+  - line `5479` start with a mismatching number of spaces
+  - line `5482` start with a mismatching number of spaces
+  - line `5486` start with a mismatching number of spaces
+  - line `5488` start with a mismatching number of spaces
+  - line `5625` start with a mismatching number of spaces
+  - line `6066` start with a mismatching number of spaces
+  - line `6078` start with a mismatching number of spaces
+  - line `6695` start with a mismatching number of spaces
+  - line `6792` start with a mismatching number of spaces
+  - line `6793` start with a mismatching number of spaces
+  - line `6986` start with a mismatching number of spaces
+  - line `6987` start with a mismatching number of spaces
+  - line `6988` start with a mismatching number of spaces
+  - line `6989` start with a mismatching number of spaces
+  - line `6990` start with a mismatching number of spaces
+  - line `7006` start with a mismatching number of spaces
+  - line `7007` start with a mismatching number of spaces
+  - line `7008` start with a mismatching number of spaces
+  - line `7009` start with a mismatching number of spaces
+  - line `7010` start with a mismatching number of spaces
+  - line `7018` start with a mismatching number of spaces
+  - line `7300` start with a mismatching number of spaces
+  - line `7586` start with a mismatching number of spaces
+  - line `7645` start with a mismatching number of spaces
+  - line `7761` start with a mismatching number of spaces
+  - line `8078` start with a mismatching number of spaces
+
 #### Braces
 
   - inconsistent braces style at line `128`
