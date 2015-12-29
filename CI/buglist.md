@@ -233,8 +233,6 @@
   - unnecessary line break at line `301`
   - unnecessary line break at line `309`
   - unnecessary line break at line `315`
-  - 
-  
   - unnecessary line break at line `321`
   - unnecessary line break at line `327`
   - unnecessary line break at line `333`
