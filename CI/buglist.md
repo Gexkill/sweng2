@@ -7,10 +7,43 @@
   - addEnvironment: never used
   - addResource: never used
   - addResourceLink: never used
+  - getStartupTime: never used
+  - getTldScanTime: never used
+  - setTldScanTime: never used
   - redundant assignment at line `7498`
   - redundant assignment at line `7545`
   - redundant assignment at line `7559`
   - getState: should return an enum or a class
+  - field `tldScanTime` is not used
+  - setCompilerClasspath: never used
+  - getOriginalDocBase: never used
+  - isReplaceWelcomeFiles: never used
+  - setUnloadDelay: never used
+  - setUnpackWAR: never used
+  - getCharsetMapperClass: never used
+  - setCharsetMapperClass: never used
+  - addResourceParams: never used
+  - addServletMapping(ServletMap): never used
+  - findMappingObject: never used
+  - findMessageDestination: never used
+  - findMessageDestinations: never used
+  - findMessageDestinationRef: never used
+  - findMessageDestinationRefs: never used
+  - removeMessageDestination: never used
+  - removeMessageDestinationRef: never used
+  - managerStart: never used
+  - managerStop: never used
+  - getDefaultConfigFile: never used
+  - getResourceNames: never used
+  - getResourceLinks: never used
+  - addEnvironment: never used
+  - addResource: never used
+  - addResourceLink: never used
+  - getStaticResources: never used
+  - startRecursive: never used
+  - getStartTimeMillis: never used
+  - isEventProvider: never used
+  - isStatisticsProvider: never used
 
 ## following polimi checklist inspection
 
@@ -278,3 +311,50 @@
 
   - commented code without any reason from line `6513` to `6558`
   - commented code without any reason from line `6574` to `6612`
+
+#### Java source files
+  
+  - no javaDoc for method `getSessionListeners`
+  - no javaDoc for method `getDefaultWebXml`
+  - no javaDoc for method `setStartupTime`
+  - no javaDoc for method `getTldScanTime`
+  - no javaDoc for method `setTldScanTime`
+  - no javaDoc for method `setJvmRoute`
+  - no javaDoc for method `getJvmRoute`
+  - no javaDoc for method `getEngineName`
+  - no javaDoc for method `setEngineName`
+  - no javaDoc for method `getJ2EEApplication`
+  - no javaDoc for method `setJ2EEApplication`
+  - no javaDoc for method `getJ2EEServer`
+  - no javaDoc for method `setJ2EEServer`
+  - no javaDoc for method `setUseMyFaces`
+  - no javaDoc for method `isUseMyFaces`
+  - no javaDoc for method `setReload`
+  - no javaDoc for method `isReload`
+  - no javaDoc for method `setEmbedded`
+  - no javaDoc for method `isEmbedded`
+  - no javaDoc for method `addFilterDef(FilterDef, boolean, boolean)`
+  - no javaDoc for method `setJspConfigDescriptor`
+  - no javaDoc for method `setEffectiveMajorVersion`
+  - no javaDoc for method `setEffectiveMinorVersion`
+  - no javaDoc for method `addInstanceListener(InstanceListener)`
+  - no javaDoc for method `setServletContainerInitializerInterestList`
+  - no javaDoc for method `getHostname`
+  - no javaDoc for method `sendNotification`
+  - no javaDoc for method `create`
+  - no javaDoc for method `startRecursive`
+  - no javaDoc for method `getState`
+  - no javaDoc for method `isEventProvider`
+  - no javaDoc for method `isStatisticsProvider`
+  - no javaDoc for method `sessionCreatedEvent`
+  - no javaDoc for method `sessionDestroyedEvent`
+  - no javaDoc for method `sessionRejectedEvent`
+  - no javaDoc for method `sessionExpiredEvent`
+  - no javaDoc for method `sessionPersistedStartEvent`
+  - no javaDoc for method `sessionPersistedEndEvent`
+  - no javaDoc for method `sessionActivatedStartEvent`
+  - no javaDoc for method `sessionActivatedEndEvent`
+  - no javaDoc for method `sessionPassivatedStartEvent`
+  - no javaDoc for method `sessionPassivatedEndEvent`
+  - no javaDoc for class `RestrictedServletContextListener`
+  - no javaDoc for method `RestrictedServletContextListener#getNestedListener`
