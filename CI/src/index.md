@@ -229,13 +229,13 @@ N.B. K&R style is used
 All ok
 
 ## Comments
-**TODO**
+  - commented code without any reason from line `5704` to `5706`
 
 ## Java Source Files
 **TODO**
 
 ## Package and Import Statements
-**TODO**
+All ok
 
 ## Class and Interface Declarations
 **TODO**

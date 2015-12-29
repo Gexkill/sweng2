@@ -78,7 +78,6 @@ additional notes:
     
 DIFF:
 
-18.
 22.
 23.
 26.

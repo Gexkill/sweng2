@@ -1,0 +1,36 @@
+(.*)5(4(5[789]|[6789][0-9])|[56][0-9][0-9]|7[0123][0-9]|74[0-7])(.*)
+
+  - alternateResourcesStart: unnecessary array for vararg ( 5625 )
+  - loadOnStartup: parameter "children" declared in C-style array ( 5708 )
+  - line `5479` start with a mismatching number of spaces
+  - line `5482` start with a mismatching number of spaces
+  - line `5486` start with a mismatching number of spaces
+  - line `5488` start with a mismatching number of spaces
+  - line `5625` start with a mismatching number of spaces
+  - single statement `if` without braces at line `5546`
+  - line `5487` can be easily rewritten to not exceed 80 columns.
+  - line `5574` can be easily rewritten to not exceed 80 columns.
+  - line `5576` can be easily rewritten to not exceed 80 columns.
+  - line `5582` can be easily rewritten to not exceed 80 columns.
+  - line `5613` can be easily rewritten to not exceed 80 columns.
+  - line `5618` can be easily rewritten to not exceed 80 columns.
+  - line `5621` can be easily rewritten to not exceed 80 columns.
+  - line `5624` can be easily rewritten to not exceed 80 columns.
+  - line `5680` can be easily rewritten to not exceed 80 columns.
+  - line `5734` can be easily rewritten to not exceed 80 columns.
+  - line `5735` can be easily rewritten to not exceed 80 columns.
+  - commented code without any reason from line `5704` to `5706`
+  - can be private at line `5564`
+  - can be private at line `5597`
+  - can be private at line `5635`
+  - can be private at line `5662`
+  - can be private at line `5708`
+  - `event` not declared at beginning of the block at line `5465`
+  - `len` not declared at beginning of the block at line `5467`
+  - `msg` not declared at beginning of the block at line `5487`
+  - `iter` not declared at beginning of the block at line `5514`
+  - `sc` not declared at beginning of the block at line `5553`
+  - `env` not declared at beginning of the block at line `5603`
+  - `alternateWebappResources` not declared at beginning of the block at line `5680`
+  - `key` not declared at beginning of the block at line `5719`
+  - `list` not declared at beginning of the block at line `5720`
