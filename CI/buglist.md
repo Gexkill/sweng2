@@ -44,6 +44,13 @@
   - getStartTimeMillis: never used
   - isEventProvider: never used
   - isStatisticsProvider: never used
+  - setCachingAllowed: never used
+  - setCaseSensitive: never used
+  - setCaseSensitiveMapping: never used
+  - setCacheTTL: never used
+  - setCacheMaxSize: never used
+  - getAntiJARLocking: never used
+  - setAntiJARLocking: never used
 
 ## following polimi checklist inspection
 
@@ -358,3 +365,21 @@
   - no javaDoc for method `sessionPassivatedEndEvent`
   - no javaDoc for class `RestrictedServletContextListener`
   - no javaDoc for method `RestrictedServletContextListener#getNestedListener`
+
+#### Class and Interface Declarations
+
+  - protected field `urlEncoder` should comes before private field `standardContextClassLoader`
+  - protected field `contextListeners` should comes before private field `altDDName`
+  - protected field `context` should comes before private field `altDDName`
+  - protected field `caseSensitive` should comes before private field `altDDName`
+  - protected field `allowLinking` should comes before private field `altDDName`
+  - protected field `cacheMaxSize` should comes before private field `altDDName`
+  - protected field `cacheTTL` should comes before private field `altDDName`
+  - protected field `caseSensitiveMapping` should comes before private field `altDDName`
+  - protected field `isJsfApplication` should comes before private field `altDDName`
+  - protected field `servletRegisMap` should comes before private field `altDDName`
+  - protected field `filterRegisMap` should comes before private field `altDDName`
+  - protected field `directoryDeployed` should comes before private field `altDDName`
+  - protected field `showArchivedRealPathEnabled` should comes before private field `altDDName`
+  - protected field `servletReloadCheckSecs` should comes before private field `altDDName`
+  - constructor `StandardContext` should come after protected field `servletReloadCheckSecs`
