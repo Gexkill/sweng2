@@ -4,6 +4,13 @@
   - alternateResourcesStart: unnecessary array for vararg ( 5625 )
   - loadOnStartup: parameter "children" declared in C-style array ( 5708 )
   - contextListenerStop: it's more readable to use an iterator or to build a new list and reverse it.
+  - addEnvironment: never used
+  - addResource: never used
+  - addResourceLink: never used
+  - redundant assignment at line `7498`
+  - redundant assignment at line `7545`
+  - redundant assignment at line `7559`
+  - getState: should return an enum or a class
 
 ## following polimi checklist inspection
 
@@ -55,7 +62,54 @@
   - single statement `if/else` without braces at line `4618`
   - single statement `while` without braces at line `4700`
   - single statement `if` without braces at line `4866`
+  - single statement `if` without braces at line `5318`
+  - single statement `if` without braces at line `5351`
   - single statement `if` without braces at line `5546`
+  - single statement `if/else` without braces at line `5811`
+  - single statement `if` without braces at line `5891`
+  - single statement `if` without braces at line `5893`
+  - single statement `if` without braces at line `5904`
+  - single statement `if` without braces at line `5906`
+  - single statement `if` without braces at line `5918`
+  - inconsistent braces style at line `6078`
+  - single statement `if` without braces at line `6278`
+  - single statement `if` without braces at line `6364`
+  - single statement `if` without braces at line `6415`
+  - single statement `if` without braces at line `6417`
+  - single statement `if` without braces at line `6419`
+  - single statement `if` without braces at line `6491`
+  - single statement `if` without braces at line `6503`
+  - single statement `if` without braces at line `6669`
+  - single statement `if` without braces at line `6698`
+  - single statement `if` without braces at line `6700`
+  - single statement `if` without braces at line `6704`
+  - single statement `if` without braces at line `6708`
+  - single statement `else` without braces at line `6770`
+  - single statement `else` without braces at line `6777`
+  - inconsistent braces style at line `6960`
+  - single statement `if` without braces at line `6973`
+  - single statement `if` without braces at line `6977` **TODO: inline if**
+  - single statement `if` without braces at line `7124`
+  - single statement `if` without braces at line `7157`
+  - single statement `if` without braces at line `7192`
+  - single statement `if` without braces at line `7248`
+  - single statement `if` without braces at line `7251`
+  - single statement `if` without braces at line `7326`
+  - single statement `if` without braces at line `7329`
+  - single statement `if` without braces at line `7332`
+  - single statement `if` without braces at line `7345`
+  - single statement `if` without braces at line `7350`
+  - single statement `if` without braces at line `7396`
+  - single statement `if` without braces at line `7458`
+  - single statement `if` without braces at line `7467`
+  - single statement `if` without braces at line `7491`
+  - single statement `if` without braces at line `7495`
+  - single statement `if` without braces at line `7517`
+  - single statement `if` without braces at line `7540`
+  - single statement `if` without braces at line `7612`
+  - single statement `if` without braces at line `7703`
+  - single statement `if` without braces at line `8156`
+  - single statement `if/else` without braces at line `8172`
 
 #### File organization
 
@@ -70,7 +124,7 @@
   - line `2895` can be easily rewritten to not exceed 80 columns.
   - line `2899` can be easily rewritten to not exceed 80 columns.
   - line `2902` can be easily rewritten to not exceed 80 columns.
-  - line `2907` can be easily rewritten to not exceed 80 columns.
+  - line `2907` can be easily rewritten to not exceed 80 columns
   - line `2965` can be easily rewritten to not exceed 80 columns.
   - line `2971` can be easily rewritten to not exceed 80 columns.
   - line `3013` can be easily rewritten to not exceed 80 columns.
@@ -203,3 +257,24 @@
   - round parenthesis should come before line break at line `4913`
   - round parenthesis should come before line break at line `5087`
   - round parenthesis should come before line break at line `5126`
+  - line break should come after `+` operator at line `6057`
+  - round parenthesis should come before line break at line `6384`
+  - round parenthesis should come before line break at line `6389`
+  - round parenthesis should come before line break at line `6814`
+  - round parenthesis should come before line break at line `6834`
+  - round parenthesis should come before line break at line `6861`
+  - round parenthesis should come before line break at line `6916`
+  - round parenthesis should come before line break at line `6943`
+  - line break should come after `||` operator at line `6986`
+  - line break should come after `||` operator at line `7404`
+  - line break should come after `||` operator at line `7500`
+  - line break should come after `||` operator at line `7560`
+  - round parenthesis should come before line break at line `7579`
+  - line break should come after `||` operator at line `7617`
+  - round parenthesis should come before line break at line `7759`
+  - round parenthesis should come before line break at line `8147`
+
+#### Comments
+
+  - commented code without any reason from line `6513` to `6558`
+  - commented code without any reason from line `6574` to `6612`
