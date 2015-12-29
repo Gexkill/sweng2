@@ -503,3 +503,20 @@
   - duplicate code for change log format ( `log.isLoggable(Level.FINE)` )
 
 
+
+## FILTERED only our rows
+  - alternateResourcesStart: unnecessary array for vararg ( 5625 )
+  - loadOnStartup: parameter "children" declared in C-style array ( 5708 )
+  - single statement `if` without braces at line `5546`
+  - line `5487` can be easily rewritten to not exceed 80 columns.
+  - line `5574` can be easily rewritten to not exceed 80 columns.
+  - line `5576` can be easily rewritten to not exceed 80 columns.
+  - line `5582` can be easily rewritten to not exceed 80 columns.
+  - line `5613` can be easily rewritten to not exceed 80 columns.
+  - line `5618` can be easily rewritten to not exceed 80 columns.
+  - line `5621` can be easily rewritten to not exceed 80 columns.
+  - line `5624` can be easily rewritten to not exceed 80 columns.
+  - line `5680` can be easily rewritten to not exceed 80 columns.
+  - line `5734` can be easily rewritten to not exceed 80 columns.
+  - line `5735` can be easily rewritten to not exceed 80 columns.
+
