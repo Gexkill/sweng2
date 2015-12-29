@@ -165,12 +165,75 @@ And implements *ServletContext*  that is a competitive interface.....
 #Issues list found by applying the checklist
 
 ## NamingConventions
+  - from class `RestrictedServletContextListener`
+    - method `contextInitialized` should start with a verb ( hint: `onContextInitialized` )
+    - method `contextDestroyed` should start with a verb ( hint: `onContextDestroyed` )
+  - method `backgroundProcess` should start with a verb ( hint: `runBackgroundProcess` )
+  - field `count` is not meaningful ( hint: `backgroundProcessCounter` )
+  - method `contextListenerStart` should start with a verb ( hint: `notifyContextStarted` )
+  - method `contextListenerStop` should start with a verb ( hint: `stopContextListening` )
+  - return value of method `contextListenerStop` is never used ( hint: change to `void` )
+  - method `create` is not clear and it looks like a simple alias of the `init` method
+  - method `create` is not used ( hint: delete it )
+  - method `engineBase` should start with a verb ( hint: `getEngineBase` )
+  - method `eventListenerStop` should start with a verb ( hint: `stopEventListening` )
+  - method `eventListenerStop` always return true ( hint: change to `void` )
+  - method `filterStart` should start with a verb ( hint: `startFilters` )
+  - method `filterStop` should start with a verb ( hint: `stopFilters` )
+  - method `managerStart` should start with a verb ( hint: `startManager` )
+  - method `managerStop` should start with a verb ( hint: `stopManager` )
+  - method `resourcesStart` should start with a verb ( hint: `allocateResources` )
+  - method `resourcesStop` should start with a verb ( hint: `freeResources` )
+  - method `restrictedSetPipeline` should start with a verb ( hint: `setPipeline` )
+  - method `restrictedSetPipeline` should be made accessible only to certain packages ( hint: declare it as `protected` and give a `friendly` accessor from the child class )
+  - method `sessionCreatedEvent` should start with a verb ( hint: `onSessionCreatedEvent` )
+  - method `sessionDestroyedEvent` should start with a verb ( hint: `onSessionDestroyedEvent` )
+  - method `sessionRejectedEvent` should start with a verb ( hint: `onSessionRejectedEvent` )
+  - method `sessionExpiredEvent` should start with a verb ( hint: `onSessionExpiredEvent` )
+  - method `sessionPersistedStartEvent` should start with a verb ( hint: `onSessionPersistedStartEvent` )
+  - method `sessionPersistedEndEvent` should start with a verb ( hint: `onSessionPersistedEndEvent` )
+  - method `sessionActivatedStartEvent` should start with a verb ( hint: `onSessionActivatedStartEvent` )
+  - method `sessionActivatedEndEvent` should start with a verb ( hint: `onSessionActivatedEndEvent` )
+  - method `sessionPassivatedStartEvent` should start with a verb ( hint: `onSessionPassivatedStartEvent` )
+  - method `sessionPassivatedEndEvent` should start with a verb ( hint: `onSessionPassivatedEndEvent` )
+  - method `sessionListenerStop` shlould start with a verb ( hint: `stopSessionListening` )
+  
 ## Indention
+  - line `5479` start with a mismatching number of spaces
+  - line `5482` start with a mismatching number of spaces
+  - line `5486` start with a mismatching number of spaces
+  - line `5488` start with a mismatching number of spaces
+  - line `5625` start with a mismatching number of spaces
+
 ## Braces
+- single statement `if` without braces at line `5546`
+
+N.B. K&R style is used
+
 ## File Organization
+  - line `5487` can be easily rewritten to not exceed 80 columns.
+  - line `5574` can be easily rewritten to not exceed 80 columns.
+  - line `5576` can be easily rewritten to not exceed 80 columns.
+  - line `5582` can be easily rewritten to not exceed 80 columns.
+  - line `5613` can be easily rewritten to not exceed 80 columns.
+  - line `5618` can be easily rewritten to not exceed 80 columns.
+  - line `5621` can be easily rewritten to not exceed 80 columns.
+  - line `5624` can be easily rewritten to not exceed 80 columns.
+  - line `5680` can be easily rewritten to not exceed 80 columns.
+  - line `5734` can be easily rewritten to not exceed 80 columns.
+  - line `5735` can be easily rewritten to not exceed 80 columns.
+
+
 ## Wrapping Lines
+
+All ok
+
 ## Comments
+**TODO**
+
 ## Java Source Files
+
+
 ## Package and Import Statements
 ## Class and Interface Declarations
 ## Initialization and Declarations
@@ -197,6 +260,8 @@ And implements *ServletContext*  that is a competitive interface.....
 #Used tools
 * intellij IDEA: JAVA EE IDE
 * sonar: useful tools to analyze code from style point of view
+* Github: for version controller
+* Gedit and ReText: to write MarkDown with spell check 
 
 [//]: # (pagebreak)
 
