@@ -73,10 +73,11 @@ additional notes:
     * 5580
     * 5675
     * 5685
-    
+39. OK, two occurrences of new Object[], this is not a good way, write this in notes
+
     
 DIFF:
-8.
+
 18.
 22.
 23.
@@ -91,4 +92,6 @@ DIFF:
 49.
 50.
 51.
+
+maybe 24
 

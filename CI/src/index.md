@@ -232,19 +232,40 @@ All ok
 **TODO**
 
 ## Java Source Files
-
+**TODO**
 
 ## Package and Import Statements
+**TODO**
+
 ## Class and Interface Declarations
+**TODO**
+
 ## Initialization and Declarations
+**TODO**
+
 ## Method Calls
+**TODO**
+
 ## Arrays
+All ok
+
 ## Object Comparison
+All ok
+
 ## Output Format
+All ok
+
 ## Computation, Comparisons and Assignments
+**TODO**
+
 ## Exceptions
+  - Exception `5619`is not logged
+
 ## Flow of Control
+All ok (there are no switches)
+
 ## Files
+All ok, no files
 
 **TODO write task lists ??**
 
