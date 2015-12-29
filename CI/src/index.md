@@ -232,7 +232,7 @@ All ok
   - commented code without any reason from line `5704` to `5706`
 
 ## Java Source Files
-**TODO**
+All ok
 
 ## Package and Import Statements
 All ok
@@ -241,7 +241,20 @@ All ok
 **TODO**
 
 ## Initialization and Declarations
-**TODO**
+  - can be private at line `5564`
+  - can be private at line `5597`
+  - can be private at line `5635`
+  - can be private at line `5662`
+  - can be private at line `5708`
+  - `event` not declared at beginning of the block at line `5465`
+  - `len` not declared at beginning of the block at line `5467`
+  - `msg` not declared at beginning of the block at line `5487`
+  - `iter` not declared at beginning of the block at line `5514`
+  - `sc` not declared at beginning of the block at line `5553`
+  - `env` not declared at beginning of the block at line `5603`
+  - `alternateWebappResources` not declared at beginning of the block at line `5680`
+  - `key` not declared at beginning of the block at line `5719`
+  - `list` not declared at beginning of the block at line `5720`
 
 ## Method Calls
 **TODO**

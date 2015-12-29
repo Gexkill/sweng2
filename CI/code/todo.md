@@ -79,8 +79,6 @@ additional notes:
 DIFF:
 
 26.
-29.
-34.
 35.
 44.
 45.
