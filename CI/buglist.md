@@ -494,6 +494,7 @@
   - protected field `directoryDeployed` should comes before private field `altDDName`
   - protected field `showArchivedRealPathEnabled` should comes before private field `altDDName`
   - protected field `servletReloadCheckSecs` should comes before private field `altDDName`
+  - protected field `directoryListing` should comes before private field `altDDName`
   - constructor `StandardContext` should come after protected field `servletReloadCheckSecs`
 
 #### Initialization and Declarations
