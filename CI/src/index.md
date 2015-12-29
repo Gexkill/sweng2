@@ -22,6 +22,24 @@
         1. [Methods](#methods)
 1. [Functional role](#functional-role)
 1. [Issues list found by applying the checklist](#issues-list-found-by-applying-the-checklist)
+    1. [NamingConventions](#namingconventions)
+    1. [Indention](#indention)
+    1. [Braces](#braces)
+    1. [File Organization](#file-organization)
+    1. [Wrapping Lines](#wrapping-lines)
+    1. [Comments](#comments)
+    1. [Java Source Files](#java-source-files)
+    1. [Package and Import Statements](#package-and-import-statements)
+    1. [Class and Interface Declarations](#class-and-interface-declarations)
+    1. [Initialization and Declarations](#initialization-and-declarations)
+    1. [Method Calls](#method-calls)
+    1. [Arrays](#arrays)
+    1. [Object Comparison](#object-comparison)
+    1. [Output Format](#output-format)
+    1. [Computation, Comparisons and Assignments](#computation-comparisons-and-assignments)
+    1. [Exceptions](#exceptions)
+    1. [Flow of Control](#flow-of-control)
+    1. [Files](#files)
 1. [Other problems](#other-problems)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
@@ -145,6 +163,25 @@ And implements *ServletContext*  that is a competitive interface.....
 
 
 #Issues list found by applying the checklist
+
+## NamingConventions
+## Indention
+## Braces
+## File Organization
+## Wrapping Lines
+## Comments
+## Java Source Files
+## Package and Import Statements
+## Class and Interface Declarations
+## Initialization and Declarations
+## Method Calls
+## Arrays
+## Object Comparison
+## Output Format
+## Computation, Comparisons and Assignments
+## Exceptions
+## Flow of Control
+## Files
 
 **TODO write task lists ??**
 
