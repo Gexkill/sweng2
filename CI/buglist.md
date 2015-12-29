@@ -389,7 +389,6 @@
   - line break should come after `&&` operator at line `2131`
   - round parenthesis should come before line break at line `2751`
   - line break should come after `+` operator at line `3541`
-  - **uncertain at line `4673`**
   - round parenthesis should come before line break at line `4913`
   - round parenthesis should come before line break at line `5087`
   - round parenthesis should come before line break at line `5126`

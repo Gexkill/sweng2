@@ -106,3 +106,4 @@
   - line break occur after round parentesis at line `7621`
   - line break occur after round parentesis at line `8003`
   - line break occur after round parentesis at line `8046`
+  - line `4673`
