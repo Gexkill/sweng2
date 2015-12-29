@@ -238,7 +238,7 @@ All ok
 All ok
 
 ## Class and Interface Declarations
-**TODO**
+All ok
 
 ## Initialization and Declarations
   - can be private at line `5564`
@@ -272,15 +272,13 @@ All ok
 **TODO**
 
 ## Exceptions
-  - Exception `5619`is not logged
+  - Exception `5619` is not logged
 
 ## Flow of Control
 All ok (there are no switches)
 
 ## Files
 All ok, no files
-
-**TODO write task lists ??**
 
 [//]: # (pagebreak)
 
