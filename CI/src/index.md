@@ -273,6 +273,67 @@ All ok, no files
 
 
 #Other problems
+  - eventListenerStop: while can be replaced with foreach.
+  - alternateResourcesStart: unnecessary array for vararg `5625`
+  - loadOnStartup: parameter "children" declared in C-style array `5708`
+  - contextListenerStop: it's more readable to use an iterator or to build a new list and reverse it.
+  - addEnvironment: never used
+  - addResource: never used
+  - addResourceLink: never used
+  - getStartupTime: never used
+  - getTldScanTime: never used
+  - setTldScanTime: never used
+  - redundant assignment at line `7498`
+  - redundant assignment at line `7545`
+  - redundant assignment at line `7559`
+  - getState: should return an enum or a class
+  - field `tldScanTime` is not used
+  - setCompilerClasspath: never used
+  - getOriginalDocBase: never used
+  - isReplaceWelcomeFiles: never used
+  - setUnloadDelay: never used
+  - setUnpackWAR: never used
+  - getCharsetMapperClass: never used
+  - setCharsetMapperClass: never used
+  - addResourceParams: never used
+  - addServletMapping(ServletMap): never used
+  - findMappingObject: never used
+  - findMessageDestination: never used
+  - findMessageDestinations: never used
+  - findMessageDestinationRef: never used
+  - findMessageDestinationRefs: never used
+  - removeMessageDestination: never used
+  - removeMessageDestinationRef: never used
+  - managerStart: never used
+  - managerStop: never used
+  - getDefaultConfigFile: never used
+  - getResourceNames: never used
+  - getResourceLinks: never used
+  - addEnvironment: never used
+  - addResource: never used
+  - addResourceLink: never used
+  - getStaticResources: never used
+  - startRecursive: never used
+  - getStartTimeMillis: never used
+  - isEventProvider: never used
+  - isStatisticsProvider: never used
+  - setCachingAllowed: never used
+  - setCaseSensitive: never used
+  - setCaseSensitiveMapping: never used
+  - setCacheTTL: never used
+  - setCacheMaxSize: never used
+  - getAntiJARLocking: never used
+  - setAntiJARLocking: never used
+  - MessageFormat is often called with an Object array intead of using vararg.
+  - some 'if' have a space before '(', but other not, the same thing for other construct like 'catch'
+  - } catch(Throwable t) { **TODO explain**
+    - 5619 
+    - 5648
+    - 5483
+    - 5580
+    - 5675
+    - 5685
+  - two occurrences of new Object[], this is not a good way **KEEP OR REMOVE?**
 
 
 [//]: # (pagebreak)
