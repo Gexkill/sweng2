@@ -51,6 +51,7 @@
   - setCacheMaxSize: never used
   - getAntiJARLocking: never used
   - setAntiJARLocking: never used
+  - MessageFormat is often called with an Object array intead of using vararg.
 
 ## following polimi checklist inspection
 
@@ -383,3 +384,22 @@
   - protected field `showArchivedRealPathEnabled` should comes before private field `altDDName`
   - protected field `servletReloadCheckSecs` should comes before private field `altDDName`
   - constructor `StandardContext` should come after protected field `servletReloadCheckSecs`
+
+#### Initialization and Declarations
+
+**NOTE:** checked only our methods, not the entire class.
+
+  - `servletRegistrations` not declared at beginning of the block at line `5406`
+  - `filterRegistrations` not declared at beginning of the block at line `5414`
+  - `event` not declared at beginning of the block at line `5465`
+  - `len` not declared at beginning of the block at line `5467`
+  - `msg` not declared at beginning of the block at line `5487`
+  - `iter` not declared at beginning of the block at line `5514`
+  - `sc` not declared at beginning of the block at line `5553`
+  - `env` not declared at beginning of the block at line `5603`
+  - `alternateWebappResources` not declared at beginning of the block at line `5680`
+  - `key` not declared at beginning of the block at line `5719`
+  - `list` not declared at beginning of the block at line `5720`
+  - duplicate code for change log format ( `log.isLoggable(Level.FINE)` )
+
+
