@@ -135,7 +135,7 @@ All methods assigned to us belong to the same class.
     Start Line:
         5708
 
-**WRITE IN A BETTER WAY? [Gilles : i think we have to exmplain the role of the methods (see in functionnal role) so maybe we can say the starting lines there and here just put alist of the methods]**
+**WRITE IN A BETTER WAY? [Gilles : i think we have to exmplain the role of the methods (see in functionnal role) so maybe we can say the starting lines there and here just put alist of the methods] [Claudio: the assignment document says we have only to show the fuctional role of the classes not of the methods]**
 
 
 [//]: # (pagebreak)
