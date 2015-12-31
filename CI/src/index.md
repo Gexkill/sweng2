@@ -228,19 +228,19 @@ N.B. K&R style is used
 
 ## Wrapping Lines
 
-All ok
+Everything ok
 
 ## Comments
   - commented code without any reason from line `5704` to `5706`
 
 ## Java Source Files
-All ok
+Everything ok
 
 ## Package and Import Statements
-All ok
+Everything ok
 
 ## Class and Interface Declarations
-All ok
+Everything ok
 
 ## Initialization and Declarations
   - can be private at line `5564`
@@ -262,13 +262,13 @@ All ok
 **TODO**
 
 ## Arrays
-All ok
+Everything ok
 
 ## Object Comparison
-All ok
+Everything ok
 
 ## Output Format
-All ok
+Everything ok
 
 ## Computation, Comparisons and Assignments
 **TODO**
@@ -277,10 +277,10 @@ All ok
   - Exception `5619` is not logged
 
 ## Flow of Control
-All ok (there are no switches)
+Everything ok (there are no switches)
 
 ## Files
-All ok, no files
+Everything ok, no files
 
 [//]: # (pagebreak)
 
