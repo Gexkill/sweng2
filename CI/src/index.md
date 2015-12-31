@@ -53,8 +53,10 @@
 #Introduction
 ## Purpose
 
-The purpose of this document is to give the problems found during the inspection of a small amount of code of a specific version of glashfish.  
-Each group of the project has different methods assigned of a specif version of glashfish. We have to analyze them making all check of a checklist and finding other problems, then we have to report problems found in this document.
+The purpose of this document is to show all the problems found during the inspection of a small amount of code of a specific version of glashfish. 
+The procces of inspecting source code has two main purposes. The first and most obvious one is to enhance to quality of the code and evantually identify remaining bugs. The second purpose is to improve the coding skills of the team. The inspectors improve themselves by analysing code made by others and eventually discovering coding methods that they did not know. The original authors of the code receive a list of eventuals mistakes that they could have done, wich of course help them improving themselfs.
+ 
+Each group of the project has different methods assigned of a specif version of glashfish. We have to analyze these methods by checking that theyare in agreement with every point of a given checklist. We also have to find other problems, then we have to report the problems found in this document.
 
 **WRITE MORE**
 
@@ -133,7 +135,7 @@ All methods assigned to us belong to the same class.
     Start Line:
         5708
 
-**WRITE IN A BETTER WAY?**
+**WRITE IN A BETTER WAY? [Gilles : i think we have to exmplain the role of the methods (see in functionnal role) so maybe we can say the starting lines and the names their]**
 
 
 [//]: # (pagebreak)
