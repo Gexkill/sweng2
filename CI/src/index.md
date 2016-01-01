@@ -62,7 +62,7 @@ Each group of the project has different methods assigned of a specif version of 
 
 ## Scope
 Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specif version of glashfish: 64219 (of 16 Oct 2015 05:11).  
-This version is required by the assignment text since we have some methods of this version assigned to us to check.  
+This version is the version required by the assignment since we have been assigned some methods of this version to check.  
 Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it and sonar to test some check of the checklist. **KEEP OR REMOVE?**
 
 **WRITE MORE**
@@ -72,7 +72,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 
 * JEE: Java enterprise edition
 * SVN: apache subversion, it is a version controller system, the successor of CVS **OR VCS?**
-* CVS: Concurrent versions system, the first version controller system
+* CVS: Concurrent versions system, the first(/older/former/...?) version controller system **gilles : I don't think it's the firts, it's a successor of SCCS**
 **WRITE acronyms find in the code**
 
 ## Reference documents
@@ -82,8 +82,8 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 
 ## Document structure
 * **Introduction:** this section introduces the inspection document. It contains a justification of his utility and indications on which parts are covered in this document.
-* **Classes:** this section describes the classes and the methods assigned
-* **Functional role:** this section describes the functional role of the class of the methods assigned. **TODO write role of each method?**
+* **Classes:** this section describes the classes and the methods that have been inspected
+* **Functional role:** this section describes the functional role of the class from which the methods assigned belong to. **TODO write role of each method?**
 * **Issues list found by applying the checklist:** this section describes the issues found applying the checklist given.
 * **Other problems:** this section describes other problems found that are not strictly related to the checklist.
 
@@ -134,6 +134,17 @@ All methods assigned to us belong to the same class.
         loadOnStartup( Container children [ ] )
     Start Line:
         5708
+
+**[Gilles : is that better ?]**
+
+* Line 5457 : contextListenerStop( )
+* Line 5509 : eventListenerStop( )
+* Line 5537 : mergeParameters( )
+* Line 5564 : resourcesStart( )
+* Line 5597 : alternateResourcesStart( )
+* Line 5635 : resourcesStop( )
+* Line 5662 : alternateResourcesStop( )
+* Line 5708 : loadOnStartup( Container children [ ] )
 
 **WRITE IN A BETTER WAY? [Gilles : i think we have to exmplain the role of the methods (see in functionnal role) so maybe we can say the starting lines there and here just put alist of the methods] [Claudio: the assignment document says we have only to show the fuctional role of the classes not of the methods]**
 
@@ -188,7 +199,8 @@ And implements *ServletContext*  that is a competitive interface.....
   - method `resourcesStop` should start with a verb ( hint: `freeResources` )
   - method `restrictedSetPipeline` should start with a verb ( hint: `setPipeline` )
   - method `restrictedSetPipeline` should be made accessible only to certain packages ( hint: declare it as `protected` and give a `friendly` accessor from the child class )
-  - method `sessionCreatedEvent` should start with a verb ( hint: `onSessionCreatedEvent` )
+   **Gilles: I see no verb, shouldn't 'notifySessionCreated' be better ? Same thing for the other here under**
+  - method `sessionCreatedEvent` should start with a verb ( hint: `onSessionCreatedEvent` )        
   - method `sessionDestroyedEvent` should start with a verb ( hint: `onSessionDestroyedEvent` )
   - method `sessionRejectedEvent` should start with a verb ( hint: `onSessionRejectedEvent` )
   - method `sessionExpiredEvent` should start with a verb ( hint: `onSessionExpiredEvent` )
