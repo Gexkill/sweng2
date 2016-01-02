@@ -21,6 +21,9 @@
     1. [StandardContext](#standardcontext)
         1. [Methods](#methods)
 1. [Functional role](#functional-role)
+    1. [Javadoc](#javadoc)
+    1. [Usages](#usages)
+    1. [Role](#role)
 1. [Issues list found by applying the checklist](#issues-list-found-by-applying-the-checklist)
     1. [NamingConventions](#namingconventions)
     1. [Indention](#indention)
@@ -73,7 +76,10 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 * JEE: Java enterprise edition
 * SVN: apache subversion, it is a version controller system, the successor of CVS **OR VCS?**
 * CVS: Concurrent versions system, the first(/older/former/...?) version controller system **gilles : I don't think it's the firts, it's a successor of SCCS**
+* Context: Contextual Information, it's a design pattern where the the main information are stored inside one object and this object is used to pass everything
+* Apache tomacat catalalina: It's an opensource web server developed by apache foundation (not oracle) for and only for servlets.
 **WRITE acronyms find in the code**
+
 
 ## Reference documents
 * Assignment document: Code inspection.pdf
@@ -135,7 +141,7 @@ All methods assigned to us belong to the same class.
     Start Line:
         5708
 
-**[Gilles : is that better ?]**
+**[Gilles : is that better ?] [Claudio: I think so]**
 
 * Line 5457 : contextListenerStop( )
 * Line 5509 : eventListenerStop( )
@@ -165,13 +171,15 @@ According to the javadoc it is:
 
 ![inheritance diagram][inheritanceDiagram]
 
-It extends *ContainerBase* that is **TODO**
+It extends *ContainerBase* that according to javadoc is:
 
-And implements *ServletContext*  that is a competitive interface.....
+> A **Container** is an object that can execute requests received from a client, and return responses based on those requests.  A Container may optionally support a pipeline of Valves that process the request in a norder configured at runtime, by implementing the **Pipeline** interface as well
+
+And implements *ServletContext*  that is s standard *javax* interface that defines the basic methods to build a context for Servlet such as *addServlet*, *createListener* and so on
 
 ## Usages
 
-![Usages][inheritanceDiagram]
+![Usages][usages]
 
 It's used in a lot of classes. In particularly that it is used as private property in catalina core classes.  
 For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlet (*addServlet* on line *672* of *ApplicationContext*).
@@ -179,18 +187,13 @@ For example we see that it is used by *ApplicationContext* that uses it to add e
 ## Role
 
 Usages and javadoc suggest us that this class is very important because it is like the standard "manager" of apache tomacat catalina (that is a servlets server), in fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
-In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case contains the servlet refers or allow to modify the request or responses via interceptor.  
+In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case contains the servlet refers or it allows to modify the request or responses via interceptor (in fact it extends *Container*).  
 The *context pattern* is very useful where there are a lot of data, for example it is used in android applications to interact with the user. With this pattern you can manage a lot of features dynamically inserted via a single object from the usage side, from the creation side you can chose where use this features simply choosing the context. All data must pass via the context.
 **TODO improve**
 
 
-**TODO what is a context in glossary**
 **TODO class diagram automatically generated?**
 **TODO write also our interpretation?**
-**TODO write role of each method?**
-**TODO remember that the class implements ServletContext that is compiled and extends ContianerBase**
-**TODO write what is catalina in glossary**
-
 
 [//]: # (pagebreak)
 
