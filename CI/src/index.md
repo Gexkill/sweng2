@@ -75,10 +75,12 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 
 * JEE: Java enterprise edition
 * SVN: apache subversion, it is a version controller system, the successor of CVS **OR VCS?**
-* CVS: Concurrent versions system, the first(/older/former/...?) version controller system **gilles : I don't think it's the firts, it's a successor of SCCS**
+* CVS: Concurrent versions system, the first(/older/former/...?) version controller system **gilles : I don't think it's the firts, it's a successor of SCCS (according to wikipedia)**
 * Context: Contextual Information, it's a design pattern where the the main information are stored inside one object and this object is used to pass everything
 * Apache tomacat catalalina: It's an opensource web server developed by apache foundation (not oracle) for and only for servlets.
 * Servlet: A java program that runs on a dedicated web server, that is able to elaborate http requests and reply to them.
+* MIME type: Multipurpose Internet Mail Extensions type. These are two-parts identifiers used to identify formats of content transmitted on the web.
+* K&R style: Identation style named after Kernighan and Ritchie, who used this style in their book "The C Programming Language". 
 **WRITE acronyms find in the code**
 
 
@@ -166,7 +168,7 @@ All methods assigned to us belong to the same class.
 This class is the standard implementation of the *Context* interface.  
 According to the javadoc it is:
 
->  A **Context** is a Container that represents a servlet context, and therefore an individual web application, in the Catalina servlet engine. It is therefore useful in almost every deployment of Catalina (even if a Connector attached to a web server (such as Apache) uses the web server's facilities to identify the appropriate Wrapper to handle this request. It also provides a convenient mechanism to use Interceptors that see every request processed by this particular web application.   
+>  A **Context** is a Container that represents a servlet context, and therefore an individual web application, in the Catalina servlet engine. It is therefore useful in almost every deployment of Catalina (even if a Connector attached to a web server (such as Apache) uses the web server's facilities to identify the appropriate Wrapper to handle this request). It also provides a convenient mechanism to use Interceptors that see every request processed by this particular web application.   
 > The parent Container attached to a Context is generally a Host, but may be some other implementation, or may be omitted if it is not necessary.  
 > The child containers attached to a Context are generally implementations of Wrapper (representing individual servlet definitions).
 
@@ -174,33 +176,33 @@ According to the javadoc it is:
 
 It extends *ContainerBase* that, according to javadoc, is:
 
-> A **Container** is an object that can execute requests received from a client, and return responses based on those requests.  A Container may optionally support a pipeline of Valves that process the request in a norder configured at runtime, by implementing the **Pipeline** interface as well
+> A **Container** is an object that can execute requests received from a client, and return responses based on those requests.  A Container may optionally support a pipeline of valves that process the requests in an order configured at runtime, by implementing the **Pipeline** interface as well.
 
-And implements *ServletContext*  that is a standard *javax* interface that defines the basic methods to build a context for Servlet such as *addServlet*, *createListener* and so on.  
+And implements *ServletContext*  that is a standard *javax* interface that defines the basic methods to build a context for Servlets such as *addServlet*, *createListener* and so on.  
 According to the javadoc it is:
 
 > Defines a set of methods that a servlet uses to communicate with its servlet container, for example, to get the MIME type of a file, dispatch requests, or write to a log file.  
 > There is one context per "web application" per Java Virtual Machine.  (A "web application" is a collection of servlets and content installed under a specific subset of the server's URL namespace such as `/catalog` and possibly installed via a `.war` file.)  
-> In the case of a web application marked "distributed" in its deployment descriptor, there will be one context instance for each virtual machine.  In this situation, the context cannot be used as a location to share global information (because the information won't be truly global).  Use an external resource like a database instead.
+> In the case of a web application marked as "distributed" in its deployment descriptor, there will be one context instance for each virtual machine.  In this situation, the context cannot be used as a location to share global information (because the information will not be truly global).  Use an external resource like a database instead.
 
 ## Usages
 
 ![Usages][usages]
 
-It's used in a lot of classes. In particularly it is used as private property in catalina core classes.  
+It is used in a lot of classes. In particularly it is used as private property in catalina core classes.  
 For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlet (*addServlet* on line *672* of *ApplicationContext*).  
 **N.B.** there is only one instance of *StandardContext* inside *ApplicationContext*: 'one context per "web application"'
 
 ## Role
 
-Usages and javadoc suggest us that this class is very important because it is like the standard "manager" of apache tomacat catalina (that is a servlets server), in fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
-In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case contains the servlet refers or it allows to modify the request or responses via interceptor (in fact it extends *ContainerBase*).  
-The *context pattern* is very useful where there are a lot of data, for example it is used in android applications to interact with the user. With this pattern you can manage a lot of features dynamically inserted via a single object from the usage side, from the creation side you can chose where use this features simply choosing the context (which web application in this case). All data must pass via the context.
+Usages and javadoc suggest us that this class is very important because it can be seen as the standard "manager" of apache tomacat catalina (that is a servlets server). In fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
+In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case it contains the servlets, and it refers or allows to modify the requests or responses via interceptors (in fact it extends *ContainerBase*).  
+The *context pattern* is very useful where there is a great amount of data. It is for example used in android applications to interact with the user. With this pattern you can manage a lot of features. From the usage side, features can be inserted dynamically via a single object, and from the creation side you can chose where to use these features simply by choosing the appropriate context (the appropriate web application in this case). All data must pass via the context.
 **TODO improve**
 
 
 **TODO class diagram automatically generated?**
-**TODO write also our interpretation?**
+**TODO write also our interpretation? Gilles : is our interpretation different of the role?**
 
 [//]: # (pagebreak)
 
@@ -229,7 +231,6 @@ The *context pattern* is very useful where there are a lot of data, for example 
   - method `resourcesStop` should start with a verb ( hint: `freeResources` )
   - method `restrictedSetPipeline` should start with a verb ( hint: `setPipeline` )
   - method `restrictedSetPipeline` should be made accessible only to certain packages ( hint: declare it as `protected` and give a `friendly` accessor from the child class )
-   **Gilles: I see no verb, shouldn't 'notifySessionCreated' be better ? Same thing for the other here under [Claudio: I think that on... is the standard for events]**
   - method `sessionCreatedEvent` should start with a verb ( hint: `onSessionCreatedEvent` )        
   - method `sessionDestroyedEvent` should start with a verb ( hint: `onSessionDestroyedEvent` )
   - method `sessionRejectedEvent` should start with a verb ( hint: `onSessionRejectedEvent` )
