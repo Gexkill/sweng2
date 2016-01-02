@@ -154,6 +154,8 @@ All methods assigned to us belong to the same class.
 
 #Functional role
 
+## Javadoc
+
 This class is the standard implementation of the *Context* interface.
 According to the javadoc it is:
 
@@ -167,10 +169,28 @@ It extends *ContainerBase* that is **TODO**
 
 And implements *ServletContext*  that is a competitive interface.....
 
+## Usages
+
+![Usages][inheritanceDiagram]
+
+It's used in a lot of classes. In particularly that it is used as private property in catalina core classes.  
+For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlet (*addServlet* on line *672* of *ApplicationContext*).
+
+## Role
+
+Usages and javadoc suggest us that this class is very important because it is like the standard "manager" of apache tomacat catalina (that is a servlets server), in fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
+In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case contains the servlet refers or allow to modify the request or responses via interceptor.  
+The *context pattern* is very useful where there are a lot of data, for example it is used in android applications to interact with the user. With this pattern you can manage a lot of features dynamically inserted via a single object from the usage side, from the creation side you can chose where use this features simply choosing the context. All data must pass via the context.
+**TODO improve**
+
+
+**TODO what is a context in glossary**
 **TODO class diagram automatically generated?**
 **TODO write also our interpretation?**
 **TODO write role of each method?**
 **TODO remember that the class implements ServletContext that is compiled and extends ContianerBase**
+**TODO write what is catalina in glossary**
+
 
 [//]: # (pagebreak)
 
@@ -199,7 +219,7 @@ And implements *ServletContext*  that is a competitive interface.....
   - method `resourcesStop` should start with a verb ( hint: `freeResources` )
   - method `restrictedSetPipeline` should start with a verb ( hint: `setPipeline` )
   - method `restrictedSetPipeline` should be made accessible only to certain packages ( hint: declare it as `protected` and give a `friendly` accessor from the child class )
-   **Gilles: I see no verb, shouldn't 'notifySessionCreated' be better ? Same thing for the other here under**
+   **Gilles: I see no verb, shouldn't 'notifySessionCreated' be better ? Same thing for the other here under [Claudio: I think that on... is the standard for events]**
   - method `sessionCreatedEvent` should start with a verb ( hint: `onSessionCreatedEvent` )        
   - method `sessionDestroyedEvent` should start with a verb ( hint: `onSessionDestroyedEvent` )
   - method `sessionRejectedEvent` should start with a verb ( hint: `onSessionRejectedEvent` )
@@ -383,3 +403,4 @@ Everything ok, no files
 
 
 [inheritanceDiagram]: ../resources/inheritance_diagram.png?raw=true
+[usages]: ../resources/usages.png?raw=true
