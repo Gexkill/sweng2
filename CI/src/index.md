@@ -188,7 +188,7 @@ According to the javadoc it is:
 ![Usages][usages]
 
 It's used in a lot of classes. In particularly it is used as private property in catalina core classes.  
-For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlet (*addServlet* on line *672* of *ApplicationContext*).
+For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlet (*addServlet* on line *672* of *ApplicationContext*).  
 **N.B.** there is only one instance of *StandardContext* inside *ApplicationContext*: 'one context per "web application"'
 
 ## Role
