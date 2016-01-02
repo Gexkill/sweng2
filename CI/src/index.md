@@ -187,7 +187,7 @@ For example we see that it is used by *ApplicationContext* that uses it to add e
 ## Role
 
 Usages and javadoc suggest us that this class is very important because it is like the standard "manager" of apache tomacat catalina (that is a servlets server), in fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
-In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case contains the servlet refers or it allows to modify the request or responses via interceptor (in fact it extends *Container*).  
+In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case contains the servlet refers or it allows to modify the request or responses via interceptor (in fact it extends *ContainerBase*).  
 The *context pattern* is very useful where there are a lot of data, for example it is used in android applications to interact with the user. With this pattern you can manage a lot of features dynamically inserted via a single object from the usage side, from the creation side you can chose where use this features simply choosing the context. All data must pass via the context.
 **TODO improve**
 
