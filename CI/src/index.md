@@ -78,6 +78,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 * CVS: Concurrent versions system, the first(/older/former/...?) version controller system **gilles : I don't think it's the firts, it's a successor of SCCS**
 * Context: Contextual Information, it's a design pattern where the the main information are stored inside one object and this object is used to pass everything
 * Apache tomacat catalalina: It's an opensource web server developed by apache foundation (not oracle) for and only for servlets.
+* Servlet: A java program that runs on a dedicated web server, that is able to elaborate http requests and reply to them.
 **WRITE acronyms find in the code**
 
 
