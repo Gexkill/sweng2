@@ -4,6 +4,8 @@
 
 **Version 1.0**
 
+**Relasese date : 05/01/2016**
+
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
 * Massimo Dragano (mat. 775392)
@@ -253,7 +255,7 @@ The *context pattern* is very useful where there is a great amount of data. It i
 ## Braces
 - single statement `if` without braces at line `5546`
 
-N.B. K&R style is used
+N.B.: K&R style is used.
 
 ## File Organization
   - line `5487` can be easily rewritten to not exceed 80 columns.
@@ -274,7 +276,7 @@ N.B. K&R style is used
 Everything ok
 
 ## Comments
-  - commented code without any reason from line `5704` to `5706`
+  - commented code without any visible reason from line `5704` to `5706`
 
 ## Java Source Files
 Everything ok
