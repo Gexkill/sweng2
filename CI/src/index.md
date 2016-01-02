@@ -163,7 +163,7 @@ All methods assigned to us belong to the same class.
 
 ## Javadoc
 
-This class is the standard implementation of the *Context* interface.
+This class is the standard implementation of the *Context* interface.  
 According to the javadoc it is:
 
 >  A **Context** is a Container that represents a servlet context, and therefore an individual web application, in the Catalina servlet engine. It is therefore useful in almost every deployment of Catalina (even if a Connector attached to a web server (such as Apache) uses the web server's facilities to identify the appropriate Wrapper to handle this request. It also provides a convenient mechanism to use Interceptors that see every request processed by this particular web application.   
@@ -172,24 +172,30 @@ According to the javadoc it is:
 
 ![inheritance diagram][inheritanceDiagram]
 
-It extends *ContainerBase* that according to javadoc is:
+It extends *ContainerBase* that, according to javadoc, is:
 
 > A **Container** is an object that can execute requests received from a client, and return responses based on those requests.  A Container may optionally support a pipeline of Valves that process the request in a norder configured at runtime, by implementing the **Pipeline** interface as well
 
-And implements *ServletContext*  that is s standard *javax* interface that defines the basic methods to build a context for Servlet such as *addServlet*, *createListener* and so on
+And implements *ServletContext*  that is a standard *javax* interface that defines the basic methods to build a context for Servlet such as *addServlet*, *createListener* and so on.  
+According to the javadoc it is:
+
+> Defines a set of methods that a servlet uses to communicate with its servlet container, for example, to get the MIME type of a file, dispatch requests, or write to a log file.  
+> There is one context per "web application" per Java Virtual Machine.  (A "web application" is a collection of servlets and content installed under a specific subset of the server's URL namespace such as `/catalog` and possibly installed via a `.war` file.)  
+> In the case of a web application marked "distributed" in its deployment descriptor, there will be one context instance for each virtual machine.  In this situation, the context cannot be used as a location to share global information (because the information won't be truly global).  Use an external resource like a database instead.
 
 ## Usages
 
 ![Usages][usages]
 
-It's used in a lot of classes. In particularly that it is used as private property in catalina core classes.  
+It's used in a lot of classes. In particularly it is used as private property in catalina core classes.  
 For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlet (*addServlet* on line *672* of *ApplicationContext*).
+**N.B.** there is only one instance of *StandardContext* inside *ApplicationContext*: 'one context per "web application"'
 
 ## Role
 
 Usages and javadoc suggest us that this class is very important because it is like the standard "manager" of apache tomacat catalina (that is a servlets server), in fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
 In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case contains the servlet refers or it allows to modify the request or responses via interceptor (in fact it extends *ContainerBase*).  
-The *context pattern* is very useful where there are a lot of data, for example it is used in android applications to interact with the user. With this pattern you can manage a lot of features dynamically inserted via a single object from the usage side, from the creation side you can chose where use this features simply choosing the context. All data must pass via the context.
+The *context pattern* is very useful where there are a lot of data, for example it is used in android applications to interact with the user. With this pattern you can manage a lot of features dynamically inserted via a single object from the usage side, from the creation side you can chose where use this features simply choosing the context (which web application in this case). All data must pass via the context.
 **TODO improve**
 
 
