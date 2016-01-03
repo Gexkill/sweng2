@@ -48,8 +48,15 @@ Refered to official guide
 # CI
 ## Claudio Cardinale
 * document structure
+* some checklist isues
+* some other problems
+* role
+* minor sections
 
 ## Gilles Dejaegere
+* some checklist isues
+* fix issues, even of old documents
 
 ## Massimo Dragano
-
+* a lot of checklist issues via regex and intellij inspection instruments
+* a lot of other problems
