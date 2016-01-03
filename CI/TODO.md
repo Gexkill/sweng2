@@ -1,9 +1,9 @@
 polimi checklist:
 
   - [x] 35
-  - [ ] 44
-  - [ ] 45
-  - [ ] 46
+  - [x] 44      : seems ok
+  - [x] 45      : seems ok   
+  - [x] 46      : seems ok
   - [ ] 49
   - [ ] 50
   - [ ] 51
