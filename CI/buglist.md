@@ -1,9 +1,6 @@
 ## Bugs that I found with my nose
 
-  - eventListenerStop: while can be replaced with foreach.
-  - alternateResourcesStart: unnecessary array for vararg ( 5625 )
   - loadOnStartup: parameter "children" declared in C-style array ( 5708 )
-  - contextListenerStop: it's more readable to use an iterator or to build a new list and reverse it.
   - addEnvironment: never used
   - addResource: never used
   - addResourceLink: never used
@@ -618,4 +615,8 @@ not by functionality as it should be.
   - `list` not declared at beginning of the block at line `5720`
   - duplicate code for change log format ( `log.isLoggable(Level.FINE)` )
 
+#### Computation, Comparsions and Assignment
 
+  - brutish programming from line `5467` to `5471` ( replace with `Collections.reverse` on a list copy )
+  - brutish programming from line `5514` to `5516` ( use foreach )
+  - brutish programming at line `5625` ( use varargs intead of Object array )
