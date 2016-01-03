@@ -620,3 +620,8 @@ not by functionality as it should be.
   - brutish programming from line `5467` to `5471` ( replace with `Collections.reverse` on a list copy )
   - brutish programming from line `5514` to `5516` ( use foreach )
   - brutish programming at line `5625` ( use varargs intead of Object array )
+  - implicit type conversion at line `924`
+  - implicit type conversion at line `936`
+  - implicit type conversion at line `6323`
+  - implicit type conversion at line `6324`
+  - implicit type conversion at line `6325`
