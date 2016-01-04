@@ -304,7 +304,7 @@ Everything ok
   - `list` not declared at beginning of the block at line `5720`
 
 ## Method Calls
-**TODO**
+Everything ok
 
 ## Arrays
 Everything ok
@@ -316,7 +316,9 @@ Everything ok
 Everything ok
 
 ## Computation, Comparisons and Assignments
-**TODO**
+  - brutish programming from line `5467` to `5471` ( replace with `Collections.reverse` on a list copy )
+  - brutish programming from line `5514` to `5516` ( use foreach )
+  - brutish programming at line `5625` ( use varargs intead of Object array )
 
 ## Exceptions
   - Exception `5619` is not logged
@@ -331,10 +333,7 @@ Everything ok, no files
 
 
 #Other problems
-  - eventListenerStop: while can be replaced with foreach.
-  - alternateResourcesStart: unnecessary array for vararg `5625`
   - loadOnStartup: parameter "children" declared in C-style array `5708`
-  - contextListenerStop: it's more readable to use an iterator or to build a new list and reverse it.
   - addEnvironment: never used
   - addResource: never used
   - addResourceLink: never used
