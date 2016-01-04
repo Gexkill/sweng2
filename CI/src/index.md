@@ -232,6 +232,7 @@ N.B.: K&R style is used.
   - line `5734` can be easily rewritten to not exceed 80 columns.
   - line `5735` can be easily rewritten to not exceed 80 columns.
 
+N.B.: there are no lines that exceed 120 columns.
 
 ## Wrapping Lines
 
