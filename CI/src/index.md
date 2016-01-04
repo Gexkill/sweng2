@@ -55,8 +55,8 @@
 
 [//]: # (pagebreak)
 
-#Introduction
-## Purpose
+#1. Introduction
+##1.1. Purpose
 
 The purpose of this document is to show all the problems found during the inspection of a small amount of code of a specific version of glashfish. 
 The procces of inspecting source code has two main purposes. The first and most obvious one is to enhance to quality of the code and evantually identify remaining bugs. The second purpose is to improve the coding skills of the team. The inspectors improve themselves by analysing code made by others and eventually discovering coding methods that they did not know. The original authors of the code receive a list of eventuals mistakes that they could have done, wich of course help them improving themselfs.
@@ -65,35 +65,35 @@ Each group of the project has different methods assigned of a specif version of 
 
 **WRITE MORE**
 
-## Scope
+##1.2. Scope
 Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specif version of glashfish: 64219 (of 16 Oct 2015 05:11).  
-This version is the version required by the assignment since we have been assigned some methods of this version to check.  
+This version is the version required by the assignment since we have been assigned some of its methods to check.  
 Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it and sonar to test some check of the checklist. **KEEP OR REMOVE?**
 
 **WRITE MORE**
 
 
-## Definitions, acronyms, abbreviations
+##1.3. Definitions, acronyms, abbreviations
 
 * JEE: Java enterprise edition
 * SVN: apache subversion, it is a version controller system, the successor of CVS **OR VCS?**
-* CVS: Concurrent versions system, the first(/older/former/...?) version controller system **gilles : I don't think it's the firts, it's a successor of SCCS (according to wikipedia)**
-* Context: Contextual Information, it's a design pattern where the the main information are stored inside one object and this object is used to pass everything
-* Apache tomacat catalalina: It's an opensource web server developed by apache foundation (not oracle) for and only for servlets.
+* CVS: Concurrent versions system, a former version controller system
+* Context: Contextual Information: it is a design pattern that consist in storing the main information inside one object and this object is used to pass everything
+* Apache tomacat catalalina: It is an opensource web server developed by apache foundation (not oracle) for and only for servlets.
 * Servlet: A java program that runs on a dedicated web server, that is able to elaborate http requests and reply to them.
 * MIME type: Multipurpose Internet Mail Extensions type. These are two-parts identifiers used to identify formats of content transmitted on the web.
 * K&R style: Identation style named after Kernighan and Ritchie, who used this style in their book "The C Programming Language". 
 **WRITE acronyms find in the code**
 
 
-## Reference documents
+##1.4. Reference documents
 * Assignment document: Code inspection.pdf
 * Glashfish javadoc of this version: [http://glassfish.pompel.me/](http://glassfish.pompel.me/)
 * Methods assigned to each group: [http://assignment.pompel.me/](http://assignment.pompel.me/)
 
-## Document structure
-* **Introduction:** this section introduces the inspection document. It contains a justification of his utility and indications on which parts are covered in this document.
-* **Classes:** this section describes the classes and the methods that have been inspected
+##1.5. Document structure
+* **Introduction:** this section introduces the inspection document. It contains a justification of its utility and indications on which parts are covered in this document.
+* **Classes:** this section describes the classes and the methods that have been inspected.
 * **Functional role:** this section describes the functional role of the class from which the methods assigned belong to.
 * **Issues list found by applying the checklist:** this section describes the issues found applying the checklist given.
 * **Other problems:** this section describes other problems found that are not strictly related to the checklist.
@@ -103,11 +103,11 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 [//]: # (pagebreak)
 
 
-#Classes
+#2. Classes
 
 All methods assigned to us belong to the same class.
 
-## StandardContext
+##2.1. StandardContext
 **Namespace:** org.apache.catalina.core  
 **Extends:** ContainerBase  
 **Implements:** Context, ServletContext
@@ -126,9 +126,9 @@ All methods assigned to us belong to the same class.
 [//]: # (pagebreak)
 
 
-#Functional role
+#3. Functional role
 
-## Javadoc
+##3.1. Javadoc
 
 This class is the standard implementation of the *Context* interface.  
 According to the javadoc it is:
@@ -150,15 +150,15 @@ According to the javadoc it is:
 > There is one context per "web application" per Java Virtual Machine.  (A "web application" is a collection of servlets and content installed under a specific subset of the server's URL namespace such as `/catalog` and possibly installed via a `.war` file.)  
 > In the case of a web application marked as "distributed" in its deployment descriptor, there will be one context instance for each virtual machine.  In this situation, the context cannot be used as a location to share global information (because the information will not be truly global).  Use an external resource like a database instead.
 
-## Usages
+##3.2. Usages
 
 ![Usages][usages]
 
-It is used in a lot of classes. In particularly it is used as private property in catalina core classes.  
-For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlet (*addServlet* on line *672* of *ApplicationContext*).  
+It is used in a lot of classes. It is particularly used as private property in catalina core classes.  
+For example we see that it is used by *ApplicationContext* that uses it to add everything, such as new servlets (*addServlet* on line *672* of *ApplicationContext*).  
 **N.B.** there is only one instance of *StandardContext* inside *ApplicationContext*: 'one context per "web application"'
 
-## Role
+##3.3. Role
 
 Usages and javadoc suggest us that this class is very important because it can be seen as the standard "manager" of apache tomacat catalina (that is a servlets server). In fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
 In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case it contains the servlets, and it refers or allows to modify the requests or responses via interceptors (in fact it extends *ContainerBase*).  
@@ -171,9 +171,9 @@ The *context pattern* is very useful where there is a great amount of data. It i
 [//]: # (pagebreak)
 
 
-#Issues list found by applying the checklist
+#4. Issues list found by applying the checklist
 
-## NamingConventions
+##4.1. NamingConventions
   - from class `RestrictedServletContextListener`
     - method `contextInitialized` should start with a verb ( hint: `onContextInitialized` )
     - method `contextDestroyed` should start with a verb ( hint: `onContextDestroyed` )
@@ -207,19 +207,19 @@ The *context pattern* is very useful where there is a great amount of data. It i
   - method `sessionPassivatedEndEvent` should start with a verb ( hint: `onSessionPassivatedEndEvent` )
   - method `sessionListenerStop` shlould start with a verb ( hint: `stopSessionListening` )
   
-## Indention
+##4.2. Indention
   - line `5479` start with a mismatching number of spaces
   - line `5482` start with a mismatching number of spaces
   - line `5486` start with a mismatching number of spaces
   - line `5488` start with a mismatching number of spaces
   - line `5625` start with a mismatching number of spaces
 
-## Braces
+##4.3. Braces
 - single statement `if` without braces at line `5546`
 
 N.B.: K&R style is used.
 
-## File Organization
+##4.4. File Organization
   - line `5487` can be easily rewritten to not exceed 80 columns.
   - line `5574` can be easily rewritten to not exceed 80 columns.
   - line `5576` can be easily rewritten to not exceed 80 columns.
@@ -234,23 +234,23 @@ N.B.: K&R style is used.
 
 N.B.: there are no lines that exceed 120 columns.
 
-## Wrapping Lines
+##4.5. Wrapping Lines
 
 Everything ok
 
-## Comments
+##4.6. Comments
   - commented code without any visible reason from line `5704` to `5706`
 
-## Java Source Files
+##4.7. Java Source Files
 Everything ok
 
-## Package and Import Statements
+##4.8. Package and Import Statements
 Everything ok
 
-## Class and Interface Declarations
+##4.9. Class and Interface Declarations
 Everything ok
 
-## Initialization and Declarations
+##4.10. Initialization and Declarations
   - can be private at line `5564`
   - can be private at line `5597`
   - can be private at line `5635`
@@ -266,36 +266,36 @@ Everything ok
   - `key` not declared at beginning of the block at line `5719`
   - `list` not declared at beginning of the block at line `5720`
 
-## Method Calls
+##4.11. Method Calls
 Everything ok
 
-## Arrays
+##4.12. Arrays
 Everything ok
 
-## Object Comparison
+##4.13. Object Comparison
 Everything ok
 
-## Output Format
+##4.14. Output Format
 Everything ok
 
-## Computation, Comparisons and Assignments
+##4.15. Computation, Comparisons and Assignments
   - brutish programming from line `5467` to `5471` ( replace with `Collections.reverse` on a list copy )
   - brutish programming from line `5514` to `5516` ( use foreach )
   - brutish programming at line `5625` ( use varargs intead of Object array )
 
-## Exceptions
+##4.16. Exceptions
   - Exception `5619` is not logged
 
-## Flow of Control
+##4.17. Flow of Control
 Everything ok (there are no switches)
 
-## Files
+##4.18. Files
 Everything ok, no files
 
 [//]: # (pagebreak)
 
 
-#Other problems
+#5. Other problems
   - loadOnStartup: parameter "children" declared in C-style array `5708`
   - addEnvironment: never used
   - addResource: never used
@@ -359,7 +359,7 @@ Everything ok, no files
 [//]: # (pagebreak)
 
 
-#Used tools
+#6. Used tools
 * intellij IDEA: JAVA EE IDE
 * sonar: useful tools to analyze code from style point of view
 * Github: for version controller
@@ -367,7 +367,7 @@ Everything ok, no files
 
 [//]: # (pagebreak)
 
-# Hours of work
+#7. Hours of work
 ## Claudio Cardinale
 
 
