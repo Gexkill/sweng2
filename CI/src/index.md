@@ -94,7 +94,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 ## Document structure
 * **Introduction:** this section introduces the inspection document. It contains a justification of his utility and indications on which parts are covered in this document.
 * **Classes:** this section describes the classes and the methods that have been inspected
-* **Functional role:** this section describes the functional role of the class from which the methods assigned belong to. **TODO write role of each method?**
+* **Functional role:** this section describes the functional role of the class from which the methods assigned belong to.
 * **Issues list found by applying the checklist:** this section describes the issues found applying the checklist given.
 * **Other problems:** this section describes other problems found that are not strictly related to the checklist.
 
@@ -113,41 +113,6 @@ All methods assigned to us belong to the same class.
 **Implements:** Context, ServletContext
 
 ### Methods
-    Name:
-        contextListenerStop( )
-    Start Line:
-        5457
-    Name:
-        eventListenerStop( )
-    Start Line:
-        5509
-    Name:
-        mergeParameters( )
-    Start Line:
-        5537
-    Name:
-        resourcesStart( )
-    Start Line:
-        5564
-    Name:
-        alternateResourcesStart( )
-    Start Line:
-        5597
-    Name:
-        resourcesStop( )
-    Start Line:
-        5635
-    Name:
-        alternateResourcesStop( )
-    Start Line:
-        5662
-    Name:
-        loadOnStartup( Container children [ ] )
-    Start Line:
-        5708
-
-**[Gilles : is that better ?] [Claudio: I think so]**
-
 * Line 5457 : contextListenerStop( )
 * Line 5509 : eventListenerStop( )
 * Line 5537 : mergeParameters( )
@@ -156,8 +121,6 @@ All methods assigned to us belong to the same class.
 * Line 5635 : resourcesStop( )
 * Line 5662 : alternateResourcesStop( )
 * Line 5708 : loadOnStartup( Container children [ ] )
-
-**WRITE IN A BETTER WAY? [Gilles : i think we have to exmplain the role of the methods (see in functionnal role) so maybe we can say the starting lines there and here just put alist of the methods] [Claudio: the assignment document says we have only to show the fuctional role of the classes not of the methods]**
 
 
 [//]: # (pagebreak)
@@ -204,7 +167,6 @@ The *context pattern* is very useful where there is a great amount of data. It i
 
 
 **TODO class diagram automatically generated?**
-**TODO write also our interpretation? Gilles : is our interpretation different of the role?**
 
 [//]: # (pagebreak)
 
