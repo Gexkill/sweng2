@@ -59,16 +59,14 @@
 ##1.1. Purpose
 
 The purpose of this document is to show all the problems found during the inspection of a small amount of code of a specific version of glashfish. 
-The procces of inspecting source code has two main purposes. The first and most obvious one is to enhance to quality of the code and evantually identify remaining bugs. The second purpose is to improve the coding skills of the team. The inspectors improve themselves by analysing code made by others and eventually discovering coding methods that they did not know. The original authors of the code receive a list of eventuals mistakes that they could have done, wich of course help them improving themselfs.
+The process of inspecting source code has two main purposes. The first and most obvious one is to enhance the quality of the code and eventually to identify the remaining bugs. The second purpose is to improve the coding skills of the team. The inspectors improve themselves by analysing the code made by others and eventually discovering coding methods that they did not know. The original authors of the code receive a list of possible mistakes that they could have done, which of course help them improving themselves.
  
-Each group of the project has different methods assigned of a specif version of glashfish. We have to analyze these methods by checking that theyare in agreement with every point of a given checklist. We also have to find other problems, then we have to report the problems found in this document.
-
-**WRITE MORE**
+Each group of the project has different methods assigned of a specific version of glashfish. We have to analyse these methods by checking that they are in agreement with every point of a given checklist. We also have to find other problems, then we have to report the problems found in this document.
 
 ##1.2. Scope
-Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specif version of glashfish: 64219 (of 16 Oct 2015 05:11).  
+Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specific version of glashfish: 64219 (of 16 Oct 2015 05:11).  
 This version is the version required by the assignment since we have been assigned some of its methods to check.  
-Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it and sonar to test some check of the checklist. **KEEP OR REMOVE?**
+Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it, sonar and regex to verify some checks of the checklist.
 
 **WRITE MORE**
 
@@ -78,11 +76,13 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 * JEE: Java enterprise edition
 * SVN: apache subversion, it is a version controller system, the successor of CVS **OR VCS?**
 * CVS: Concurrent versions system, a former version controller system
-* Context: Contextual Information: it is a design pattern that consist in storing the main information inside one object and this object is used to pass everything
-* Apache tomacat catalalina: It is an opensource web server developed by apache foundation (not oracle) for and only for servlets.
-* Servlet: A java program that runs on a dedicated web server, that is able to elaborate http requests and reply to them.
+* Context: Contextual Information: it is a design pattern that consists in storing the main information inside one object and this object is used to pass everything
+* Apache tomacat catalina: It is an open source web server developed by apache foundation (not oracle) for and only for servlets.
+* Servlet: A java program that runs on a dedicated web server that is able to elaborate http requests and reply to them.
 * MIME type: Multipurpose Internet Mail Extensions type. These are two-parts identifiers used to identify formats of content transmitted on the web.
-* K&R style: Identation style named after Kernighan and Ritchie, who used this style in their book "The C Programming Language". 
+* K&R style: Indentation style named after Kernighan and Ritchie, who used this style in their book "The C Programming Language". 
+* Regex: regular expression, it is a finite automata used to define a search pattern **CHECK**
+* Apache: open source company famous for its web server called apache
 **WRITE acronyms find in the code**
 
 
@@ -94,7 +94,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 ##1.5. Document structure
 * **Introduction:** this section introduces the inspection document. It contains a justification of its utility and indications on which parts are covered in this document.
 * **Classes:** this section describes the classes and the methods that have been inspected.
-* **Functional role:** this section describes the functional role of the class from which the methods assigned belong to.
+* **Functional role:** this section describes the functional role of the class which the methods assigned belong to.
 * **Issues list found by applying the checklist:** this section describes the issues found applying the checklist given.
 * **Other problems:** this section describes other problems found that are not strictly related to the checklist.
 
@@ -161,8 +161,8 @@ For example we see that it is used by *ApplicationContext* that uses it to add e
 ##3.3. Role
 
 Usages and javadoc suggest us that this class is very important because it can be seen as the standard "manager" of apache tomacat catalina (that is a servlets server). In fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
-In fact in the *context pattern* (Contextual Information) we have a main class context that contains the main information, in this case it contains the servlets, and it refers or allows to modify the requests or responses via interceptors (in fact it extends *ContainerBase*).  
-The *context pattern* is very useful where there is a great amount of data. It is for example used in android applications to interact with the user. With this pattern you can manage a lot of features. From the usage side, features can be inserted dynamically via a single object, and from the creation side you can chose where to use these features simply by choosing the appropriate context (the appropriate web application in this case). All data must pass via the context.
+In fact in the *context pattern* (Contextual Information) we have a main class context containing the main information, in this case it contains the servlets, and it refers or allows to modify the requests or responses via interceptors (in fact it extends *ContainerBase*).  
+The *context pattern* is very useful where there is a great amount of data. For example it is used in android applications to interact with the user. With this pattern you can manage a lot of features. From the usage side, features can be inserted dynamically via a single object, and from the creation side you can choose where to use these features simply by choosing the appropriate context (the appropriate web application in this case). All data must pass via the context.
 **TODO improve**
 
 
@@ -205,7 +205,7 @@ The *context pattern* is very useful where there is a great amount of data. It i
   - method `sessionActivatedEndEvent` should start with a verb ( hint: `onSessionActivatedEndEvent` )
   - method `sessionPassivatedStartEvent` should start with a verb ( hint: `onSessionPassivatedStartEvent` )
   - method `sessionPassivatedEndEvent` should start with a verb ( hint: `onSessionPassivatedEndEvent` )
-  - method `sessionListenerStop` shlould start with a verb ( hint: `stopSessionListening` )
+  - method `sessionListenerStop` should start with a verb ( hint: `stopSessionListening` )
   
 ##4.2. Indention
   - line `5479` start with a mismatching number of spaces
@@ -361,7 +361,7 @@ Everything ok, no files
 
 #6. Used tools
 * intellij IDEA: JAVA EE IDE
-* sonar: useful tools to analyze code from style point of view
+* sonar: useful tools to analyse code from style point of view
 * Github: for version controller
 * Gedit and ReText: to write MarkDown with spell check 
 
