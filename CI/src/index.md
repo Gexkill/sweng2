@@ -64,7 +64,7 @@ The process of inspecting source code has two main purposes. The first and most 
 Each group of the project has different methods assigned of a specific version of glashfish. We have to analyse these methods by checking that they are in agreement with every point of a given checklist. We also have to find other problems, then we have to report the problems found in this document.
 
 ##1.2. Scope
-Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specific version of glashfish 4.1.1 (of 16 Oct 2015 05:11).  
+Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specific version of glashfish 4.1.1 (of 16 Oct 2015 05:11:30 UTC).  
 This version is the version required by the assignment since we have been assigned some of its methods to check.  
 Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it, sonar and regex to verify some checks of the checklist.
 
