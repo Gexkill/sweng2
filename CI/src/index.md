@@ -174,7 +174,6 @@ The *context pattern* is very useful where there is a great amount of data. For 
   - field `count` is not meaningful ( hint: `backgroundProcessCounter` )
   - method `contextListenerStart` should start with a verb ( hint: `notifyContextStarted` )
   - method `contextListenerStop` should start with a verb ( hint: `stopContextListening` )
-  - return value of method `contextListenerStop` is never used ( hint: change to `void` )
   - method `create` is not clear and it looks like a simple alias of the `init` method
   - method `create` is not used ( hint: delete it )
   - method `engineBase` should start with a verb ( hint: `getEngineBase` )
@@ -260,7 +259,12 @@ Everything ok
   - `list` not declared at beginning of the block at line `5720`
 
 ##4.11. Method Calls
-Everything ok
+  
+  - return value of method `contextListenerStop` is never used ( hint: change to `void` )
+  - return value of method `eventListenerStop` is never used ( hint: change to `void` )
+  - return value of method `resourcesStart` is never used ( hint: change to `void` )
+  - return value of method `resourcesStop` is never used ( hint: change to `void` )
+  - return value of method `alternateResourcesStop` is never used ( hint: change to `void` )
 
 ##4.12. Arrays
 Everything ok
