@@ -46,8 +46,8 @@
     1. [Flow of Control](#flow-of-control)
     1. [Files](#files)
 1. [Other problems](#other-problems)
-1. [Used tools](#used-tools)
 1. [Conclusion](#conclusion)
+1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
@@ -356,17 +356,17 @@ Everything ok, no files
 [//]: # (pagebreak)
 
 
-#6. Used tools
+#6. Conclusion
+
+This StandarContext.java code has been developed by a team of professionals and qualified programmers. Still, in this document it is possible to see that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherent as possible. Unfortunately, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish but fortunately it is possible for large projects to use tools such as Sonar to perform some of the checkings in an automated way. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. For example we can see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more a conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
+
+[//]: # (pagebreak)
+
+#7. Used tools
 * intellij IDEA: JAVA EE IDE
 * sonar: useful tools to analyse code from style point of view
 * Github: for version controller
 * Gedit and ReText: to write MarkDown with spell check 
-
-[//]: # (pagebreak)
-
-#7. Conclusion
-
-This StandarContext.java code has been developed by a team of professionals and qualified programmers. Still, in this document it is possible to see that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherent as possible. Unfortunately, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish but fortunately it is possible for large projects to use tools such as Sonar to perform some of the checkings in an automated way. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. For example we can see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more a conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
 
 [//]: # (pagebreak)
 
