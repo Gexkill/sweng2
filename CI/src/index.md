@@ -59,15 +59,15 @@
 #1. Introduction
 ##1.1. Purpose
 
-The purpose of this document is to show all the problems found during the inspection of a small amount of code of a specific version of glashfish. 
+The purpose of this document is to show all the problems found during the inspection of a small amount of code of a specific version of Glassfish. 
 The process of inspecting source code has two main purposes. The first and most obvious one is to enhance the quality of the code and eventually to identify the remaining bugs. The second purpose is to improve the coding skills of the team. The inspectors improve themselves by analysing the code made by others and eventually discovering coding methods that they did not know. The original authors of the code receive a list of possible mistakes that they could have done, which of course help them improving themselves.
  
-Each group of the project has different methods assigned of a specific version of glashfish. We have to analyse these methods by checking that they are in agreement with every point of a given checklist. We also have to find other problems, then we have to report the problems found in this document.
+Each group of the project has different methods assigned of a specific version of Glassfish. We have to analyse these methods by checking that they are in agreement with every point of a given checklist. We also have to find other problems, then we have to report the problems found in this document.
 
 ##1.2. Scope
-Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specific version of glashfish 4.1.1 (of 16 Oct 2015 05:11:30 UTC).  
+Glassfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specific version of Glassfish 4.1.1 (of 16 Oct 2015 05:11:30 UTC).  
 This version is the version required by the assignment since we have been assigned some of its methods to check.  
-Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it, sonar and regex to verify some checks of the checklist.
+Glassfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it, sonar and regex to verify some checks of the checklist.
 
 
 ##1.3. Definitions, acronyms, abbreviations
@@ -86,7 +86,7 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 
 ##1.4. Reference documents
 * Assignment document: Code inspection.pdf
-* Glashfish javadoc of this version: [http://glassfish.pompel.me/](http://glassfish.pompel.me/)
+* Glassfish javadoc of this version: [http://glassfish.pompel.me/](http://glassfish.pompel.me/)
 * Methods assigned to each group: [http://assignment.pompel.me/](http://assignment.pompel.me/)
 
 ##1.5. Document structure
@@ -366,7 +366,7 @@ Everything ok, no files
 
 #7. Conclusion
 
-This StandarContext.java code has been developed by a team of profesionals and qualified programmers. Still, it is possible to see in this document that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherents as possible. Unfortunatly, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish but it is fortunatly possible for large project to use tools such as Sonar to perfom some of the checkings in an automated way. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. We can for exemple see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more an conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
+This StandarContext.java code has been developed by a team of professionals and qualified programmers. Still, in this document it is possible to see that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherent as possible. Unfortunately, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish but fortunately it is possible for large projects to use tools such as Sonar to perform some of the checkings in an automated way. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. For example we can see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more a conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
 
 #8. Hours of work
 ## Claudio Cardinale
