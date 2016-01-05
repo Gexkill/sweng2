@@ -381,6 +381,13 @@ This StandarContext.java code has been developed by a team of professionals and 
   * 05/01/16: 1h
 
 ## Gilles Dejaegere
+  * 24/12/15: 2h 
+  * 25/12/15: 1h30
+  * 31/12/15: 2h
+  * 01/01/16: 1h30
+  * 02/01/16: 1h
+  * 04/01/16: 45min
+  * 05/01/16: 2h
 
 
 ## Massimo Dragano
