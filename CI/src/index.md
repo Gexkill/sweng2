@@ -68,8 +68,6 @@ Glashfish is the official implementation of JEE. It is an open source project th
 This version is the version required by the assignment since we have been assigned some of its methods to check.  
 Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it, sonar and regex to verify some checks of the checklist.
 
-**WRITE MORE**
-
 
 ##1.3. Definitions, acronyms, abbreviations
 
