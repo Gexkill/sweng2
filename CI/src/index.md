@@ -75,14 +75,14 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 * JEE: Java enterprise edition
 * SVN: apache subversion, it is a version controller system, the successor of CVS
 * CVS: Concurrent versions system, a former version controller system
-* Context: Contextual Information: it is a design pattern that consists in storing the main information inside one object and this object is used to pass everything
+* Apache: open source company famous for its web server called apache
 * Apache tomacat catalina: It is an open source web server developed by apache foundation (not oracle) for and only for servlets.
+* Context: Contextual Information: it is a design pattern that consists in storing the main information inside one object and this object is used to pass everything
 * Servlet: A java program that runs on a dedicated web server that is able to elaborate http requests and reply to them.
 * MIME type: Multipurpose Internet Mail Extensions type. These are two-parts identifiers used to identify formats of content transmitted on the web.
 * K&R style: Indentation style named after Kernighan and Ritchie, who used this style in their book "The C Programming Language". 
 * Regex: regular expression, it is a finite automata used to define a search pattern
-* Apache: open source company famous for its web server called apache
-
+* Sonar: open-source product used to improve code quality via defined metrics.
 
 ##1.4. Reference documents
 * Assignment document: Code inspection.pdf
@@ -366,7 +366,7 @@ Everything ok, no files
 
 #7. Conclusion
 
-This StandarContext.java code has been developed by a team of profesionals and qualified programmers. Still, it is possible to see in this document that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherents as possible. Unfortunatly, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. We can for exemple see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more an conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
+This StandarContext.java code has been developed by a team of profesionals and qualified programmers. Still, it is possible to see in this document that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherents as possible. Unfortunatly, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish but it is fortunatly possible for large project to use tools such as Sonar to perfom some of the checkings in an automated way. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. We can for exemple see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more an conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
 
 #8. Hours of work
 ## Claudio Cardinale
