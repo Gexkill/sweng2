@@ -370,12 +370,27 @@ This StandarContext.java code has been developed by a team of professionals and 
 
 #8. Hours of work
 ## Claudio Cardinale
-
+  * 18/12/15: 1h
+  * 19/12/15: 5h
+  * 22/12/15: 30m
+  * 23/12/15: 5h
+  * 29/12/15: 4h
+  * 01/01/16: 2h
+  * 03/01/16: 30m
+  * 04/01/16: 30m
+  * 05/01/16: 1h
 
 ## Gilles Dejaegere
 
 
 ## Massimo Dragano
+ * 19/12/15: 3h
+ * 23/12/15: 2h
+ * 28/12/15: 6h
+ * 29/12/15: 7h
+ * 02/01/16: 2h
+ * 03/01/16: 1h
+ * 05/01/16: 3h
 
 
 [inheritanceDiagram]: ../resources/inheritance_diagram.png?raw=true
