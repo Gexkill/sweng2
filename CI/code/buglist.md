@@ -617,6 +617,10 @@ not by functionality as it should be.
 #### Method calls
   
   - return value of method `contextListenerStop` is never used ( hint: change to `void` )
+  - return value of method `eventListenerStop` is never used ( hint: change to `void` )
+  - return value of method `resourcesStart` is never used ( hint: change to `void` )
+  - return value of method `resourcesStop` is never used ( hint: change to `void` )
+  - return value of method `alternateResourcesStop` is never used ( hint: change to `void` )
 
 #### Computation, Comparsions and Assignment
 
