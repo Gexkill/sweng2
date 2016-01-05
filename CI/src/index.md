@@ -64,7 +64,7 @@ The process of inspecting source code has two main purposes. The first and most 
 Each group of the project has different methods assigned of a specific version of glashfish. We have to analyse these methods by checking that they are in agreement with every point of a given checklist. We also have to find other problems, then we have to report the problems found in this document.
 
 ##1.2. Scope
-Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specific version of glashfish: 64219 (of 16 Oct 2015 05:11).  
+Glashfish is the official implementation of JEE. It is an open source project that uses svn as version system, in fact we used it to retrieve a specific version of glashfish 4.1.1 (of 16 Oct 2015 05:11).  
 This version is the version required by the assignment since we have been assigned some of its methods to check.  
 Glashfish is a maven project, in fact we imported the pom file into intellij IDEA and we used it, sonar and regex to verify some checks of the checklist.
 
@@ -74,16 +74,15 @@ Glashfish is a maven project, in fact we imported the pom file into intellij IDE
 ##1.3. Definitions, acronyms, abbreviations
 
 * JEE: Java enterprise edition
-* SVN: apache subversion, it is a version controller system, the successor of CVS **OR VCS?**
+* SVN: apache subversion, it is a version controller system, the successor of CVS
 * CVS: Concurrent versions system, a former version controller system
 * Context: Contextual Information: it is a design pattern that consists in storing the main information inside one object and this object is used to pass everything
 * Apache tomacat catalina: It is an open source web server developed by apache foundation (not oracle) for and only for servlets.
 * Servlet: A java program that runs on a dedicated web server that is able to elaborate http requests and reply to them.
 * MIME type: Multipurpose Internet Mail Extensions type. These are two-parts identifiers used to identify formats of content transmitted on the web.
 * K&R style: Indentation style named after Kernighan and Ritchie, who used this style in their book "The C Programming Language". 
-* Regex: regular expression, it is a finite automata used to define a search pattern **CHECK**
+* Regex: regular expression, it is a finite automata used to define a search pattern
 * Apache: open source company famous for its web server called apache
-**WRITE acronyms find in the code**
 
 
 ##1.4. Reference documents
@@ -163,10 +162,6 @@ For example we see that it is used by *ApplicationContext* that uses it to add e
 Usages and javadoc suggest us that this class is very important because it can be seen as the standard "manager" of apache tomacat catalina (that is a servlets server). In fact this class belongs to an host implementation (that uses it to manage all features inserted at high level) and it contains the servlets.  
 In fact in the *context pattern* (Contextual Information) we have a main class context containing the main information, in this case it contains the servlets, and it refers or allows to modify the requests or responses via interceptors (in fact it extends *ContainerBase*).  
 The *context pattern* is very useful where there is a great amount of data. For example it is used in android applications to interact with the user. With this pattern you can manage a lot of features. From the usage side, features can be inserted dynamically via a single object, and from the creation side you can choose where to use these features simply by choosing the appropriate context (the appropriate web application in this case). All data must pass via the context.
-**TODO improve**
-
-
-**TODO class diagram automatically generated?**
 
 [//]: # (pagebreak)
 
@@ -284,7 +279,7 @@ Everything ok
   - brutish programming at line `5625` ( use varargs intead of Object array )
 
 ##4.16. Exceptions
-  - Exception `5619` is not logged
+Everything ok
 
 ##4.17. Flow of Control
 Everything ok (there are no switches)
@@ -346,14 +341,13 @@ Everything ok, no files
   - setAntiJARLocking: never used
   - MessageFormat is often called with an Object array intead of using vararg.
   - some 'if' have a space before '(', but other not, the same thing for other construct like 'catch'
-  - } catch(Throwable t) { **TODO explain**
+  - } catch(Throwable t) { -> Throwable instead the right exception
     - 5619 
     - 5648
     - 5483
     - 5580
     - 5675
     - 5685
-  - two occurrences of new Object[], this is not a good way **KEEP OR REMOVE?**
 
 
 [//]: # (pagebreak)
