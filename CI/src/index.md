@@ -47,6 +47,7 @@
     1. [Files](#files)
 1. [Other problems](#other-problems)
 1. [Used tools](#used-tools)
+1. [Conclusion](#conclusion)
 1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
@@ -367,7 +368,11 @@ Everything ok, no files
 
 [//]: # (pagebreak)
 
-#7. Hours of work
+#7. Conclusion
+
+This StandarContext.java code has been developed by a team of profesionals and qualified programmers. Still, it is possible to see in this document that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherents as possible. Unfortunatly, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. We can for exemple see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more an conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
+
+#8. Hours of work
 ## Claudio Cardinale
 
 
