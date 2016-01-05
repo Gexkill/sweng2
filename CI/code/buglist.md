@@ -61,7 +61,6 @@
   - field `count` is not meaningful ( hint: `backgroundProcessCounter` )
   - method `contextListenerStart` should start with a verb ( hint: `notifyContextStarted` )
   - method `contextListenerStop` should start with a verb ( hint: `stopContextListening` )
-  - return value of method `contextListenerStop` is never used ( hint: change to `void` )
   - method `create` is not clear and it looks like a simple alias of the `init` method
   - method `create` is not used ( hint: delete it )
   - method `engineBase` should start with a verb ( hint: `getEngineBase` )
@@ -614,6 +613,10 @@ not by functionality as it should be.
   - `key` not declared at beginning of the block at line `5719`
   - `list` not declared at beginning of the block at line `5720`
   - duplicate code for change log format ( `log.isLoggable(Level.FINE)` )
+
+#### Method calls
+  
+  - return value of method `contextListenerStop` is never used ( hint: change to `void` )
 
 #### Computation, Comparsions and Assignment
 
