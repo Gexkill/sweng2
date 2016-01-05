@@ -84,7 +84,7 @@
   - method `sessionActivatedEndEvent` should start with a verb ( hint: `onSessionActivatedEndEvent` )
   - method `sessionPassivatedStartEvent` should start with a verb ( hint: `onSessionPassivatedStartEvent` )
   - method `sessionPassivatedEndEvent` should start with a verb ( hint: `onSessionPassivatedEndEvent` )
-  - method `sessionListenerStop` shlould start with a verb ( hint: `stopSessionListening` )
+  - method `sessionListenerStop` should start with a verb ( hint: `stopSessionListening` )
   
 #### Indention
 
