@@ -213,17 +213,17 @@ The *context pattern* is very useful where there is a great amount of data. For 
 N.B.: K&R style is used.
 
 ##4.4. File Organization
-  - line `5487` can be easily rewritten to not exceed 80 columns.
-  - line `5574` can be easily rewritten to not exceed 80 columns.
-  - line `5576` can be easily rewritten to not exceed 80 columns.
-  - line `5582` can be easily rewritten to not exceed 80 columns.
-  - line `5613` can be easily rewritten to not exceed 80 columns.
-  - line `5618` can be easily rewritten to not exceed 80 columns.
-  - line `5621` can be easily rewritten to not exceed 80 columns.
-  - line `5624` can be easily rewritten to not exceed 80 columns.
-  - line `5680` can be easily rewritten to not exceed 80 columns.
-  - line `5734` can be easily rewritten to not exceed 80 columns.
-  - line `5735` can be easily rewritten to not exceed 80 columns.
+  - line `5487` can be easily rewritten not to exceed 80 columns.
+  - line `5574` can be easily rewritten not to exceed 80 columns.
+  - line `5576` can be easily rewritten not to exceed 80 columns.
+  - line `5582` can be easily rewritten not to exceed 80 columns.
+  - line `5613` can be easily rewritten not to exceed 80 columns.
+  - line `5618` can be easily rewritten not to exceed 80 columns.
+  - line `5621` can be easily rewritten not to exceed 80 columns.
+  - line `5624` can be easily rewritten not to exceed 80 columns.
+  - line `5680` can be easily rewritten not to exceed 80 columns.
+  - line `5734` can be easily rewritten not to exceed 80 columns.
+  - line `5735` can be easily rewritten not to exceed 80 columns.
 
 N.B.: there are no lines that exceed 120 columns.
 
@@ -367,6 +367,8 @@ Everything ok, no files
 #7. Conclusion
 
 This StandarContext.java code has been developed by a team of professionals and qualified programmers. Still, in this document it is possible to see that this code is not perfect. Using a checklist is an efficient, systematic, and rigorous way to point out some remaining bugs and to make the code as coherent as possible. Unfortunately, code inspection is a very time consuming activity and it is not envisageable to apply it totally for large projects like Glassfish but fortunately it is possible for large projects to use tools such as Sonar to perform some of the checkings in an automated way. Moreover, even if using a checklist is a good way to improve the code, this is by no means a guarantee for making a perfect code. Indeed, some of the bugs or possible improvements shown in this document are not related to points of the checklist. For example we can see that some of the methods implemented in the java document are never used in the project. This is not a real bug but it is more a conceptual mistake. Time has been wasted making these methods and disk space is wasted on every machine hosting the project.
+
+[//]: # (pagebreak)
 
 #8. Hours of work
 ## Claudio Cardinale
