@@ -22,7 +22,7 @@
     1. [Entry Criteria](#entry-criteria)
     1. [Elements to be Integrated](#elements-to-be-integrated)
     1. [Integration Testing Strategy](#integration-testing-strategy)
-    1. [Sequence of Component/function Integration](#sequence-of-component-function-integration)
+    1. [Sequence of Component/function Integration](#sequence-of-componentfunction-integration)
         1. [Software Integration Sequence](#software-integration-sequence)
         1. [Subsystem Integration Sequence](#subsystem-integration-sequence)
 1. [Individual Steps and Test Description](#individual-steps-and-test-description)
