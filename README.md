@@ -12,6 +12,9 @@ Project repository for software engineering 2
 * CI
    * [CI Markdown](CI/src/index.md)
    * [CI PDF](CI/CI.pdf): it cannot be  updated
+* TP
+   * [TP Markdown](TP/src/index.md)
+   * [TP PDF](TP/TP.pdf): it cannot be  updated
 * [Hours](other/hours.md)
 * [Tasks](other/tasks.md)
 * [Utility](other/utility.md)

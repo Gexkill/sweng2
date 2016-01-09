@@ -60,3 +60,12 @@ Refered to official guide
 ## Massimo Dragano
 * a lot of checklist issues via regex and intellij inspection instruments
 * a lot of other problems
+
+# TP
+## Claudio Cardinale
+* document structure
+
+## Gilles Dejaegere
+
+## Massimo Dragano
+
