@@ -50,12 +50,12 @@
 
 # 2. Integration Strategy
 
-## 2.1 Entry Criteria
-## 2.2 Elements to be Integrated
-## 2.3 Integration Testing Strategy
-## 2.4 Sequence of Component/function Integration
-### 2.4.1 Software Integration Sequence
-### 2.4.2 Subsystem Integration Sequence
+## 2.1. Entry Criteria
+## 2.2. Elements to be Integrated
+## 2.3. Integration Testing Strategy
+## 2.4. Sequence of Component/function Integration
+### 2.4.1. Software Integration Sequence
+### 2.4.2. Subsystem Integration Sequence
 
 [//]: # (pagebreak)
 
