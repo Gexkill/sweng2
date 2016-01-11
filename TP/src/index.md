@@ -40,11 +40,26 @@
 # 1. Introduction
 ## 1.1. Revision history
 
+Actual version : V1.
+
+Revision history : none.
+
 ## 1.2. Purpose and Scope
+
+The purpose of this document is to present to the testing team the sequence of tests to be applied to the different components (and their interfaces) forming the application. These components were of course designed during the design phase of the project development and are presented in the Design Document. These test are aimed at verify weither the components behave and cooperate correctly. The tests explained in this document will have to be done in the correct order. The document also specifies for each test the eventual testing tools to be used as well as the eventuel additional data to use as input.
 
 ## 1.3. List of Definitions and abbreviations
 
+* RASD: Requirements Analysis and Specifications Document
+* DD: Design Document
+* ITPD: Integration Test Plan Document
+
 ## 1.4. List of Reference Documents
+* The MyTaxiService project description : "Project Description And Rules.pdf"
+* Assignment document: "Assignment 4 - integration test plan"
+* The MyTaxiService RASD
+* The MyTaxiService DD
+
 
 [//]: # (pagebreak)
 
