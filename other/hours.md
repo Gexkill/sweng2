@@ -66,6 +66,8 @@
   * 04/01/16: 45min
   * 05/01/16: 2h
 * TP
+  * 11/01/16: 1h30
+  
 
 # Massimo Dragano
 * RASD

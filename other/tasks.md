@@ -56,6 +56,8 @@ Refered to official guide
 ## Gilles Dejaegere
 * some checklist isues
 * fix issues, even of old documents
+* conclusion
+
 
 ## Massimo Dragano
 * a lot of checklist issues via regex and intellij inspection instruments
