@@ -77,6 +77,8 @@ The purpose of this document is to present to the testing team the sequence of t
 # 3. Individual Steps and Test Description
 
 # 4. Tools and Test Equipment Required
+Arquilan + jUnit
+
 
 # 5. Program Stubs and Test Data Required
 
