@@ -59,7 +59,7 @@ The purpose of this document is to present to the testing team the sequence of t
 * Assignment document: "Assignment 4 - integration test plan"
 * The MyTaxiService RASD
 * The MyTaxiService DD
-
+**Insert the example document**
 
 [//]: # (pagebreak)
 
