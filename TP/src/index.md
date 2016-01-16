@@ -40,26 +40,39 @@
 # 1. Introduction
 ## 1.1. Revision history
 
+
+| **Date** | **Version** | **Description** | **Authors** |
+|----------|-------------|-----------------|-------------|
+|20/01/2016|    1        | Original Version| Claudio Cardinale, Gilles Dejaegere and Massimo Dragano       |   
+|          |             |                 |             |   
+|          |             |                 |             |   
+
 Actual version : V1.
 
 Revision history : none.
 
 ## 1.2. Purpose and Scope
 
-The purpose of this document is to present to the testing team the sequence of tests to be applied to the different components (and their interfaces) forming the application. These components were of course designed during the design phase of the project development and are presented in the Design Document. These test are aimed at verify weither the components behave and cooperate correctly. The tests explained in this document will have to be done in the correct order. The document also specifies for each test the eventual testing tools to be used as well as the eventuel additional data to use as input.
+The purpose of this document is to present to the testing team the sequence of tests to be applied to the different components (and their interfaces) forming the application. These components were of course designed during the design phase of the project development and are presented in the Design Document. These test are aimed at verify weither the components behave and cooperate correctly. This is done by testing the different components throught their interfaces. The tests explained in this document will have to be done in the correct order. The document also specifies for each test the eventual testing tools to be used as well as the eventuel additional stubs or mockups to use.
 
 ## 1.3. List of Definitions and abbreviations
 
 * RASD: Requirements Analysis and Specifications Document
 * DD: Design Document
 * ITPD: Integration Test Plan Document
+* Stub: **to be done**
+* Mocks: **to be done**
+* Bottom-up : Bottom-up is an strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
+* Top-down : Top-down is an strategy of information processing. Regarding integration testing the top-down strategy consists in the integration of high level modules first and the integration of low level modules after. It is the opposite of bottom-up. 
+* Big-bang : 
+
 
 ## 1.4. List of Reference Documents
 * The MyTaxiService project description : "Project Description And Rules.pdf"
-* Assignment document: "Assignment 4 - integration test plan"
+* The Assignment document: "Assignment 4 - integration test plan"
 * The MyTaxiService RASD
 * The MyTaxiService DD
-**Insert the example document**
+* The exemple document given : "Integration Test Plan"
 
 [//]: # (pagebreak)
 
@@ -68,9 +81,27 @@ The purpose of this document is to present to the testing team the sequence of t
 ## 2.1. Entry Criteria
 ## 2.2. Elements to be Integrated
 ## 2.3. Integration Testing Strategy
+
+The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many adventages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunatly, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the adventages of the bottom-up strategies are more impacting that its drawbacks.
+In some cases such as for exemple inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mixt of top down and bottom-up strategies will be used.
+
 ## 2.4. Sequence of Component/function Integration
 ### 2.4.1. Software Integration Sequence
+
 ### 2.4.2. Subsystem Integration Sequence
+The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :
+* The central,
+* The driver,
+* The client,
+* The database.
+Furthermore, the central can be devided in two sub-systems : the model and the controler (DD pg 8, Figure 5 : Component view).
+ 
+The driver subsystem, the client subsystem and the database subsystem are atomic subsystems and are therefore not discussed in the section 2.4.1. In opposition, the controler and the model are composed of different subcomponents these subcomponents have to be integrated together. Concernig the order of integration of the subsystems, the model will be integrated to the controller at first. This will take place even before the subcomponents of the controller are all integrated together (see section 2.4.1**: the controller[to adapt]**). This is done because there are to many controller subcomponents interacting with the model. Once this integration is done, the database will be integrated, then the driver and finally the client. This can be seen on the following figure.
+
+![Subsystems integration][subsystems]
+
+
+
 
 [//]: # (pagebreak)
 
