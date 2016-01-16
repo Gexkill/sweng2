@@ -64,7 +64,7 @@ The purpose of this document is to present to the testing team the sequence of t
 * Mocks: **to be done**
 * Bottom-up : Bottom-up is an strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
 * Top-down : Top-down is an strategy of information processing. Regarding integration testing the top-down strategy consists in the integration of high level modules first and the integration of low level modules after. It is the opposite of bottom-up. 
-* Big-bang : 
+* Big-bang : Big-bang is an non-incremental integration strategy where all the components are integrated at once, right after they are all unit-tested. 
 
 
 ## 1.4. List of Reference Documents
@@ -100,8 +100,13 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 
 ![Subsystems integration][subsystems]
 
-
-
+| **ID** | **Integration Tests** |**Sections**|
+|--------|-----------------------|------------|
+|S1|Model --> Controler = Central|            |
+|S2|Database --> Central         |            |
+|S3|Driver --> Central           |            |
+|S4|Client --> Central           |            |
+**Sections will have to be added once defined in section 3**
 
 [//]: # (pagebreak)
 
@@ -129,4 +134,4 @@ Arquilan + jUnit
 ## Massimo Dragano
 
 
-
+[subsystems]:../resources/section4.2_Subsystem_Integration.png?raw=true
