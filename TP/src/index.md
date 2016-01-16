@@ -47,9 +47,6 @@
 |          |             |                 |             |   
 |          |             |                 |             |   
 
-Actual version : V1.
-
-Revision history : none.
 
 ## 1.2. Purpose and Scope
 
@@ -106,7 +103,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 |S2|Database --> Central         |            |
 |S3|Driver --> Central           |            |
 |S4|Client --> Central           |            |
-**Sections will have to be added once defined in section 3**
+**Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
 
 [//]: # (pagebreak)
 
@@ -120,7 +117,8 @@ Arquilan + jUnit
 
 # 6. Used tools
 * Github: for version controller
-* Gedit and ReText: to write MarkDown with spell check 
+* Gedit and ReText: to write MarkDown with spell check
+* Dia: to make figures 
 
 [//]: # (pagebreak)
 
