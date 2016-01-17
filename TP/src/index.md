@@ -27,6 +27,8 @@
         1. [Subsystem Integration Sequence](#subsystem-integration-sequence)
 1. [Individual Steps and Test Description](#individual-steps-and-test-description)
 1. [Tools and Test Equipment Required](#tools-and-test-equipment-required)
+    1. [Integration tests](#integration-tests)
+    1. [Manual tests](#manual-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
@@ -203,7 +205,36 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 # 3. Individual Steps and Test Description
 
 # 4. Tools and Test Equipment Required
-Arquilan + jUnit
+**Note:** Since we said in the previous docuemnts that we use laravel application (MVC php framework), we use the laravel tests that extend phpunit tests and they are same to Arquilan + jUnit
+
+## 4.1. Integration tests
+Since we want to test the entire application via integration tests, if it respects the requirements we decide to use laravel tests:
+* phpUnit: it is the standard php implementation of unit tests
+* unit test: it is the most famous way to perform tests. in Each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
+* laravel tests: it is an extension to phpunit tests that add additional assertion and allow to emulate the entire client-server application.  In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application
+
+So we proceed in the following way:
+1. We create stub data to test application. Stub data are faker data used to populate the models and have something to test.
+1. We create laravel tests like the following
+```php
+public function testApplication()
+{
+    $response = $this->call('POST', '/user', ['name' => 'Taylor']);
+
+    $this->assertEquals(200, $response->status());
+}
+```
+
+
+
+**references**
+https://laravel.com/docs/5.1/testing
+
+## 4.2. Manual tests
+
+
+
+**Insert every word in glosary**
 
 
 # 5. Program Stubs and Test Data Required
