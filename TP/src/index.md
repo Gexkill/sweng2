@@ -27,7 +27,7 @@
         1. [Subsystem Integration Sequence](#subsystem-integration-sequence)
 1. [Individual Steps and Test Description](#individual-steps-and-test-description)
 1. [Tools and Test Equipment Required](#tools-and-test-equipment-required)
-    1. [Integration tests](#integration-tests)
+    1. [Automatic tests](#automatic-tests)
     1. [Manual tests](#manual-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
 1. [Used tools](#used-tools)
@@ -209,13 +209,13 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 
 We create stub data to test application. Stub data are faker data are used to populate the models and have something to test.
 
-## 4.1. Integration tests
+## 4.1. Automatic tests
 Since we want to test the entire application via integration tests, if it respects the requirements we decide to use laravel tests:
-* laravel tests: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application.  In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application
-* PHPUnit: it is the standard php implementation of unit tests.
-* unit test: it is the most famous way to perform tests. in Each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
+* **Laravel tests**: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application.  In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application
+* **PHPUnit**: it is the standard php implementation of unit tests.
+* **Unit test**: it is the most famous way to perform tests. in Each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
 
-So we create laravel tests like the following
+So we create laravel tests like the following:
 ```php
 public function testApplication()
 {
