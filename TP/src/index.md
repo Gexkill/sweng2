@@ -59,8 +59,8 @@ The purpose of this document is to present to the testing team the sequence of t
 * RASD: Requirements Analysis and Specifications Document
 * DD: Design Document
 * ITPD: Integration Test Plan Document
-* Stub: **to be done**
-* Mocks: **to be done**
+* Stub: fake data used to tests application, they are useful to populate database or model objects
+* Unit test: the most famous way to perform tests via assertions
 * Bottom-up : Bottom-up is an strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
 * Top-down : Top-down is an strategy of information processing. Regarding integration testing the top-down strategy consists in the integration of high level modules first and the integration of low level modules after. It is the opposite of bottom-up. 
 * Big-bang : Big-bang is an non-incremental integration strategy where all the components are integrated at once, right after they are all unit-tested. 
@@ -258,14 +258,14 @@ We will test the entire system in a manual way to test:
 
 
 # 5. Program Stubs and Test Data Required
-We will insert faker data for taxis, clients and requests. We will add critical data tests for example:
+We will insert fake data for taxis, clients and requests. We will add critical data tests like:
 
 * All requests in the same zone
 * All taxis in the same zone
 * No data of a specif category (no taxis, no clients, ...)
 * **WRITE OTHERS**
 
-To generate faker data we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
+To generate fake data we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
 
 **Improve**
 
