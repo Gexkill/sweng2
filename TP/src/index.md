@@ -192,12 +192,13 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 
 ![Subsystems integration][subsystems]
 
-| **ID** | **Integration Tests** |**Sections**|
-|--------|-----------------------|------------|
-|S1|Model --> Controler = Central|            |
-|S2|Database --> Central         |            |
-|S3|Driver --> Central           |            |
-|S4|Client --> Central           |            |
+| **ID** | **Integration Tests** | **Sections** |
+|--------|-----------------------|--------------|
+|S1|Model --> Controler = Central|              |
+|S2|Database --> Central         |              |
+|S3|Driver --> Central           |              |
+|S4|Client --> Central           |              |
+
 **Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
 
 [//]: # (pagebreak)
@@ -205,7 +206,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 # 3. Individual Steps and Test Description
 
 # 4. Tools and Test Equipment Required
-**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests and they are same to Arquilan + jUnit (tests for JEE explained during the lessons)
+**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests. They are same as Arquilan + jUnit (tests for JEE explained during the lessons)
 
 We create stub data to test application. Stub data are faker data used to populate the models and to have something to test.
 
