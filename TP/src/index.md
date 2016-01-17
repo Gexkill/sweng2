@@ -76,7 +76,100 @@ The purpose of this document is to present to the testing team the sequence of t
 # 2. Integration Strategy
 
 ## 2.1. Entry Criteria
+
+The following model classes must be unit tested before our integration tests.
+
+  - `Reservation`
+  - `Ride`
+  - `Driver`
+  - `Request`
+  - `Zone`
+
+we should test all non-trivial methods. for instance:
+
+
+  - `Ride#close`: mark a ride as terminated
+  - **TODO**
+
+getter and setter methods can be skipped.
+
 ## 2.2. Elements to be Integrated
+
+#### QueueManager
+
+###### addRequest
+
+Throws an exception if there is no `Zone` containing the `Request` starting position.
+
+Add a `Request` to the starting `Zone` requests queue.
+
+###### removeRequest
+
+Remove a `Request` from a `Zone` requests queue if present.
+
+###### addDriver
+
+Throws an exception if there is no `Zone` containing the `Driver` position.
+Throws an exception if the `Driver` is already enqueued ( even if `Zone` is different ).
+
+Add a `Driver` to it's `Zone` drivers queue.
+
+###### removeDriver
+
+Remove a `Driver` from the `Zone` drivers queue if present.
+
+###### peekDriverForZone
+
+Thows an exception if there is no `Driver` in the `Zone` drivers queue.
+
+return the first enqueued driver for a specified `Zone`
+
+#### RequestConstroller
+
+###### create
+
+Throws an exception if invalid arguments has been provided.
+
+return a new `Request`.
+
+#### DriverController
+
+###### login
+
+Throws an exception if credentials are wrong.
+
+On success it return some driver informations that can be used
+by the clients to build their `Driver` proxy.
+
+###### setAvailable
+
+Throws an exception if a `Ride` is in progress.
+
+It changes the `Driver` availability and put it in the correct `Zone`
+when changing to `true`, using `QueueManager#addDriver`.
+
+###### setPosition
+
+Throws an exception if there is no `Zone` containing the specified position.
+
+It set the `Driver` position to the given argument.
+It also closes the `Ride` if:
+
+  - there is an associated `Ride`
+  - the driver position matches the arrive one.
+
+#### RideController
+
+###### create
+
+Throws an exception if the client is not allowed to perform this action.
+Throws an exception if the given arguments are invalid.
+
+Create a new `Ride` from a pending `Request`.
+Retrun the new `Ride`.
+
+> NOTE: allowed clients are `Driver`s in the drivers queue of the `Zone` of the request.
+
 ## 2.3. Integration Testing Strategy
 
 The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many adventages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunatly, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the adventages of the bottom-up strategies are more impacting that its drawbacks.
