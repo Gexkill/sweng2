@@ -269,4 +269,4 @@ To generate faker data we use the faker library and the seed function included w
 ## Massimo Dragano
 
 
-[subsystems]:../resources/section4.2_Subsystem_Integration.png?raw=true
+[subsystems]:../resources/subsystem_integration.png?raw=true
