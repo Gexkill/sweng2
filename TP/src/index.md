@@ -27,7 +27,7 @@
         1. [Subsystem Integration Sequence](#subsystem-integration-sequence)
 1. [Individual Steps and Test Description](#individual-steps-and-test-description)
 1. [Tools and Test Equipment Required](#tools-and-test-equipment-required)
-    1. [Integration tests](#integration-tests)
+    1. [Automatic tests](#automatic-tests)
     1. [Manual tests](#manual-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
 1. [Used tools](#used-tools)
@@ -205,39 +205,52 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 # 3. Individual Steps and Test Description
 
 # 4. Tools and Test Equipment Required
-**Note:** Since we said in the previous docuemnts that we use laravel application (MVC php framework), we use the laravel tests that extend phpunit tests and they are same to Arquilan + jUnit
+**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests and they are same to Arquilan + jUnit (tests for JEE explained during the lessons)
 
-## 4.1. Integration tests
+We create stub data to test application. Stub data are faker data used to populate the models and to have something to test.
+
+## 4.1. Automatic tests
 Since we want to test the entire application via integration tests, if it respects the requirements we decide to use laravel tests:
-* phpUnit: it is the standard php implementation of unit tests
-* unit test: it is the most famous way to perform tests. in Each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
-* laravel tests: it is an extension to phpunit tests that add additional assertion and allow to emulate the entire client-server application.  In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application
+* **Laravel tests**: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application.  In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application
+* **PHPUnit**: it is the standard php implementation of unit tests.
+* **Unit test**: it is the most famous way to perform tests. in Each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
 
-So we proceed in the following way:
-1. We create stub data to test application. Stub data are faker data used to populate the models and have something to test.
-1. We create laravel tests like the following
+So we create laravel tests like the following:
 ```php
 public function testApplication()
 {
     $response = $this->call('POST', '/user', ['name' => 'Taylor']);
 
     $this->assertEquals(200, $response->status());
+    $this->seeJson(['data' => 'data'])
 }
 ```
 
 
-
-**references**
-https://laravel.com/docs/5.1/testing
+**references**:  
+* https://laravel.com/docs/5.1/testing
 
 ## 4.2. Manual tests
+We test the entire system in a manual way to test:
+* If the mobile/web applications are easy to use (user experience).
+* If the localization of GPS works properly.
+* **WRITE OTHERS**
 
 
-
+**Improve**
 **Insert every word in glosary**
 
 
 # 5. Program Stubs and Test Data Required
+We insert faker data for taxis, clients and requests. We add critical data tests for example:
+* All requests in the same zone
+* All taxis in the same zone
+* No data of a specif category (no taxis, no clients, ...)
+* **WRITE OTHERS**
+
+To generate faker data we use the faker library and the seed function included with laravel, that allow us to populate easily database with fake.
+
+**Improve**
 
 # 6. Used tools
 * Github: for version controller
@@ -256,4 +269,4 @@ https://laravel.com/docs/5.1/testing
 ## Massimo Dragano
 
 
-[subsystems]:../resources/section4.2_Subsystem_Integration.png?raw=true
+[subsystems]:../resources/subsystem_integration.png?raw=true
