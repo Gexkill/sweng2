@@ -45,7 +45,7 @@
 
 | **Date** | **Version** | **Description** | **Authors** |
 |----------|-------------|-----------------|-------------|
-|20/01/2016|    1        | Original Version| Claudio Cardinale, Gilles Dejaegere and Massimo Dragano       |   
+|20/01/2016|    1        | Original Version| C. Cardinale, G. Dejaegere and M. Dragano       |   
 |          |             |                 |             |   
 |          |             |                 |             |   
 
@@ -181,7 +181,8 @@ In some cases such as for exemple inter-dependencies between two components, the
 ### 2.4.1. Software Integration Sequence
 
 ### 2.4.2. Subsystem Integration Sequence
-The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :  
+The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :
+
 * The central,
 * The driver,
 * The client,
@@ -205,17 +206,18 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 [//]: # (pagebreak)
 
 
+
 # 3. Individual Steps and Test Description
 
 [//]: # (pagebreak)
 
 # 4. Tools and Test Equipment Required
-**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests. They are the same as Arquilan + jUnit (tests for JEE explained during the lessons)
+**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we will use the laravel tests that extend PHPUnit tests. They are the same as Arquilan + jUnit (tests for JEE explained during the lessons)
 
-We create stub data to test application. Stub data are faker data used to populate the models and to have something to test.
+We will create stub data to test application. Stub data are faker data used to populate the models and to have something to test.
 
 ## 4.1. Automatic tests
-Since we want to test the entire application via integration tests, if it respects the requirements we decide to use laravel tests:
+Since we want to test the entire application via integration tests, if it respects the requirements we decided to use laravel tests:
 
 * **Laravel tests**: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application. In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application.
 * **PHPUnit**: it is the standard php implementation of unit tests.
@@ -235,10 +237,10 @@ public function testApplication()
 
 **References**:  
 
-* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :)**
+* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :) [claudio: I have put it here becuase we talked about laravel tests that are not explained during the course, but of course we can create a specif section]**
 
 ## 4.2. Manual tests
-We test the entire system in a manual way to test:
+We will test the entire system in a manual way to test:
 
 * If the mobile/web applications are easy to use (user experience).
 * If the localization of GPS works properly.
@@ -247,7 +249,7 @@ We test the entire system in a manual way to test:
 
 **Improve**
 **Insert every word in glosary**
-**[Gilles : I think we have to write this document like if another team had to use this to perform the test. So instead of saying "we create stubs, ..." we should maybe write thing like "stub should be created"]**
+**[Gilles : I think we have to write this document like if another team had to use this to perform the test. So instead of saying "we create stubs, ..." we should maybe write thing like "stub should be created"] [claudio: I used "we will" as we have done in the previous documents]**
 
 
 
@@ -256,14 +258,14 @@ We test the entire system in a manual way to test:
 
 
 # 5. Program Stubs and Test Data Required
-We insert faker data for taxis, clients and requests. We add critical data tests for example:
+We will insert faker data for taxis, clients and requests. We will add critical data tests for example:
 
 * All requests in the same zone
 * All taxis in the same zone
 * No data of a specif category (no taxis, no clients, ...)
 * **WRITE OTHERS**
 
-To generate faker data we use the faker library and the seed function included with laravel, that allow us to populate easily database with fake.
+To generate faker data we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
 
 **Improve**
 
