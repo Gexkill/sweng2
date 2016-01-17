@@ -201,9 +201,13 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 
 **Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
 
+
 [//]: # (pagebreak)
 
+
 # 3. Individual Steps and Test Description
+
+[//]: # (pagebreak)
 
 # 4. Tools and Test Equipment Required
 **Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests. They are same as Arquilan + jUnit (tests for JEE explained during the lessons)
@@ -212,9 +216,10 @@ We create stub data to test application. Stub data are faker data used to popula
 
 ## 4.1. Automatic tests
 Since we want to test the entire application via integration tests, if it respects the requirements we decide to use laravel tests:
-* **Laravel tests**: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application.  In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application
+
+* **Laravel tests**: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application. In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application.
 * **PHPUnit**: it is the standard php implementation of unit tests.
-* **Unit test**: it is the most famous way to perform tests. in Each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
+* **Unit test**: it is the most famous way to perform tests. In each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
 
 So we create laravel tests like the following:
 ```php
@@ -227,12 +232,13 @@ public function testApplication()
 }
 ```
 
+**References**:  
 
-**references**:  
-* https://laravel.com/docs/5.1/testing
+* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)
 
 ## 4.2. Manual tests
 We test the entire system in a manual way to test:
+
 * If the mobile/web applications are easy to use (user experience).
 * If the localization of GPS works properly.
 * **WRITE OTHERS**
@@ -241,9 +247,12 @@ We test the entire system in a manual way to test:
 **Improve**
 **Insert every word in glosary**
 
+[//]: # (pagebreak)
+
 
 # 5. Program Stubs and Test Data Required
 We insert faker data for taxis, clients and requests. We add critical data tests for example:
+
 * All requests in the same zone
 * All taxis in the same zone
 * No data of a specif category (no taxis, no clients, ...)
@@ -252,6 +261,8 @@ We insert faker data for taxis, clients and requests. We add critical data tests
 To generate faker data we use the faker library and the seed function included with laravel, that allow us to populate easily database with fake.
 
 **Improve**
+
+[//]: # (pagebreak)
 
 # 6. Used tools
 * Github: for version controller
