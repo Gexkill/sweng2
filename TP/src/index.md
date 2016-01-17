@@ -216,9 +216,9 @@ We create stub data to test application. Stub data are faker data used to popula
 ## 4.1. Automatic tests
 Since we want to test the entire application via integration tests, if it respects the requirements we decide to use laravel tests:
 
-* **Laravel tests**: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application.  In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application
+* **Laravel tests**: it is an extension to PHPUnit tests that add additional assertion and allow to emulate the entire client-server application. In fact you're able to test if a web page return the right body or the right HTTP status code, that is very useful in a pure restful application.
 * **PHPUnit**: it is the standard php implementation of unit tests.
-* **Unit test**: it is the most famous way to perform tests. in Each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
+* **Unit test**: it is the most famous way to perform tests. In each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
 
 So we create laravel tests like the following:
 ```php
@@ -230,7 +230,6 @@ public function testApplication()
     $this->seeJson(['data' => 'data'])
 }
 ```
-
 
 **References**:  
 
