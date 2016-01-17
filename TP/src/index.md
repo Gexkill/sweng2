@@ -207,7 +207,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 # 4. Tools and Test Equipment Required
 **Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests and they are same to Arquilan + jUnit (tests for JEE explained during the lessons)
 
-We create stub data to test application. Stub data are faker data are used to populate the models and have something to test.
+We create stub data to test application. Stub data are faker data used to populate the models and to have something to test.
 
 ## 4.1. Automatic tests
 Since we want to test the entire application via integration tests, if it respects the requirements we decide to use laravel tests:
