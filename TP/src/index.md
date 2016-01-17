@@ -66,7 +66,7 @@ The purpose of this document is to present to the testing team the sequence of t
 * Big-bang : Big-bang is an non-incremental integration strategy where all the components are integrated at once, right after they are all unit-tested. 
 
 
-## 1.4. List of Reference Documents
+## 1.4. List of Reference Documents  
 * The MyTaxiService project description : "Project Description And Rules.pdf"
 * The Assignment document: "Assignment 4 - integration test plan"
 * The MyTaxiService RASD
@@ -181,7 +181,7 @@ In some cases such as for exemple inter-dependencies between two components, the
 ### 2.4.1. Software Integration Sequence
 
 ### 2.4.2. Subsystem Integration Sequence
-The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :
+The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :  
 * The central,
 * The driver,
 * The client,
@@ -210,7 +210,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 [//]: # (pagebreak)
 
 # 4. Tools and Test Equipment Required
-**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests. They are same as Arquilan + jUnit (tests for JEE explained during the lessons)
+**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we use the laravel tests that extend PHPUnit tests. They are the same as Arquilan + jUnit (tests for JEE explained during the lessons)
 
 We create stub data to test application. Stub data are faker data used to populate the models and to have something to test.
 
@@ -221,7 +221,7 @@ Since we want to test the entire application via integration tests, if it respec
 * **PHPUnit**: it is the standard php implementation of unit tests.
 * **Unit test**: it is the most famous way to perform tests. In each test you have to make at least one assertion where you assert that two value are same, if it is false the test fails
 
-So we create laravel tests like the following:
+So we create laravel tests like the following:     
 ```php
 public function testApplication()
 {
@@ -232,9 +232,10 @@ public function testApplication()
 }
 ```
 
+
 **References**:  
 
-* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)
+* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :)**
 
 ## 4.2. Manual tests
 We test the entire system in a manual way to test:
@@ -246,6 +247,10 @@ We test the entire system in a manual way to test:
 
 **Improve**
 **Insert every word in glosary**
+**[Gilles : I think we have to write this document like if another team had to use this to perform the test. So instead of saying "we create stubs, ..." we should maybe write thing like "stub should be created"]**
+
+
+
 
 [//]: # (pagebreak)
 
