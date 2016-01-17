@@ -234,7 +234,7 @@ public function testApplication()
 We test the entire system in a manual way to test:
 * If the mobile/web applications are easy to use (user experience).
 * If the localization of GPS works properly.
-**WRITE OTHER**
+* **WRITE OTHERS**
 
 
 **Improve**
@@ -242,6 +242,15 @@ We test the entire system in a manual way to test:
 
 
 # 5. Program Stubs and Test Data Required
+We insert faker data for taxis, clients and requests. We add critical data tests for example:
+* All requests in the same zone
+* All taxis in the same zone
+* No data of a specif category (no taxis, no clients, ...)
+* **WRITE OTHERS**
+
+To generate faker data we use the faker library and the seed function included with laravel, that allow us to populate easily database with fake.
+
+**Improve**
 
 # 6. Used tools
 * Github: for version controller
