@@ -200,7 +200,9 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 |S4|Client --> Central           |            |
 **Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
 
+
 [//]: # (pagebreak)
+
 
 # 3. Individual Steps and Test Description
 
@@ -230,8 +232,9 @@ public function testApplication()
 ```
 
 
-**references**:  
-* https://laravel.com/docs/5.1/testing
+**References**:  
+
+* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)
 
 ## 4.2. Manual tests
 We test the entire system in a manual way to test:
