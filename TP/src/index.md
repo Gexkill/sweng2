@@ -249,7 +249,7 @@ public function testApplication()
 
 **References**:  
 
-* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :) [claudio: I have put it here becuase we talked about laravel tests that are not explained during the course, but of course we can create a specif section][Gilles : I mean there is already a section containing the references, shouldn't this link go there ?]**
+* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :) [claudio: I have put it here becuase we talked about laravel tests that are not explained during the course, but of course we can create a specif section][Gilles : I mean there is already a section containing the references, shouldn't this link go there ?][Claudio: yes]**
 
 ## 4.2. Manual tests
 We will test the entire system in a manual way to test:
