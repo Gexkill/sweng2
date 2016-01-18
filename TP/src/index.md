@@ -59,7 +59,10 @@ The purpose of this document is to present to the testing team the sequence of t
 * RASD: Requirements Analysis and Specifications Document
 * DD: Design Document
 * ITPD: Integration Test Plan Document
-* Stub: fake data used to tests application, they are useful to populate database or model objects
+* Stub: fake data used to tests application, they are useful to populate database or model objects. Stubs are used to be called by the components actually tested.
+* Drivers: drivers are like stubs with the difference that they are not used to be called by the component actually tested, but are use to call themselfs specific functions of the component actually tested.
+* Mocks: stubs with the possibility of verifying wheter or not a specific method of this mock has been called a specific number of times. Mocks are therefore slightly more complex stubs.
+**[Gilles: I developped the notions of stubs, drivers and mocks. I hope I am not wrong, do not hesitate to comment ;) ]**
 * Unit test: the most famous way to perform tests via assertions
 * Bottom-up : Bottom-up is an strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
 * Top-down : Top-down is an strategy of information processing. Regarding integration testing the top-down strategy consists in the integration of high level modules first and the integration of low level modules after. It is the opposite of bottom-up. 
@@ -179,6 +182,15 @@ In some cases such as for exemple inter-dependencies between two components, the
 
 ## 2.4. Sequence of Component/function Integration
 ### 2.4.1. Software Integration Sequence
+#### 2.4.1.1 The Model
+**To be done**
+
+#### 2.4.1.2 The Controllers
+
+![Controller integration sequence][controllers]
+
+**This diagramms shows that first the notification help is integrated to the sms gateway, then the queue is integrated to (smsgateway+notificationhelper) ... etc**
+**To be discussed, aproved, and then further develloped**
 
 ### 2.4.2. Subsystem Integration Sequence
 The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :
@@ -237,7 +249,7 @@ public function testApplication()
 
 **References**:  
 
-* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :) [claudio: I have put it here becuase we talked about laravel tests that are not explained during the course, but of course we can create a specif section]**
+* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :) [claudio: I have put it here becuase we talked about laravel tests that are not explained during the course, but of course we can create a specif section][Gilles : I mean there is already a section containing the references, shouldn't this link go there ?]**
 
 ## 4.2. Manual tests
 We will test the entire system in a manual way to test:
@@ -289,3 +301,4 @@ To generate fake data we will use the faker library and the seed function includ
 
 
 [subsystems]:../resources/subsystem_integration.png?raw=true
+[controllers]:../resources/controllers_integration.png?raw=true
