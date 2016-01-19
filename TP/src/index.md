@@ -68,6 +68,10 @@ The purpose of this document is to present to the testing team the sequence of t
 * Bottom-up : Bottom-up is an strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
 * Top-down : Top-down is an strategy of information processing. Regarding integration testing the top-down strategy consists in the integration of high level modules first and the integration of low level modules after. It is the opposite of bottom-up. 
 * Big-bang : Big-bang is an non-incremental integration strategy where all the components are integrated at once, right after they are all unit-tested. 
+* jMeter: java GUI program to measure the performance of a web server, it is developed by apache
+* apache: open source software company
+* laravel: is an php MVC framework
+* php: is a programming language designed for the web
 
 
 ## 1.4. List of Reference Documents  
@@ -75,7 +79,8 @@ The purpose of this document is to present to the testing team the sequence of t
 * The Assignment document: "Assignment 4 - integration test plan"
 * The MyTaxiService RASD
 * The MyTaxiService DD
-* The exemple document given : "Integration Test Plan"
+* The example document given: "Integration Test Plan"
+* Laravel testing: [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)
 
 [//]: # (pagebreak)
 
@@ -102,6 +107,7 @@ getter and setter methods can be skipped.
 ## 2.2. Elements to be Integrated
 
 #### QueueManager
+**FIX her in the pdf, with this type of titles the next title doesn't go on a new line, take a look at below titles**
 
 ###### addRequest
 
@@ -247,11 +253,6 @@ public function testApplication()
 }
 ```
 
-
-**References**:  
-
-* [https://laravel.com/docs/5.1/testing](https://laravel.com/docs/5.1/testing)  **[gilles : is it here with a special purpose or can i put it in the reference sections ? :) [claudio: I have put it here becuase we talked about laravel tests that are not explained during the course, but of course we can create a specif section][Gilles : I mean there is already a section containing the references, shouldn't this link go there ?][Claudio: yes]**
-
 ## 4.2. Manual tests
 We will test the entire system in a manual way to test:
 
@@ -261,13 +262,16 @@ We will test the entire system in a manual way to test:
 
 
 **Improve**
+
 **Insert every word in glosary**
-**[Gilles : I think we have to write this document like if another team had to use this to perform the test. So instead of saying "we create stubs, ..." we should maybe write thing like "stub should be created"] [claudio: I used "we will" as we have done in the previous documents]**
 
 
 ## 4.3 Performance tests
-**TODO**
+We test the performance of the system like a blackbox, we test only the external API. In fact testing these we test all critical parts (in terms of performance). To do that obviously we need a lot of fake data on the server to simulate a critical situation.
 
+We try to perform a huge amount of simultaneous requests and we measure the time needed to complete all requests (with static data like average, standard deviation and so on).
+
+We decided to use jMeter that a powerful java program to do that (it is made by apache), but we can use also other tools like *ab* (another apache tool for server benchmark) that is very useful in some cases since it is a command line program. 
 
 [//]: # (pagebreak)
 
