@@ -29,6 +29,7 @@
 1. [Tools and Test Equipment Required](#tools-and-test-equipment-required)
     1. [Automatic tests](#automatic-tests)
     1. [Manual tests](#manual-tests)
+    1. [Performance tests](#performance-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
@@ -264,6 +265,8 @@ We will test the entire system in a manual way to test:
 **[Gilles : I think we have to write this document like if another team had to use this to perform the test. So instead of saying "we create stubs, ..." we should maybe write thing like "stub should be created"] [claudio: I used "we will" as we have done in the previous documents]**
 
 
+## 4.3 Performance tests
+**TODO**
 
 
 [//]: # (pagebreak)
