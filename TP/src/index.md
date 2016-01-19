@@ -98,7 +98,6 @@ The following model classes must be unit tested before our integration tests.
 
 we should test all non-trivial methods. for instance:
 
-
   - `Ride#close`: mark a ride as terminated
   - **TODO**
 
@@ -106,14 +105,58 @@ getter and setter methods can be skipped.
 
 ## 2.2. Elements to be Integrated
 
+
+|**ID**|**Integration Test**|**Paragraphs**|
+|------|--------------------|--------------|
+|I1    |NotificationHelper -> SMSGateway | ?? ?? ?? |
+|I2    |QueueManager -> NotificationHelper | ?? ?? ?? |
+|I3    |QueueManager -> Model | ?? ?? ?? |
+
 #### QueueManager
-**FIX her in the pdf, with this type of titles the next title doesn't go on a new line, take a look at below titles**
+
+#### Integration test case I1
+
+  - **Test Case ID**: I1T1
+  - **Test Item(s)**: `NotificationHelper` -> `SMSGateway`
+  - **Input specification**: `Ride`, `Client`
+  - **Output specification**: A notification it's sent as an SMS to the `SMSGateway`
+  - **Purpose**: Verify `NotificationHelper` and `SMSGateway` interaction
+    - notify about a new `Ride` to the `Client`
+  - **Dependencies**: `SMSGateway` stub
+
+#### Integration test case I2
+  
+  - **Test Case ID**: I2T1
+  - **Test Item(s)**: `QueueManager` -> `NotificationHelper`
+  - **Input specification**: `Request`, `Driver`
+  - **Output specification**: A notifications are sent to the `Driver`
+  - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
+    - notify about a new `Request` to the `Driver`
+  - **Dependencies**: N/A
+
+#### Integration test case I2
+
+  - **Test Case ID**: I2T1
+  - **Test Item(s)**: `QueueManager` -> `Zone`
+  - **Input specification**: `Request`, `Driver` and `Zone`
+  - **Output specification**: `Zone` is managed in the correct way.
+  - **Purpose**: Verify `QueueManager` and `Zone` interaction
+    - add `Request`s to the correct `Zone`
+    - remove `Request`s from the correct `Zone`
+    - add a `Driver` to it's `Zone`
+    - remove a `Driver` from it's `Zone`
+    - gives the first available `Driver` for a specified `Zone`
+  - **Dependencies**: N/A
+
+** STILL WIP **
 
 ###### addRequest
 
-Throws an exception if there is no `Zone` containing the `Request` starting position.
-
-Add a `Request` to the starting `Zone` requests queue.
+  - **Test Case ID**: I1T1
+  - **Goal**: Test `QueueManager` and `Zone` interaction when working with `Request`s
+    - add `Request`s to the correct `Zone`
+    - remove `Request`s from the correct `Zone`
+  - **Dependencies**: N/A
 
 ###### removeRequest
 
