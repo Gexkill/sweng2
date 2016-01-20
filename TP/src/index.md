@@ -133,21 +133,11 @@ getter and setter methods can be skipped.
   - **Output specification**: A notifications are sent to the `Driver`
   - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
     - notify about a new `Request` to the first available `Driver`
-  - **Dependencies**: I3T1
+  - **Dependencies**: N/A
 
 #### Integration test case I3
 
   - **Test Case ID**: I3T1
-  - **Test Item(s)**: `QueueManager` -> `Zone`
-  - **Input specification**: `Driver` and `Zone`
-  - **Output specification**: `Zone` is managed in the correct way.
-  - **Purpose**: Verify `QueueManager` and `Zone` interaction
-    - add a `Driver` to it's `Zone`
-    - remove a `Driver` from it's `Zone`
-    - gives the first available `Driver` for a specified `Zone`
-  - **Dependencies**: N/A
-  
-  - **Test Case ID**: I3T2
   - **Test Item(s)**: `QueueManager` -> `Zone`
   - **Input specification**: `Request` and `Zone`
   - **Output specification**: `Zone` is managed in the correct way.
