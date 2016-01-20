@@ -111,6 +111,7 @@ getter and setter methods can be skipped.
 |I1    |NotificationHelper -> SMSGateway | ?? ?? ?? |
 |I2    |QueueManager -> NotificationHelper | ?? ?? ?? |
 |I3    |QueueManager -> Model | ?? ?? ?? |
+|I4    |DriverController -> Model | ?? ?? ?? |
 
 #### QueueManager
 
@@ -131,22 +132,42 @@ getter and setter methods can be skipped.
   - **Input specification**: `Request`, `Driver`
   - **Output specification**: A notifications are sent to the `Driver`
   - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
-    - notify about a new `Request` to the `Driver`
-  - **Dependencies**: N/A
+    - notify about a new `Request` to the first available `Driver`
+  - **Dependencies**: I3T1
 
-#### Integration test case I2
+#### Integration test case I3
 
-  - **Test Case ID**: I2T1
+  - **Test Case ID**: I3T1
   - **Test Item(s)**: `QueueManager` -> `Zone`
-  - **Input specification**: `Request`, `Driver` and `Zone`
+  - **Input specification**: `Driver` and `Zone`
   - **Output specification**: `Zone` is managed in the correct way.
   - **Purpose**: Verify `QueueManager` and `Zone` interaction
-    - add `Request`s to the correct `Zone`
-    - remove `Request`s from the correct `Zone`
     - add a `Driver` to it's `Zone`
     - remove a `Driver` from it's `Zone`
     - gives the first available `Driver` for a specified `Zone`
   - **Dependencies**: N/A
+  
+  - **Test Case ID**: I3T2
+  - **Test Item(s)**: `QueueManager` -> `Zone`
+  - **Input specification**: `Request` and `Zone`
+  - **Output specification**: `Zone` is managed in the correct way.
+  - **Purpose**: Verify `QueueManager` and `Zone` interaction
+    - add `Request`s to the correct `Zone`
+    - remove `Request`s from the correct `Zone`
+  - **Dependencies**: N/A
+
+#### Integration test case I4
+
+  - **Test Case ID**: I4T1
+  - **Test Item(s)**: `DriverController` -> `Model`
+  - **Input specification**: `Driver`, `Ride`
+  - **Output specification**: `Driver` and `Ride` are managed in the correct way.
+  - **Purpose**: Verify `DriverController` and `Model` interaction
+    - set `Driver` position
+    - close a `Ride` when `Driver` reach the arrive
+    - set `Driver` availability
+  - **Dependencies**: N/A
+
 
 ** STILL WIP **
 
