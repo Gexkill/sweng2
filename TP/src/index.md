@@ -105,14 +105,20 @@ getter and setter methods can be skipped.
 
 ## 2.2. Elements to be Integrated
 
+**[Gilles : I think it is very good works :) I would just have one suggestion. I think since we descripe the integration strategy lower, maybe we should put your work in section 3 and here we should just put again our component vieux (modified) from the DD and say that these are the components to be integrated. Maybe you already planned to do this, I'm not sure. Do not hesitate to ask me if you want me to put the component vieux here and make some blabla ;) ]**
 
+**Gilles: this table should be in the "2.4.1.2 The controllers" since it shows the integration sequence**
 |**ID**|**Integration Test**|**Paragraphs**|
 |------|--------------------|--------------|
 |I1    |NotificationHelper -> SMSGateway | ?? ?? ?? |
-|I2    |QueueManager -> NotificationHelper | ?? ?? ?? |
-|I3    |QueueManager -> Model | ?? ?? ?? |
+|I2    |QueueManager -> Model | ?? ?? ?? |
+|I3    |QueueManager -> NotificationHelper | ?? ?? ?? |
 |I4    |DriverController -> Model | ?? ?? ?? |
-
+|I5    |RequestController -> Model & QueueManager | ?? ?? ?? |
+|I6    |SchedulerHelper -> RequestController | ?? ?? ?? |
+|I7    |ReservationController -> SchedulerHelper | ?? ?? ?? |
+|I8    |RideController -> Model & QueueManager & NotificationHelper | ?? ?? ?? |
+|I9    |Router -> RideController & RequestController & RideController & DriverController | ?? ?? ?? |
 #### QueueManager
 
 #### Integration test case I1
@@ -270,10 +276,10 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 
 | **ID** | **Integration Tests** | **Sections** |
 |--------|-----------------------|--------------|
-|S1|Model --> Controler = Central|              |
-|S2|Database --> Central         |              |
-|S3|Driver --> Central           |              |
-|S4|Client --> Central           |              |
+|S1|Model -> Controler = Central|              |
+|S2|Database -> Central         |              |
+|S3|Driver -> Central           |              |
+|S4|Client -> Central           |              |
 
 **Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
 
