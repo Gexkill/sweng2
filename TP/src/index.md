@@ -166,6 +166,7 @@ The MyTaxiService application designed is divided in different sub-systems. From
 * the driver,
 * the client,
 * the database.
+
 Furthermore, the central can be divided in two sub-systems: the model and the controller ([DD pg 8, Figure 5: Component view](https://github.com/sweng2/sweng2/blob/master/DD/src/index.md#22high-level-components-and-their-interaction)).
  
 The driver subsystem, the client subsystem and the database subsystem are atomic sub-systems and therefore are not discussed in the section 2.4.1. In opposition, the controller and the model are composed of different subcomponents. On the other hand, there is no component interaction inside the model more than using components "getter" or "setter". This means that only the integration of the components of the controller subsystem will have to be tested. Concerning the order of integration of the subsystems, the model will be integrated to the controller at first. This will take place even before the subcomponents of the controller are all integrated together (see section 2.4.1). This is done because there are too many controller subcomponents interacting with the model and therefore, the integration of a controller together will be done simultaneously with the integration of the other controllers. Once the controllers are fully integrated, the database will be integrated, then the driver and finally the client. This can be seen on the following figure.
