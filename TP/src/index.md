@@ -254,6 +254,18 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - enqueue a created `Request`
   - **Dependencies**: `ClientDriver`
 
+---  
+
+  - **Test Case ID**: I5T2
+  - **Test Item(s)**: `RequestController` -> `QueueManager`, `Model`
+  - **Input specification**: `Request`s with the shared-ride option activated
+  - **Output specification**: The right `Request`s are sent to the `QueueManager`. 
+  - **Purpose**: Verify `RequestController` behavior concerning merged requests.
+    - merge compatible requests with the shared-ride option activated and the sharing constraints respected
+    - does not merge incompatible requests
+    - does not merge requests without the shared-ride option activated
+  - **Dependencies**: `ClientDriver`
+
 ## 3.6. Integration test case I6
 
   - **Test Case ID**: I6T1
@@ -284,7 +296,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Input specification**: Compatible and incompatible `Reservation`s with and without the shared-ride option activated
   - **Output specification**: The right `Reservation`s are sent to the `SchedulerHelper`. 
   - **Purpose**: Verify `ReservationController` behavior concerning merged requests.
-    - merge compatible reservations with the shared-ride option activated
+    - merge compatible reservations with the shared-ride option activated and the sharing constraints respected
     - does not merge incompatible reservations
     - does not merge reservations without the shared-ride option activated
   - **Dependencies**: `ClientDriver`
@@ -397,6 +409,7 @@ This stub allows to test the push notification functionalities, emulating the ex
 * I3T1
 * I4T1
 * I5T1
+* I5T2
 * I7T1
 * I7T2
 * I8T1
