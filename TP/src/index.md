@@ -123,7 +123,7 @@ Getter and setter methods can be skipped.
 
 ## 2.2. Elements to be Integrated
 
-As already mentionned before, the elements that will be integrated are nothing else than the components represented in the component view of our design document.
+As already mentioned before, the elements that will be integrated are nothing else than the components represented in the component view of our design document.
 
 ![Components to be integrated][components]
 
@@ -156,13 +156,13 @@ Here under, the integration sequence that will be applied can be seen. We can ob
 [//]: # (pagebreak)
 
 ### 2.4.2. Subsystem Integration Sequence
-The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 sub-systems:
+The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see [DD pag. 8](https://github.com/sweng2/sweng2/blob/master/DD/src/index.md#22high-level-components-and-their-interaction)) we can identify 4 sub-systems:
 
 * the central,
 * the driver,
 * the client,
 * the database.
-Furthermore, the central can be divided in two sub-systems: the model and the controller (DD pg 8, Figure 5 : Component view).
+Furthermore, the central can be divided in two sub-systems: the model and the controller ([DD pg 8, Figure 5 : Component view](https://github.com/sweng2/sweng2/blob/master/DD/src/index.md#22high-level-components-and-their-interaction)).
  
 The driver subsystem, the client subsystem and the database subsystem are atomic sub-systems and therefore are not discussed in the section 2.4.1. In opposition, the controller and the model are composed of different subcomponents. On the other hand, their are no component interaction inside the model other than using a components "getter" or "setter". This means only that only the integration of the components of the controller subsystem will have to be tested. Concerning the order of integration of the subsystems, the model will be integrated to the controller at first. This will take place even before the subcomponents of the controller are all integrated together (see section 2.4.1). This is done because there are too many controller subcomponents interacting with the model and therefore, the integration of a controller together will be done symultaneously with the integration of the other controllers. Once the controllers are fully integrated, the database will be integrated, then the driver and finally the client. This can be seen on the following figure.
 
