@@ -26,14 +26,22 @@
         1. [Software Integration Sequence](#software-integration-sequence)
         1. [Subsystem Integration Sequence](#subsystem-integration-sequence)
 1. [Individual Steps and Test Description](#individual-steps-and-test-description)
+    1. [Integration test case I1](#integration-test-case-i1)
+    1. [Integration test case I2](#integration-test-case-i2)
+    1. [Integration test case I3](#integration-test-case-i3)
+    1. [Integration test case I4](#integration-test-case-i4)
+    1. [Integration test case I5](#integration-test-case-i5)
+    1. [Integration test case I6](#integration-test-case-i6)
+    1. [Integration test case I7](#integration-test-case-i7)
+    1. [Integration test case I8](#integration-test-case-i8)
 1. [Tools and Test Equipment Required](#tools-and-test-equipment-required)
     1. [Automatic tests](#automatic-tests)
     1. [Manual tests](#manual-tests)
     1. [Performance tests](#performance-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
     1. [Stubs](#stubs)
-    1. [Critical data tests](#critical-data-tests)
     1. [Data for tests](#data-for-tests)
+    1. [Critical data tests](#critical-data-tests)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
@@ -75,8 +83,10 @@ The purpose of this document is to present to the testing team the sequence of t
 * apache: open source software company
 * laravel: is an php MVC framework
 * php: is a programming language designed for the web
+* SMS: **TODO**
 
-**[Claudio: fix stub and mockup, insert also fake data]**
+**[Claudio: fix stub and mockup, insert also fake data, here a definition of stub https://en.wikipedia.org/wiki/Method_stub]**
+
 
 
 ## 1.4. List of Reference Documents  
@@ -137,7 +147,7 @@ getter and setter methods can be skipped.
 The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many advantages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunately, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the advantages of the bottom-up strategies are more impacting that its drawbacks.
 In some cases such as for example inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mix of top down and bottom-up strategies will be used.
 
-**[claudio: we are using stubs]**
+**[claudio: we are using stubs (take a look at the section 5.1 introduction)]**
 
 ## 2.4. Sequence of Component/function Integration
 ### 2.4.1. Software Integration Sequence
@@ -338,20 +348,39 @@ We decided to use jMeter that a powerful java program to do that (it is made by 
 # 5. Program Stubs and Test Data Required
 
 ## 5.1 Stubs
+We have only 2 stubs since we decided to use top-down
 
-**TODO**
+### 5.1.1. SMS gateway
+#### Usages
+* I1T1 
 
-## 5.2 Critical data tests
+#### Description
+This stub allows to test the SMS functionalities, emulating the external gateway this for two reasons:
+
+* Cost: reduce the cost of tests (don't send real SMS)
+* Easy to test: in this way it is easy test functionality, in fact there are no network problems (the *send* return always OK) and teh stub offers easy method to see the text of messages sent
+
+### 5.1.2. 
+#### Usages
+* I4T1
+* I5T1
+* I7T1
+* I8T1
+* I8T2
+* I8T3
+
+#### Description
+This stub allows to **TODO**
+
+## 5.2 Data for tests
+We will insert fake data for taxis, clients, requests and other entities to populate the database. To generate them we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
+
+## 5.3 Critical data tests
 We will add critical data tests like:
 
 * All requests in the same zone
 * All taxis in the same zone
 * No data of a specif category (no taxis, no clients, ...)
-
-## 5.3 Data for tests
-
-We will insert fake data for taxis, clients and requests to populate the database. To generate them we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
-
 
 [//]: # (pagebreak)
 
