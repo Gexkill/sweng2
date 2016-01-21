@@ -39,10 +39,9 @@
     1. [Manual tests](#manual-tests)
     1. [Performance tests](#performance-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
-    1. [Stubs and drivers ](#stubs-and-drivers )
+    1. [Stubs](#stubs)
         1. [SMS gateway](#sms-gateway)
         1. [Push gateway](#push-gateway)
-        1. [ClientDriver](#clientdriver)
     1. [Data for tests](#data-for-tests)
     1. [Critical data tests](#critical-data-tests)
 1. [Used tools](#used-tools)
@@ -229,7 +228,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
     - notify about a new `Request` to the first available `Driver`
     - if no answer, or a negative answer arrives from the Driver (a driver will be used to simulate the answers, see section 5), the QueueManager should put the concerned `Driver` at the end of its queue and ask the following `Driver`
-  - **Dependencies**: `ClientDriver`, `PushGateway` stub
+  - **Dependencies**: `PushGateway` stub
 
 ## 3.4. Integration test case I4
 
@@ -242,7 +241,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - close a `Ride` when `Driver` reaches the arrive
     - set `Driver` availability
     - get a `Driver` from its authentication credentials
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
 
 ## 3.5. Integration test case I5
 
@@ -252,7 +251,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Output specification**: `Request` is sent to `QueueManager`
   - **Purpose**: Verify `RequestController` and `QueueManager` interaction
     - enqueue a created `Request`
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
 
 ---  
 
@@ -264,7 +263,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - merge compatible requests with the shared-ride option activated and the sharing constraints respected
     - does not merge incompatible requests
     - does not merge requests without the shared-ride option activated
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
 
 ## 3.6. Integration test case I6
 
@@ -287,7 +286,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - delete a `Reservation`
     - notify new `Reservation`s to the `SchedulerHelper`
     - notify deleted `Reservation`s to the `SchedulerHelper`
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
 
 ---  
 
@@ -299,7 +298,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - merge compatible reservations with the shared-ride option activated and the sharing constraints respected
     - does not merge incompatible reservations
     - does not merge reservations without the shared-ride option activated
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
 
 ## 3.8. Integration test case I8
 
@@ -310,7 +309,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Purpose**: Verify `RideController` and `Model` interaction
     - create a `Ride`
     - delete created `Ride`'s parent `Request`
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
   
 ---
 
@@ -320,7 +319,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Output specification**: parent `Request` is pulled out from queue
   - **Purpose**: Verify `RideController` and `QueueManager` interaction
     - remove created `Ride` parent `Request` from queue
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
   
 ---
 
@@ -330,7 +329,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Output specification**: send `Notification`s as expected
   - **Purpose**: Verify `RideController` and `NotificationHelper` interaction
     - send a `Notification` to the `Client` when its `Request` is accepted
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: N/A
 
 
 [//]: # (pagebreak)
@@ -379,7 +378,7 @@ We decided to use *jMeter* that is a powerful Java program to do that (it is mad
 
 # 5. Program Stubs and Test Data Required
 
-## 5.1 Stubs and drivers 
+## 5.1 Stubs
 We only have 2 stubs since we decided to use bottom-up. **FIX THE NUMBER WHEN WE TAKE A DECISION ABOUT CLIENTDRIVER**
 
 ### 5.1.1. SMS gateway
@@ -402,29 +401,6 @@ This stub allows to test the push notification functionalities, emulating the ex
 
 * Cost: reduce the cost of tests (a big amount of notifications must be paid)
 * Easy to test: in this way it is an easy test functionality, in fact there are no network problems (the *send* return always OK) and the stub offers easy methods to see the text of notification sent
-
-
-### 5.1.3. ClientDriver
-#### Usages
-* I3T1
-* I4T1
-* I5T1
-* I5T2
-* I7T1
-* I7T2
-* I8T1
-* I8T2
-* I8T3
-
-#### Description
-This stub allows to the driver application to emulate different things:
-
-* it emulates the mobile application as a restful client performing requests, this is done via laravel tests
-* it emulates the push notification service gateway needed to send push notifications to a specific mobile device, this stub allows to emulate it in the same way of the emulation of SMS gateway. So there are no network problems and it is easy to assert via tests that the text of the notification sent.
-
-**TODO AGAIN**
-**Uses notifications**
-**EMULATES GPS**
 
 ## 5.2 Data for tests
 We will insert fake data for taxis, clients, requests and other entities to populate the database. To generate them we will use the faker library and the seed function included with laravel which allows us to populate easily database with fake data.
