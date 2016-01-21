@@ -79,3 +79,12 @@ Refered to official guide
 * 2.1
 * 2.2
 * 2.4.1 (model)
+
+# TP
+## Claudio Cardinale
+* document structure
+
+## Gilles Dejaegere
+
+## Massimo Dragano
+
