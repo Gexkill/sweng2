@@ -4,7 +4,7 @@
 
 **Version 1.0**
 
-**Relasese date : 21/01/2016**
+**Relasese date: 21/01/2016**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
@@ -87,6 +87,8 @@ The purpose of this document is to present to the testing team the sequence of t
 * php: it is a programming language designed for the web.
 * SMS: short message service; it is the most famous way to send text messages to a mobile phone.
 * push notification: the modern way to send complex messages to a smartphone
+* API: application programming interface; it is a common way to communicate with another system.
+* unit test: the most famous way to perform automatic tests, via assertions.
 
 
 ## 1.4. List of Reference Documents  
@@ -331,7 +333,7 @@ Since we wanted to test the entire application via integration tests, if it resp
 
 * **Laravel tests**: it is an extension to PHPUnit tests that adds additional assertions and allows to emulate the entire client-server application. In fact you're able to test if a web page returns the right body or the right HTTP status code, very useful in a pure restful application.
 * **PHPUnit**: it is the standard php implementation of unit tests.
-* **Unit test**: it is the most famous way to perform tests. In each test you have to make at least one assertion where you assert that two values are the same, if it is false the test fails.
+* **Unit test**: it is the most famous way to perform automatic tests. In each test you have to make at least one assertion where you assert that two values are the same, if it is false the test fails.
 
 So we created laravel tests like the following ones:     
 ```php
@@ -359,7 +361,6 @@ We try to perform a huge amount of simultaneous requests and we measure the time
 
 We decided to use *jMeter* that is a powerful Java program to do that (it is made by apache), but we can also use other tools like *ab* (another apache tool for server benchmark) very useful in some cases since it is a command line program. 
 
-**Insert every word in glosary**
 
 [//]: # (pagebreak)
 
@@ -406,7 +407,7 @@ This stub allows to test the push notification functionalities, emulating the ex
 This stub allows to the driver application to emulate different things:
 
 * it emulates the mobile application as a restful client performing requests, this is done via laravel tests
-* it emulates the push notification service gateway needed to send push notifications to a specific mobile device, this stub allows to emulate it in the same way of the emulation of SMS gwateway. So there are no network problems and it is easy to assert via tests that the  text of the notification sent.
+* it emulates the push notification service gateway needed to send push notifications to a specific mobile device, this stub allows to emulate it in the same way of the emulation of SMS gateway. So there are no network problems and it is easy to assert via tests that the text of the notification sent.
 
 **TODO AGAIN**
 **Uses notifications**
@@ -438,7 +439,7 @@ We will add critical data tests like:
   * 11/01/16: 1h
   * 17/01/16: 2h
   * 19/01/16: 1h
-  * 21/01/16: 4h
+  * 21/01/16: 5h
 
 ## Gilles Dejaegere
   * 11/01/16: 1h30
@@ -453,6 +454,9 @@ We will add critical data tests like:
 ## Massimo Dragano
  * 14/01/16: 2h
  * 17/01/16: 1h
+ * 19/01/16: 1h
+ * 20/01/16: 1h
+ * 21/01/16: 1h
 
 [subsystems]:../resources/subsystem_integration.png?raw=true
 [controllers]:../resources/controllers_integration.png?raw=true
