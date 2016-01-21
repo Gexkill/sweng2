@@ -4,7 +4,7 @@
 
 **Version 1.0**
 
-**Relasese date : 05/01/2016**
+**Release date : 05/01/2016**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
@@ -52,6 +52,7 @@
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
     1. [Massimo Dragano](#massimo-dragano)
+1. [Changelog](#changelog)
 
 
 [//]: # (pagebreak)
@@ -400,6 +401,9 @@ This StandarContext.java code has been developed by a team of professionals and 
  * 02/01/16: 2h
  * 03/01/16: 1h
  * 05/01/16: 3h
+
+# 9. Changelog
+* English error fixed
 
 
 [inheritanceDiagram]: ../resources/inheritance_diagram.png?raw=true
