@@ -408,10 +408,11 @@ This stub allows to the driver application to emulate different things:
 **TODO AGAIN**
 **Uses notifications**
 **EMULATES GPS**
-## 5.3 Critical data tests
 
 ## 5.2 Data for tests
 We will insert fake data for taxis, clients, requests and other entities to populate the database. To generate them we will use the faker library and the seed function included with laravel which allows us to populate easily database with fake data.
+
+## 5.3 Critical data tests
 
 We will add critical data tests like:
 
