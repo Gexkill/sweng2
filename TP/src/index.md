@@ -31,6 +31,9 @@
     1. [Manual tests](#manual-tests)
     1. [Performance tests](#performance-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
+    1. [Stubs](#stubs)
+    1. [Critical data tests](#critical-data-tests)
+    1. [Data for tests](#data-for-tests)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
@@ -280,9 +283,9 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 [//]: # (pagebreak)
 
 # 4. Tools and Test Equipment Required
-**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we will use the laravel tests that extend PHPUnit tests. They are the same as Arquilan + jUnit (tests for JEE explained during the lessons)
+**Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we will use the laravel tests that extend PHPUnit tests. They are the same as Arquilan + jUnit (tests for JEE explained during the lessons) but for php + laravel.
 
-We will create stub data to test application. Stub data are faker data used to populate the models and to have something to test.
+We will create stub data to test application. Stub data are fake data used to populate the models and to have something to test.
 
 ## 4.1. Automatic tests
 Since we want to test the entire application via integration tests, if it respects the requirements we decided to use laravel tests:
@@ -307,13 +310,6 @@ We will test the entire system in a manual way to test:
 
 * If the mobile/web applications are easy to use (user experience).
 * If the localization of GPS works properly.
-* **WRITE OTHERS**
-
-
-**Improve**
-
-**Insert every word in glosary**
-
 
 ## 4.3 Performance tests
 We test the performance of the system like a blackbox, we test only the external API. In fact testing these we test all critical parts (in terms of performance). To do that obviously we need a lot of fake data on the server to simulate a critical situation.
@@ -322,20 +318,28 @@ We try to perform a huge amount of simultaneous requests and we measure the time
 
 We decided to use jMeter that a powerful java program to do that (it is made by apache), but we can use also other tools like *ab* (another apache tool for server benchmark) that is very useful in some cases since it is a command line program. 
 
+**Insert every word in glosary**
+
 [//]: # (pagebreak)
 
 
 # 5. Program Stubs and Test Data Required
-We will insert fake data for taxis, clients and requests. We will add critical data tests like:
+
+## 5.1 Stubs
+
+**TODO**
+
+## 5.2 Critical data tests
+We will add critical data tests like:
 
 * All requests in the same zone
 * All taxis in the same zone
 * No data of a specif category (no taxis, no clients, ...)
-* **WRITE OTHERS**
 
-To generate fake data we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
+## 5.3 Data for tests
 
-**Improve**
+We will insert fake data for taxis, clients and requests to populate the database. To generate them we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
+
 
 [//]: # (pagebreak)
 
