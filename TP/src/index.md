@@ -402,7 +402,7 @@ This stub allows to test the push notification functionalities, emulating the ex
 #### Description
 This stub allows to the driver application to emulate different things:
 
-* it emulates the mobile application as a restful client performing requests **[Gilles : Since it perform a request I think it is not a stub but it is a driver]**, this is done via laravel tests
+* it emulates the mobile application as a restful client performing requests, this is done via laravel tests
 * it emulates the push notification service gateway needed to send push notifications to a specific mobile device, this stub allows to emulate it in the same way of the emulation of SMS gwateway. So there are no network problems and it is easy to assert via tests that the  text of the notification sent.
 
 **TODO AGAIN**
