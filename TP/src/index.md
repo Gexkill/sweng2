@@ -111,9 +111,21 @@ getter and setter methods can be skipped.
 
 ## 2.2. Elements to be Integrated
 
-**[Gilles : I think it is very good works :) I would just have one suggestion. I think since we descripe the integration strategy lower, maybe we should put your work in section 3 and here we should just put again our component vieux (modified) from the DD and say that these are the components to be integrated. Maybe you already planned to do this, I'm not sure. Do not hesitate to ask me if you want me to put the component vieux here and make some blabla ;) ]**
+As Already mentionned before, the elements that will be integrated are nothing else than the components represented in the component view of our design document.
 
-**Gilles: this table should be in the "2.4.1.2 The controllers" since it shows the integration sequence**
+ 
+
+
+## 2.3. Integration Testing Strategy
+
+The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many adventages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunatly, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the adventages of the bottom-up strategies are more impacting that its drawbacks.
+In some cases such as for exemple inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mixt of top down and bottom-up strategies will be used.
+
+## 2.4. Sequence of Component/function Integration
+### 2.4.1. Software Integration Sequence
+Here under, the integration sequence that will be applied can be seen. We can observer that the bottom-up has been respected strictly.
+
+![Controller integration sequence][controllers]
 
 
 |**ID**|**Integration Test**|**Paragraphs**|
@@ -127,20 +139,6 @@ getter and setter methods can be skipped.
 |I7    |ReservationController -> SchedulerHelper | ?? ?? ?? |
 |I8    |RideController -> Model & QueueManager & NotificationHelper | ?? ?? ?? |
 |I9    |Router -> RideController & RequestController & RideController & DriverController | ?? ?? ?? |
-
-## 2.3. Integration Testing Strategy
-
-The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many adventages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunatly, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the adventages of the bottom-up strategies are more impacting that its drawbacks.
-In some cases such as for exemple inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mixt of top down and bottom-up strategies will be used.
-
-## 2.4. Sequence of Component/function Integration
-### 2.4.1. Software Integration Sequence
-#### 2.4.1.1 The Model
-**To be done**
-
-#### 2.4.1.2 The Controllers
-
-![Controller integration sequence][controllers]
 
 **This diagramms shows that first the notification help is integrated to the sms gateway, then the queue is integrated to (smsgateway+notificationhelper) ... etc**
 **To be discussed, aproved, and then further develloped**
