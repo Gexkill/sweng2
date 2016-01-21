@@ -130,6 +130,8 @@ getter and setter methods can be skipped.
 |I8    |RideController -> Model & QueueManager & NotificationHelper | ?? ?? ?? |
 |I9    |Router -> RideController & RequestController & RideController & DriverController | ?? ?? ?? |
 
+**[claudio: fix on pdf]**
+
 ## 2.3. Integration Testing Strategy
 
 The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many advantages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunately, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the advantages of the bottom-up strategies are more impacting that its drawbacks.
