@@ -444,8 +444,8 @@ We will add critical data tests like:
  * 14/01/16: 2h
  * 17/01/16: 1h
  * 19/01/16: 1h
- * 20/01/16: 1h
- * 21/01/16: 1h
+ * 20/01/16: 2h
+ * 21/01/16: 5h
 
 [subsystems]:../resources/subsystem_integration.png?raw=true
 [controllers]:../resources/controllers_integration.png?raw=true
