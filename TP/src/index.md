@@ -195,7 +195,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Test Case ID**: I1T1
   - **Test Item(s)**: `NotificationHelper` -> `SMSGateway`
   - **Input specification**: `Ride`, `Client`
-  - **Output specification**: A notification it's sent as an SMS to the `SMSGateway`
+  - **Output specification**: A notification is sent as an SMS to the `SMSGateway`
   - **Purpose**: Verify `NotificationHelper` and `SMSGateway` interaction
     - notify about a new `Ride` to the `Client`
   - **Dependencies**: `SMSGateway` stub
@@ -216,10 +216,11 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Test Case ID**: I3T1
   - **Test Item(s)**: `QueueManager` -> `NotificationHelper`
   - **Input specification**: `Request` and `Driver`
-  - **Output specification**: A notifications are sent to the `Driver`
+  - **Output specification**: A notification is sent to the `Driver`
   - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
     - notify about a new `Request` to the first available `Driver`
-  - **Dependencies**: N/A
+    - if no answer, or a negative answer arrives from the Driver (a driver will be used to simulate the answers, see section 5), the QueueManager should put the concerned `Driver` at the end of its queue and ask the following `Driver`
+  - **Dependencies**: `ClientDriver`
 
 ## 3.4. Integration test case I4
 
@@ -252,9 +253,9 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Output specification**: `SchedulerHelper` built `Request`s are sent to the `RequestController`
   - **Purpose**: Verify `SchedulerHelper` and `RequestController` interaction
     - send `Request`s to the `RequestController` when fired
-  - **Dependencies**: N/A
+  - **Dependencies**: **ADD a driver that feed a fakereservation to the scheduler**
 
-## 3.7. Integration test case I7
+## 3.7. Integration test case I7 
 
   - **Test Case ID**: I7T1
   - **Test Item(s)**: `ReservationController` -> `SchedulerHelper`, `Model`
@@ -267,7 +268,19 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - notify deleted `Reservation`s to the `SchedulerHelper`
   - **Dependencies**: `ClientDriver`
 
-## 3.8. Integration test case I8
+---  
+
+  - **Test Case ID**: I7T2
+  - **Test Item(s)**: `ReservationController` -> `SchedulerHelper`, `Model`
+  - **Input specification**: Compatible and uncompatible `Reservation`s with and without the shared-ride option activated
+  - **Output specification**: The right `Reservation`s are sent to the `SchedulerHelper`. 
+  - **Purpose**: Verify `ReservationController` behaviour concerning merged requests.
+    - merge compatible reservations with the shared-ride option activated
+    - does not merge uncompatible reservations
+    - does not merge reservations without the shared-ride option activated
+  - **Dependencies**: `ClientDriver`
+
+## 3.8. Integration tests cases I8
 
   - **Test Case ID**: I8T1
   - **Test Item(s)**: `RideController` -> `Model`
@@ -299,7 +312,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Dependencies**: `ClientDriver`
 
 
-**[Claudio: test sharing option?]**
+**[Claudio: test sharing option?][Gilles: I added an test case in section 3.7]**
 
 [//]: # (pagebreak)
 
