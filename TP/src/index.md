@@ -144,7 +144,7 @@ Here under, the integration sequence that will be applied can be seen. We can ob
 
 |**ID**|**Integration Test**|**Paragraphs**|
 |------|--------------------|--------------|
-|I1    |NotificationHelper -> SMSGateway | ?? ?? ?? |
+|I1    |NotificationHelper -> SMSGateway & PushGateway | ?? ?? ?? |
 |I2    |QueueManager -> Model | ?? ?? ?? |
 |I3    |QueueManager -> NotificationHelper | ?? ?? ?? |
 |I4    |DriverController -> Model | ?? ?? ?? |
@@ -193,12 +193,12 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 ## 3.1. Integration test case I1
 
   - **Test Case ID**: I1T1
-  - **Test Item(s)**: `NotificationHelper` -> `SMSGateway`
+  - **Test Item(s)**: `NotificationHelper` -> `SMSGateway` & `PushGateway`
   - **Input specification**: `Ride`, `Client`
   - **Output specification**: A notification is sent as an SMS to the `SMSGateway`
   - **Purpose**: Verify `NotificationHelper` and `SMSGateway` interaction
     - notify about a new `Ride` to the `Client`
-  - **Dependencies**: `SMSGateway` stub
+  - **Dependencies**: `SMSGateway` stub and `PushGateway` stub
 
 ## 3.2. Integration test case I2
 
