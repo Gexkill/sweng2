@@ -95,11 +95,14 @@ The following model classes must be unit tested before our integration tests.
   - `Driver`
   - `Request`
   - `Zone`
+  - `SchedulerHelper`
+  - `QueueManager`
 
 we should test all non-trivial methods. for instance:
 
   - `Ride#close`: mark a ride as terminated
-  - **TODO**
+  - `SchedulerHelper#addReservation`: manage `Reservation` scheduling correctly
+  - `QueueManager#addRequest`: manage `Request`s according to specifications
 
 getter and setter methods can be skipped.
 
@@ -132,24 +135,24 @@ getter and setter methods can be skipped.
   - **Dependencies**: `SMSGateway` stub
 
 #### Integration test case I2
-  
+
   - **Test Case ID**: I2T1
-  - **Test Item(s)**: `QueueManager` -> `NotificationHelper`
-  - **Input specification**: `Request`, `Driver`
-  - **Output specification**: A notifications are sent to the `Driver`
-  - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
-    - notify about a new `Request` to the first available `Driver`
-  - **Dependencies**: N/A
-
-#### Integration test case I3
-
-  - **Test Case ID**: I3T1
   - **Test Item(s)**: `QueueManager` -> `Zone`
   - **Input specification**: `Request` and `Zone`
   - **Output specification**: `Zone` is managed in the correct way.
   - **Purpose**: Verify `QueueManager` and `Zone` interaction
     - add `Request`s to the correct `Zone`
     - remove `Request`s from the correct `Zone`
+  - **Dependencies**: N/A
+
+#### Integration test case I3
+  
+  - **Test Case ID**: I3T1
+  - **Test Item(s)**: `QueueManager` -> `NotificationHelper`
+  - **Input specification**: `Request` and `Driver`
+  - **Output specification**: A notifications are sent to the `Driver`
+  - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
+    - notify about a new `Request` to the first available `Driver`
   - **Dependencies**: N/A
 
 #### Integration test case I4
@@ -162,10 +165,67 @@ getter and setter methods can be skipped.
     - set `Driver` position
     - close a `Ride` when `Driver` reach the arrive
     - set `Driver` availability
+  - **Dependencies**: `ClientDriver`
+
+#### Integration test case I5
+
+  - **Test Case ID**: I5T1
+  - **Test Item(s)**: `RequestController` -> `QueueManager`
+  - **Input specification**: `Request`
+  - **Output specification**: `Request` are sent to `QueueManager`
+  - **Purpose**: Verify `RequestController` and `QueueManager` interaction
+    - enqueue a created `Request`
+  - **Dependencies**: `ClientDriver`
+
+#### Integration test case I6
+
+  - **Test Case ID**: I6T1
+  - **Test Item(s)**: `SchedulerHelper` -> `RequestController`
+  - **Input specification**: `Reservation`
+  - **Output specification**: `SchedulerHelper` built `Request`s are sent to the `RequestController`
+  - **Purpose**: Verify `SchedulerHelper` and `RequestController` interaction
+    - send `Request`s to the `RequestController` when fired
   - **Dependencies**: N/A
 
+#### Integration test case I7
 
-** STILL WIP **
+  - **Test Case ID**: I7T1
+  - **Test Item(s)**: `ReservationController` -> `SchedulerHelper`, `Model`
+  - **Input specification**: `Reservation`
+  - **Output specification**: `Reservation`s are sent to the `SchedulerHelper`
+  - **Purpose**: Verify `ReservationController` behaviour
+    - create a `Reservation`
+    - delete a `Reservation`
+    - notify new `Reservation`s to the `SchedulerHelper`
+    - notify deleted `Reservation`s to the `SchedulerHelper`
+  - **Dependencies**: `ClientDriver`
+
+#### Integration test case I8
+
+  - **Test Case ID**: I8T1
+  - **Test Item(s)**: `RideController` -> `Model`
+  - **Input specification**: `Ride`
+  - **Output specification**: `Ride`s are managed as expected
+  - **Purpose**: Verify `RideController` and `Model` interaction
+    - create a `Ride`
+    - delete created `Ride`'s parent `Request`
+  - **Dependencies**: `ClientDriver`
+  
+  - **Test Case ID**: I8T2
+  - **Test Item(s)**: `RideController` -> `QueueManager`
+  - **Input specification**: `Ride`
+  - **Output specification**: parent `Request` are pulled out from queue
+  - **Purpose**: Verify `RideController` and `QueueManager` interaction
+    - remove created `Ride` parent `Request` from queue
+  - **Dependencies**: `ClientDriver`
+  
+  - **Test Case ID**: I8T3
+  - **Test Item(s)**: `RideController` -> `NotificationHelper`
+  - **Input specification**: `Ride`
+  - **Output specification**: send `Notification`s as expected
+  - **Purpose**: Verify `RideController` and `NotificationHelper` intercation
+    - send a `Notification` to the `Client` when it's `Request` is accepted
+  - **Dependencies**: `ClientDriver`
 
 ###### addRequest
 
