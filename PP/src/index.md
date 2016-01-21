@@ -1,4 +1,4 @@
-#Test Plan
+#Project Plan
 
 ![Politecnico di Milano](../resources/logo_polimi.png?raw=true)
 
