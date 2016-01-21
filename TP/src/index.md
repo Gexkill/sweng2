@@ -4,7 +4,7 @@
 
 **Version 1.0**
 
-**Relasese date: 21/01/2016**
+**Release date: 21/01/2016**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
