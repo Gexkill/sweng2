@@ -75,11 +75,11 @@ The purpose of this document is to present to the testing team the sequence of t
 * DD: Design Document.
 * ITPD: Integration Test Plan Document.
 * Stub: some codes emulating other functionalities or data, eventually using fake data.
-* Drivers: drivers are like stubs with the difference that they are not used to be called by the component actually tested, but they are used to call themselves specific functions of the component actually tested. In this document the word driver is also used to design the "driver component" of our component. The distinction between the two should easily be done by the lector thanks to the context.
+* Drivers: drivers are like stubs with the difference that they are not used to be called by the component actually tested, but they are used to call themselves specific functions of the component actually tested. In this document the word driver is also used to design the "driver component" of our application. The distinction between the two should easily be done by the lector thanks to the context.
 * Mocks: stubs with the possibility of verifying whether or not a specific method of this mock has called a specific number of times. Mocks are therefore slightly more complex stubs.
 * Unit test: the most famous way to perform tests via assertions.
-* Bottom-up: Bottom-up is a strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
-* Top-down: Top-down is a strategy of information processing. Regarding integration testing the top-down strategy consists in the integration of high level modules first and the integration of low level modules after. It is the opposite of bottom-up. 
+* Bottom-up: Bottom-up is a strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing, the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
+* Top-down: Top-down is a strategy of information processing. Regarding integration testing, the top-down strategy consists in the integration of high level modules first and the integration of lower level modules after. It is the opposite of bottom-up. 
 * Big-bang: Big-bang is a non-incremental integration strategy where all the components are integrated at once, right after they are all unit-tested. 
 * jMeter: Java GUI program to measure the performance of a web server, it is developed by apache.
 * apache: open source software company.
@@ -125,39 +125,34 @@ Getter and setter methods can be skipped.
 
 As already mentionned before, the elements that will be integrated are nothing else than the components represented in the component view of our design document.
 
-**insert component vieuw [CLAUDIO: maybe we can link it (the section of dd like I have done in section 4.2]** 
+![Components to be integrated][components]
 
-**[claudio: fix on pdf]**
 
 ## 2.3. Integration Testing Strategy
 
 The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many advantages: there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunately, this strategy has also its drawbacks: the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the advantages of the bottom-up strategies are more impacting that their drawbacks.
-In some cases such as, for example, inter-dependencies between two components, the usage of a pure bottom-up approach will not be possible, and then a mix of top down and bottom-up strategies will be used.
+In some cases such as, for example, inter-dependencies between two components, the usage of a pure bottom-up approach will not be possible, and then a mix of top down and bottom-up strategies will be used. This is the reason why some stubs are still needed.
 
-**[claudio: we are using stubs (take a look at the section 5.1 introduction)]**
 
 ## 2.4. Sequence of Component/function Integration
 ### 2.4.1. Software Integration Sequence
-Here under, the integration sequence that will be applied can be seen. We can observer that the bottom-up has been respected strictly.
+Here under, the integration sequence that will be applied can be seen. We can observer that the bottom-up has been respected in vast majority of the cases.
 
 ![Controller integration sequence][controllers]
 
 
 |**ID**|**Integration Test**|**Paragraphs**|
 |------|--------------------|--------------|
-|I1    |NotificationHelper -> SMSGateway & PushGateway | ?? ?? ?? |
-|I2    |QueueManager -> Model | ?? ?? ?? |
-|I3    |QueueManager -> NotificationHelper | ?? ?? ?? |
-|I4    |DriverController -> Model | ?? ?? ?? |
-|I5    |RequestController -> Model & QueueManager | ?? ?? ?? |
-|I6    |SchedulerHelper -> RequestController | ?? ?? ?? |
-|I7    |ReservationController -> SchedulerHelper | ?? ?? ?? |
-|I8    |RideController -> Model & QueueManager & NotificationHelper | ?? ?? ?? |
+|I1    |NotificationHelper -> SMSGateway & PushGateway | 3.1 |
+|I2    |QueueManager -> Model | 3.2 |
+|I3    |QueueManager -> NotificationHelper | 3.3 |
+|I4    |DriverController -> Model | 3.4 |
+|I5    |RequestController -> Model & QueueManager | 3.5 |
+|I6    |SchedulerHelper -> RequestController | 3.6 |
+|I7    |ReservationController -> SchedulerHelper | 3.7 |
+|I8    |RideController -> Model & QueueManager & NotificationHelper | 3.8 |
 
 
-
-**This diagramms shows that first the notification help is integrated to the sms gateway, then the queue is integrated to (smsgateway+notificationhelper) ... etc**
-**To be discussed, aproved, and then further develloped**
 
 ### 2.4.2. Subsystem Integration Sequence
 The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 sub-systems:
@@ -181,8 +176,6 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 |S2|Database -> Central         |              |
 |S3|Driver -> Central           |              |
 |S4|Client -> Central           |              |
-
-**Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
 
 
 [//]: # (pagebreak)
@@ -264,7 +257,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Output specification**: `SchedulerHelper` built `Request`s are sent to the `RequestController`
   - **Purpose**: Verify `SchedulerHelper` and `RequestController` interaction
     - send `Request`s to the `RequestController` when fired
-  - **Dependencies**: **ADD a driver that feed a fakereservation to the scheduler**
+  - **Dependencies**: N/A
 
 ## 3.7. Integration test case I7 
 
@@ -415,11 +408,11 @@ This stub allows to the driver application to emulate different things:
 **TODO AGAIN**
 **Uses notifications**
 **EMULATES GPS**
+## 5.3 Critical data tests
 
 ## 5.2 Data for tests
 We will insert fake data for taxis, clients, requests and other entities to populate the database. To generate them we will use the faker library and the seed function included with laravel which allows us to populate easily database with fake data.
 
-## 5.3 Critical data tests
 We will add critical data tests like:
 
 * All requests in the same zone
@@ -447,3 +440,4 @@ We will add critical data tests like:
 
 [subsystems]:../resources/subsystem_integration.png?raw=true
 [controllers]:../resources/controllers_integration.png?raw=true
+[components]:../resources/components.png?raw=true
