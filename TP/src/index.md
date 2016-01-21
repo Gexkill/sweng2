@@ -119,6 +119,7 @@ We should test all non-trivial methods. For instance:
   - `Ride#close`: mark a ride as terminated
   - `SchedulerHelper#addReservation`: manage `Reservation` scheduling correctly
   - `QueueManager#addRequest`: manage `Request`s according to specifications
+  - `Driver#setPosition`: change drivers queue when changing `Zone`
 
 Getter and setter methods can be skipped.
 
