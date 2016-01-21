@@ -39,8 +39,9 @@
     1. [Manual tests](#manual-tests)
     1. [Performance tests](#performance-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
-    1. [Stubs](#stubs)
+    1. [Stubs and drivers ](#stubs-and-drivers )
         1. [SMS gateway](#sms-gateway)
+        1. [Push gateway](#push-gateway)
         1. [ClientDriver](#clientdriver)
     1. [Data for tests](#data-for-tests)
     1. [Critical data tests](#critical-data-tests)
@@ -198,7 +199,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Output specification**: A notification is sent as an SMS to the `SMSGateway`
   - **Purpose**: Verify `NotificationHelper` and `SMSGateway` interaction
     - notify about a new `Ride` to the `Client`
-  - **Dependencies**: `PushGateway` stub
+  - **Dependencies**: `SMSGateway` stub
 
 ---
 
@@ -230,7 +231,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Purpose**: Verify `QueueManager` and `NotificationHelper` interaction
     - notify about a new `Request` to the first available `Driver`
     - if no answer, or a negative answer arrives from the Driver (a driver will be used to simulate the answers, see section 5), the QueueManager should put the concerned `Driver` at the end of its queue and ask the following `Driver`
-  - **Dependencies**: `ClientDriver`
+  - **Dependencies**: `ClientDriver`, `PushGateway` stub
 
 ## 3.4. Integration test case I4
 
@@ -242,7 +243,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - set `Driver` position
     - close a `Ride` when `Driver` reach the arrive
     - set `Driver` availability
-    - get a `Driver` from it's authenticaton credentials
+    - get a `Driver` from it's authentication credentials
   - **Dependencies**: `ClientDriver`
 
 ## 3.5. Integration test case I5
@@ -271,7 +272,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Test Item(s)**: `ReservationController` -> `SchedulerHelper`, `Model`
   - **Input specification**: `Reservation`
   - **Output specification**: `Reservation`s are sent to the `SchedulerHelper`
-  - **Purpose**: Verify `ReservationController` behaviour
+  - **Purpose**: Verify `ReservationController` behavior
     - create a `Reservation`
     - delete a `Reservation`
     - notify new `Reservation`s to the `SchedulerHelper`
@@ -282,15 +283,15 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 
   - **Test Case ID**: I7T2
   - **Test Item(s)**: `ReservationController` -> `SchedulerHelper`, `Model`
-  - **Input specification**: Compatible and uncompatible `Reservation`s with and without the shared-ride option activated
+  - **Input specification**: Compatible and incompatible `Reservation`s with and without the shared-ride option activated
   - **Output specification**: The right `Reservation`s are sent to the `SchedulerHelper`. 
-  - **Purpose**: Verify `ReservationController` behaviour concerning merged requests.
+  - **Purpose**: Verify `ReservationController` behavior concerning merged requests.
     - merge compatible reservations with the shared-ride option activated
-    - does not merge uncompatible reservations
+    - does not merge incompatible reservations
     - does not merge reservations without the shared-ride option activated
   - **Dependencies**: `ClientDriver`
 
-## 3.8. Integration tests cases I8
+## 3.8. Integration test case I8
 
   - **Test Case ID**: I8T1
   - **Test Item(s)**: `RideController` -> `Model`
@@ -317,12 +318,10 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Test Item(s)**: `RideController` -> `NotificationHelper`
   - **Input specification**: `Ride`
   - **Output specification**: send `Notification`s as expected
-  - **Purpose**: Verify `RideController` and `NotificationHelper` intercation
+  - **Purpose**: Verify `RideController` and `NotificationHelper` interaction
     - send a `Notification` to the `Client` when it's `Request` is accepted
   - **Dependencies**: `ClientDriver`
 
-
-**[Claudio: test sharing option?][Gilles: I added an test case in section 3.7]**
 
 [//]: # (pagebreak)
 
@@ -372,23 +371,37 @@ We decided to use *jMeter* that is a powerful Java program to do that (it is mad
 # 5. Program Stubs and Test Data Required
 
 ## 5.1 Stubs and drivers 
-We only have 2 stubs since we decided to use top-down. **[we use bottom-up ;) ]**
+We only have 2 stubs since we decided to use bottom-up. **FIX THE NUMBER WHEN WE TAKE A DECISION ABOUT CLIENTDRIVER**
 
 ### 5.1.1. SMS gateway
 #### Usages
 * I1T1 
 
 #### Description
-This stub allows to test the SMS functionalities, emulating the external gateway. This is possible for two reasons:
+This stub allows to test the SMS functionalities, emulating the external gateway. This is done for the following two reasons:
 
 * Cost: reduce the cost of tests (it doesn't send real SMS)
 * Easy to test: in this way it is an easy test functionality, in fact there are no network problems (the *send* return always OK) and the stub offers easy methods to see the text of messages sent
 
-### 5.1.2. ClientDriver
+### 5.1.2. Push gateway
 #### Usages
+* I1T2
+* I3T1
+
+#### Description
+This stub allows to test the push notification functionalities, emulating the external gateway. This is done for the following two reasons:
+
+* Cost: reduce the cost of tests (a big amount of notifications must be paid)
+* Easy to test: in this way it is an easy test functionality, in fact there are no network problems (the *send* return always OK) and the stub offers easy methods to see the text of notification sent
+
+
+### 5.1.3. ClientDriver
+#### Usages
+* I3T1
 * I4T1
 * I5T1
 * I7T1
+* I7T2
 * I8T1
 * I8T2
 * I8T3
@@ -398,6 +411,10 @@ This stub allows to the driver application to emulate different things:
 
 * it emulates the mobile application as a restful client performing requests **[Gilles : Since it perform a request I think it is not a stub but it is a driver]**, this is done via laravel tests
 * it emulates the push notification service gateway needed to send push notifications to a specific mobile device, this stub allows to emulate it in the same way of the emulation of SMS gwateway. So there are no network problems and it is easy to assert via tests that the  text of the notification sent.
+
+**TODO AGAIN**
+**Uses notifications**
+**EMULATES GPS**
 
 ## 5.2 Data for tests
 We will insert fake data for taxis, clients, requests and other entities to populate the database. To generate them we will use the faker library and the seed function included with laravel which allows us to populate easily database with fake data.
