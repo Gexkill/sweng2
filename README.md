@@ -15,6 +15,9 @@ Project repository for software engineering 2
 * TP
    * [TP Markdown](TP/src/index.md)
    * [TP PDF](TP/TP.pdf): it cannot be  updated
+* PP
+   * [PP Markdown](PP/src/index.md)
+   * [PP PDF](PP/PP.pdf): it cannot be  updated
 * [Hours](other/hours.md)
 * [Tasks](other/tasks.md)
 * [Utility](other/utility.md)
