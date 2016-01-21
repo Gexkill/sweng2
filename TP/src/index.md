@@ -170,12 +170,12 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 [//]: # (pagebreak)
 
 
-| **ID** | **Integration Tests** | **Sections** |
-|--------|-----------------------|--------------|
-|S1|Model -> Controler = Central|              |
-|S2|Database -> Central         |              |
-|S3|Driver -> Central           |              |
-|S4|Client -> Central           |              |
+| **ID** | **Integration Tests** | 
+|--------|-----------------------|
+|S1|Model -> Controler = Central| 
+|S2|Database -> Central         | 
+|S3|Driver -> Central           | 
+|S4|Client -> Central           | 
 
 
 [//]: # (pagebreak)
