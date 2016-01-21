@@ -489,6 +489,7 @@ The tools we used to create this DD document are:
     * [G4] crossed out
     * improvement of the Architecture Design part in the 1.5 Document structure
     * adding of UX and BCE in the lexic
+    * component view revision, there missed someinteractions and then pushgateway
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
@@ -497,7 +498,7 @@ The tools we used to create this DD document are:
 [seqTaxiAcceptRide]: ../resources/seq_diagrams/taxi_accepts_ride.png?raw=true
 [seqClientReservation]: ../resources/seq_diagrams/client_reservation.png?raw=true
 [componentInterfaces]: ../resources/architecture/component_interfaces.png?raw=true
-[componentView]: ../resources/architecture/component_view.png?raw=true
+[componentView]: ../resources/architecture/component_view_revision.png?raw=true
 [bceUM]: ../resources/BCE/mobile_client.png?raw=true
 [bceUD]: ../resources/BCE/desktop_client.png?raw=true
 [bceTM]: ../resources/BCE/mobile_driver.png?raw=true
