@@ -111,6 +111,8 @@ getter and setter methods can be skipped.
 **[Gilles : I think it is very good works :) I would just have one suggestion. I think since we descripe the integration strategy lower, maybe we should put your work in section 3 and here we should just put again our component vieux (modified) from the DD and say that these are the components to be integrated. Maybe you already planned to do this, I'm not sure. Do not hesitate to ask me if you want me to put the component vieux here and make some blabla ;) ]**
 
 **Gilles: this table should be in the "2.4.1.2 The controllers" since it shows the integration sequence**
+
+
 |**ID**|**Integration Test**|**Paragraphs**|
 |------|--------------------|--------------|
 |I1    |NotificationHelper -> SMSGateway | ?? ?? ?? |
@@ -122,7 +124,53 @@ getter and setter methods can be skipped.
 |I7    |ReservationController -> SchedulerHelper | ?? ?? ?? |
 |I8    |RideController -> Model & QueueManager & NotificationHelper | ?? ?? ?? |
 |I9    |Router -> RideController & RequestController & RideController & DriverController | ?? ?? ?? |
-#### QueueManager
+
+## 2.3. Integration Testing Strategy
+
+The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many adventages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunatly, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the adventages of the bottom-up strategies are more impacting that its drawbacks.
+In some cases such as for exemple inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mixt of top down and bottom-up strategies will be used.
+
+## 2.4. Sequence of Component/function Integration
+### 2.4.1. Software Integration Sequence
+#### 2.4.1.1 The Model
+**To be done**
+
+#### 2.4.1.2 The Controllers
+
+![Controller integration sequence][controllers]
+
+**This diagramms shows that first the notification help is integrated to the sms gateway, then the queue is integrated to (smsgateway+notificationhelper) ... etc**
+**To be discussed, aproved, and then further develloped**
+
+### 2.4.2. Subsystem Integration Sequence
+The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :
+
+* The central,
+* The driver,
+* The client,
+* The database.
+Furthermore, the central can be devided in two sub-systems : the model and the controler (DD pg 8, Figure 5 : Component view).
+ 
+The driver subsystem, the client subsystem and the database subsystem are atomic subsystems and are therefore not discussed in the section 2.4.1. In opposition, the controler and the model are composed of different subcomponents these subcomponents have to be integrated together. Concernig the order of integration of the subsystems, the model will be integrated to the controller at first. This will take place even before the subcomponents of the controller are all integrated together (see section 2.4.1**: the controller[to adapt]**). This is done because there are to many controller subcomponents interacting with the model. Once this integration is done, the database will be integrated, then the driver and finally the client. This can be seen on the following figure.
+
+![Subsystems integration][subsystems]
+
+| **ID** | **Integration Tests** | **Sections** |
+|--------|-----------------------|--------------|
+|S1|Model -> Controler = Central|              |
+|S2|Database -> Central         |              |
+|S3|Driver -> Central           |              |
+|S4|Client -> Central           |              |
+
+**Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
+
+
+[//]: # (pagebreak)
+
+
+
+# 3. Individual Steps and Test Description
+
 
 #### Integration test case I1
 
@@ -165,6 +213,7 @@ getter and setter methods can be skipped.
     - set `Driver` position
     - close a `Ride` when `Driver` reach the arrive
     - set `Driver` availability
+    - get a `Driver` from it's authenticaton credentials
   - **Dependencies**: `ClientDriver`
 
 #### Integration test case I5
@@ -227,128 +276,6 @@ getter and setter methods can be skipped.
     - send a `Notification` to the `Client` when it's `Request` is accepted
   - **Dependencies**: `ClientDriver`
 
-###### addRequest
-
-  - **Test Case ID**: I1T1
-  - **Goal**: Test `QueueManager` and `Zone` interaction when working with `Request`s
-    - add `Request`s to the correct `Zone`
-    - remove `Request`s from the correct `Zone`
-  - **Dependencies**: N/A
-
-###### removeRequest
-
-Remove a `Request` from a `Zone` requests queue if present.
-
-###### addDriver
-
-Throws an exception if there is no `Zone` containing the `Driver` position.
-Throws an exception if the `Driver` is already enqueued ( even if `Zone` is different ).
-
-Add a `Driver` to it's `Zone` drivers queue.
-
-###### removeDriver
-
-Remove a `Driver` from the `Zone` drivers queue if present.
-
-###### peekDriverForZone
-
-Thows an exception if there is no `Driver` in the `Zone` drivers queue.
-
-return the first enqueued driver for a specified `Zone`
-
-#### RequestConstroller
-
-**PDF problem**
-
-###### create
-
-Throws an exception if invalid arguments has been provided.
-
-return a new `Request`.
-
-#### DriverController
-
-###### login
-
-Throws an exception if credentials are wrong.
-
-On success it return some driver informations that can be used
-by the clients to build their `Driver` proxy.
-
-###### setAvailable
-
-Throws an exception if a `Ride` is in progress.
-
-It changes the `Driver` availability and put it in the correct `Zone`
-when changing to `true`, using `QueueManager#addDriver`.
-
-###### setPosition
-
-Throws an exception if there is no `Zone` containing the specified position.
-
-It set the `Driver` position to the given argument.
-It also closes the `Ride` if:
-
-  - there is an associated `Ride`
-  - the driver position matches the arrive one.
-
-#### RideController
-
-###### create
-
-Throws an exception if the client is not allowed to perform this action.
-Throws an exception if the given arguments are invalid.
-
-Create a new `Ride` from a pending `Request`.
-Retrun the new `Ride`.
-
-> NOTE: allowed clients are `Driver`s in the drivers queue of the `Zone` of the request.
-
-## 2.3. Integration Testing Strategy
-
-The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many adventages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunatly, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the adventages of the bottom-up strategies are more impacting that its drawbacks.
-In some cases such as for exemple inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mixt of top down and bottom-up strategies will be used.
-
-## 2.4. Sequence of Component/function Integration
-### 2.4.1. Software Integration Sequence
-#### 2.4.1.1 The Model
-**To be done**
-
-#### 2.4.1.2 The Controllers
-
-![Controller integration sequence][controllers]
-
-**This diagramms shows that first the notification help is integrated to the sms gateway, then the queue is integrated to (smsgateway+notificationhelper) ... etc**
-**To be discussed, aproved, and then further develloped**
-
-### 2.4.2. Subsystem Integration Sequence
-The MyTaxiService application designed is divided in different sub-systems. From the "High level components" figure (see DD pg 8) we can identify 4 subsystems :
-
-* The central,
-* The driver,
-* The client,
-* The database.
-Furthermore, the central can be devided in two sub-systems : the model and the controler (DD pg 8, Figure 5 : Component view).
- 
-The driver subsystem, the client subsystem and the database subsystem are atomic subsystems and are therefore not discussed in the section 2.4.1. In opposition, the controler and the model are composed of different subcomponents these subcomponents have to be integrated together. Concernig the order of integration of the subsystems, the model will be integrated to the controller at first. This will take place even before the subcomponents of the controller are all integrated together (see section 2.4.1**: the controller[to adapt]**). This is done because there are to many controller subcomponents interacting with the model. Once this integration is done, the database will be integrated, then the driver and finally the client. This can be seen on the following figure.
-
-![Subsystems integration][subsystems]
-
-| **ID** | **Integration Tests** | **Sections** |
-|--------|-----------------------|--------------|
-|S1|Model -> Controler = Central|              |
-|S2|Database -> Central         |              |
-|S3|Driver -> Central           |              |
-|S4|Client -> Central           |              |
-
-**Sections will have to be added once defined in section 3. If you guys know how to to nice arrows instead of "-->" please show me ;)**
-
-
-[//]: # (pagebreak)
-
-
-
-# 3. Individual Steps and Test Description
 
 [//]: # (pagebreak)
 
