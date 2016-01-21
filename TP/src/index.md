@@ -430,13 +430,25 @@ We will add critical data tests like:
 
 # 7. Hours of work
 ## Claudio Cardinale
-
+  * 09/01/16: 1h
+  * 11/01/16: 1h
+  * 17/01/16: 2h
+  * 19/01/16: 1h
+  * 21/01/16: 4h
 
 ## Gilles Dejaegere
-
+  * 11/01/16: 1h30
+  * 13/01/16: 2h
+  * 15/01/16: 2h30
+  * 17/01/16: 1h
+  * 18/01/16: 1h
+  * 19/01/16: 1h
+  * 20/01/16: 30min
+  * 21/01/16: 3h
 
 ## Massimo Dragano
-
+ * 14/01/16: 2h
+ * 17/01/16: 1h
 
 [subsystems]:../resources/subsystem_integration.png?raw=true
 [controllers]:../resources/controllers_integration.png?raw=true
