@@ -76,6 +76,8 @@ The purpose of this document is to present to the testing team the sequence of t
 * laravel: is an php MVC framework
 * php: is a programming language designed for the web
 
+**[Claudio: fix stub and mockup, insert also fake data]**
+
 
 ## 1.4. List of Reference Documents  
 * The MyTaxiService project description : "Project Description And Rules.pdf"
@@ -130,8 +132,10 @@ getter and setter methods can be skipped.
 
 ## 2.3. Integration Testing Strategy
 
-The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many adventages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunatly, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the adventages of the bottom-up strategies are more impacting that its drawbacks.
-In some cases such as for exemple inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mixt of top down and bottom-up strategies will be used.
+The sequence of integrations that will have to be applied on the components of this project mainly follows a bottom-up approach. This approach has many advantages : there is no need for stubs, the errors are more easily located (compared to strategies like the big-bang strategy) and, if the conception of the components also follows a bottom-up approach, the testing of lower level modules can take place simultaneously to the conception of higher level modules. Unfortunately, this strategy also has its drawbacks : the integration needs drivers to be done, and even worse, the high level components are tested last, which means that conception mistakes will be spotted later. However we still think that the advantages of the bottom-up strategies are more impacting that its drawbacks.
+In some cases such as for example inter-dependencies between two components, the use of a pure bottom-up approach will not be possible, and then a mix of top down and bottom-up strategies will be used.
+
+**[claudio: we are using stubs]**
 
 ## 2.4. Sequence of Component/function Integration
 ### 2.4.1. Software Integration Sequence
@@ -158,6 +162,9 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 
 ![Subsystems integration][subsystems]
 
+[//]: # (pagebreak)
+
+
 | **ID** | **Integration Tests** | **Sections** |
 |--------|-----------------------|--------------|
 |S1|Model -> Controler = Central|              |
@@ -171,11 +178,10 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 [//]: # (pagebreak)
 
 
-
 # 3. Individual Steps and Test Description
 
 
-#### Integration test case I1
+## 3.1. Integration test case I1
 
   - **Test Case ID**: I1T1
   - **Test Item(s)**: `NotificationHelper` -> `SMSGateway`
@@ -185,7 +191,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - notify about a new `Ride` to the `Client`
   - **Dependencies**: `SMSGateway` stub
 
-#### Integration test case I2
+## 3.2. Integration test case I2
 
   - **Test Case ID**: I2T1
   - **Test Item(s)**: `QueueManager` -> `Zone`
@@ -196,7 +202,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - remove `Request`s from the correct `Zone`
   - **Dependencies**: N/A
 
-#### Integration test case I3
+## 3.3. Integration test case I3
   
   - **Test Case ID**: I3T1
   - **Test Item(s)**: `QueueManager` -> `NotificationHelper`
@@ -206,7 +212,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - notify about a new `Request` to the first available `Driver`
   - **Dependencies**: N/A
 
-#### Integration test case I4
+## 3.4. Integration test case I4
 
   - **Test Case ID**: I4T1
   - **Test Item(s)**: `DriverController` -> `Model`
@@ -219,7 +225,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - get a `Driver` from it's authenticaton credentials
   - **Dependencies**: `ClientDriver`
 
-#### Integration test case I5
+## 3.5. Integration test case I5
 
   - **Test Case ID**: I5T1
   - **Test Item(s)**: `RequestController` -> `QueueManager`
@@ -229,7 +235,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - enqueue a created `Request`
   - **Dependencies**: `ClientDriver`
 
-#### Integration test case I6
+## 3.6. Integration test case I6
 
   - **Test Case ID**: I6T1
   - **Test Item(s)**: `SchedulerHelper` -> `RequestController`
@@ -239,7 +245,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - send `Request`s to the `RequestController` when fired
   - **Dependencies**: N/A
 
-#### Integration test case I7
+## 3.7. Integration test case I7
 
   - **Test Case ID**: I7T1
   - **Test Item(s)**: `ReservationController` -> `SchedulerHelper`, `Model`
@@ -252,7 +258,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - notify deleted `Reservation`s to the `SchedulerHelper`
   - **Dependencies**: `ClientDriver`
 
-#### Integration test case I8
+## 3.8. Integration test case I8
 
   - **Test Case ID**: I8T1
   - **Test Item(s)**: `RideController` -> `Model`
@@ -263,6 +269,8 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - delete created `Ride`'s parent `Request`
   - **Dependencies**: `ClientDriver`
   
+---
+
   - **Test Case ID**: I8T2
   - **Test Item(s)**: `RideController` -> `QueueManager`
   - **Input specification**: `Ride`
@@ -271,6 +279,8 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
     - remove created `Ride` parent `Request` from queue
   - **Dependencies**: `ClientDriver`
   
+---
+
   - **Test Case ID**: I8T3
   - **Test Item(s)**: `RideController` -> `NotificationHelper`
   - **Input specification**: `Ride`
@@ -285,7 +295,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 # 4. Tools and Test Equipment Required
 **Note:** Since we said in the previous documents that we use laravel application (MVC php framework), we will use the laravel tests that extend PHPUnit tests. They are the same as Arquilan + jUnit (tests for JEE explained during the lessons) but for php + laravel.
 
-We will create stub data to test application. Stub data are fake data used to populate the models and to have something to test.
+We will create fake data to test application. Fake data are used to populate the models and to have something to test.
 
 ## 4.1. Automatic tests
 Since we want to test the entire application via integration tests, if it respects the requirements we decided to use laravel tests:
