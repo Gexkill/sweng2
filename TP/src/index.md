@@ -75,7 +75,7 @@ The purpose of this document is to present to the testing team the sequence of t
 * DD: Design Document.
 * ITPD: Integration Test Plan Document.
 * Stub: some codes emulating other functionalities or data, eventually using fake data.
-* Drivers: drivers are like stubs with the difference that they are not used to be called by the component actually tested, but they are used to call themselves specific functions of the component actually tested. In this document the word driver is also used to design the "driver component" of our application. The distinction between the two should easily be done by the lector thanks to the context.
+* Drivers: drivers are like stubs with the difference that they are not used to be called by the component actually tested, but they are used to call themselves specific functions of the component actually tested. In this document the word driver is also used to design the "driver component" of our application. The distinction between the two should easily be done by the reader thanks to the context.
 * Mocks: stubs with the possibility of verifying whether or not a specific method of this mock has called a specific number of times. Mocks are therefore slightly more complex stubs.
 * Unit test: the most famous way to perform tests via assertions.
 * Bottom-up: Bottom-up is a strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing, the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
@@ -125,6 +125,8 @@ Getter and setter methods can be skipped.
 
 As already mentioned before, the elements that will be integrated are nothing else than the components represented in the component view of our design document.
 
+[//]: # (pagebreak)
+
 ![Components to be integrated][components]
 
 
@@ -136,7 +138,7 @@ In some cases such as, for example, inter-dependencies between two components, t
 
 ## 2.4. Sequence of Component/function Integration
 ### 2.4.1. Software Integration Sequence
-Here under, the integration sequence that will be applied can be seen. We can observer that the bottom-up has been respected in vast majority of the cases.
+Here under, the integration sequence that will be applied can be seen. We can observe that the bottom-up has been respected in the majority of the cases.
 
 ![Controller integration sequence][controllers]
 
@@ -162,16 +164,18 @@ The MyTaxiService application designed is divided in different sub-systems. From
 * the driver,
 * the client,
 * the database.
-Furthermore, the central can be divided in two sub-systems: the model and the controller ([DD pg 8, Figure 5 : Component view](https://github.com/sweng2/sweng2/blob/master/DD/src/index.md#22high-level-components-and-their-interaction)).
+Furthermore, the central can be divided in two sub-systems: the model and the controller ([DD pg 8, Figure 5: Component view](https://github.com/sweng2/sweng2/blob/master/DD/src/index.md#22high-level-components-and-their-interaction)).
  
-The driver subsystem, the client subsystem and the database subsystem are atomic sub-systems and therefore are not discussed in the section 2.4.1. In opposition, the controller and the model are composed of different subcomponents. On the other hand, their are no component interaction inside the model other than using a components "getter" or "setter". This means only that only the integration of the components of the controller subsystem will have to be tested. Concerning the order of integration of the subsystems, the model will be integrated to the controller at first. This will take place even before the subcomponents of the controller are all integrated together (see section 2.4.1). This is done because there are too many controller subcomponents interacting with the model and therefore, the integration of a controller together will be done symultaneously with the integration of the other controllers. Once the controllers are fully integrated, the database will be integrated, then the driver and finally the client. This can be seen on the following figure.
+The driver subsystem, the client subsystem and the database subsystem are atomic sub-systems and therefore are not discussed in the section 2.4.1. In opposition, the controller and the model are composed of different subcomponents. On the other hand, there is no component interaction inside the model more than using components "getter" or "setter". This means that only the integration of the components of the controller subsystem will have to be tested. Concerning the order of integration of the subsystems, the model will be integrated to the controller at first. This will take place even before the subcomponents of the controller are all integrated together (see section 2.4.1). This is done because there are too many controller subcomponents interacting with the model and therefore, the integration of a controller together will be done simultaneously with the integration of the other controllers. Once the controllers are fully integrated, the database will be integrated, then the driver and finally the client. This can be seen on the following figure.
+
+[//]: # (pagebreak)
 
 ![Subsystems integration][subsystems]
 
 
 | **ID** | **Integration Tests** | 
 |--------|-----------------------|
-|S1|Model -> Controler = Central| 
+|S1|Model -> Controller = Central| 
 |S2|Database -> Central         | 
 |S3|Driver -> Central           | 
 |S4|Client -> Central           | 
@@ -233,9 +237,9 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Output specification**: `Driver` and `Ride` are managed in the correct way.
   - **Purpose**: Verify `DriverController` and `Model` interaction
     - set `Driver` position
-    - close a `Ride` when `Driver` reach the arrive
+    - close a `Ride` when `Driver` reaches the arrive
     - set `Driver` availability
-    - get a `Driver` from it's authentication credentials
+    - get a `Driver` from its authentication credentials
   - **Dependencies**: `ClientDriver`
 
 ## 3.5. Integration test case I5
@@ -243,7 +247,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Test Case ID**: I5T1
   - **Test Item(s)**: `RequestController` -> `QueueManager`
   - **Input specification**: `Request`
-  - **Output specification**: `Request` are sent to `QueueManager`
+  - **Output specification**: `Request` is sent to `QueueManager`
   - **Purpose**: Verify `RequestController` and `QueueManager` interaction
     - enqueue a created `Request`
   - **Dependencies**: `ClientDriver`
@@ -253,7 +257,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Test Case ID**: I6T1
   - **Test Item(s)**: `SchedulerHelper` -> `RequestController`
   - **Input specification**: `Reservation`
-  - **Output specification**: `SchedulerHelper` built `Request`s are sent to the `RequestController`
+  - **Output specification**: `SchedulerHelper` build `Request`s are sent to the `RequestController`
   - **Purpose**: Verify `SchedulerHelper` and `RequestController` interaction
     - send `Request`s to the `RequestController` when fired
   - **Dependencies**: N/A
@@ -299,7 +303,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Test Case ID**: I8T2
   - **Test Item(s)**: `RideController` -> `QueueManager`
   - **Input specification**: `Ride`
-  - **Output specification**: parent `Request` are pulled out from queue
+  - **Output specification**: parent `Request` is pulled out from queue
   - **Purpose**: Verify `RideController` and `QueueManager` interaction
     - remove created `Ride` parent `Request` from queue
   - **Dependencies**: `ClientDriver`
@@ -311,7 +315,7 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Input specification**: `Ride`
   - **Output specification**: send `Notification`s as expected
   - **Purpose**: Verify `RideController` and `NotificationHelper` interaction
-    - send a `Notification` to the `Client` when it's `Request` is accepted
+    - send a `Notification` to the `Client` when its `Request` is accepted
   - **Dependencies**: `ClientDriver`
 
 
