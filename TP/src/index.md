@@ -193,12 +193,22 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
 ## 3.1. Integration test case I1
 
   - **Test Case ID**: I1T1
-  - **Test Item(s)**: `NotificationHelper` -> `SMSGateway` & `PushGateway`
+  - **Test Item(s)**: `NotificationHelper` -> `SMSGateway` 
   - **Input specification**: `Ride`, `Client`
   - **Output specification**: A notification is sent as an SMS to the `SMSGateway`
   - **Purpose**: Verify `NotificationHelper` and `SMSGateway` interaction
     - notify about a new `Ride` to the `Client`
-  - **Dependencies**: `SMSGateway` stub and `PushGateway` stub
+  - **Dependencies**: `PushGateway` stub
+
+---
+
+  - **Test Case ID**: I1T2
+  - **Test Item(s)**: `NotificationHelper` ->  `PushGateway`
+  - **Input specification**: `Request`, `Driver`
+  - **Output specification**: A push notification is sent to the `PushGateway`
+  - **Purpose**: Verify `NotificationHelper` and `PushGateway` interaction
+    - notify about a new `Request` to the `Driver`
+  - **Dependencies**: `PushGateway` stub
 
 ## 3.2. Integration test case I2
 
