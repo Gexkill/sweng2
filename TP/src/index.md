@@ -125,7 +125,7 @@ Getter and setter methods can be skipped.
 
 As already mentionned before, the elements that will be integrated are nothing else than the components represented in the component view of our design document.
 
-**insert component vieuw** 
+**insert component vieuw [CLAUDIO: maybe we can link it (the section of dd like I have done in section 4.2]** 
 
 **[claudio: fix on pdf]**
 
