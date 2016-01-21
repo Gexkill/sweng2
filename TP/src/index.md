@@ -381,7 +381,7 @@ We decided to use *jMeter* that is a powerful Java program to do that (it is mad
 # 5. Program Stubs and Test Data Required
 
 ## 5.1 Stubs
-We only have 2 stubs since we decided to use bottom-up. **FIX THE NUMBER WHEN WE TAKE A DECISION ABOUT CLIENTDRIVER**
+We only have 2 stubs since we decided to use bottom-up.
 
 ### 5.1.1. SMS gateway
 #### Usages
