@@ -40,6 +40,8 @@
     1. [Performance tests](#performance-tests)
 1. [Program Stubs and Test Data Required](#program-stubs-and-test-data-required)
     1. [Stubs](#stubs)
+        1. [SMS gateway](#sms-gateway)
+        1. [ClientDriver](#clientdriver)
     1. [Data for tests](#data-for-tests)
     1. [Critical data tests](#critical-data-tests)
 1. [Used tools](#used-tools)
@@ -302,6 +304,8 @@ The driver subsystem, the client subsystem and the database subsystem are atomic
   - **Dependencies**: `ClientDriver`
 
 
+**[Claudio: test sharing option?]**
+
 [//]: # (pagebreak)
 
 # 4. Tools and Test Equipment Required
@@ -338,7 +342,7 @@ We test the performance of the system like a blackbox, we test only the external
 
 We try to perform a huge amount of simultaneous requests and we measure the time needed to complete all requests (with static data like average, standard deviation and so on).
 
-We decided to use jMeter that a powerful java program to do that (it is made by apache), but we can use also other tools like *ab* (another apache tool for server benchmark) that is very useful in some cases since it is a command line program. 
+We decided to use *jMeter* that a powerful java program to do that (it is made by apache), but we can use also other tools like *ab* (another apache tool for server benchmark) that is very useful in some cases since it is a command line program. 
 
 **Insert every word in glosary**
 
@@ -358,9 +362,9 @@ We have only 2 stubs since we decided to use top-down
 This stub allows to test the SMS functionalities, emulating the external gateway this for two reasons:
 
 * Cost: reduce the cost of tests (don't send real SMS)
-* Easy to test: in this way it is easy test functionality, in fact there are no network problems (the *send* return always OK) and teh stub offers easy method to see the text of messages sent
+* Easy to test: in this way it is easy test functionality, in fact there are no network problems (the *send* return always OK) and the stub offers easy method to see the text of messages sent
 
-### 5.1.2. 
+### 5.1.2. ClientDriver
 #### Usages
 * I4T1
 * I5T1
@@ -370,7 +374,10 @@ This stub allows to test the SMS functionalities, emulating the external gateway
 * I8T3
 
 #### Description
-This stub allows to **TODO**
+This stub allows to the driver application to emulate different things:
+
+* it emulates the mobile application as a restful client that perform requests, this is done via laravel tests
+* it emulates the push notification service gateway needed to send push notification to a specific mobile device, this stub allows to emulates it in the same way of emulation of SMS gwateway. So there are no network problems and it's easy assert via tests the text of notification sent.
 
 ## 5.2 Data for tests
 We will insert fake data for taxis, clients, requests and other entities to populate the database. To generate them we will use the faker library and the seed function included with laravel, that allow us to populate easily database with fake data.
