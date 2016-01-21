@@ -73,10 +73,9 @@ The purpose of this document is to present to the testing team the sequence of t
 * RASD: Requirements Analysis and Specifications Document
 * DD: Design Document
 * ITPD: Integration Test Plan Document
-* Stub: fake data used to tests application, they are useful to populate database or model objects. Stubs are used to be called by the components actually tested.
+* Stub: some code that emulate other functionalities or data, eventually using fake data.
 * Drivers: drivers are like stubs with the difference that they are not used to be called by the component actually tested, but are use to call themselfs specific functions of the component actually tested.
 * Mocks: stubs with the possibility of verifying wheter or not a specific method of this mock has been called a specific number of times. Mocks are therefore slightly more complex stubs.
-**[Gilles: I developped the notions of stubs, drivers and mocks. I hope I am not wrong, do not hesitate to comment ;) ]**
 * Unit test: the most famous way to perform tests via assertions
 * Bottom-up : Bottom-up is an strategy of information processing. It is used in many different fields such as software or scientific theories. Regarding integration testing the bottom-up strategy consists in the integration of low level modules first and the integration of higher level modules after. 
 * Top-down : Top-down is an strategy of information processing. Regarding integration testing the top-down strategy consists in the integration of high level modules first and the integration of low level modules after. It is the opposite of bottom-up. 
@@ -85,10 +84,8 @@ The purpose of this document is to present to the testing team the sequence of t
 * apache: open source software company
 * laravel: is an php MVC framework
 * php: is a programming language designed for the web
-* SMS: **TODO**
-
-**[Claudio: fix stub and mockup, insert also fake data, here a definition of stub https://en.wikipedia.org/wiki/Method_stub]**
-
+* SMS: short message service, it is the most famous way to send text messages to a mobile phone.
+* push notification: the modern way to send complex messages to a smartphone
 
 
 ## 1.4. List of Reference Documents  
@@ -336,6 +333,8 @@ We will test the entire system in a manual way to test:
 
 * If the mobile/web applications are easy to use (user experience).
 * If the localization of GPS works properly.
+
+**Note:** we will use the devices and systems defined on [RASD section 1.6.2](https://github.com/sweng2/sweng2/blob/master/RASD/src/index.md#hardware-limitations)
 
 ## 4.3 Performance tests
 We test the performance of the system like a blackbox, we test only the external API. In fact testing these we test all critical parts (in terms of performance). To do that obviously we need a lot of fake data on the server to simulate a critical situation.
