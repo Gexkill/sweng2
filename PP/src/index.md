@@ -54,6 +54,8 @@
 
 ## 1.3. List of Definitions and abbreviations
 * Function Points estimation : the function point estimation is an estimation of the size of an specific software in terms of line of codes.
+* SLOC: **TODO**
+* FP: **TODO**
 
 ## 1.4. List of Reference Documents  
 
@@ -109,6 +111,9 @@ Since each Driver has exactly one taxi, and each stop position has exactly one c
 ### 2.1.5 External Inquiries
 
 ## 2.2. COCOMO
+
+To proceed with the calculation of SLOC we have to convert FP to it. To do that we need a conversation factor, we have found the following site that gives some converstion factors for some language: [http://www.qsm.com/resources/function-point-languages-table](http://www.qsm.com/resources/function-point-languages-table) but there is not php with laravel, so we considered the factor of J2EE that is analogous with php + laravel since they are booth two MVC web application framework and object languages. So the factor that we will use is **46**.
+
 
 [//]: # (pagebreak)
 
