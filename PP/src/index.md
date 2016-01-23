@@ -48,7 +48,7 @@
 
 
 ## 1.3. List of Definitions and abbreviations
-
+* Function Points estimation : the function point estimation is an estimation of the size of an specific software in terms of line of codes.
 
 ## 1.4. List of Reference Documents  
 
@@ -56,6 +56,53 @@
 
 # 2. Estimate size, effort and cost
 ## 2.1. Function points
+
+Function Points estimation : the function point estimation is an estimation of the size of an specific software to be based on its functional requirements. The count of function points of the software is language and technology independant. The size in terms of lines of codes of this software can be calculated using the following formula : 
+
+> LOC = FP * AVC 
+
+where :
+* LOC = lines of code
+* FP = total estimated function points of the software
+* AVC = language specific constant varying from 2-40 for a fourth generation programming language.
+
+Function points are classified under different types. For each type, a different weight is also assigned for each function point according if the concerned function is estimated as being simple, complex, or average. For the estimation of the size of our MyTaxiService application, we will uses the weights indicated in the table here under. These numbers are taken from the slides "Cost Estimation" provided by the professor Damian Andrew Tamburri.
+
+| **function type**      | **Low** | **Average** | **High** |
+|------------------------|---------|-------------|----------|
+|Internal Logic Files    |   7     |   10        |  15      |   
+|External Interface Files|   5     |   7         |  10      |   
+|External Inputs         |   3     |   4         |  6       |   
+|External Outputs        |   4     |   5         |  7       |
+|External Inquiries      |   3     |   4         |  6       |
+
+### 2.1.1 Internal Logic Files
+
+The different ILFs that will be used by our systems can be deduced from the class diagram representing the `model` of our application that is located in the RASD and is shown here under. 
+
+![Model taken from the RASD][model]
+
+For each component, its complexity and the associated function points are listed in the table here under : 
+
+| **ILF**      | **Complexity = Function Points** |
+|--------------|----------------------------------|
+|Zone                    |   High = 15     |
+|Driver and Taxi         |   High = 15     |
+|Request                 |   Average = 10  | 
+|Ride                    |   High = 15     |
+|StopPositions and Client|   Low = 7       | 
+|Position                |   Low = 7       |
+
+Since each Driver has exactly one taxi, and each stop position has exactly one client, these entities are managed and stored togethter for more simplicity.
+
+### 2.1.2 External Interface Files
+
+### 2.1.3 External Inputs
+
+### 2.1.4 External Outputs
+
+### 2.1.5 External Inquiries
+
 ## 2.2. COCOMO
 
 [//]: # (pagebreak)
