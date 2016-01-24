@@ -26,6 +26,10 @@
         1. [External Outputs](#external-outputs)
         1. [External Inquiries](#external-inquiries)
     1. [COCOMO](#cocomo)
+        1. [Introduction to COCOMO](#introduction-to-cocomo)
+        1. [Sale driver](#sale-driver)
+        1. [Cost driver](#cost-driver)
+        1. [Effort equation](#effort-equation)
 1. [Tasks](#tasks)
 1. [Allocate resources](#allocate-resources)
 1. [Risks](#risks)
@@ -100,7 +104,7 @@ For each component, its complexity and the associated function points are listed
 |StopPositions and Client|   Low = 7       | 
 |Position                |   Low = 7       |
 
-Since each Driver has exactly one taxi, and each stop position has exactly one client, these entities are managed and stored togethter for more simplicity.
+Since each Driver has exactly one taxi, and each stop position has exactly one client, these entities are managed and stored together for more simplicity.
 
 ### 2.1.2 External Interface Files
 
@@ -112,16 +116,32 @@ Since each Driver has exactly one taxi, and each stop position has exactly one c
 
 ## 2.2. COCOMO
 
+### 2.2.1. Introduction to COCOMO
+
 To proceed with the calculation of SLOC we have to convert FP to it. To do that we need a conversation factor, we have found the following site that gives some converstion factors for some language: [http://www.qsm.com/resources/function-point-languages-table](http://www.qsm.com/resources/function-point-languages-table) but there is not php with laravel, so we considered the factor of J2EE that is analogous with php + laravel since they are booth two MVC web application framework and object languages. So the factor that we will use is **46**.
+
+To perform the estimation we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf) **TO IMPROVE**
+
+### 2.2.2. Sale driver
+**Copy table from officialfile**
+
+### 2.2.3. Cost driver
+### 2.2.4. Effort equation
+
+**Chose batter names**
 
 
 [//]: # (pagebreak)
 
 # 3. Tasks
 
+**Use a table like project manager slides**
+
 [//]: # (pagebreak)
 
 # 4. Allocate resources
+
+**Use a table like project manager slides**
 
 [//]: # (pagebreak)
 
