@@ -177,18 +177,38 @@ As we can see, there is an huge disparity between the values of each function ty
 
 
 
+
 ## 2.2. COCOMO
 
 ### 2.2.1. Introduction to COCOMO
 
-To proceed with the calculation of SLOC we have to convert FP to it. To do that we need a conversation factor, we have found the following site that gives some converstion factors for some language: [http://www.qsm.com/resources/function-point-languages-table](http://www.qsm.com/resources/function-point-languages-table) but there is not php with laravel, so we considered the factor of J2EE that is analogous with php + laravel since they are booth two MVC web application framework and object languages. So the factor that we will use is **46**.
+To proceed with the calculation of SLOC we have to convert the FP obtained with the formula given in section 2.1. To do that we need a conversation factor (AVC), we have found the following site that gives some converstion factors for some language: [http://www.qsm.com/resources/function-point-languages-table](http://www.qsm.com/resources/function-point-languages-table) but there is not php with laravel, so we considered the factor of J2EE that is analogous with php + laravel since they are booth two MVC web application framework and object languages. So the factor that we will use is **46**.
 
-To perform the estimation we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf) **TO IMPROVE**
+This leads to an ammount of line of codes equals to :
 
-### 2.2.2. Sale driver
+> LOC = FP * AVC = 117 * 46 = 5382.  
+
+To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf) **TO IMPROVE**
+
+### 2.2.2. Scale driver
+
+In the following figure (found in the official documentation) we can see the values of the different scale drivers associated with different rating levels. 
+
 **Copy table from officialfile**
 
+The different values chosen for our application can be seen in the table here under. 
+
+| **Scale Driver**      | **rating level** |  **value** |
+|-----------------------|------------------|------------|
+|Precedentedness        |   Nomimal        |    3.72    |
+|Development Flexibility|   High           |    2.03    |
+|Risk Resolution        |   Nominal        |    4.24    |
+|Team Cohesion          |   Very High      |    2.19    |
+|Process maturity       |   High           |    3.12    |
+|**Total**              |                  |    15.3    |
+
 ### 2.2.3. Cost driver
+
 ### 2.2.4. Effort equation
 
 **Chose batter names**
