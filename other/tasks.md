@@ -85,6 +85,8 @@ Refered to official guide
 * document structure
 
 ## Gilles Dejaegere
+* 1
+* 2
 
 ## Massimo Dragano
 

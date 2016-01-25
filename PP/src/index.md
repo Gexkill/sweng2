@@ -237,6 +237,8 @@ The different values chosen for our application can be seen in the table here un
 ### 2.2.4. Effort equation
 
 **Chose batter names**
+**we can insert screen from http://csse.usc.edu/tools/COCOMOII.php**
+
 
 
 [//]: # (pagebreak)
