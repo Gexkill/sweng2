@@ -209,6 +209,31 @@ The different values chosen for our application can be seen in the table here un
 
 ### 2.2.3. Cost driver
 
+The different values chosen for our application can be seen in the table here under.
+
+| **Cost Drivers**      | **rating level** |  **value** |
+|-----------------------|------------------|------------|
+|Required Software Reliability          | Low      |    0.92    |
+|Data Base Size                         | High     |    1.14    |
+|Product Complexity                     | Nominal  |    1       |
+|Developed for Reusability              | Low      |    0.95    |
+|Documentation Match to Life-Cycle Needs| Nominal  |    1       |
+|Execution Time Constraint              | ???      |    ??      |
+|Main Storage Constraint                | n/a      |    n/a     |
+|Platform Volatility                    | Low      |    0.87    |
+|Analyst Capability                     | ??
+|Programmer Capability                  | Nominal  |    1       |
+|Personnel Continuity                   | Very High|    0.81    |
+|Applications Experience                | High     |    0.88    |
+|Platform Volatility                    | Low      |    0.87    |
+|Platform Experience                    | Nominal  |    1       |
+|Language and Tool Experience           | High     |    0.9     |
+|Use of Software Tools                  | Nominal  |    1       |
+|Multisite Developmen                   | High     |    0.93    |
+|Required Development Schedule          | Nominal  |    1       |
+|**Total**              |               |    ??    |
+
+
 ### 2.2.4. Effort equation
 
 **Chose batter names**
