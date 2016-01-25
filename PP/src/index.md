@@ -218,13 +218,13 @@ The different values chosen for our application can be seen in the table here un
 
 # 3. Tasks
 
-**Use a table like project manager slides**
+**Use a table like project manager slides (Gantt diagram)**
 
 [//]: # (pagebreak)
 
 # 4. Allocate resources
 
-**Use a table like project manager slides**
+**Use a table like project manager slides (Gantt diagram)**
 
 [//]: # (pagebreak)
 
