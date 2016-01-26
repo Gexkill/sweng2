@@ -60,6 +60,7 @@
 * Function Points estimation : the function point estimation is an estimation of the size of an specific software in terms of line of codes.
 * SLOC: **TODO**
 * FP: **TODO**
+* Gannt diagram: **TODO**
 
 ## 1.4. List of Reference Documents  
 
@@ -246,22 +247,35 @@ The different values chosen for our application can be seen in the table here un
 [//]: # (pagebreak)
 
 # 3. Tasks
+We considered all real assignment except the code inspection, since it is not related to this application, with the real deadlines.  
+We also considered other tasks like the implementation, that we decided to start immediately after the design, because we have everything needed to start it. **Write in  hypothetical form?**
 
-**TODO Introduction**
+We used a Gannt diagram to show the tasks with the deadlines.
+
+**TODO improve Introduction**
 
 ![Gantt][gantt]\
 
 **FIX dates for development, presentation and so on**
+**FIX dashed bars**
+
+**Write all words in glossary**
 
 [//]: # (pagebreak)
 
 # 4. Allocate resources
+Since for the parts real done everyone worked with analogous working hours, we considered that for all parts everyone works on them with the same amount of hours.  
+We have decided to dedicate to development only the 50% of time because during it there are other parts to do, Christmas holiday and some in itinere exams.
 
-**TODO Introduction**
+We used a diagram to show the allocation of human resources linked with the tasks
+
+**TODO improve Introduction**
 
 ![Resources][resources]\
 
-**TODO parts not done**
+**FIX dates, consider the 50% in the development**
+
+**Write all words in glossary**
 
 [//]: # (pagebreak)
 
