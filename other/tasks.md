@@ -85,11 +85,12 @@ Refered to official guide
 * document structure
 * 3
 * 4
+* 5.2
 
 ## Gilles Dejaegere
 * 1
 * 2
 
 ## Massimo Dragano
-* 5
+* 5.1
 

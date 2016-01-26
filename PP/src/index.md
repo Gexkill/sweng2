@@ -30,9 +30,12 @@
         1. [Scale driver](#scale-driver)
         1. [Cost driver](#cost-driver)
         1. [Effort equation](#effort-equation)
+        1. [Detailed report](#detailed-report)
 1. [Tasks](#tasks)
 1. [Allocate resources](#allocate-resources)
 1. [Risks](#risks)
+    1. [Standard risks](#standard-risks)
+    1. [Montecarlo analysis](#montecarlo-analysis)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
@@ -61,6 +64,8 @@
 * SLOC: **TODO**
 * FP: **TODO**
 * Gannt diagram: **TODO**
+* Montecalro analysys: a statistical method that perform several iteration of some things to test the behavior in the feasible worst cases.
+* standard deviation: **TODO**
 
 ## 1.4. List of Reference Documents  
 
@@ -240,17 +245,27 @@ The different values chosen for our application can be seen in the table here un
 ### 2.2.4. Effort equation
 
 **Chose batter names**
-**we can insert screen from http://csse.usc.edu/tools/COCOMOII.php**
 
+### 2.2.5. Detailed report
+We decided to give a detailed report performed by the following external site [http://csse.usc.edu/tools/COCOMOII.php](http://csse.usc.edu/tools/COCOMOII.php).  
+This report gives us important information about effort like the effort estimated per month and per part.
+
+We used nominal value to obtain a result analogous to the result obtained by our hands.
+
+**Improve introduction**
+
+![Input data][cocomoData]\
+
+![Results][cocomoResults]\
 
 
 [//]: # (pagebreak)
 
 # 3. Tasks
-We considered all real assignment except the code inspection, since it is not related to this application, with the real deadlines.  
-We also considered other tasks like the implementation, that we decided to start immediately after the design, because we have everything needed to start it. We used the duration provided by the cocomo. **Write in  hypothetical form?**
+We considered all real assignments except the code inspection, since it is not related to this application, with the real deadlines.  
+We also considered other tasks like the implementation, that we decided to start immediately after the design, because we have everything needed to start it. We don't use the duration provided by the cocomo because we wouldn't have had the time to complete it in time (considering the course length). **Write in  hypothetical form?**
 
-We used a Gannt diagram to show the tasks with the deadlines.
+We used a Gantt diagram to show the tasks with the deadlines.
 
 **TODO improve Introduction**
 
@@ -281,6 +296,23 @@ We used a diagram to show the allocation of human resources linked with the task
 
 # 5. Risks
 
+## 5.1. Standard risks
+
+**Choice a better title**
+**TODO**
+
+## 5.2. Montecarlo analysis 
+
+We decided also to provide the Montecarlo risk analysis, about effort.
+
+In this case the Montecarlo analysis iterations are made by different (random) values for (k)slock with the real value as average and with a fixed standard deviation. So we have a normal distribution of some values for (k)slock.  
+In this case the system calculate the efforts for every different value of (k)slock and we obtain a normal distribution of different efforts.
+
+This is very useful to give us an idea about the feasible worst case and to test the robustness of the project plan.
+
+![Montecarlo][cocomoMontecarlo]\
+
+
 [//]: # (pagebreak)
 
 # 6. Used tools
@@ -300,5 +332,8 @@ We used a diagram to show the allocation of human resources linked with the task
 ## Massimo Dragano
 
 
+[cocomoData]:../resources/cocomo1.png?raw=true
+[cocomoResults]:../resources/cocomo2.png?raw=true
+[cocomoMontecarlo]:../resources/cocomo3.png?raw=true
 [gantt]:../resources/gantt.png?raw=true
 [resources]:../resources/resources.png?raw=true
