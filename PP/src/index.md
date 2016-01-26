@@ -248,7 +248,7 @@ The different values chosen for our application can be seen in the table here un
 
 # 3. Tasks
 We considered all real assignment except the code inspection, since it is not related to this application, with the real deadlines.  
-We also considered other tasks like the implementation, that we decided to start immediately after the design, because we have everything needed to start it. **Write in  hypothetical form?**
+We also considered other tasks like the implementation, that we decided to start immediately after the design, because we have everything needed to start it. We used the duration provided by the cocomo. **Write in  hypothetical form?**
 
 We used a Gannt diagram to show the tasks with the deadlines.
 
