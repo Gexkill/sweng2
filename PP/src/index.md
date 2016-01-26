@@ -27,7 +27,7 @@
         1. [External Inquiries](#external-inquiries)
     1. [COCOMO](#cocomo)
         1. [Introduction to COCOMO](#introduction-to-cocomo)
-        1. [Sale driver](#sale-driver)
+        1. [Scale driver](#scale-driver)
         1. [Cost driver](#cost-driver)
         1. [Effort equation](#effort-equation)
 1. [Tasks](#tasks)
@@ -110,6 +110,8 @@ Since each Driver has exactly one taxi, and each stop position has exactly one c
 ### 2.1.2 External Interface Files
 
 The application does not have to manage date furnished and maintained by external services.
+
+**Do we have to insert external services like push notification or SMS?**
 
 ### 2.1.3 External Inputs
 
