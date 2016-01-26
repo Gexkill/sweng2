@@ -284,6 +284,7 @@ We have decided to dedicate to development only the 50% of time because during i
 
 We used a diagram to show the allocation of human resources linked with the tasks
 
+**TODO explain what we mean with 100%**
 **TODO improve Introduction**
 
 ![Resources][resources]\
