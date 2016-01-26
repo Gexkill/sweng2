@@ -257,7 +257,11 @@ The different values chosen for our application can be seen in the table here un
 
 # 4. Allocate resources
 
-**Use a table like project manager slides (Gantt diagram)**
+**TODO Introduction**
+
+![Resources][resources]\
+
+**TODO parts not done**
 
 [//]: # (pagebreak)
 
@@ -282,4 +286,5 @@ The different values chosen for our application can be seen in the table here un
 ## Massimo Dragano
 
 
-[gantt]:../resources/gantt.jpg?raw=true
+[gantt]:../resources/gantt.png?raw=true
+[resources]:../resources/resources.png?raw=true

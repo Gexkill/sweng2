@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2015-09-01" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.7.1" locale="it_IT">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2015-09-28" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.7.1" locale="it_IT">
     <description/>
-    <view zooming-state="default:8" id="gantt-chart">
+    <view zooming-state="default:7" id="gantt-chart">
         <field id="tpd3" name="Nome" width="57" order="0"/>
         <field id="tpd4" name="Data d'inizio" width="21" order="1"/>
         <field id="tpd5" name="Data di fine" width="21" order="2"/>
@@ -16,7 +16,7 @@
             <day-type id="0"/>
             <day-type id="1"/>
             <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
-            <only-show-weekends value="false"/>
+            <only-show-weekends value="true"/>
             <overriden-day-types/>
             <days/>
         </day-types>
@@ -42,7 +42,7 @@
             <depend id="12" type="2" difference="0" hardness="Rubber"/>
             <depend id="14" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="4" name="DD" color="#8cb6ce" meeting="false" start="2015-11-11" duration="18" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+        <task id="4" name="DD" color="#8cb6ce" meeting="false" start="2015-11-11" duration="18" complete="0" expand="true" cost-manual-value="1.0" cost-calculated="false">
             <depend id="6" type="2" difference="0" hardness="Rubber"/>
             <depend id="8" type="2" difference="0" hardness="Rubber"/>
             <depend id="10" type="2" difference="0" hardness="Rubber"/>
@@ -60,7 +60,7 @@
         <task id="12" name="Implementation" color="#8cb6ce" meeting="false" start="2015-12-07" duration="48" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
             <depend id="14" type="2" difference="0" hardness="Rubber"/>
         </task>
-        <task id="14" name="Integration testing" color="#8cb6ce" meeting="false" start="2016-02-11" duration="3" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+        <task id="14" name="Integration testing" color="#8cb6ce" meeting="false" start="2016-01-24" duration="3" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Claudio Cardinale" function="Default:0" contacts="" phone=""/>
@@ -68,23 +68,23 @@
         <resource id="2" name="Massimo Dragano" function="Default:0" contacts="" phone=""/>
     </resources>
     <allocations>
-        <allocation task-id="0" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="4" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="6" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="0" resource-id="0" function="Default:0" responsible="false" load="38.5"/>
+        <allocation task-id="4" resource-id="0" function="Default:0" responsible="false" load="34.6"/>
+        <allocation task-id="6" resource-id="0" function="Default:0" responsible="false" load="30.7"/>
         <allocation task-id="8" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="10" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="12" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="14" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="4" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="6" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="20.2"/>
+        <allocation task-id="4" resource-id="1" function="Default:0" responsible="false" load="34.6"/>
+        <allocation task-id="6" resource-id="1" function="Default:0" responsible="false" load="35.4"/>
         <allocation task-id="8" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="10" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="12" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="14" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="0" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="4" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="6" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="0" resource-id="2" function="Default:0" responsible="false" load="41.3"/>
+        <allocation task-id="4" resource-id="2" function="Default:0" responsible="false" load="30.0"/>
+        <allocation task-id="6" resource-id="2" function="Default:0" responsible="false" load="33.8"/>
         <allocation task-id="8" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="10" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="12" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
