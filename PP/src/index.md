@@ -245,6 +245,8 @@ The different values chosen for our application can be seen in the table here un
 
 # 3. Tasks
 
+**TODO Introduction**
+
 ![Gantt][gantt]\
 
 **FIX dates for development, presentation and so on**

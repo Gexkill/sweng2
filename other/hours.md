@@ -42,6 +42,7 @@
 * PP
   * 21/01/16: 1h
   * 23/01/16: 1h
+  * 26/01/16: 2h
 
 # Gilles Dejaegere
 * RASD
