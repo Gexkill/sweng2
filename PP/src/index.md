@@ -245,7 +245,9 @@ The different values chosen for our application can be seen in the table here un
 
 # 3. Tasks
 
-**Use a table like project manager slides (Gantt diagram)**
+![Gantt][gantt]\
+
+**FIX dates for development, presentation and so on**
 
 [//]: # (pagebreak)
 
@@ -262,6 +264,7 @@ The different values chosen for our application can be seen in the table here un
 # 6. Used tools
 * Github: for version controller
 * Gedit and ReText: to write MarkDown with spell check
+* Ganttproject: to draw Gantt diagrams
 
 [//]: # (pagebreak)
 
@@ -275,5 +278,4 @@ The different values chosen for our application can be seen in the table here un
 ## Massimo Dragano
 
 
-[subsystems]:../resources/subsystem_integration.png?raw=true
-[controllers]:../resources/controllers_integration.png?raw=true
+[gantt]:../resources/gantt.jpg?raw=true
