@@ -297,12 +297,45 @@ We used a diagram to show the allocation of human resources linked with the task
 
 # 5. Risks
 
-## 5.1. Standard risks
+## 5.1. Project risks
 
-**Choice a better title**
-**TODO**
+  - requirements change:  requirements are changed by the committer.
+  - bad schedule: tasks previsions may be unrealistic.
+  - regulatory changes: contry may change it's regulatory policy concerning our operation field.
 
-## 5.2. Montecarlo analysis 
+## 5.2. Technical risks
+
+  - wrong UI: the developed User Interface does not satify the committer.
+  - bad external data source: external data sources may be badly exposed and organized.
+  - overload: the system cannot satify a large amount or requests.
+
+## 5.3. Business risks
+
+  - too few clients: the sales team did not find enought customers for the product.
+  - competitors: another company can develop a similar product, reducing our market opportunities.
+
+## 5.4. Risks probability and severity
+
+| Risk | Probability | Severity |
+|----------------------|---|--------------|
+| requirements change  | L | Critical     |
+| bad schedule         | M | Critical     |
+| regulatory changes   | L | Marginal     |
+| wrong UI             | L | Marginal     |
+| bad ext. data source | H | Critical     |
+| overload             | H | Critical     |
+| too few clients      | M | Catastrophic |
+| competitors          | L | Critical     |
+
+## 5.5. Contingency plan
+
+| Risk | Strategy |
+|------|----------|
+| bad ext. data source | Use the Adapter pattern to minimize changes to program code, developing an adapter for any new external source |
+| overload | move the system to an highly scalable platform like AWS |
+| too few clients | promote our product using some advertising |
+
+## 5.6. Montecarlo analysis 
 
 We decided also to provide the Montecarlo risk analysis, about effort.
 
