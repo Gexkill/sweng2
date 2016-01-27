@@ -307,7 +307,8 @@ We used a diagram to show the allocation of human resources linked with the task
 We decided also to provide the Montecarlo risk analysis, about effort.
 
 In this case the Montecarlo analysis iterations are made by different (random) values for (k)slock with the real value as average and with a fixed standard deviation. So we have a normal distribution of some values for (k)slock.  
-In this case the system calculate the efforts for every different value of (k)slock and we obtain a normal distribution of different efforts.
+In this case the system calculate the efforts for every different value of (k)slock and we obtain a normal distribution of different efforts.  
+The distribution used is inserted on the detailed report of section 2.2.. **insert link**
 
 This is very useful to give us an idea about the feasible worst case and to test the robustness of the project plan.
 
