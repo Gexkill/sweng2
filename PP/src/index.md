@@ -78,9 +78,9 @@
 # 2. Estimate size, effort and cost
 ## 2.1. Function points
 
-Function Points estimation : the function point estimation is an estimation of the size of an specific software to be based on its functional requirements. The count of function points of the software is language and technology independant. The size in terms of lines of codes of this software can be calculated using the following formula : 
+Function Points estimation : the function point estimation is an estimation of the size of an specific software to be based on its functional requirements. The count of function points of the software is language and technology independent. The size in terms of lines of codes of this software can be calculated using the following formula : 
 
-> LOC = FP * AVC 
+$$LOC = FP \cdot AVC $$
 
 where :
 * LOC = lines of code
@@ -120,8 +120,6 @@ Since each Driver has exactly one taxi, and each stop position has exactly one c
 ### 2.1.2 External Interface Files
 
 The application does not have to manage date furnished and maintained by external services.
-
-**Do we have to insert external services like push notification or SMS?**
 
 ### 2.1.3 External Inputs
 
@@ -198,7 +196,7 @@ To proceed with the calculation of SLOC we have to convert the FP obtained with 
 
 This leads to an ammount of line of codes equals to :
 
-$$LOC = FP * AVC = 117 * 46 = 5382.$$
+$$LOC = FP \cdot AVC = 117 \cdot 46 = 5382.$$
 
 To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf) **TO IMPROVE**
 
@@ -286,6 +284,7 @@ This report gives us important information about effort like the effort estimate
 We used nominal value to obtain a result analogous to the result obtained by our hands.
 
 **Improve introduction**
+**FIX according to previous data**
 
 ![Input data][cocomoData]\
 
