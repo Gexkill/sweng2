@@ -34,7 +34,11 @@
 1. [Tasks](#tasks)
 1. [Allocate resources](#allocate-resources)
 1. [Risks](#risks)
-    1. [Standard risks](#standard-risks)
+    1. [Project risks](#project-risks)
+    1. [Technical risks](#technical-risks)
+    1. [Business risks](#business-risks)
+    1. [Risks probability and severity](#risks-probability-and-severity)
+    1. [Contingency plan](#contingency-plan)
     1. [Montecarlo analysis](#montecarlo-analysis)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
@@ -327,11 +331,14 @@ We used a diagram to show the allocation of human resources linked with the task
 | too few clients      | M | Catastrophic |
 | competitors          | L | Critical     |
 
+[//]: # (pagebreak)
+
 ## 5.5. Contingency plan
 
 | Risk | Strategy |
 |------|----------|
-| bad ext. data source | Use the Adapter pattern to minimize changes to program code, developing an adapter for any new external source |
+| bad ext. data source | Use the Adapter pattern to minimize changes to program code,\ |
+|  |  developing an adapter for any new external source |
 | overload | move the system to an highly scalable platform like AWS |
 | too few clients | promote our product using some advertising |
 
