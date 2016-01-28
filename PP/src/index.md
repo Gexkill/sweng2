@@ -68,7 +68,7 @@
 * SLOC: **TODO**
 * FP: **TODO**
 * Gannt diagram: **TODO**
-* Montecalro analysys: a statistical method that perform several iteration of some things to test the behavior in the feasible worst cases.
+* Montecarlo analysys: a statistical method that perform several iteration of some things to test the behavior in the feasible worst cases.
 * standard deviation: **TODO**
 
 ## 1.4. List of Reference Documents  
@@ -83,6 +83,7 @@ Function Points estimation : the function point estimation is an estimation of t
 $$LOC = FP \cdot AVC $$
 
 where :
+
 * LOC = lines of code
 * FP = total estimated function points of the software
 * AVC = language specific constant varying from 2-40 for a fourth generation programming language.
@@ -229,13 +230,12 @@ The different values chosen for our application can be seen in the table here un
 |Developed for Reusability              | Low      |    0.95    |
 |Documentation Match to Life-Cycle Needs| Nominal  |    1       |
 |Execution Time Constraint              | Nominal  |    1       |
-|Main Storage Constraint                | n/a      |    n/a     |
-|Platform Volatility                    | Nominal  |    1       |
+|Main Storage Constraint                | Nominal  |    1       |
+|Platform Volatility                    | Low      |    0.87    |
 |Analyst Capability                     | Nominal  |    1       |
 |Programmer Capability                  | Nominal  |    1       |
 |Personnel Continuity                   | Very High|    0.81    |
 |Applications Experience                | High     |    0.88    |
-|Platform Volatility                    | Low      |    0.87    |
 |Platform Experience                    | Nominal  |    1       |
 |Language and Tool Experience           | High     |    0.9     |
 |Use of Software Tools                  | Nominal  |    1       |
@@ -281,10 +281,7 @@ It is of course not possible to use 1.43 workers but we can easily imagine two p
 We decided to give a detailed report performed by the following external site [http://csse.usc.edu/tools/COCOMOII.php](http://csse.usc.edu/tools/COCOMOII.php).  
 This report gives us important information about effort like the effort estimated per month and per part.
 
-We used nominal value to obtain a result analogous to the result obtained by our hands.
-
 **Improve introduction**
-**FIX according to previous data**
 
 ![Input data][cocomoData]\
 
@@ -376,7 +373,7 @@ We decided also to provide the Montecarlo risk analysis, about effort.
 
 In this case the Montecarlo analysis iterations are made by different (random) values for (k)slock with the real value as average and with a fixed standard deviation. So we have a normal distribution of some values for (k)slock.  
 In this case the system calculate the efforts for every different value of (k)slock and we obtain a normal distribution of different efforts.  
-The distribution used is inserted on the detailed report of section 2.2.. **insert link**
+**Note:** The distribution used is inserted on the [detailed report section 2.2.5](#detailed-report).
 
 This is very useful to give us an idea about the feasible worst case and to test the robustness of the project plan.
 
