@@ -49,7 +49,7 @@
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
     1. [Massimo Dragano](#massimo-dragano)
-
+1. [Changelog](#changelog)
 
 [//]: # (pagebreak)
 
@@ -421,6 +421,7 @@ We will add critical data tests like:
 * Github: for version controller
 * Gedit and ReText: to write MarkDown with spell check
 * Dia: to make figures 
+* Pandoc: to create pdf
 
 [//]: # (pagebreak)
 
@@ -448,6 +449,9 @@ We will add critical data tests like:
  * 19/01/16: 1h
  * 20/01/16: 2h
  * 21/01/16: 5h
+
+# 8. Changelog
+* Pandoc added as used tools
 
 [subsystems]:../resources/subsystem_integration.png?raw=true
 [controllers]:../resources/controllers_integration.png?raw=true

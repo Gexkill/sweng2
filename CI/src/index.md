@@ -368,6 +368,7 @@ This StandarContext.java code has been developed by a team of professionals and 
 * sonar: useful tools to analyse code from style point of view
 * Github: for version controller
 * Gedit and ReText: to write MarkDown with spell check 
+* Pandoc: to create pdf
 
 [//]: # (pagebreak)
 
@@ -404,6 +405,7 @@ This StandarContext.java code has been developed by a team of professionals and 
 
 # 9. Changelog
 * English error fixed
+* Pandoc added as used tools
 
 
 [inheritanceDiagram]: ../resources/inheritance_diagram.png?raw=true
