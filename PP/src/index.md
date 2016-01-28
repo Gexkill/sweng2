@@ -29,7 +29,7 @@
         1. [Introduction to COCOMO](#introduction-to-cocomo)
         1. [Scale driver](#scale-driver)
         1. [Cost driver](#cost-driver)
-        1. [Effort equation](#effort-equation)
+        1. [Effort, duration and size of the team](#effort-duration-and-size-of-the-team)
         1. [Detailed report](#detailed-report)
 1. [Tasks](#tasks)
 1. [Allocate resources](#allocate-resources)
@@ -198,7 +198,7 @@ To proceed with the calculation of SLOC we have to convert the FP obtained with 
 
 This leads to an ammount of line of codes equals to :
 
-> LOC = FP * AVC = 117 * 46 = 5382.  
+$$LOC = FP * AVC = 117 * 46 = 5382.$$
 
 To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf) **TO IMPROVE**
 
@@ -250,7 +250,7 @@ The different values chosen for our application can be seen in the table here un
 
 The Cocomo II approches gives an equation for calculating the effort :
 
-> Effort = 2.94 * EAF * (KSLOC)^E 
+$$Effort = 2.94 \cdot EAF \cdot (KSLOC)^E$$
 
 Where :
 
@@ -261,21 +261,21 @@ Where :
 
 Using the parameters specific to the MyTaxiService application we arrive to an estimation of :
 
-> Effort = 2.94 * 0.65 * 5.382^1.063 = 11.43 PM
+$$Effort = 2.94 \cdot 0.65 \cdot 5.382^{1.063} = 11.43 PM$$
 
 To estimate the duration of the development of the application, another formula is given by the Cocomo II approach :
 
-> Duration = 3.67 * (Effort)^(0.28 + 0.2*(E-0.91))
+$$Duration = 3.67 \cdot (Effort)^{0.28 + 0.2 \cdot (E-0.91)}$$
 
 Where the Effort and E are the same as the ones for the "Effort equation".
 
 We obtain : 
 
-> Duration = 3.67 * 11.43^(0.28 + 0.2*(1.063-0.91)) = 3.67 * 11.43^0.31 = 7.81
+$$Duration = 3.67 \cdot 11.43^(0.28 + 0.2\cdot(1.063-0.91)) = 3.67 \cdot 11.43^{0.31} = 7.81$$
 
 Finally, knowing the approximative effort and time needed to carry through the project, we can easily compute the size of the effort team needed : 
 
-> #people = Effort/Duration = 11.43/7.81 = 1.43
+$$\#people = Effort/Duration = 11.43/7.81 = 1.43$$
 
 It is of course not possible to use 1.43 workers but we can easily imagine two people starting the project and one dropping out at about the half of the project. However, estimating the size of the team using the Effort and Duration obtained using the Cocomo II approach could seems paradoxal in the sens that an evaluation of the qualities of the developpong team needs to be done to compute the some drivers. 
 
@@ -390,12 +390,12 @@ This is very useful to give us an idea about the feasible worst case and to test
 * Github: for version controller
 * Gedit and ReText: to write MarkDown with spell check
 * Ganttproject: to draw Gantt diagrams
+* Pandoc: to create pdf
 
 [//]: # (pagebreak)
 
 # 7. Hours of work
 ## Claudio Cardinale
-
 
 ## Gilles Dejaegere
 
