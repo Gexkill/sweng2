@@ -155,13 +155,13 @@ Concerning the client, the system has to enable him to:
 
 Our application must send information to the clients and the drivers. 
 Ride information : the system has to inform the client about the incoming taxi and the estimated arrival time. In addition, if the client has requested for a shared ride, the system has also to inform him about the estimated cost of his ride. The estimation of the cost of the ride is an complex operation since it dependes on the length of the client's itinary, but also on the itinaries of the other clients that share the ride (in order to know the proportion of the first clients itinary that is actually shared and with how many other clients). 
-request information : the system has to notify the appropriate driver with the information concerning the appropriate request. This operation is estimated as aving a low complexity.
+request information : the system has to notify the appropriate driver with the information concerning the appropriate request. These notification are send using an external gateway wich add some complexity to the sending of information. The sending of the request information to the taxi driver is therefore evaluated as having an average difficulty.
 
 | **EO**       | **Complexity = Function Points** |
 |--------------|----------------------------------|
 |ride information                |   High = 7     |
-|request information             |   Low = 4      |
-|**Total**                       |      11        |
+|request information             |   Average = 6  |
+|**Total**                       |      13        |
 
 ### 2.1.5 External Inquiries
 
@@ -181,11 +181,11 @@ Now that the amount of function points for each function type of our application
 |Internal Logic Files    |   69                |
 |External Interface Files|   0                 |
 |External Inputs         |   31                |
-|External Outputs        |   11                |
+|External Outputs        |   13                |
 |External Inquiries      |   6                 |
-|**Total**               |   117               |
+|**Total**               |   119               |
 
-As we can see, there is an huge disparity between the values of each function type. Nearly 60% of the function points are associated to the internal logic, 26.5 % for the external input, and only slightly less than 15% is associated to the external output/inquiries. This can be explained by the purpose of the application. Indeed, MyTaxiService is an application aimed at managing taxi drivers waiting queue and helping user order a taxi-ride (which again requires accessing and modifying these waiting queues). On the other hand, the difference between the internal logic and the external inputs seems overestimated. This might be due to the fact that the weight in function points of the internal logic files is more than twice the one of the weight of the external inputs (cfr. section 2.1).   
+As we can see, there is an huge disparity between the values of each function type. Nearly 60% of the function points are associated to the internal logic, about 25% for the external input, and only slightly more than 15% is associated to the external output/inquiries. This can be explained by the purpose of the application. Indeed, MyTaxiService is an application aimed at managing taxi drivers waiting queue and helping user order a taxi-ride (which again requires accessing and modifying these waiting queues). On the other hand, the difference between the internal logic and the external inputs seems overestimated. This might be due to the fact that the weight in function points of the internal logic files is more than twice the one of the weight of the external inputs (cfr. section 2.1).   
 
 
 
@@ -227,13 +227,13 @@ The different values chosen for our application can be seen in the table here un
 |-----------------------|------------------|------------|
 |Required Software Reliability          | Low      |    0.92    |
 |Data Base Size                         | High     |    1.14    |
-|Product Complexity                     | Nominal  |    1       |
+|Product Complexity                     | High     |    1.17    |
 |Developed for Reusability              | Low      |    0.95    |
 |Documentation Match to Life-Cycle Needs| Nominal  |    1       |
-|Execution Time Constraint              | ???      |    ??      |
+|Execution Time Constraint              | Nominal  |    1       |
 |Main Storage Constraint                | n/a      |    n/a     |
-|Platform Volatility                    | Low      |    0.87    |
-|Analyst Capability                     | ??
+|Platform Volatility                    | Nominal  |    1       |
+|Analyst Capability                     | Nominal  |    1       |
 |Programmer Capability                  | Nominal  |    1       |
 |Personnel Continuity                   | Very High|    0.81    |
 |Applications Experience                | High     |    0.88    |
@@ -241,14 +241,43 @@ The different values chosen for our application can be seen in the table here un
 |Platform Experience                    | Nominal  |    1       |
 |Language and Tool Experience           | High     |    0.9     |
 |Use of Software Tools                  | Nominal  |    1       |
-|Multisite Developmen                   | High     |    0.93    |
+|Multisite Development                  | Nominal  |    1       |
 |Required Development Schedule          | Nominal  |    1       |
-|**Total**              |               |    ??    |
+|**Total**              |               |  0.65    |
 
 
-### 2.2.4. Effort equation
+### 2.2.4. Effort, duration and size of the team
 
-**Chose batter names**
+The Cocomo II approches gives an equation for calculating the effort :
+
+> Effort = 2.94 * EAF * (KSLOC)^E 
+
+Where :
+
+* Effort = estimated total number of Person-months needed
+* EAF = product of the cost drivers, in our case EAF equals 0.65
+* KSLOC = number of thousands of lines of codes estimated to be needed for our application. KSLOC has been approximated to 5.382
+* E = Exponent derived from the scale drivers. E equals 0.91+(sum of the scale drivers)/100, in our case : 1.063
+
+Using the parameters specific to the MyTaxiService application we arrive to an estimation of :
+
+> Effort = 2.94 * 0.65 * 5.382^1.063 = 11.43 PM
+
+To estimate the duration of the development of the application, another formula is given by the Cocomo II approach :
+
+> Duration = 3.67 * (Effort)^(0.28 + 0.2*(E-0.91))
+
+Where the Effort and E are the same as the ones for the "Effort equation".
+
+We obtain : 
+
+> Duration = 3.67 * 11.43^(0.28 + 0.2*(1.063-0.91)) = 3.67 * 11.43^0.31 = 7.81
+
+Finally, knowing the approximative effort and time needed to carry through the project, we can easily compute the size of the effort team needed : 
+
+> #people = Effort/Duration = 11.43/7.81 = 1.43
+
+It is of course not possible to use 1.43 workers but we can easily imagine two people starting the project and one dropping out at about the half of the project. However, estimating the size of the team using the Effort and Duration obtained using the Cocomo II approach could seems paradoxal in the sens that an evaluation of the qualities of the developpong team needs to be done to compute the some drivers. 
 
 ### 2.2.5. Detailed report
 We decided to give a detailed report performed by the following external site [http://csse.usc.edu/tools/COCOMOII.php](http://csse.usc.edu/tools/COCOMOII.php).  
