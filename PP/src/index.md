@@ -367,6 +367,8 @@ We used a diagram to show the allocation of human resources linked with the task
 | overload | move the system to an highly scalable platform like AWS |
 | too few clients | promote our product using some advertising |
 
+**TODO recovery actions section**
+
 ## 5.6. Montecarlo analysis 
 
 We decided also to provide the Montecarlo risk analysis, about effort.
