@@ -62,6 +62,12 @@
 
 ## 1.2. Purpose and Scope
 
+The aim of this document is to plan the work of the myTaxyService project.
+Planning it's an hard task that it's critical for the project life.
+An unrealistic estimation can lead the project to failure.
+A Project plan contains an estimation of the costs and efforts required to reach the project goals.
+Beside it study how to organize the work in tasks and which resources should be allocated to them.
+Last but not least there is a risk analysis, which is a proactive approach to risks that can alter the project plan.
 
 ## 1.3. List of Definitions and abbreviations
 * Function Points estimation : the function point estimation is an estimation of the size of an specific software in terms of line of codes.
