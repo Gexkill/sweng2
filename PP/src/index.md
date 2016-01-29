@@ -368,8 +368,7 @@ We used a diagram to show the allocation of human resources linked with the task
 
 | Risk | Strategy |
 |------|----------|
-| bad ext. data source | Use the Adapter pattern to minimize changes to program code,\ |
-|  |  developing an adapter for any new external source |
+| bad ext. data source | Use the Adapter pattern to minimize changes to program code, developing an adapter for any new external source |
 | overload | move the system to an highly scalable platform like AWS |
 | too few clients | promote our product using some advertising |
 
