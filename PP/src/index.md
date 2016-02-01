@@ -155,16 +155,16 @@ Concerning the client, the system has to enable him to:
 * reserve a ride : the reservations are preproccessed by a scheduler (to be triggered on the appropriate time) and are then managed as requests. The additionnal complexity of the reservation is estimated as low.
 * share the ride : Shared request or reservations must be pre-processed, aiming to merge then in shared requests. This is an complex operation.
 
-| **EI**       | **Complexity = Function Points** |
-|--------------|----------------------------------|
-|login                          |   Low = 3       |
-|change availability            |   High = 6      |
-|change position                |   High = 6      | 
-|answer request                 |   High = 6      |
-|require ride                   |   Average = 4   |
-|reserve ride                   |   Low = 3       | 
-|share the ride                 |   Low = 3       |
-|**Total**                      |    31           |
+| **EI**       | **Complexity** | **Function Points** |
+|--------------|----------------|-----------------|
+|login                          |   Low | 3       |
+|change availability            |   High | 6      |
+|change position                |   High | 6      | 
+|answer request                 |   High | 6      |
+|require ride                   |   Average | 4   |
+|reserve ride                   |   Low | 3       | 
+|share the ride                 |   Low | 3       |
+|**Total**                      |  | 31           |
 
 ### 2.1.4 External Outputs
 
@@ -172,20 +172,20 @@ Our application must send information to the clients and the drivers.
 Ride information : the system has to inform the client about the incoming taxi and the estimated arrival time. In addition, if the client has requested for a shared ride, the system has also to inform him about the estimated cost of his ride. The estimation of the cost of the ride is an complex operation since it dependes on the length of the client's itinary, but also on the itinaries of the other clients that share the ride (in order to know the proportion of the first clients itinary that is actually shared and with how many other clients). 
 request information : the system has to notify the appropriate driver with the information concerning the appropriate request. These notification are send using an external gateway wich add some complexity to the sending of information. The sending of the request information to the taxi driver is therefore evaluated as having an average difficulty.
 
-| **EO**       | **Complexity = Function Points** |
-|--------------|----------------------------------|
-|ride information                |   High = 7     |
-|request information             |   Average = 6  |
-|**Total**                       |      13        |
+| **EO**       | **Complexity** | **Function Points** |
+|--------------|----------------|------------------|
+|ride information                |   High | 7     |
+|request information             |   Average | 6  |
+|**Total**                       |      | 13      |
 
 ### 2.1.5 External Inquiries
 
 There is only one type of external inquiries that must be managed by our system and it consist in showing to the taxi driver his position in the queue when the taxi driver requires it. This operation is estimated as complex since it has to retrieve this information by scanning the appropriate queue of drivers.
 
-| **EI**      | **Complexity = Function Points** |
-|-------------|----------------------------------|
-|driver position                 |  High = 6     |
-|**Total**                       |      6        |
+| **EI**      | **Complexity** | **Function Points** |
+|-------------|----------------|-----------------|
+|driver position                 |  High | 6     |
+|**Total**                       |      | 6      |
 
 ### 2.2 Cumulated Function Points and code size estimation
 
