@@ -144,7 +144,7 @@ The application interacts both with drivers and with clients, each having their 
 
 Concerning the driver, the system has to enable him to:
 
-* login
+* login/logout
 * change availability : this operation consists in changing the availability of the driver object. If the driver becomes available, the driver object has to be put at the end of the appropriate waiting queue. In the other case, when the driver is not available anymore, he has to be withdrawed from the appropriate waiting queue. The appropriate waiting queue is found using the position of the driver. This operation is evaluated as complex.
 * change position : this operation takes place when the driver changes of zone. If the driver concerned has his status "available", he has to be withdrawed from the queue of his previous zone and add to the queue of the new zone. This operation is complex.
 * accept request : when the driver receive a request via the push notification service, his has to answer. Positive answer are handeled by the RideController (for the creation of the ride) and transmitted to the QueueManager (to prevent him asking the next driver). Negative answers are handeled by the RequestController that transmits it to the QueueManager so that he can ask the next taxi driver and put the former at the end of the queue.
@@ -158,13 +158,14 @@ Concerning the client, the system has to enable him to:
 | **EI**       | **Complexity** | **Function Points** |
 |--------------|----------------|-----------------|
 |login                          |   Low | 3       |
+|logout                         |   Low | 3       |
 |change availability            |   High | 6      |
 |change position                |   High | 6      | 
 |answer request                 |   High | 6      |
 |require ride                   |   Average | 4   |
 |reserve ride                   |   Low | 3       | 
 |share the ride                 |   Low | 3       |
-|**Total**                      |  | 31           |
+|**Total**                      |  | 34           |
 
 ### 2.1.4 External Outputs
 
@@ -195,10 +196,10 @@ Now that the amount of function points for each function type of our application
 |------------------------|---------------------|
 |Internal Logic Files    |   69                |
 |External Interface Files|   0                 |
-|External Inputs         |   31                |
+|External Inputs         |   34                |
 |External Outputs        |   13                |
 |External Inquiries      |   6                 |
-|**Total**               |   119               |
+|**Total**               |   122               |
 
 As we can see, there is an huge disparity between the values of each function type. Nearly 60% of the function points are associated to the internal logic, about 25% for the external input, and only slightly more than 15% is associated to the external output/inquiries. This can be explained by the purpose of the application. Indeed, MyTaxiService is an application aimed at managing taxi drivers waiting queue and helping user order a taxi-ride (which again requires accessing and modifying these waiting queues). On the other hand, the difference between the internal logic and the external inputs seems overestimated. This might be due to the fact that the weight in function points of the internal logic files is more than twice the one of the weight of the external inputs (cfr. section 2.1).   
 
@@ -213,7 +214,7 @@ To proceed with the calculation of SLOC we have to convert the FP obtained with 
 
 This leads to an ammount of line of codes equals to :
 
-$$LOC = FP \cdot AVC = 117 \cdot 46 = 5382.$$
+$$LOC = FP \cdot AVC = 122 \cdot 46 = 5612.$$
 
 To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf) **TO IMPROVE**
 
@@ -275,7 +276,7 @@ Where :
 
 Using the parameters specific to the MyTaxiService application we arrive to an estimation of :
 
-$$Effort = 2.94 \cdot 0.65 \cdot 5.382^{1.063} = 11.43 PM$$
+$$Effort = 2.94 \cdot 0.65 \cdot 5.612^{1.063} = 11.95 PM$$
 
 To estimate the duration of the development of the application, another formula is given by the Cocomo II approach :
 
@@ -285,13 +286,13 @@ Where the Effort and E are the same as the ones for the "Effort equation".
 
 We obtain : 
 
-$$Duration = 3.67 \cdot 11.43^(0.28 + 0.2\cdot(1.063-0.91)) = 3.67 \cdot 11.43^{0.31} = 7.81$$
+$$Duration = 3.67 \cdot 11.95^(0.28 + 0.2\cdot(1.063-0.91)) = 3.67 \cdot 11.95^{0.31} = 7.93$$
 
 Finally, knowing the approximative effort and time needed to carry through the project, we can easily compute the size of the effort team needed : 
 
-$$\#people = Effort/Duration = 11.43/7.81 = 1.43$$
+$$\#people = Effort/Duration = 11.95/7.93 = 1.51$$
 
-It is of course not possible to use 1.43 workers but we can easily imagine two people starting the project and one dropping out at about the half of the project. However, estimating the size of the team using the Effort and Duration obtained using the Cocomo II approach could seems paradoxal in the sens that an evaluation of the qualities of the developpong team needs to be done to compute the some drivers. 
+It is of course not possible to use 1.51 workers but we can easily imagine two people starting the project and one dropping out at about the half of the project. However, estimating the size of the team using the Effort and Duration obtained using the Cocomo II approach could seems paradoxal in the sens that an evaluation of the qualities of the developpong team needs to be done to compute the some drivers. 
 
 ### 2.2.5. Detailed report
 We decided to give a detailed report performed by the following external site [http://csse.usc.edu/tools/COCOMOII.php](http://csse.usc.edu/tools/COCOMOII.php).  
