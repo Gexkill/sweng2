@@ -83,14 +83,16 @@ Refered to official guide
 # TP
 ## Claudio Cardinale
 * document structure
+* 1
 * 3
 * 4
-* 5.2
+* 5.6
 
 ## Gilles Dejaegere
 * 1
 * 2
 
 ## Massimo Dragano
-* 5.1
+* 1
+* 5.(1-5)
 

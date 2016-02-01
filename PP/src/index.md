@@ -78,6 +78,16 @@ Last but not least there is a risk analysis, which is a proactive approach to ri
 * standard deviation: **TODO**
 
 ## 1.4. List of Reference Documents  
+* The MyTaxiService project description: "Project Description And Rules.pdf"
+* The Assignment document: "Assignment 5 - Project"
+* The MyTaxiService RASD
+* The MyTaxiService DD
+* The MyTaxiService TP
+* The example documents given:
+    * Example of usage of FP and COCOMO for Assignment 5
+    * Second example of usage of FP and COCOMO for Assignment 5
+
+
 
 [//]: # (pagebreak)
 
