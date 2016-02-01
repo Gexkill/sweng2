@@ -122,15 +122,15 @@ The different ILFs that will be used by our systems can be deduced from the clas
 
 For each component, its complexity and the associated function points are listed in the table here under : 
 
-| **ILF**      | **Complexity = Function Points** |
-|--------------|----------------------------------|
-|Zone                    |   High = 15     |
-|Driver and Taxi         |   High = 15     |
-|Request                 |   Average = 10  | 
-|Ride                    |   High = 15     |
-|StopPositions and Client|   Low = 7       | 
-|Position                |   Low = 7       |
-|**Total**               |   69            |
+| **ILF**                | **Complexity** | **Function Points** |
+|------------------------|----------------|---------------------|
+|Zone                    |   High         |                15   |
+|Driver and Taxi         |   High         |                15   |
+|Request                 |   Average      |                10   | 
+|Ride                    |   High         |                15   |
+|StopPositions and Client|   Low          |                 7   | 
+|Position                |   Low          |                 7   |
+|**Total**               |                |                69   |
 
 Since each Driver has exactly one taxi, and each stop position has exactly one client, these entities are managed and stored together for more simplicity.
 
