@@ -67,15 +67,15 @@ Planning it's an hard task that it's critical for the project life.
 An unrealistic estimation can lead the project to failure.
 A Project plan contains an estimation of the costs and efforts required to reach the project goals.
 Beside it study how to organize the work in tasks and which resources should be allocated to them.
-Last but not least there is a risk analysis, which is a proactive approach to risks that can alter the project plan.
+Last but not least there is a risk analysis, which is a proactive approach to risks that can alter the work.
 
 ## 1.3. List of Definitions and abbreviations
 * Function Points estimation : the function point estimation is an estimation of the size of an specific software in terms of line of codes.
 * SLOC: Source Lines Of Code, measure the lines of code of a project ( empty and commented lines excluded )
-* FP: Function Points, **TODO**
-* Gannt diagram: **TODO**
+* FP: A function point is a **unit of measurement** to express the amount of business functionality an information system provides to a user.
+* Gannt diagram: a type of bar chart that illustrates a project schedule.
 * Montecarlo analysys: a statistical method that perform several iteration of some things to test the behavior in the feasible worst cases.
-* standard deviation: **TODO**
+* standard deviation: a measure that is used to quantify the amount of variation or dispersion of a set of data values.
 
 ## 1.4. List of Reference Documents  
 * The MyTaxiService project description: "Project Description And Rules.pdf"
