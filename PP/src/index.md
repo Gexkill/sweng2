@@ -422,3 +422,4 @@ This is very useful to give us an idea about the feasible worst case and to test
 [cocomoMontecarlo]:../resources/cocomo3.png?raw=true
 [gantt]:../resources/gantt.png?raw=true
 [resources]:../resources/resources.png?raw=true
+[model]: ../../RASD/resources/class_diagram.png?raw=true
