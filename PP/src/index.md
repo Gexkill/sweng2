@@ -72,7 +72,7 @@ Last but not least there is a risk analysis, which is a proactive approach to ri
 ## 1.3. List of Definitions and abbreviations
 * Function Points estimation : the function point estimation is an estimation of the size of an specific software in terms of line of codes.
 * SLOC: Source Lines Of Code, measure the lines of code of a project ( empty and commented lines excluded )
-* FP: A function point is a **unit of measurement** to express the amount of business functionality an information system provides to a user.
+* FP: A function point is a *unit of measurement* to express the amount of business functionality an information system provides to a user.
 * Gannt diagram: a type of bar chart that illustrates a project schedule.
 * Montecarlo analysys: a statistical method that perform several iteration of some things to test the behavior in the feasible worst cases.
 * standard deviation: a measure that is used to quantify the amount of variation or dispersion of a set of data values.
