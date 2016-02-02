@@ -138,6 +138,8 @@ Since each Driver has exactly one taxi, and each stop position has exactly one c
 
 The application does not have to manage date furnished and maintained by external services.
 
+[//]: # (pagebreak)
+
 ### 2.1.3 External Inputs
 
 The application interacts both with drivers and with clients, each having their own set of possible interactions.
@@ -214,9 +216,9 @@ To proceed with the calculation of SLOC we have to convert the FP obtained with 
 
 This leads to an ammount of line of codes equals to :
 
-$$LOC = FP \cdot AVC = 122 \cdot 46 = 5612.$$
+$$LOC = FP \cdot AVC = 122 \cdot 46 = 5612$$
 
-To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf) **TO IMPROVE**
+To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf)
 
 ### 2.2.2. Scale driver
 
@@ -298,8 +300,6 @@ It is of course not possible to use 1.51 workers but we can easily imagine two p
 We decided to give a detailed report performed by the following external site [http://csse.usc.edu/tools/COCOMOII.php](http://csse.usc.edu/tools/COCOMOII.php).  
 This report gives us important information about effort like the effort estimated per month and per part.
 
-**Improve introduction**
-
 ![Input data][cocomoData]\
 
 ![Results][cocomoResults]\
@@ -313,14 +313,8 @@ We also considered other tasks like the implementation, that we decided to start
 
 We used a Gantt diagram to show the tasks with the deadlines.
 
-**TODO improve Introduction**
 
 ![Gantt][gantt]\
-
-**FIX dates for development, presentation and so on**
-**FIX dashed bars**
-
-**Write all words in glossary**
 
 [//]: # (pagebreak)
 
@@ -331,13 +325,8 @@ We have decided to dedicate to development only the 50% of time because during i
 We used a diagram to show the allocation of human resources linked with the tasks
 
 **TODO explain what we mean with 100%**
-**TODO improve Introduction**
 
 ![Resources][resources]\
-
-**FIX dates, consider the 50% in the development**
-
-**Write all words in glossary**
 
 [//]: # (pagebreak)
 
@@ -384,8 +373,6 @@ We used a diagram to show the allocation of human resources linked with the task
 | overload | move the system to an highly scalable platform like AWS |
 | too few clients | promote our product using some advertising |
 
-**TODO recovery actions section**
-
 ## 5.6. Montecarlo analysis 
 
 We decided also to provide the Montecarlo risk analysis, about effort.
@@ -411,12 +398,25 @@ This is very useful to give us an idea about the feasible worst case and to test
 
 # 7. Hours of work
 ## Claudio Cardinale
+  * 21/01/16: 1h
+  * 23/01/16: 1h
+  * 26/01/16: 4h
+  * 28/01/16: 1h
+  * 01/02/16: 30m
+  * 02/02/16: 1h
 
 ## Gilles Dejaegere
-
+  * 23/01/16: 3h
+  * 24/03/16: 2h
+  * 25/03/16: 30 min
+  * 26/03/16: 2h 
+  * 28/01/16: 1h
 
 ## Massimo Dragano
-
+ * 28/01/16: 2h
+ * 29/01/16: 1h
+ * 30/01/16: 30m
+ * 01/02/16: 2h
 
 [cocomoData]:../resources/cocomo1.png?raw=true
 [cocomoResults]:../resources/cocomo2.png?raw=true
