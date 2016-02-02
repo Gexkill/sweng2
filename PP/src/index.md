@@ -99,7 +99,7 @@ Function Points estimation: the function point estimation is an estimation of th
 
 $$LOC = FP \cdot AVC $$
 
-where :
+where:
 
 * LOC = lines of code
 * FP = total estimated function points of the software
