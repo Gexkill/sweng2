@@ -63,19 +63,19 @@
 ## 1.2. Purpose and Scope
 
 The aim of this document is to plan the work of the myTaxyService project.
-Planning it's an hard task that it's critical for the project life.
+Planning is an hard task that is critical for the project life.
 An unrealistic estimation can lead the project to failure.
 A Project plan contains an estimation of the costs and efforts required to reach the project goals.
-Beside it study how to organize the work in tasks and which resources should be allocated to them.
+Beside it studies how to organize the work in tasks and which resources should be allocated to them.
 Last but not least there is a risk analysis, which is a proactive approach to risks that can alter the work.
 
 ## 1.3. List of Definitions and abbreviations
-* Function Points estimation : the function point estimation is an estimation of the size of an specific software in terms of line of codes.
-* SLOC: Source Lines Of Code, measure the lines of code of a project ( empty and commented lines excluded )
+* Function Points estimation: the function point estimation is an estimation of the size of a specific software in terms of line of codes.
+* SLOC: Source Lines Of Code; it measures the lines of code of a project (empty and commented lines excluded)
 * FP: A function point is a *unit of measurement* to express the amount of business functionality an information system provides to a user.
-* Gannt diagram: a type of bar chart that illustrates a project schedule.
-* Montecarlo analysys: a statistical method that perform several iteration of some things to test the behavior in the feasible worst cases.
-* standard deviation: a measure that is used to quantify the amount of variation or dispersion of a set of data values.
+* Gannt diagram: a type of bar chart illustrating a project schedule.
+* Montecarlo analysis: a statistical method that performs several iterations of some things to test the behavior in the feasible worst cases.
+* Standard deviation: a measure used to quantify the amount of variation or dispersion of a set of data values.
 
 ## 1.4. List of Reference Documents  
 * The MyTaxiService project description: "Project Description And Rules.pdf"
@@ -94,7 +94,7 @@ Last but not least there is a risk analysis, which is a proactive approach to ri
 # 2. Estimate size, effort and cost
 ## 2.1. Function points
 
-Function Points estimation : the function point estimation is an estimation of the size of an specific software to be based on its functional requirements. The count of function points of the software is language and technology independent. The size in terms of lines of codes of this software can be calculated using the following formula : 
+Function Points estimation: the function point estimation is an estimation of the size of a specific software to be based on its functional requirements. The count of function points of the software is language and technology independent. The size in terms of lines of codes of this software can be calculated using the following formula: 
 
 $$LOC = FP \cdot AVC $$
 
@@ -104,7 +104,7 @@ where :
 * FP = total estimated function points of the software
 * AVC = language specific constant varying from 2-40 for a fourth generation programming language.
 
-Function points are classified under different types. For each type, a different weight is also assigned for each function point according if the concerned function is estimated as being simple, complex, or average. For the estimation of the size of our MyTaxiService application, we will uses the weights indicated in the table here under. These numbers are taken from the slides "Cost Estimation" provided by the professor Damian Andrew Tamburri.
+Function points are classified under different types. For each type, a different weight is also assigned for each function point according if the concerned function is estimated as being simple, complex, or average. For the estimation of the size of our MyTaxiService application, we will use the weights indicated in the table here under. These numbers are taken from the slides "Cost Estimation" provided by the professor Damian Andrew Tamburri.
 
 | **function type**      | **Low** | **Average** | **High** |
 |------------------------|---------|-------------|----------|
@@ -116,11 +116,11 @@ Function points are classified under different types. For each type, a different
 
 ### 2.1.1 Internal Logic Files
 
-The different ILFs that will be used by our systems can be deduced from the class diagram representing the `model` of our application that is located in the RASD and is shown here under. 
+The different ILFs that will be used by our system can be deduced from the class diagram representing the `model` of our application that is located in the RASD and shown here under. 
 
 ![Model taken from the RASD][model]
 
-For each component, its complexity and the associated function points are listed in the table here under : 
+For each component, its complexity and the associated function points are listed in the table here under: 
 
 | **ILF**                | **Complexity** | **Function Points** |
 |------------------------|----------------|---------------------|
@@ -142,20 +142,20 @@ The application does not have to manage date furnished and maintained by externa
 
 ### 2.1.3 External Inputs
 
-The application interacts both with drivers and with clients, each having their own set of possible interactions.
+The application interacts both with drivers and with clients, each one having their own set of possible interactions.
 
 Concerning the driver, the system has to enable him to:
 
 * login/logout
-* change availability : this operation consists in changing the availability of the driver object. If the driver becomes available, the driver object has to be put at the end of the appropriate waiting queue. In the other case, when the driver is not available anymore, he has to be withdrawed from the appropriate waiting queue. The appropriate waiting queue is found using the position of the driver. This operation is evaluated as complex.
-* change position : this operation takes place when the driver changes of zone. If the driver concerned has his status "available", he has to be withdrawed from the queue of his previous zone and add to the queue of the new zone. This operation is complex.
-* accept request : when the driver receive a request via the push notification service, his has to answer. Positive answer are handeled by the RideController (for the creation of the ride) and transmitted to the QueueManager (to prevent him asking the next driver). Negative answers are handeled by the RequestController that transmits it to the QueueManager so that he can ask the next taxi driver and put the former at the end of the queue.
+* change availability: this operation consists in changing the availability of the driver object. If the driver becomes available, the driver object has to be put at the end of the appropriate waiting queue. In the other case, when the driver is not available anymore, he has to be withdrew from the appropriate waiting queue. The appropriate waiting queue is found using the position of the driver. This operation is evaluated as complex.
+* change position: this operation takes place when the driver changes of zone. If the driver concerned has his status "available", he has to be withdrew from the queue of his previous zone and added to the queue of the new zone. This operation is complex.
+* accept request: when the driver receives a request via the push notification service, he has to answer. Positive answers are handled by the RideController (for the creation of the ride) and transmitted to the QueueManager (to prevent him asking the next driver). Negative answers are handled by the RequestController that transmits it to the QueueManager so that he can ask the next taxi driver and put the former at the end of the queue.
 
 Concerning the client, the system has to enable him to:
 
-* require ride : this request requires to find a taxi driver avaible and ask him if he accepts the ride. The managing of the answer of the taxi driver and the mananging of the queue of taxi as already been taken into account for the taxi driver and this functionality is therefore judged as of an average complexity.
-* reserve a ride : the reservations are preproccessed by a scheduler (to be triggered on the appropriate time) and are then managed as requests. The additionnal complexity of the reservation is estimated as low.
-* share the ride : Shared request or reservations must be pre-processed, aiming to merge then in shared requests. This is an complex operation.
+* require ride: this request requires to find a taxi driver available and ask him if he accepts the ride. The managing of the answer of the taxi driver and the managing of the queue of taxi has already been taken into account for the taxi driver and this functionality is therefore judged as of an average complexity.
+* reserve a ride: the reservations are preprocessed by a scheduler (to be triggered on the appropriate time) and are then managed as requests. The additional complexity of the reservation is estimated as low.
+* share the ride: shared requests or reservations must be preprocessed, aiming to merge them in shared requests. This is a complex operation.
 
 | **EI**       | **Complexity** | **Function Points** |
 |--------------|----------------|-----------------|
@@ -172,8 +172,8 @@ Concerning the client, the system has to enable him to:
 ### 2.1.4 External Outputs
 
 Our application must send information to the clients and the drivers. 
-Ride information : the system has to inform the client about the incoming taxi and the estimated arrival time. In addition, if the client has requested for a shared ride, the system has also to inform him about the estimated cost of his ride. The estimation of the cost of the ride is an complex operation since it dependes on the length of the client's itinary, but also on the itinaries of the other clients that share the ride (in order to know the proportion of the first clients itinary that is actually shared and with how many other clients). 
-request information : the system has to notify the appropriate driver with the information concerning the appropriate request. These notification are send using an external gateway wich add some complexity to the sending of information. The sending of the request information to the taxi driver is therefore evaluated as having an average difficulty.
+Ride information: the system has to inform the client about the incoming taxi and the estimated arrival time. In addition, if the client has requested for a shared ride, the system has also to inform him about the estimated cost of his ride. The estimation of the cost of the ride is a complex operation since it depends on the length of the client's itinerary, but also on the itineraries of the other clients sharing the ride (in order to know the proportion of the first clients itinerary that is actually shared and with how many other clients). 
+request information: the system has to notify the appropriate driver with the information concerning the appropriate request. These notifications are sent using an external gateway which add some complexities to the sending of information. The sending of the request information to the taxi driver is therefore evaluated as having an average difficulty.
 
 | **EO**       | **Complexity** | **Function Points** |
 |--------------|----------------|------------------|
@@ -183,7 +183,7 @@ request information : the system has to notify the appropriate driver with the i
 
 ### 2.1.5 External Inquiries
 
-There is only one type of external inquiries that must be managed by our system and it consist in showing to the taxi driver his position in the queue when the taxi driver requires it. This operation is estimated as complex since it has to retrieve this information by scanning the appropriate queue of drivers.
+There is only one type of external inquiry that must be managed by our system and it consists in showing to the taxi driver his position in the queue when the taxi driver requires it. This operation is estimated as complex since it has to retrieve this information by scanning the appropriate queue of drivers.
 
 | **EI**      | **Complexity** | **Function Points** |
 |-------------|----------------|-----------------|
@@ -192,7 +192,7 @@ There is only one type of external inquiries that must be managed by our system 
 
 ### 2.2 Cumulated Function Points and code size estimation
 
-Now that the amount of function points for each function type of our application has been estimated we can easily dress a table summarising the situation : 
+Now that the amount of function points for each function type of our application has been estimated, we can easily dress a table summarizing the situation: 
 
 | **Function Type**      | **Function Points** |
 |------------------------|---------------------|
@@ -203,7 +203,7 @@ Now that the amount of function points for each function type of our application
 |External Inquiries      |   6                 |
 |**Total**               |   122               |
 
-As we can see, there is an huge disparity between the values of each function type. Nearly 60% of the function points are associated to the internal logic, about 25% for the external input, and only slightly more than 15% is associated to the external output/inquiries. This can be explained by the purpose of the application. Indeed, MyTaxiService is an application aimed at managing taxi drivers waiting queue and helping user order a taxi-ride (which again requires accessing and modifying these waiting queues). On the other hand, the difference between the internal logic and the external inputs seems overestimated. This might be due to the fact that the weight in function points of the internal logic files is more than twice the one of the weight of the external inputs (cfr. section 2.1).   
+As we can see, there is a huge disparity between the values of each function type. Nearly 60% of the function points are associated to the internal logic, about 25% to the external input, and only slightly more than 15% is associated to the external output/inquiries. This can be explained by the purpose of the application. Indeed, MyTaxiService is an application aimed at managing taxi drivers waiting queue and helping users order a taxi-ride (which requires again accessing and modifying these waiting queues). On the other hand, the difference between the internal logic and the external inputs seems overestimated. This might be due to the fact that the weight in function points of the internal logic files is more than twice than the one of the weight of the external inputs (cfr. section 2.1).   
 
 
 
@@ -212,13 +212,13 @@ As we can see, there is an huge disparity between the values of each function ty
 
 ### 2.2.1. Introduction to COCOMO
 
-To proceed with the calculation of SLOC we have to convert the FP obtained with the formula given in section 2.1. To do that we need a conversation factor (AVC), we have found the following site that gives some converstion factors for some language: [http://www.qsm.com/resources/function-point-languages-table](http://www.qsm.com/resources/function-point-languages-table) but there is not php with laravel, so we considered the factor of J2EE that is analogous with php + laravel since they are booth two MVC web application framework and object languages. So the factor that we will use is **46**.
+To proceed with the calculation of SLOC we have to convert the FP obtained with the formula given in section 2.1. To do that we need a conversation factor (AVC), we have found the following site that gives some conversion factors for some languages: [http://www.qsm.com/resources/function-point-languages-table](http://www.qsm.com/resources/function-point-languages-table) but there is not php with laravel, so we considered the factor of J2EE that is analogous with php + laravel since they are both two MVC web application framework and object languages. So the factor that we will use is **46**.
 
 This leads to an ammount of line of codes equals to :
 
 $$LOC = FP \cdot AVC = 122 \cdot 46 = 5612$$
 
-To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the offcial table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf)
+To perform the estimation of the effort needed to produce these line of codes, and therefore, our application, we will use the parameters of the official table [http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf](http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf)
 
 ### 2.2.2. Scale driver
 
@@ -265,36 +265,36 @@ The different values chosen for our application can be seen in the table here un
 
 ### 2.2.4. Effort, duration and size of the team
 
-The Cocomo II approches gives an equation for calculating the effort :
+The COCOMO II approach gives an equation for calculating the effort:
 
 $$Effort = 2.94 \cdot EAF \cdot (KSLOC)^E$$
 
-Where :
+Where:
 
 * Effort = estimated total number of Person-months needed
 * EAF = product of the cost drivers, in our case EAF equals 0.65
 * KSLOC = number of thousands of lines of codes estimated to be needed for our application. KSLOC has been approximated to 5.382
-* E = Exponent derived from the scale drivers. E equals 0.91+(sum of the scale drivers)/100, in our case : 1.063
+* E = Exponent derived from the scale drivers. E equals 0.91+(sum of the scale drivers)/100, in our case: 1.063
 
-Using the parameters specific to the MyTaxiService application we arrive to an estimation of :
+Using the parameters specific to the MyTaxiService application we arrive to an estimation of:
 
 $$Effort = 2.94 \cdot 0.65 \cdot 5.612^{1.063} = 11.95 PM$$
 
-To estimate the duration of the development of the application, another formula is given by the Cocomo II approach :
+To estimate the duration of the development of the application, another formula is given by the COCOMO II approach:
 
 $$Duration = 3.67 \cdot (Effort)^{0.28 + 0.2 \cdot (E-0.91)}$$
 
 Where the Effort and E are the same as the ones for the "Effort equation".
 
-We obtain : 
+We obtain: 
 
 $$Duration = 3.67 \cdot 11.95^(0.28 + 0.2\cdot(1.063-0.91)) = 3.67 \cdot 11.95^{0.31} = 7.93$$
 
-Finally, knowing the approximative effort and time needed to carry through the project, we can easily compute the size of the effort team needed : 
+Finally, knowing the approximative effort and time needed to carry through the project, we can easily compute the size of the effort team needed: 
 
 $$\#people = Effort/Duration = 11.95/7.93 = 1.51$$
 
-It is of course not possible to use 1.51 workers but we can easily imagine two people starting the project and one dropping out at about the half of the project. However, estimating the size of the team using the Effort and Duration obtained using the Cocomo II approach could seems paradoxal in the sens that an evaluation of the qualities of the developpong team needs to be done to compute the some drivers. 
+Of course it is not possible to use 1.51 workers but we can easily imagine two people starting the project and one dropping out at about the half of the project. However, estimating the size of the team using the Effort and Duration obtained using the COCOMO II approach could seem paradoxical in the sense that an evaluation of the qualities of the developing team needs to be done to compute some drivers. 
 
 ### 2.2.5. Detailed report
 We decided to give a detailed report performed by the following external site [http://csse.usc.edu/tools/COCOMOII.php](http://csse.usc.edu/tools/COCOMOII.php).  
@@ -309,7 +309,7 @@ This report gives us important information about effort like the effort estimate
 
 # 3. Tasks
 We considered all real assignments except the code inspection, since it is not related to this application, with the real deadlines.  
-We also considered other tasks like the implementation, that we decided to start immediately after the design, because we have everything needed to start it. We don't use the duration provided by the cocomo because we wouldn't have had the time to complete it in time (considering the course length). **Write in  hypothetical form?**
+We also considered other tasks like the implementation that we decided to start immediately after the design, because we have everything needed to start it. We don't use the duration provided by the COCOMO because we wouldn't have had the time to complete it in time (considering the course length). **Write in  hypothetical form?**
 
 We used a Gantt diagram to show the tasks with the deadlines.
 
@@ -319,10 +319,10 @@ We used a Gantt diagram to show the tasks with the deadlines.
 [//]: # (pagebreak)
 
 # 4. Allocate resources
-Since for the parts real done everyone worked with analogous working hours, we considered that for all parts everyone works on them with the same amount of hours.  
-We have decided to dedicate to development only the 50% of time because during it there are other parts to do, Christmas holiday and some in itinere exams.
+Since for the parts really done everyone worked with analogous working hours, we considered that for all parts everyone works on them with the same amount of hours.  
+We have decided to dedicate to development only 50% of time because during it there are other parts to do, Christmas holiday and some in itinere exams.
 
-We used a diagram to show the allocation of human resources linked with the tasks
+We used a diagram to show the allocation of human resources linked with the tasks.
 
 **TODO explain what we mean with 100%**
 
@@ -334,19 +334,19 @@ We used a diagram to show the allocation of human resources linked with the task
 
 ## 5.1. Project risks
 
-  - requirements change:  requirements are changed by the committer.
+  - requirements change:  requirements are changed by the committee.
   - bad schedule: tasks previsions may be unrealistic.
-  - regulatory changes: contry may change it's regulatory policy concerning our operation field.
+  - regulatory changes: country may change its regulatory policy concerning our operation field.
 
 ## 5.2. Technical risks
 
-  - wrong UI: the developed User Interface does not satify the committer.
+  - wrong UI: the developed User Interface does not satisfy the committee.
   - bad external data source: external data sources may be badly exposed and organized.
-  - overload: the system cannot satify a large amount or requests.
+  - overload: the system cannot satisfy a large amount or requests.
 
 ## 5.3. Business risks
 
-  - too few clients: the sales team did not find enought customers for the product.
+  - too few clients: the sales team did not find enough customers for the product.
   - competitors: another company can develop a similar product, reducing our market opportunities.
 
 ## 5.4. Risks probability and severity
@@ -375,13 +375,13 @@ We used a diagram to show the allocation of human resources linked with the task
 
 ## 5.6. Montecarlo analysis 
 
-We decided also to provide the Montecarlo risk analysis, about effort.
+We also decided to provide the Montecarlo risk analysis, about effort.
 
 In this case the Montecarlo analysis iterations are made by different (random) values for (k)slock with the real value as average and with a fixed standard deviation. So we have a normal distribution of some values for (k)slock.  
-In this case the system calculate the efforts for every different value of (k)slock and we obtain a normal distribution of different efforts.  
+In this case the system calculates the efforts for every different value of (k)slock and we obtain a normal distribution of different efforts.  
 **Note:** The distribution used is inserted on the [detailed report section 2.2.5](#detailed-report).
 
-This is very useful to give us an idea about the feasible worst case and to test the robustness of the project plan.
+This is very useful to give us an idea about the feasible worst cases and to test the robustness of the project plan.
 
 ![Montecarlo][cocomoMontecarlo]\
 
