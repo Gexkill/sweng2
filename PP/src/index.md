@@ -4,7 +4,7 @@
 
 **Version 1.0**
 
-**Release date : 02/02/2016**
+**Release date: 02/02/2016**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
@@ -76,6 +76,7 @@ Last but not least there is a risk analysis, which is a proactive approach to ri
 * Gannt diagram: a type of bar chart illustrating a project schedule.
 * Montecarlo analysis: a statistical method that performs several iterations of some things to test the behavior in the feasible worst cases.
 * Standard deviation: a measure used to quantify the amount of variation or dispersion of a set of data values.
+* CFU/ECTS: university credits that give a measurement of the effort needed for a course.
 
 ## 1.4. List of Reference Documents  
 * The MyTaxiService project description: "Project Description And Rules.pdf"
@@ -214,7 +215,7 @@ As we can see, there is a huge disparity between the values of each function typ
 
 To proceed with the calculation of SLOC we have to convert the FP obtained with the formula given in section 2.1. To do that we need a conversation factor (AVC), we have found the following site that gives some conversion factors for some languages: [http://www.qsm.com/resources/function-point-languages-table](http://www.qsm.com/resources/function-point-languages-table) but there is not php with laravel, so we considered the factor of J2EE that is analogous with php + laravel since they are both two MVC web application framework and object languages. So the factor that we will use is **46**.
 
-This leads to an ammount of line of codes equals to :
+This leads to an amount of line of codes equals to:
 
 $$LOC = FP \cdot AVC = 122 \cdot 46 = 5612$$
 
@@ -309,7 +310,7 @@ This report gives us important information about effort like the effort estimate
 
 # 3. Tasks
 We considered all real assignments except the code inspection, since it is not related to this application, with the real deadlines.  
-We also considered other tasks like the implementation that we decided to start immediately after the design, because we have everything needed to start it. We don't use the duration provided by the COCOMO because we wouldn't have had the time to complete it in time (considering the course length). **Write in  hypothetical form?**
+We also considered other tasks like the implementation that we decided to start immediately after the design, because we would have had everything needed to start it. We don't use the duration provided by the COCOMO because we wouldn't have had the time to complete it in time (considering the course length).
 
 We used a Gantt diagram to show the tasks with the deadlines.
 
@@ -320,11 +321,11 @@ We used a Gantt diagram to show the tasks with the deadlines.
 
 # 4. Allocate resources
 Since for the parts really done everyone worked with analogous working hours, we considered that for all parts everyone works on them with the same amount of hours.  
-We have decided to dedicate to development only 50% of time because during it there are other parts to do, Christmas holiday and some in itinere exams.
+We have decided to dedicate to development only 50% of time because during it there were other parts to do, Christmas holiday and some *in itinere* exams.
 
 We used a diagram to show the allocation of human resources linked with the tasks.
 
-**TODO explain what we mean with 100%**
+**Note:** with 100% we mean 100% of time allocated to this course per day considering the number of CFU/ECTS.
 
 ![Resources][resources]\
 
