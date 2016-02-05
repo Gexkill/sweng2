@@ -51,6 +51,7 @@
   * 01/02/16: 30m
   * 02/02/16: 1h
 * FXING
+* presentation 
 
 # Gilles Dejaegere
 * RASD
@@ -100,6 +101,7 @@
   * 26/03/16: 2h 
   * 28/01/16: 1h
 * FXING
+* presentation 
 
 # Massimo Dragano
 * RASD
@@ -142,3 +144,4 @@
  * 30/01/16: 30m
  * 01/02/16: 2h
 * FXING
+* presentation 
