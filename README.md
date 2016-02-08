@@ -21,7 +21,7 @@ Project repository for software engineering 2
 * [Hours](other/hours.md)
 * [Tasks](other/tasks.md)
 * [Utility](other/utility.md)
-* [final presentation](https://drive.google.com/open?id=15v2SfC8qAwOTtFyJrRI5QTE4QhZcQuxYHWewtLKuBJQ)
+* [Final presentation](https://drive.google.com/open?id=15v2SfC8qAwOTtFyJrRI5QTE4QhZcQuxYHWewtLKuBJQ)
 
 # Group members
 * Claudio Cardinale
