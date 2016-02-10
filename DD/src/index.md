@@ -151,6 +151,8 @@ A final type of components is also present, the old application. The old applica
 
 ![Component view][componentView]
 
+**TODO CREATE A DESCRIPTION**
+
 [//]: # (pagebreak)
 
 ## 2.4.Deploying view
