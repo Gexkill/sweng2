@@ -161,26 +161,36 @@ A final type of components is also present, the old application. The old applica
 
 ## 2.5.Runtime view
 
+[//]: # (bigtrue)
 ![Driver login][seqDriverLogin]
+[//]: # (bigfalse)
+
 In this sequence diagram it can be seen that the user (in this case a non identified taxi driver) has to input his login information on the taxi driver's mobile application. The login request is then sent with these information as parameter to the systems. Once arrived to the system's router the request is transferred to the DriverController which first checks on the old database if the login inserted by a user belongs to an existing driver, and if the answer is positive, if the password furnished is correct. The DriverController then returns the results of these checks to the DriverApplication.
 
+[//]: # (bigtrue)
 ![Driver changes availability][seqDriverAvailability]
+[//]: # (bigfalse)
+
 In this sequence diagram it can be seen that when a driver changes his availability, the request is transferred to the DriverController via the Router. If the driver asks to be available, the DriverController will have to ask to the QueueManager to add the driver to the appropriate queue according to the driver's position. The QueueManager then returns to the position of the driver in his queue. This information goes all the way back to the driver's mobile application. In the other case, when the driver does not want to be available anymore, the DriverController has to ask to the QueueManager to remove the driver from the queue the driver is in.
 
+[//]: # (bigtrue)
 ![Taxi accepts ride][seqTaxiAcceptRide]
+[//]: # (bigfalse)
+
 In this sequence diagram it can be seen that when a request has to be handeled, first of all the RequestController checks if it is a request for a shared ride. If it is the case, the RequestController will check with other shared requests if they can be merged together in one. After that, the request is transferred to the QueueController which will have to ask to the appropriate driver if he wants to take care of the Ride. The Queue controller extracts the driver from the appropriate queue, then asks to the DriverController to transfer the demand to the driver. If the driver has rejected the ride he is put back at the end of his queue and the new first driver is extracted and is asked if he wants to take care of the ride and so on until a driver accepts the ride. When a driver accepts a ride, he is not put back in the queue. The DriverController will then ask the RideController to make a new ride and to notify the appropriate clients via the SMSGateway.
 
+[//]: # (bigtrue)
 ![Client reservation][seqClientReservation]
+[//]: # (bigfalse)
+
 In this sequence diagram it can be seen that a client needs to indicate the request information. Once done, the request can be transferred via a the Router to the ReservationController which is in fact a sort of scheduler. Once the time indicated for the reservation by the client has nearly been reached, the reservation is handled by the RequestController like a normal request.
 If some information indicated by the user is not valid (like a wrong departure time for the reserved ride) the RequestController detects it and sends an error back to the client mobile application or webpage. The sequence diagram when a client makes a request for an immediate ride is not provided here since its only difference with this one is that the request does not go to the ReservationController but directly to the RequestController.
 
-[//]: # (pagebreak)
 
 ## 2.6.Component interfaces
 
 ![Component interfaces][componentInterfaces]
 
-[//]: # (pagebreak)
 
 ## 2.7.Selected architectural styles and patterns
 
