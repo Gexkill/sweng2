@@ -43,7 +43,7 @@
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
     1. [Massimo Dragano](#massimo-dragano)
-
+1. [Changelog](#changelog)
 
 [//]: # (pagebreak)
 
@@ -497,11 +497,12 @@ The tools we used to create this DD document are:
  * 01/12/15: 4h
  
 
-# Fixes :
-    * [G4] crossed out
-    * improvement of the Architecture Design part in the 1.5 Document structure
-    * adding of UX and BCE in the lexic
-    * component view revision, there missed someinteractions and then pushgateway
+#  8. Changelog:
+   * [G4] crossed out
+   * improvement of the Architecture Design part in the 1.5 Document structure
+   * adding of UX and BCE in the lexic
+   * component view revision, there missed some interactions and then push gateway
+   * Sequence diagrams fixed for printed version
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
