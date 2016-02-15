@@ -2,7 +2,7 @@
 
 ![Politecnico di Milano](../resources/logo_polimi.png?raw=true)
 
-**Version 1.2**
+**Version 1.3**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
@@ -902,6 +902,11 @@ The tools we used to create this RASD document are:
     * [G8] requirement fixed
 * v1.2
     * [G4] removed also from goals list
+* v1.3
+    * minor fixes 
+        * Regulatory policies
+        * Actors identifying
+        * Architectural consideration
 
 
 [mob1]: ../resources/mockup/mobile/mainactivity_passenger.png?raw=true
