@@ -151,7 +151,9 @@ A final type of components is also present, the old application. The old applica
 
 ![Component view][componentView]
 
-**TODO CREATE A DESCRIPTION**
+The system is composed of two clients and a server. The clients http request are send to server's router that will dispatch the requests to the appropriate Controllers. The requests of the physical-client clients are managed by the Ride/Reservation Controller which transmit the requests to the QueueManager. The QueueManager interact with the driver's client using a push gateway and with the physical-client clients using a SMS gateway. All of the Controller have to interact with the model.
+
+**IMPROVE DESCRIPTION**
 
 [//]: # (pagebreak)
 
@@ -281,7 +283,7 @@ We have also to integrate our web application and our mobile applications with a
 
 Here we give just an idea of the most critical parts, we don't write complete code
 
-## 3.1.Merging requests
+## 3.1.Merge requests
 
 As we said in RASD we use merged request to manage sharing option
 
@@ -501,8 +503,9 @@ The tools we used to create this DD document are:
    * [G4] crossed out
    * improvement of the Architecture Design part in the 1.5 Document structure
    * adding of UX and BCE in the lexic
-   * component view revision, there missed some interactions and then push gateway
+   * component view revision, there missed some interactions and the push gateway
    * Sequence diagrams fixed for printed version
+   * Description of the component vieuw
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
