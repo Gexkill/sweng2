@@ -195,7 +195,7 @@ We suppose that these properties hold in the analyzed world :
 ##Constrains
 
 ###Regulatory policies
-The system must require to client/taxi driver the permission to get his position and he has to manage sensible data (position, phone number) respecting the privacy law. Furthermore the systems mustn't use notifications to send SPAM respecting the privacy law.
+The system must require to client/taxi driver the permission to get his position and he has to manage sensible data (position, phone number) respecting the privacy law. Furthermore the systems must not use notifications to send SPAM respecting the privacy law.
 
 ###Hardware limitations
 * Mobile app
@@ -241,7 +241,7 @@ However we can adapt this system to other cities (changing the interface with th
 The actors of our system are basically two:
 
 * Taxi driver: it is a taxi driver registered automatically in the system by the taxi company.
-* Client: he doesn't need to register himself to the system, since he uses the system only to call a taxi (so he only has to insert name, phone number and location).
+* Client: he does not need to register himself to the system, since he uses the system only to call a taxi (so he only has to insert name, phone number and location).
 
 [//]: # (pagebreak)
 
@@ -359,7 +359,7 @@ We will use the following technologies:
 * Mysql as sql server to store data persistently, it is the same of the old system
 * Apache server for static documents
 * RESTFull and JSON for API communication over HTTP(S)
-* Javascript (with angularJs framework), CSS and HTM to create responsive site that communicate to server using REST API. These files are got via HTTP(S)
+* Javascript (with angularJs framework), CSS and HTML to create responsive site that communicate to server using REST API. These files are got via HTTP(S)
 * Modern browser with javascript and ajax support
 * Java and swift respectively for android and iOS apps, using original SDK
 * Internet connection for communication of data
