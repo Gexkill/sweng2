@@ -153,7 +153,7 @@ A final type of components is also present, the old application. The old applica
 
 The system is composed of two clients and a server. The clients http request are send to server's router that will dispatch the requests to the appropriate Controllers. The requests of the physical-client clients are managed by the Ride/Reservation Controller which transmit the requests to the QueueManager. The QueueManager interact with the driver's client using a push gateway and with the physical-client clients using a SMS gateway. All of the Controller have to interact with the model.
 
-**IMPROVE DESCRIPTION**
+**IMPROVE DESCRIPTION[Claudio: we should describe components]**
 
 [//]: # (pagebreak)
 
@@ -498,14 +498,17 @@ The tools we used to create this DD document are:
  * 25/11/15: 6h
  * 01/12/15: 4h
  
+[//]: # (pagebreak)
 
 #  8. Changelog:
-   * [G4] crossed out
-   * improvement of the Architecture Design part in the 1.5 Document structure
-   * adding of UX and BCE in the lexic
-   * component view revision, there missed some interactions and the push gateway
-   * Sequence diagrams fixed for printed version
-   * Description of the component vieuw
+* v1.1
+    * [G4] crossed out
+    * improvement of the Architecture Design part in the 1.5 Document structure
+    * adding of UX and BCE in the lexiss
+    * component view revision, there missed some interactions and the push gateway
+    * Sequence diagrams fixed for printed version
+    * Description of the component view
+    * minor fix to 3.1 title
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
