@@ -176,7 +176,7 @@ New requests are sent to the QueueManager, that manage them according to our bus
 It interacts with devices though the NotificaionHelper.
 
 NotificationHelper will take care of the kind of communication to use for interact with the required device.
-For instance it will use the PushGateway to interact with Drivers, while it uses the SMSGateway to send notification tu Clients.
+For instance it will use the PushGateway to interact with Drivers, while it uses the SMSGateway to send notification to Clients.
 
 [//]: # (pagebreak)
 
