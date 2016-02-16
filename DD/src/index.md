@@ -151,9 +151,32 @@ A final type of components is also present, the old application. The old applica
 
 ![Component view][componentView]
 
-The system is composed of two clients and a server. The clients http request are send to server's router that will dispatch the requests to the appropriate Controllers. The requests of the physical-client clients are managed by the Ride/Reservation Controller which transmit the requests to the QueueManager. The QueueManager interact with the driver's client using a push gateway and with the physical-client clients using a SMS gateway. All of the Controller have to interact with the model.
+  - SMSGateway: manage the submission of SMS messages
+  - PushGateway: manage push notifications
+  - NotificationHelper: manage notifications
+  - RideController: manage rides
+  - QueueManager: manage zone's queues
+  - RequestController: manage ride requests
+  - SchedulerHelper: manage deferred tasks
+  - ReseravionHelper: manage reservations
+  - DriverController: manage drivers
+  - Router: route requests to the related controller
+  - Model: our representation of the world, the data we interact with.
+  - Client: the client's device ( web browser / mobile app ).
+  - Driver: the driver's device ( mobile app ).
+  - DB: the database used to store persistent data.
 
-**IMPROVE DESCRIPTION[Claudio: we should describe components]**
+The system expose an RESTful API with many public endpoints and resources,
+some of them require a proper authentication and authorization to be used.
+
+The router will dispatch the incoming request to the appropriate Controller,
+it will then do the work as required by the client.
+
+New requests are sent to the QueueManager, that manage them according to our business policies.
+The QueueManager interacts device though the NotificaionHelper.
+
+NotificationHelper will take care of the kind of communication to use for interact with the required device.
+For instance it will use the PushGateway to interact with Drivers, while it uses the SMSGateway to send notification tu Clients.
 
 [//]: # (pagebreak)
 
