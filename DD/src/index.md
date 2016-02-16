@@ -93,6 +93,8 @@ The main purpose of the system is to be more efficient and reliable than the exi
     1. The beginning of A is the end of B: see condition 2.
 * Path: it's a structure containing at least 2 positions
 * Sharing discount percentage: discount percentage applied only if the sharing option is enabled and there is more than one request in the merged request
+* REST: REpresantional State Transfer
+* RESTful: REST with no session
 * API: application programming interface; it is a common way to communicate with another system.
 * ETA: estimated time available; it is the time the taxi needs to arrive to client starting position.
 * Zone: it is a zone of approximately 2 km^2, the city is split into these zones. From taxi position the system gets his zone and inserts the taxi into the zone queue. So the system guarantees a fair management of taxi queues.
