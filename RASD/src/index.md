@@ -57,6 +57,7 @@
     1. [Model](#model)
     1. [Alloy result](#alloy-result)
     1. [World generated](#world-generated)
+1. [Future development](#future-development)
 1. [Used tools](#used-tools)
 1. [Hours of work](#hours-of-work)
     1. [Claudio Cardinale](#claudio-cardinale)
@@ -836,8 +837,11 @@ The model is consistent:
 ![world generated backslash](../resources/world-generated.png?raw=true)
 [//]: # (bigfalse)
 
+# Future development
 
-#Used tools
+Allow taxi drivers to see queue stats from all other zones, so they can move to balance the load.
+
+# Used tools
 The tools we used to create this RASD document are:
 
 * DIA: for uml models
@@ -907,6 +911,9 @@ The tools we used to create this RASD document are:
         * Regulatory policies
         * Actors identifying
         * Architectural consideration
+* v1.4
+    * minor fixes
+        * add zone queue access level as further development
 
 
 [mob1]: ../resources/mockup/mobile/mainactivity_passenger.png?raw=true
