@@ -534,6 +534,8 @@ The tools we used to create this DD document are:
     * Sequence diagrams fixed for printed version
     * Description of the component view
     * minor fix to 3.1 title
+    * added components description
+    * added REST and RESTful definitions
 
 
 [deploymentView]: ../resources/architecture/deployment.png?raw=true
