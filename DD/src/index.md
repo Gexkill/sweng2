@@ -504,7 +504,7 @@ The tools we used to create this DD document are:
 * v1.1
     * [G4] crossed out
     * improvement of the Architecture Design part in the 1.5 Document structure
-    * adding of UX and BCE in the lexiss
+    * adding of UX and BCE in the lexis
     * component view revision, there missed some interactions and the push gateway
     * Sequence diagrams fixed for printed version
     * Description of the component view
