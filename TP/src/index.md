@@ -450,9 +450,6 @@ We will add critical data tests like:
  * 20/01/16: 2h
  * 21/01/16: 5h
 
-# 8. Changelog
-* Pandoc added as used tools
-
 [subsystems]:../resources/subsystem_integration.png?raw=true
 [controllers]:../resources/controllers_integration.png?raw=true
 [components]:../resources/components.png?raw=true
