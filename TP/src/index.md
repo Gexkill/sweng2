@@ -59,8 +59,8 @@
 
 | **Date** | **Version** | **Description** | **Authors** |
 |----------|-------------|-----------------|-------------|
-|21/01/2016|    1        | Original Version| C. Cardinale, G. Dejaegere and M. Dragano       |   
-|          |             |                 |             |   
+|21-01-2016|    1        | Original Version| C. Cardinale, G. Dejaegere and M. Dragano       |   
+|28-01-2016|    2        | Added pandoc in used tools|C. Cardinale|   
 |          |             |                 |             |   
 
 
