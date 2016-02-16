@@ -173,7 +173,7 @@ The router will dispatch the incoming request to the appropriate Controller,
 it will then do the work as required by the client.
 
 New requests are sent to the QueueManager, that manage them according to our business policies.
-The QueueManager interacts device though the NotificaionHelper.
+It interacts with devices though the NotificaionHelper.
 
 NotificationHelper will take care of the kind of communication to use for interact with the required device.
 For instance it will use the PushGateway to interact with Drivers, while it uses the SMSGateway to send notification tu Clients.
