@@ -153,11 +153,11 @@ A final type of components is also present, the old application. The old applica
 
 ![Component view][componentView]
 
-  - SMSGateway: manage the submission of SMS messages
+  - SMSGateway: manage the sending of SMS messages
   - PushGateway: manage push notifications
   - NotificationHelper: manage notifications
   - RideController: manage rides
-  - QueueManager: manage zone's queues
+  - QueueManager: manage zones' queues
   - RequestController: manage ride requests
   - SchedulerHelper: manage deferred tasks
   - ReseravionHelper: manage reservations
@@ -168,17 +168,17 @@ A final type of components is also present, the old application. The old applica
   - Driver: the driver's device ( mobile app ).
   - DB: the database used to store persistent data.
 
-The system expose an RESTful API with many public endpoints and resources,
+The system exposes a RESTful API with many public endpoints and resources,
 some of them require a proper authentication and authorization to be used.
 
 The router will dispatch the incoming request to the appropriate Controller,
 it will then do the work as required by the client.
 
-New requests are sent to the QueueManager, that manage them according to our business policies.
-It interacts with devices though the NotificaionHelper.
+New requests are sent to the QueueManager that manages them according to our business policies.
+It interacts with devices through the NotificaionHelper.
 
-NotificationHelper will take care of the kind of communication to use for interact with the required device.
-For instance it will use the PushGateway to interact with Drivers, while it uses the SMSGateway to send notification to Clients.
+NotificationHelper will take care of the kind of communication to use for the interaction with the required device.
+For instance it will use the PushGateway to interact with Drivers, while it uses the SMSGateway to send a notification to Clients.
 
 [//]: # (pagebreak)
 
