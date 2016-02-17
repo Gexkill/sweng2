@@ -2,7 +2,7 @@
 
 ![Politecnico di Milano](../resources/logo_polimi.png?raw=true)
 
-**Version 1.3**
+**Version 1.4**
 
 * Claudio Cardinale (mat. 849760)
 * Gilles Dejaegere (mat. 853950)
@@ -840,6 +840,8 @@ The model is consistent:
 # Future development
 
 Allow taxi drivers to see queue stats from all other zones, so they can move to balance the load.
+
+[//]: # (pagebreak)
 
 # Used tools
 The tools we used to create this RASD document are:
