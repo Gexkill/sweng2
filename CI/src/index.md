@@ -2,7 +2,7 @@
 
 ![Politecnico di Milano](../resources/logo_polimi.png?raw=true)
 
-**Version 1.0**
+**Version 1.1**
 
 **Release date : 05/01/2016**
 
@@ -402,6 +402,8 @@ This StandarContext.java code has been developed by a team of professionals and 
  * 02/01/16: 2h
  * 03/01/16: 1h
  * 05/01/16: 3h
+
+[//]: # (pagebreak)
 
 # 9. Changelog
 * English error fixed
