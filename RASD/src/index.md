@@ -914,6 +914,7 @@ The tools we used to create this RASD document are:
 * v1.4
     * minor fixes
         * add zone queue access level as further development
+        * fixed label in activity diagram
 
 
 [mob1]: ../resources/mockup/mobile/mainactivity_passenger.png?raw=true
