@@ -2,7 +2,7 @@
 
 ![Politecnico di Milano](../resources/logo_polimi.png?raw=true)
 
-**Version 1.0**
+**Version 1.1**
 
 **Release date: 21/01/2016**
 
@@ -49,7 +49,6 @@
     1. [Claudio Cardinale](#claudio-cardinale)
     1. [Gilles Dejaegere](#gilles-dejaegere)
     1. [Massimo Dragano](#massimo-dragano)
-1. [Changelog](#changelog)
 
 [//]: # (pagebreak)
 
@@ -59,8 +58,8 @@
 
 | **Date** | **Version** | **Description** | **Authors** |
 |----------|-------------|-----------------|-------------|
-|21-01-2016|    1        | Original Version| C. Cardinale, G. Dejaegere and M. Dragano       |   
-|28-01-2016|    2        | Added pandoc in used tools|C. Cardinale|   
+|21-01-2016|    1.0        | Original Version| C. Cardinale, G. Dejaegere and M. Dragano       |   
+|28-01-2016|    1.1        | Added pandoc in used tools|C. Cardinale|   
 |          |             |                 |             |   
 
 
