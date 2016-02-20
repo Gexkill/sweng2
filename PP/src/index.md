@@ -2,7 +2,7 @@
 
 ![Politecnico di Milano](../resources/logo_polimi.png?raw=true)
 
-**Version 1.0**
+**Version 1.1**
 
 **Release date: 02/02/2016**
 
@@ -55,8 +55,8 @@
 
 | **Date** | **Version** | **Description** | **Authors** |
 |----------|-------------|-----------------|-------------|
-|02/02/2016|    1        | Original Version| C. Cardinale, G. Dejaegere and M. Dragano       |   
-|          |             |                 |             |   
+|02/02/2016|    1.0      | Original Version| C. Cardinale, G. Dejaegere and M. Dragano       |   
+|20/02/2016|    1.1      | A formula fixed | C. Cardinale |   
 |          |             |                 |             |   
 
 
@@ -289,7 +289,7 @@ Where the Effort and E are the same as the ones for the "Effort equation".
 
 We obtain: 
 
-$$Duration = 3.67 \cdot 11.95^(0.28 + 0.2\cdot(1.063-0.91)) = 3.67 \cdot 11.95^{0.31} = 7.93$$
+$$Duration = 3.67 \cdot 11.95^{(0.28 + 0.2\cdot(1.063-0.91))} = 3.67 \cdot 11.95^{0.31} = 7.93$$
 
 Finally, knowing the approximative effort and time needed to carry through the project, we can easily compute the size of the effort team needed: 
 
